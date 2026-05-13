@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="NMPrinting.Controls.PdfViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NMPrinting.Controls"
+             xmlns:pv="clr-namespace:PdfiumViewer;assembly=PdfiumViewer"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="LightGray" FontSize="14">
+    <Grid x:Name="PnlMain">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ToolBar Grid.Row="0" Background="WhiteSmoke" Margin="-2 0 0 0">
+            <Button x:Name="BtPrint" Click="BtPrint_Click">
+                <Image Source="/NMPrinting;component/Images/printer01.png" Height="16"/>
+            </Button>
+
+            <Separator/>
+            <Button x:Name="BtMoveFirst" Click="BtMoveFirst_Click">
+                <Image Source="/NMPrinting;component/Images/pg_arr_left_end.png" Height="16"/>
+            </Button>
+            <Button x:Name="BtMovePrev" Click="BtMovePrev_Click">
+                <Image Source="/NMPrinting;component/Images/pg_arr_left.png" Height="16"/>
+            </Button>
+            <TextBox x:Name="TxtCurPage" Width="48" HorizontalContentAlignment="Center" Padding="2 1"
+                     Text="1"
+                     KeyDown="TxtCurPage_KeyDown" LostFocus="TxtCurPage_LostFocus"/>
+            <TextBlock x:Name="LblPageCount" Text=" / 0" VerticalAlignment="Center"/>
+            <Button x:Name="BtMoveNext" Click="BtMoveNext_Click">
+                <Image Source="/NMPrinting;component/Images/pg_arr_right.png" Height="16"/>
+            </Button>
+            <Button x:Name="MoveEnd" Click="MoveEnd_Click">
+                <Image Source="/NMPrinting;component/Images/pg_arr_right_end.png" Height="16"/>
+            </Button>
+
+            <Separator/>
+            <Button x:Name="BtZoomIn" Click="BtZoomIn_Click">
+                <Image Source="/NMPrinting;component/Images/zoom_in.png" Height="24"/>
+            </Button>
+            <Button x:Name="BtZoomOut" Click="BtZoomOut_Click">
+                <Image Source="/NMPrinting;component/Images/zoom_out.png" Height="24"/>
+            </Button>
+            <TextBox x:Name="TxtZoom" Padding="2 1" Width="60"/>
+            <TextBlock Text=" %" VerticalAlignment="Center"/>
+
+            <Separator/>
+            <Button x:Name="BtFitWidth" Click="BtFitWidth_Click">
+                <Image Source="/NMPrinting;component/Images/fit_width.png" Height="24"/>
+            </Button>
+            <Button x:Name="BtFitHeight" Click="BtFitHeight_Click">
+                <Image Source="/NMPrinting;component/Images/fit_height.png" Height="24"/>
+            </Button>
+        </ToolBar>
+
+        <pv:PDFViewer x:Name="PdfRenderer" Grid.Row="1"
+                      Page="{Binding CurPage}"/>
+    </Grid>
+</UserControl>

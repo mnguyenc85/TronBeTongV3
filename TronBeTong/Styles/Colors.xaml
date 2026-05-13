@@ -1,0 +1,32 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="RAL7032" Color="#B5B0A1"/>
+    <SolidColorBrush x:Key="RAL7035" Color="#C5C7C4"/>
+
+    <LinearGradientBrush x:Key="SCADABg01" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#1e1e2f" Offset="0"/>
+        <GradientStop Color="#001e3f" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="SCADABg02" StartPoint="0, 0" EndPoint="1, 1">
+        <GradientStop Color="LightSteelBlue" Offset="0.0"/>
+        <GradientStop Color="SteelBlue" Offset="1.0"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="SCADABg03" StartPoint="0, 0" EndPoint="1, 1">
+        <GradientStop Color="WhiteSmoke" Offset="0.0"/>
+        <GradientStop Color="LightGray" Offset="1.0"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="SCADABg04" StartPoint="0, 0" EndPoint="1, 1">
+        <GradientStop Color="AliceBlue" Offset="0.0"/>
+        <GradientStop Color="LightBlue" Offset="1.0"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="RAL_7032_7035" StartPoint="0, 0" EndPoint="1, 1">
+        <GradientStop Color="#C5C7C4" Offset="0.0"/>
+        <GradientStop Color="#B5B0A1" Offset="1.0"/>
+    </LinearGradientBrush>
+
+
+</ResourceDictionary>

@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="TronBeTongV3.View.CtrlConveyor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TronBeTongV3.View"
+             mc:Ignorable="d" Loaded="UserControl_Loaded">
+    <Grid x:Name="PnlMain">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.RenderTransform>
+                <RotateTransform Angle="{Binding RAngle}" CenterX="{Binding RCenter.X}" CenterY="{Binding RCenter.Y}"/>
+            </StackPanel.RenderTransform>
+            <Image x:Name="ImgMiddle" Source="../../Images/conveyor01_c.png" Visibility="Collapsed"/>
+            <local:BlendImageCtrl x:Name="ImgLeft" ZSource="../../Images/conveyor01_a.png"/>
+            <StackPanel x:Name="PnlMiddle" Orientation="Horizontal"/>
+            <local:BlendImageCtrl x:Name="ImgRight" ZSource="../../Images/conveyor01_b.png"/>
+        </StackPanel>
+        <local:CtrlMultiStateButton x:Name="BtMotor" ZText="M" Width="24" Height="24"
+                                    ZMaxState="{Binding ZMaxState}" ZActiveFill="#c000ff00" ZStateChanged="BtMotor_ZStateChanged"
+                                    ToolTip="Động cơ"/>
+    </Grid>
+</UserControl>

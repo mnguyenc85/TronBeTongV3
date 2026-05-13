@@ -1,0 +1,52 @@
+﻿<Window x:Class="TronBeTongV3.View.WndAbout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TronBeTongV3.View"
+        mc:Ignorable="d"
+        Title="Thông tin phần mềm" Background="WhiteSmoke" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight"
+        PreviewKeyDown="Window_PreviewKeyDown">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/BootstrapButtons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <StackPanel Margin="3">
+        <TextBlock Text="Phần mềm giám sát và quản lý trạm trộn bê tông" FontSize="16" FontWeight="Bold" Margin="6 6 6 3"/>
+        <TextBlock Text="Version: 1.1.0.20251114" Margin="6 0 6 3" FontSize="10"/>
+        <Separator/>
+        <DockPanel>
+            <Image Source="/Images/logo_tpa.png" Height="96"/>
+
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="6 3 6 6">
+                    <TextBlock Text="@ Tâm Phát An 2025" FontSize="14"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="6 0 6 6">
+                    <TextBlock Text="Hỗ trợ: " Width="60"/>
+                    <TextBlock Text="098 8087 289 (Mr. Cường)" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="6 0 6 6">
+                    <TextBlock Text="Website: " Width="60"/>
+                    <TextBlock Text=""/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="6 0 6 6">
+                    <TextBlock Text="Tác giả: " Width="60"/>
+                    <StackPanel>
+                        <TextBlock Text="Nguyễn Minh Cường (PLC)"/>
+                        <TextBlock Text="Nguyễn Công Mạnh (PC)"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+
+        <Separator/>
+        <StackPanel Orientation="Horizontal" Margin="0 3 0 6" HorizontalAlignment="Right">
+            <Button x:Name="BtResetPw" Content="Debug" Style="{StaticResource BtnWarning}" Width="90" Margin="0 0 12 0" Visibility="Collapsed" Click="BtResetPw_Click"/>
+            <Button x:Name="BtOk" Content="Ok" Width="90" Style="{StaticResource BtnPrimary}" Click="BtOk_Click"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

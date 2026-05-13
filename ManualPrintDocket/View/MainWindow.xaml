@@ -1,0 +1,93 @@
+﻿<Window x:Class="ManualPrintDocket.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ManualPrintDocket.View"
+        mc:Ignorable="d"
+        Title="In phiếu thủ công" Height="450" Width="800" Background="WhiteSmoke"
+        Loaded="Window_Loaded">
+    <DockPanel>
+        <GroupBox Header="Thông tin phiếu" Margin="3" DockPanel.Dock="Top">
+            <StackPanel Margin="3">
+                <DockPanel Margin="0 0 0 3">
+                    <TextBlock Text="Mẫu phiếu" VerticalAlignment="Center" Width="120"/>
+                    <ComboBox x:Name="CboDocketTemplates"/>
+                </DockPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 3">
+                    <TextBlock Text="Số phiếu" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TxtDocketNo" Padding="2 1" Width="120" Text="{Binding Phieu.SoPhieu}"/>
+                </StackPanel>
+                <Separator Margin="0 0 0 6"/>
+
+                <DockPanel Margin="0 0 0 3">
+                    <TextBlock Text="Khách hàng" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TxtCustomer" Padding="2 1" Text="{Binding Phieu.KhachHangTen}"/>
+                </DockPanel>
+
+                <Separator Margin="0 0 0 6"/>
+                <DockPanel Margin="0 0 0 3">
+                    <TextBlock Text="Dự án" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TxtProject" Padding="2 1"/>
+                </DockPanel>
+                <DockPanel Margin="0 0 0 3">
+                    <TextBlock Text="Địa chỉ" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TxtLocation" Padding="2 1"/>
+                </DockPanel>
+
+                <Separator Margin="0 0 0 3"/>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 3">
+                    <TextBlock Text="Biển số xe" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TxtTruckPlate" Padding="2 1" Width="120"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 3">
+                    <TextBlock Text="Lái xe" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TxtDriver" Padding="2 1" Width="240"/>
+                </StackPanel>
+
+                <Separator Margin="0 0 0 3"/>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 3">
+                    <TextBlock Text="Mác bê tông" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TxtBeTongMac" Padding="2 1" Width="240"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 3">
+                    <TextBlock Text="Độ sụt" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TxtBeTongSlum" Padding="2 1" Width="120"/>
+                    <TextBlock Text="Đk cốt liệu lớn nhất" Width="120" VerticalAlignment="Center" Margin="12 0 0 0"/>
+                    <TextBox x:Name="TxtBeTongMaxAgg" Padding="2 1" Width="120"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 3">
+                    <TextBlock Text="Phụ gia/Liều lượng" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TxtBeTongPG" Padding="2 1" Width="120"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 3">
+                    <TextBlock Text="Mã số" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TxtPhieuMaSo" Padding="2 1" Width="120"/>
+                    <TextBlock Text="Silo số" Width="120" VerticalAlignment="Center" Margin="12 0 0 0"/>
+                    <TextBox x:Name="TxtPhieuSiloNo" Padding="2 1" Width="120"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 3">
+                    <TextBlock Text="Khối lượng (m3)" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TxtPhieuKL" Padding="2 1" Width="120"/>
+                    <TextBlock Text="Tổng khối lượng (m3)" Width="120" VerticalAlignment="Center" Margin="12 0 0 0"/>
+                    <TextBox x:Name="TxtPhieuTongKL" Padding="2 1" Width="120"/>
+                </StackPanel>
+
+                <Separator Margin="0 0 0 3"/>
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 3">
+                    <TextBlock Text="TG rời trạm" Width="120" VerticalAlignment="Center"/>
+                    <TextBox x:Name="TxtTGRoiTram" Padding="2 1" Width="120"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+
+        <StackPanel Margin="3 0 3 3">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="In phiếu" Width="120" Command="{Binding InPhieuCommand}"/>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+</Window>

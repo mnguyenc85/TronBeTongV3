@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/25/2025 15:49:38" ReportInfo.Modified="11/14/2025 13:28:55" ReportInfo.CreatorVersion="2025.2.0.0">
+  <Dictionary>
+    <Parameter Name="Title" DataType="System.String" AsString="">
+      <Parameter Name="CTy" DataType="System.String" AsString="">
+        <Parameter Name="Ten" DataType="System.String" AsString=""/>
+        <Parameter Name="DiaChi" DataType="System.String" AsString=""/>
+        <Parameter Name="SDT1" DataType="System.String" AsString=""/>
+        <Parameter Name="SDT2" DataType="System.String" AsString=""/>
+      </Parameter>
+    </Parameter>
+    <Parameter Name="KH" DataType="System.String" AsString="">
+      <Parameter Name="Ten" DataType="System.String" AsString=""/>
+      <Parameter Name="DiaChi" DataType="System.String" AsString=""/>
+      <Parameter Name="SDT" DataType="System.String" AsString=""/>
+      <Parameter Name="Ma" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="DuAn" DataType="System.String" AsString="">
+      <Parameter Name="DA" DataType="System.String" AsString=""/>
+      <Parameter Name="CT" DataType="System.String" AsString=""/>
+      <Parameter Name="HM" DataType="System.String" AsString=""/>
+      <Parameter Name="DiaChi" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="Xe" DataType="System.String" AsString="">
+      <Parameter Name="BSX" DataType="System.String" AsString=""/>
+      <Parameter Name="LaiXe" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="CapPhoi" DataType="System.String" AsString="">
+      <Parameter Name="CL1" DataType="System.String" AsString=""/>
+      <Parameter Name="CL2" DataType="System.String" AsString=""/>
+      <Parameter Name="CL3" DataType="System.String" AsString=""/>
+      <Parameter Name="CL4" DataType="System.String" AsString=""/>
+      <Parameter Name="CL5" DataType="System.String" AsString=""/>
+      <Parameter Name="Xi1" DataType="System.String" AsString=""/>
+      <Parameter Name="Xi2" DataType="System.String" AsString=""/>
+      <Parameter Name="Slump" DataType="System.String" AsString=""/>
+      <Parameter Name="AggMax" DataType="System.String" AsString=""/>
+      <Parameter Name="Ten" DataType="System.String" AsString=""/>
+      <Parameter Name="Ma" DataType="System.String" AsString=""/>
+      <Parameter Name="Mac" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="KLTP" DataType="System.String" AsString="">
+      <Parameter Name="CL1" DataType="System.String" AsString=""/>
+      <Parameter Name="CL2" DataType="System.String" AsString=""/>
+      <Parameter Name="CL3" DataType="System.String" AsString=""/>
+      <Parameter Name="CL4" DataType="System.String" AsString=""/>
+      <Parameter Name="CL5" DataType="System.String" AsString=""/>
+      <Parameter Name="Xi1" DataType="System.String" AsString=""/>
+      <Parameter Name="Xi2" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="Phieu" DataType="System.String" AsString="">
+      <Parameter Name="TGBD" DataType="System.String" AsString=""/>
+      <Parameter Name="TGKT" DataType="System.String" AsString=""/>
+      <Parameter Name="SoPhieu" DataType="System.String" AsString=""/>
+      <Parameter Name="NgayXuatTram" DataType="System.String" AsString=""/>
+      <Parameter Name="GioXuatTram" DataType="System.String" AsString=""/>
+      <Parameter Name="NgayXuatTramShort" DataType="System.String" AsString=""/>
+      <Parameter Name="GioXuatTramShort" DataType="System.String" AsString=""/>
+      <Parameter Name="DonGia" DataType="System.String" AsString=""/>
+      <Parameter Name="TongTien" DataType="System.String" AsString=""/>
+      <Parameter Name="KL" DataType="System.String" AsString=""/>
+      <Parameter Name="TongKL" DataType="System.String" AsString=""/>
+      <Parameter Name="M3" DataType="System.String" AsString=""/>
+      <Parameter Name="STT" DataType="System.String" AsString=""/>
+      <Parameter Name="KepChi" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="Don" DataType="System.String" AsString="">
+      <Parameter Name="Ma" DataType="System.String" AsString=""/>
+      <Parameter Name="TichLuy" DataType="System.String" AsString=""/>
+      <Parameter Name="M3" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="Tram" DataType="System.String" AsString="">
+      <Parameter Name="Ten" DataType="System.String" AsString=""/>
+    </Parameter>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperHeight="270" LeftMargin="5" TopMargin="7" RightMargin="5" BottomMargin="7" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="756" Height="967.68">
+      <TableObject Name="Table1" Width="756" Height="396.9">
+        <TableColumn Name="Column1" Width="83.16"/>
+        <TableColumn Name="Column2" Width="90.72"/>
+        <TableColumn Name="Column3" Width="68.04"/>
+        <TableColumn Name="Column4" Width="68.04"/>
+        <TableColumn Name="Column5" Width="68.04"/>
+        <TableColumn Name="Column6" Width="75.6"/>
+        <TableColumn Name="Column7" Width="64.26"/>
+        <TableColumn Name="Column8" Width="71.82"/>
+        <TableColumn Name="Column9" Width="166.32"/>
+        <TableRow Name="Row1" Height="83.16">
+          <TableCell Name="Cell1" Font="Arial, 10pt" ColSpan="8">
+            <TextObject Name="lblTenCongTy" Width="589.68" Height="22.68" Text="CÔNG TY TNHH THƯƠNG MẠI VÀ XÂY DỰNG KHẢI NAM" HorzAlign="Center" Font="Times New Roman, 14.25pt, style=Bold"/>
+            <TextObject Name="lblCTyDiaChi" Top="45.36" Width="589.68" Height="18.9" Text="Việt Yên - Điệp Nông - Hưng Hà - Thái Bình" HorzAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+            <TextObject Name="lblCTySDT" Top="64.26" Width="589.68" Height="18.9" Text="ĐT: 0981.662.699 / 0964.343.454" HorzAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+            <TextObject Name="lblTenCongTy2" Top="22.68" Width="589.68" Height="22.68" Text="BÊ TÔNG VẬT LIỆU SẠCH HOÀNG HẢI" HorzAlign="Center" Font="Times New Roman, 14.25pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell2" Font="Arial, 10pt"/>
+          <TableCell Name="Cell3" Font="Arial, 10pt"/>
+          <TableCell Name="Cell4" Font="Arial, 10pt"/>
+          <TableCell Name="Cell5" Font="Arial, 10pt"/>
+          <TableCell Name="Cell26" Font="Arial, 10pt"/>
+          <TableCell Name="Cell27" Font="Arial, 10pt"/>
+          <TableCell Name="Cell28" Font="Arial, 10pt"/>
+          <TableCell Name="Cell29" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text46" Top="52.92" Width="30.24" Height="15.12" Text="Số:" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text47" Top="68.04" Width="30.24" Height="15.12" Text="No:" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text48" Top="15.12" Width="166.32" Height="15.12" Text="Phiếu giao nhận bê tông" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text49" Top="30.24" Width="166.32" Height="15.12" Text="Delivery docket" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text65" Left="37.8" Top="56.7" Width="120.96" Height="18.9" Text="[Phieu.SoPhieu]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row2" Height="49.14">
+          <TableCell Name="Cell6" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="lblKHMa" Width="83.16" Height="15.12" Text="Mã KH" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="lblKHMa2" Top="15.12" Width="83.16" Height="15.12" Text="No customer" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text52" Top="30.24" Width="83.16" Height="18.9" Text="[KH.Ma]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell7" Border.Lines="All" Font="Arial, 10pt" ColSpan="4">
+            <TextObject Name="lblKHTen" Width="294.84" Height="15.12" Text="Tên khách hàng" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text38" Top="15.12" Width="294.84" Height="15.12" Text="Customer Name" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text53" Top="30.24" Width="294.84" Height="18.9" Text="[KH.Ten]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell8" Font="Arial, 10pt"/>
+          <TableCell Name="Cell9" Font="Arial, 10pt"/>
+          <TableCell Name="Cell10" Font="Arial, 10pt"/>
+          <TableCell Name="Cell30" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text13" Width="75.6" Height="15.12" Text="Đặt hàng số" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text15" Top="15.12" Width="75.6" Height="15.12" Text="Order no" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text54" Top="30.24" Width="75.6" Height="18.9" Text="[Don.Ma]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell31" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text14" Width="64.26" Height="15.12" Text="Giờ đi" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text24" Top="15.12" Width="64.26" Height="15.12" Text="Time start" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text55" Top="30.24" Width="64.26" Height="18.9" Text="[Phieu.GioXuatTramShort]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell32" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text36" Width="71.82" Height="15.12" Text="Ngày tháng" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text37" Top="15.12" Width="71.82" Height="15.12" Text="Date" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text56" Top="30.24" Width="71.82" Height="18.9" Text="[Phieu.NgayXuatTramShort]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell33" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text50" Width="166.32" Height="15.12" Text="Tổng khối lượng (Kg)" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text51" Top="15.12" Width="166.32" Height="15.12" Text="Volume" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text57" Top="30.24" Width="166.32" Height="18.9" Text="[Phieu.KL]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row3" Height="49.14">
+          <TableCell Name="Cell11" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text41" Width="83.16" Height="15.12" Text="Số phiếu" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text42" Top="15.12" Width="83.16" Height="15.12" Text="Docket" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text64" Top="30.24" Width="83.16" Height="18.9" Text="[Phieu.SoPhieu]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell12" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="lblHopDong" Width="90.72" Height="15.12" Text="Hợp đồng số" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="lblHopDong2" Top="15.12" Width="90.72" Height="15.12" Text="Contact no" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+          </TableCell>
+          <TableCell Name="Cell13" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="lblKM" Width="68.04" Height="15.12" Text="KM" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell14" Border.Lines="All" Font="Arial, 10pt" ColSpan="5">
+            <TextObject Name="Text11" Width="347.76" Height="15.12" Text="Địa chỉ giao hàng" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text12" Top="15.12" Width="347.76" Height="15.12" Text="Delivery address" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text59" Top="30.24" Width="347.76" Height="18.9" Text="[DuAn.DiaChi]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell15" Font="Arial, 10pt"/>
+          <TableCell Name="Cell34" Font="Arial, 10pt"/>
+          <TableCell Name="Cell35" Font="Arial, 10pt"/>
+          <TableCell Name="Cell36" Font="Arial, 10pt"/>
+          <TableCell Name="Cell37" Border.Lines="All" Font="Arial, 10pt" RowSpan="4"/>
+        </TableRow>
+        <TableRow Name="Row4" Height="49.14">
+          <TableCell Name="Cell16" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="lblTramSo2" Top="15.12" Width="83.16" Height="15.12" Text="Batching Plant" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="lblTramSo" Width="83.16" Height="15.12" Text="Trạm trộn số" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text60" Top="30.24" Width="83.16" Height="18.9" Text="[Tram.Ten]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell17" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="lblXeBienSo" Width="90.72" Height="15.12" Text="Xe số" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="lblXeBienSo2" Top="15.12" Width="90.72" Height="15.12" Text="Truck no" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text2" Top="30.24" Width="90.72" Height="18.9" Text="[Xe.BSX]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell18" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text6" Width="68.04" Height="15.12" Text="Mã chì" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text7" Top="15.12" Width="68.04" Height="15.12" Text="Seal" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text66" Top="30.24" Width="68.04" Height="18.9" Text="[Phieu.KepChi]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell19" Font="Arial, 10pt"/>
+          <TableCell Name="Cell20" Font="Arial, 10pt"/>
+          <TableCell Name="Cell38" Font="Arial, 10pt"/>
+          <TableCell Name="Cell39" Font="Arial, 10pt"/>
+          <TableCell Name="Cell40" Font="Arial, 10pt"/>
+          <TableCell Name="Cell41" Font="Arial, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row5" Height="49.14">
+          <TableCell Name="Cell21" Border.Lines="All" Font="Arial, 10pt" RowSpan="2">
+            <TextObject Name="Text43" Width="83.16" Height="15.12" Text="Lũy tiến" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text45" Top="15.12" Width="83.16" Height="15.12" Text="Progessitive" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text61" Top="52.92" Width="83.16" Height="18.9" Text="[Don.TichLuy]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell22" Border.Lines="All" Font="Arial, 10pt" RowSpan="2">
+            <TextObject Name="Text44" Width="90.72" Height="15.12" Text="KL Xe" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text62" Top="52.92" Width="90.72" Height="18.9" Text="[Phieu.M3]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell23" Border.Lines="All" Font="Arial, 10pt" RowSpan="2">
+            <TextObject Name="Text22" Width="68.04" Height="15.12" Text="Đặt hàng" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text23" Top="15.12" Width="68.04" Height="15.12" Text="Order m3" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text63" Top="52.92" Width="68.04" Height="18.9" Text="[Don.M3]" Padding="0, 0, 0, 0" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell24" Border.Lines="All" Font="Arial, 10pt" ColSpan="3">
+            <TextObject Name="Text16" Width="211.68" Height="15.12" Text="Đặc tính kỹ thuật bê tông" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text17" Top="15.12" Width="211.68" Height="15.12" Text="Mix specification" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text18" Top="30.24" Width="211.68" Height="18.9" Border.Lines="Top" Text="[CapPhoi.Mac]" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell25" Font="Arial, 10pt"/>
+          <TableCell Name="Cell42" Font="Arial, 10pt"/>
+          <TableCell Name="Cell43" Border.Lines="All" Font="Arial, 10pt" ColSpan="2" RowSpan="2">
+            <TextObject Name="Text25" Width="136.08" Height="15.12" Text="Nhật xét kỹ thuật BT" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+            <TextObject Name="Text26" Top="15.12" Width="136.08" Height="15.12" Text="Product Description" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+          </TableCell>
+          <TableCell Name="Cell44" Font="Arial, 10pt"/>
+          <TableCell Name="Cell45" Font="Arial, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row8" Height="49.14">
+          <TableCell Name="Cell64" Font="Arial, 10pt"/>
+          <TableCell Name="Cell65" Font="Arial, 10pt"/>
+          <TableCell Name="Cell66" Font="Arial, 10pt"/>
+          <TableCell Name="Cell67" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text19" Width="68.04" Height="15.12" Text="Độ sụt" HorzAlign="Center" Font="Times New Roman, 9.75pt"/>
+            <TextObject Name="Text20" Top="15.12" Width="68.04" Height="15.12" Text="Slump" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text21" Top="30.24" Width="68.04" Height="18.9" Text="[CapPhoi.Slump]" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell68" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text39" Width="68.04" Height="15.12" Text="Cỡ đá" HorzAlign="Center" Font="Times New Roman, 9.75pt"/>
+            <TextObject Name="Text40" Top="15.12" Width="68.04" Height="15.12" Text="Agg max" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+            <TextObject Name="Text58" Top="30.24" Width="68.04" Height="18.9" Text="[CapPhoi.AggMax]" HorzAlign="Center" Font="Times New Roman, 11.25pt, style=Bold, Italic"/>
+          </TableCell>
+          <TableCell Name="Cell69" Border.Lines="All" Font="Arial, 10pt"/>
+          <TableCell Name="Cell70" Font="Arial, 10pt"/>
+          <TableCell Name="Cell71" Font="Arial, 10pt"/>
+          <TableCell Name="Cell72" Font="Arial, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row6" Height="34.02">
+          <TableCell Name="Cell46" Border.Lines="All" Font="Arial, 10pt" ColSpan="2">
+            <TextObject Name="Text8" Width="173.88" Height="15.12" Text="Các mẻ đổ bỏ" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell47" Font="Arial, 10pt"/>
+          <TableCell Name="Cell48" Border.Lines="All" Font="Arial, 10pt" ColSpan="3">
+            <TextObject Name="Text9" Width="204.12" Height="15.12" Text="Số m3 đổ bỏ" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell49" Font="Arial, 10pt"/>
+          <TableCell Name="Cell50" Font="Arial, 10pt"/>
+          <TableCell Name="Cell51" Border.Lines="All" Font="Arial, 10pt" ColSpan="4">
+            <TextObject Name="Text10" Width="378" Height="15.12" Text="Báo cáo của lái xe" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell52" Font="Arial, 10pt"/>
+          <TableCell Name="Cell53" Font="Arial, 10pt"/>
+          <TableCell Name="Cell54" Font="Arial, 10pt"/>
+        </TableRow>
+        <TableRow Name="Row7" Height="34.02">
+          <TableCell Name="Cell55" Border.Lines="All" Font="Arial, 10pt" ColSpan="2">
+            <TextObject Name="Text3" Width="173.88" Height="15.12" Text="Giờ đến công trường" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell56" Font="Arial, 10pt"/>
+          <TableCell Name="Cell57" Border.Lines="All" Font="Arial, 10pt" ColSpan="3">
+            <TextObject Name="Text4" Width="204.12" Height="15.12" Text="Xả bê tông bắt đầu lúc" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell58" Font="Arial, 10pt" ColSpan="2"/>
+          <TableCell Name="Cell59" Font="Arial, 10pt"/>
+          <TableCell Name="Cell60" Border.Lines="All" Font="Arial, 10pt" ColSpan="3">
+            <TextObject Name="Text5" Width="211.68" Height="15.12" Text="Xả bê tông xong lúc" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell61" Font="Arial, 10pt"/>
+          <TableCell Name="Cell62" Font="Arial, 10pt"/>
+          <TableCell Name="Cell63" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text27" Width="166.32" Height="15.12" Text="Thời gian về đến trạm" HorzAlign="Center" Font="Times New Roman, 9.75pt, style=Bold"/>
+          </TableCell>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text28" Top="400.68" Width="257.04" Height="15.12" Text="HỢP ĐỒNG MUA BÁN VÀ ĐƠN ĐẶT HÀNG" HorzAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text29" Top="415.8" Width="257.04" Height="15.12" Text="Good receive to conditions Of sale and as ordered" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+      <TextObject Name="Text30" Left="257.04" Top="400.68" Width="196.56" Height="15.12" Text="CHỮ KÝ KHÁCH HÀNG" HorzAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text31" Left="257.04" Top="415.8" Width="196.56" Height="15.12" Text="Customer signature" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+      <TextObject Name="Text32" Left="453.6" Top="400.68" Width="151.2" Height="15.12" Text="LÁI XE" HorzAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text33" Left="604.8" Top="400.68" Width="151.2" Height="15.12" Text="VẬN HÀNH TRẠM" HorzAlign="Center" Font="Times New Roman, 9pt, style=Bold"/>
+      <TextObject Name="Text34" Left="453.6" Top="415.8" Width="151.2" Height="15.12" Text="Driver" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+      <TextObject Name="Text35" Left="604.8" Top="415.8" Width="151.2" Height="15.12" Text="Operator" HorzAlign="Center" Font="Times New Roman, 8.25pt, style=Italic"/>
+    </ReportTitleBand>
+  </ReportPage>
+</Report>

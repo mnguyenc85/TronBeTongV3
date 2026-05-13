@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="TronBeTongV3.View.CtrlWeightScale"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TronBeTongV3.View"
+             xmlns:nmctrl="clr-namespace:NMWPFControls.Controls;assembly=NMWPFControls"
+             mc:Ignorable="d" d:DesignWidth="205" IsEnabledChanged="UserControl_IsEnabledChanged">
+    <Grid x:Name="PnlMain">
+        <StackPanel>
+            <Grid Height="72">
+                <local:BlendImageCtrl x:Name="Img1" ZSource="../../Images/weighted_bin2.png"/>
+
+                <!--<TextBlock Text="(1)" HorizontalAlignment="Right" VerticalAlignment="Bottom" Foreground="LightGray"/>-->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="3">
+                    <StackPanel Margin="3 2">
+                        <Rectangle x:Name="WILED1" Width="8" Height="6" Fill="#222"/>
+                        <Rectangle x:Name="WILED2" Width="8" Height="6" Fill="#222" Margin="0 6 0 0"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="1" VerticalAlignment="Top"
+                        Background="#FFFFFF" >
+                            <nmctrl:Ctrl7LED Margin="3 2" ZShadowBrush="#FDFDFD" Foreground="#000" FontSize="16"
+                                         ZText="{Binding ZText}"/>
+                        </Border>
+                    </StackPanel>
+                </StackPanel>
+                <DockPanel Margin="3 26 3 0">
+                    <TextBlock x:Name="LblMe" Text="0/0" HorizontalAlignment="Right" DockPanel.Dock="Right" Foreground="White"/>
+                    <TextBlock x:Name="LblTT" Foreground="White"/>
+                </DockPanel>
+
+                <local:CtrlMultiStateButton x:Name="BtVib" Width="22" Height="22" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 26 0 0"
+                                        ZText="Vib" FontSize="10" ZMaxState="2" ZActiveFill="Orange"
+                                        Visibility="Collapsed"
+                                        ZStateChanged="BtVib_ZStateChanged"
+                                        ToolTip="Rung"/>
+
+            </Grid>
+
+            <local:CtrlMultiStateButton x:Name="BtValve" Width="24" Height="24" ZText="V" Margin="0 -24 0 0" ZActiveFill="LimeGreen"
+                                    ZStateChanged="BtValve_ZStateChanged"
+                                    ToolTip="Van xả"/>
+            <local:GrArrowDown x:Name="Arrow1" HorizontalAlignment="Center" Margin="0 3 0 0" Foreground="White" FontSize="10" Width="24" Height="16"/>
+        </StackPanel>
+        <StackPanel x:Name="PnlDischargeTime" Margin="0 0 0 0 " Width="36" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+            <TextBox x:Name="TxtReadDischargeTime" IsReadOnly="True"/>
+            <nmctrl:TextBoxInt x:Name="TxtSetDischargeTime"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0-windows</TargetFrameworks>
+    <UseWPF>true</UseWPF>
+    <Version>3.0.4</Version>
+    <Authors>Vrjure</Authors>
+	<Description>PDF viewer based on Google's PDFium port to .Net Core.Since 3.0 PdfiumViewer.Native.x86.v8-xfa and PdfiumViewer.Native.x86_64.v8-xfa are no longer used. I switch to bblanchon.PDFium.Win32.These are the features that have been implemented:View、save as image、zoom、search text、bookmarks、select text、rotation、fitWidth、page mode</Description>
+    <Copyright>Copyright © 2024 Vrjure</Copyright>
+    <PackageProjectUrl>https://github.com/vrjure/PdfiumViewer</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/vrjure/PdfiumViewer</RepositoryUrl>
+    <PackageTags>pdfium pdf-viewer wpf-controls dotnet-core google-pdf-viewer chrome-pdf</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <PackageId>PdfiumViewer.Net.WPF</PackageId>
+    <PackageReleaseNotes>Optimized scrolling rendering;add page mode;add rotation</PackageReleaseNotes>
+    <AssemblyVersion>3.0.4</AssemblyVersion>
+    <FileVersion>3.0.4</FileVersion>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="bblanchon.PDFium.Win32" Version="130.0.6721" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,437 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="DisabledBrush" Color="#806c757d"/>
+    <SolidColorBrush x:Key="SelectedBrush" Color="Yellow"/>
+
+    <SolidColorBrush x:Key="DefaultBgBrush" Color="#fff"/>
+    <SolidColorBrush x:Key="DefaultBorderBrush" Color="#ccc"/>
+    <SolidColorBrush x:Key="DefaultActiveBgBrush" Color="#e6e6e6"/>
+    <SolidColorBrush x:Key="DefaultActiveBorderBrush" Color="#adadad"/>
+
+    <SolidColorBrush x:Key="PrimaryBgBrush" Color="#337ab7"/>
+    <SolidColorBrush x:Key="PrimaryBorderBrush" Color="#2e6db4"/>
+    <SolidColorBrush x:Key="PrimaryActiveBgBrush" Color="#286090"/>
+    <SolidColorBrush x:Key="PrimaryActiveBorderBrush" Color="#204d74"/>
+
+    <SolidColorBrush x:Key="SuccessBgBrush">#5cb85c</SolidColorBrush>
+    <SolidColorBrush x:Key="SuccessBorderBrush">#4cae4c</SolidColorBrush>
+    <SolidColorBrush x:Key="SuccessActiveBgBrush">#449d44</SolidColorBrush>
+    <SolidColorBrush x:Key="SuccessActiveBorderBrush">#398439</SolidColorBrush>
+
+    <SolidColorBrush x:Key="InfoBgBrush">#5bc0de</SolidColorBrush>
+    <SolidColorBrush x:Key="InfoBorderBrush">#46b8da</SolidColorBrush>
+    <SolidColorBrush x:Key="InfoActiveBgBrush">#31b0d5</SolidColorBrush>
+    <SolidColorBrush x:Key="InfoActiveBorderBrush">#269abc</SolidColorBrush>
+
+    <SolidColorBrush x:Key="WarningBgBrush">#f0ad4e</SolidColorBrush>
+    <SolidColorBrush x:Key="WarningBorderBrush">#eea236</SolidColorBrush>
+    <SolidColorBrush x:Key="WarningActiveBgBrush">#ec971f</SolidColorBrush>
+    <SolidColorBrush x:Key="WarningActiveBorderBrush">#d58512</SolidColorBrush>
+
+    <SolidColorBrush x:Key="DangerBgBrush">#d9534f</SolidColorBrush>
+    <SolidColorBrush x:Key="DangerBorderBrush">#d43f3a</SolidColorBrush>
+    <SolidColorBrush x:Key="DangerActiveBgBrush">#c9302c</SolidColorBrush>
+    <SolidColorBrush x:Key="DangerActiveBorderBrush">#ac2925</SolidColorBrush>
+
+    <RadialGradientBrush x:Key="BtnGlowBrush" GradientOrigin="0.5,1" Center="0.5,1" RadiusX="0.475" RadiusY="0.5">
+        <RadialGradientBrush.GradientStops>
+            <GradientStop Color="#80ffffff" Offset="0" />
+            <GradientStop Color="#00ffffff" Offset="1" />
+        </RadialGradientBrush.GradientStops>
+    </RadialGradientBrush>
+
+    <Style x:Key="BtnSemiTransparent" TargetType="Button">
+        <Setter Property="Foreground" Value="Black"/>
+
+        <Setter Property="Background" Value="#4fff"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Padding" Value="3 2"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="2"
+                        BorderBrush="Transparent"
+                        BorderThickness="1"
+                        Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <!-- Hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#8fff"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DefaultActiveBorderBrush}"/>
+                        </Trigger>
+
+                        <!-- Click -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#afff"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DefaultActiveBorderBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BtnDefault" TargetType="Button">
+        <Setter Property="Foreground" Value="Black"/>
+
+        <Setter Property="Background" Value="{StaticResource DefaultBgBrush}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Padding" Value="3 2"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="2"
+                        BorderBrush="{StaticResource DefaultBorderBrush}"
+                        BorderThickness="1"
+                        Padding="{TemplateBinding Padding}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <!-- Hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource DefaultActiveBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DefaultActiveBorderBrush}"/>
+                        </Trigger>
+
+                        <!-- Click -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource DefaultBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DefaultActiveBorderBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BtnPrimary" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+
+        <Setter Property="Background" Value="{StaticResource PrimaryBgBrush}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Padding" Value="3 2"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="2"
+                            BorderBrush="{StaticResource PrimaryBorderBrush}"
+                            BorderThickness="1"
+                            Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <Rectangle x:Name="rectGlow" Visibility="Hidden" Fill="{StaticResource BtnGlowBrush}"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <!-- Hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource PrimaryActiveBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource PrimaryActiveBorderBrush}"/>
+                        </Trigger>
+
+                        <!-- Click -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource PrimaryBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource PrimaryActiveBorderBrush}"/>
+                            <Setter TargetName="rectGlow" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+
+                        <!-- Disabled -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource DisabledBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DisabledBrush}"/>
+                        </Trigger>
+
+                        <!-- KeyboardFocused -->
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource PrimaryActiveBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource PrimaryActiveBorderBrush}"/>
+                            <Setter Property="Foreground" Value="{StaticResource SelectedBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                    
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BtnSuccess" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+
+        <Setter Property="Background" Value="{StaticResource SuccessBgBrush}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Padding" Value="3 2"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="border" CornerRadius="2" BorderThickness="1"
+                                Background="{TemplateBinding Background}"                                
+                                BorderBrush="{StaticResource SuccessBorderBrush}"                                
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <Rectangle x:Name="rectGlow" Visibility="Hidden" Fill="{StaticResource BtnGlowBrush}"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <!-- Hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource SuccessActiveBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource SuccessActiveBorderBrush}"/>
+                        </Trigger>
+
+                        <!-- Click -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource SuccessBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource SuccessActiveBorderBrush}"/>
+                            <Setter TargetName="rectGlow" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+
+                        <!-- Disabled -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource DisabledBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DisabledBrush}"/>
+                        </Trigger>
+
+                        <!-- KeyboardFocused -->
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource SuccessActiveBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource SuccessActiveBorderBrush}"/>
+                            <Setter Property="Foreground" Value="{StaticResource SelectedBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BtnInfo" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+
+        <Setter Property="Background" Value="{StaticResource InfoBgBrush}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Padding" Value="3 2"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="2"
+                                BorderBrush="{StaticResource InfoBorderBrush}"
+                                BorderThickness="1"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <Rectangle x:Name="rectGlow" Visibility="Hidden" Fill="{StaticResource BtnGlowBrush}"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <!-- Hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource InfoActiveBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource InfoActiveBorderBrush}"/>
+                        </Trigger>
+
+                        <!-- Click -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource InfoBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource InfoActiveBorderBrush}"/>
+                            <Setter TargetName="rectGlow" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+
+                        <!-- Disabled -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource DisabledBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DisabledBrush}"/>
+                        </Trigger>
+
+                        <!-- KeyboardFocused -->
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource InfoActiveBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource InfoActiveBorderBrush}"/>
+                            <Setter Property="Foreground" Value="{StaticResource SelectedBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BtnWarning" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+
+        <Setter Property="Background" Value="{StaticResource WarningBgBrush}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Padding" Value="3 2"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="2"
+                                BorderBrush="{StaticResource WarningBorderBrush}"
+                                BorderThickness="1"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <Rectangle x:Name="rectGlow" Visibility="Hidden" Fill="{StaticResource BtnGlowBrush}"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <!-- Hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource WarningActiveBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource WarningActiveBorderBrush}"/>
+                        </Trigger>
+
+                        <!-- Click -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource WarningBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource WarningActiveBorderBrush}"/>
+                            <Setter TargetName="rectGlow" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+
+                        <!-- Disabled -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource DisabledBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DisabledBrush}"/>
+                        </Trigger>
+
+                        <!-- KeyboardFocused -->
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource WarningActiveBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource WarningActiveBorderBrush}"/>
+                            <Setter Property="Foreground" Value="{StaticResource SelectedBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BtnDanger" TargetType="Button">
+        <Setter Property="Foreground" Value="White"/>
+
+        <Setter Property="Background" Value="{StaticResource DangerBgBrush}"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Padding" Value="3 2"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="2"
+                                BorderBrush="{StaticResource DangerBorderBrush}"
+                                BorderThickness="1"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <Rectangle x:Name="rectGlow" Visibility="Hidden" Fill="{StaticResource BtnGlowBrush}"/>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <!-- Hover -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource DangerActiveBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DangerActiveBorderBrush}"/>
+                        </Trigger>
+
+                        <!-- Click -->
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource DangerBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DangerActiveBorderBrush}"/>
+                            <Setter TargetName="rectGlow" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+
+                        <!-- Disabled -->
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource DisabledBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DisabledBrush}"/>
+                        </Trigger>
+
+                        <!-- KeyboardFocused -->
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{StaticResource DangerActiveBgBrush}"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="{StaticResource DangerActiveBorderBrush}"/>
+                            <Setter Property="Foreground" Value="{StaticResource SelectedBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="PLCBtnPrimary" TargetType="Button" BasedOn="{StaticResource BtnPrimary}">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="0 0 0 3"/>
+        <Setter Property="Padding" Value="2"/>
+    </Style>
+
+    <Style x:Key="PLCBtnSuccess" TargetType="Button" BasedOn="{StaticResource BtnSuccess}">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="0 0 0 3"/>
+        <Setter Property="Padding" Value="2"/>
+    </Style>
+
+    <Style x:Key="PLCBtnInfo" TargetType="Button" BasedOn="{StaticResource BtnInfo}">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="0 0 0 3"/>
+        <Setter Property="Padding" Value="2"/>
+    </Style>
+
+    <Style x:Key="PLCBtnWarn" TargetType="Button" BasedOn="{StaticResource BtnWarning}">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Margin" Value="0 0 0 3"/>
+        <Setter Property="Padding" Value="2"/>
+    </Style>
+
+    <Style TargetType="Border" x:Key="PrimaryBorderStyle">
+        <Setter Property="Background" Value="{StaticResource PrimaryBgBrush}"/>
+        <Setter Property="BorderBrush" Value="Gray"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="3"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{StaticResource DisabledBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

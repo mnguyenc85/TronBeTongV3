@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:pdf="clr-namespace:PdfiumViewer">
+    <Style TargetType="pdf:PDFViewerItemContainer">
+        <Setter Property="Margin" Value="6,3"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <Grid Margin="{TemplateBinding Margin}"
+                          HorizontalAlignment="Center">
+                        <ContentPresenter/>
+                        <Canvas x:Name="PART_OverlayLayer"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="pdf:PDFViewer">
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <pdf:PDFPanel PageMode="{Binding PageMode}"
+                                  Rotation="{Binding Rotation}"/>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="pdf:PDFViewer">
+                    <ScrollViewer x:Name="PART_Scroll">
+                        <ItemsPresenter/>
+                    </ScrollViewer>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

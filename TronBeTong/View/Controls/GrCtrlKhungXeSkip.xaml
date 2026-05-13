@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="TronBeTongV3.View.GrCtrlKhungXeSkip"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TronBeTongV3.View"
+             xmlns:nmctrl="clr-namespace:NMWPFControls.Controls;assembly=NMWPFControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="270" d:DesignWidth="340"
+             Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="270"/>
+            <ColumnDefinition Width="70"/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <local:BlendImageCtrl ZSource="../../Images/SkipHoistFrame_1.png" ZBlend="#a0d07700"/>
+            <nmctrl:CtrlLEDIndicator x:Name="LEDDT0" Height="24" HorizontalAlignment="Left" VerticalAlignment="Bottom" OnColor="#e0ffff00" ToolTip="DT0"/>
+            <nmctrl:CtrlLEDIndicator x:Name="LEDDT1" Height="24" HorizontalAlignment="Center" OnColor="#e0ffff00" ToolTip="DT1"/>
+            <nmctrl:CtrlLEDIndicator x:Name="LEDDT2" Height="24" HorizontalAlignment="Right" VerticalAlignment="Top" OnColor="#e0ffff00" ToolTip="DT2"/>
+
+            <nmctrl:CtrlLEDIndicator x:Name="LEDDEMC" Height="32" HorizontalAlignment="Right" VerticalAlignment="Top" OnColor="Red" IsOn="True"
+                                 Visibility="Collapsed"
+                                 Margin="0 0 48 0" ToolTip="Skip EMC"/>
+
+            <local:BlendImageCtrl x:Name="ArrowUp" Visibility="Collapsed"
+            ZSource="../../Images/arrow_r_4.png" ZBlend="LimeGreen" Width="60" Height="24" Margin="8 -80 0 0"
+            ToolTip="Xe skip lên">
+                <local:BlendImageCtrl.LayoutTransform>
+                    <RotateTransform Angle="-45"/>
+                </local:BlendImageCtrl.LayoutTransform>
+            </local:BlendImageCtrl>
+
+            <local:BlendImageCtrl x:Name="ArrowDown" Visibility="Collapsed"
+            ZSource="../../Images/arrow_l_4.png" ZBlend="LimeGreen" Width="60" Height="24" Margin="80 -8 0 0"
+            ToolTip="Xe skip xuống">
+                <local:BlendImageCtrl.LayoutTransform>
+                    <RotateTransform Angle="-45"/>
+                </local:BlendImageCtrl.LayoutTransform>
+            </local:BlendImageCtrl>
+        </Grid>
+        <Border x:Name="BdrTGXaCL" BorderBrush="Gray" BorderThickness="1" Background="White" VerticalAlignment="Top"
+                Padding="2 1" Grid.Column="1" ToolTip="Thời gian xả cốt liệu DT2 (ET)"
+                Visibility="Hidden">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="LblTGXaCLEt" Text="0" TextAlignment="Right" Width="48" FontSize="18"/>
+                <TextBlock Text=" s" FontSize="18"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

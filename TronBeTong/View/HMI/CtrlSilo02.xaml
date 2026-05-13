@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="TronBeTongV3.View.CtrlSilo02"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TronBeTongV3.View"
+             mc:Ignorable="d" Width="72">
+    <UserControl.ContextMenu>
+        <ContextMenu>
+            <MenuItem x:Name="CmnConfig" Header="Cấu hình..." Click="CmnConfig_Click"/>
+        </ContextMenu>
+    </UserControl.ContextMenu>
+    <Grid x:Name="PnlMain">
+        <StackPanel>
+            <TextBlock Text="{Binding ZTitle}" Foreground="White" TextWrapping="Wrap" FontSize="12"/>
+            <local:GrSiloV1Part2 x:Name="SiloPart1" FontSize="14" ZText="0" IsReadonly="True"/>
+            <local:GrSiloV1Part2 x:Name="SiloPart2" FontSize="14" ZText="0" IsReadonly="True" FontWeight="Bold"/>
+            <local:GrSiloV1Part2 x:Name="SiloPart3" FontSize="14" ZText="0" IsReadonly="True" ZForeground="Red" FontWeight="Bold"/>
+            <local:GrSiloV1Part2a x:Name="SiloPart4" FontSize="14" ZText="0"/>
+            <Grid>
+                <StackPanel>
+                    <local:BlendImageCtrl x:Name="ImgRect1" ZSource="../../Images/silo03_c.png"/>
+                    <local:BlendImageCtrl x:Name="ImgConveyor" ZSource="../../Images/conveyor_screw01.png"
+                                          ToolTip="Vít tải"/>
+                </StackPanel>
+
+                <local:CtrlMultiStateButton x:Name="BtMotor" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="22" Height="22" Margin="0 -5"
+                                            ZText="M" ZActiveFill="LimeGreen" ZMaxState="2"
+                                            ZStateChanged="BtMotor_ZStateChanged"
+                                            ToolTip="Động cơ vít tải"/>
+
+                <local:CtrlMultiStateButton x:Name="BtVib" HorizontalAlignment="Left" VerticalAlignment="Top" Width="22" Height="22"
+                                            ZText="Vib" ZMaxState="2" FontSize="10" ZActiveFill="Orange"
+                                            ZStateChanged="BtVib_ZStateChanged"
+                                            ToolTip="Rung"/>
+
+            </Grid>
+        </StackPanel>            
+    </Grid>
+</UserControl>

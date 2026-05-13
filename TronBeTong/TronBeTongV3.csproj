@@ -1,0 +1,145 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x64</Platforms>
+    <ApplicationIcon>Images\concrete_truck_1.ico</ApplicationIcon>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Comm\KEPServerEX6\**" />
+    <EmbeddedResource Remove="Comm\KEPServerEX6\**" />
+    <None Remove="Comm\KEPServerEX6\**" />
+    <Page Remove="Comm\KEPServerEX6\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Images\arr2_down_16.png" />
+    <None Remove="Images\arr3_x1.png" />
+    <None Remove="Images\arr3_x2.png" />
+    <None Remove="Images\arrow_l_3.png" />
+    <None Remove="Images\arrow_l_4.png" />
+    <None Remove="Images\arrow_r_3.png" />
+    <None Remove="Images\arrow_r_4.png" />
+    <None Remove="Images\bin01_0.png" />
+    <None Remove="Images\bin01_1.png" />
+    <None Remove="Images\bin01_2.png" />
+    <None Remove="Images\bin01_3.png" />
+    <None Remove="Images\concrete_truck_1.ico" />
+    <None Remove="Images\conveyor01_a.png" />
+    <None Remove="Images\conveyor01_b.png" />
+    <None Remove="Images\conveyor01_c.png" />
+    <None Remove="Images\conveyor_screw01.png" />
+    <None Remove="Images\hsep1.png" />
+    <None Remove="Images\logo_tpa.png" />
+    <None Remove="Images\mixer01.png" />
+    <None Remove="Images\mixer01_base.png" />
+    <None Remove="Images\mixer01_hand.png" />
+    <None Remove="Images\pump.png" />
+    <None Remove="Images\silo03_b1.png" />
+    <None Remove="Images\silo03_b2.png" />
+    <None Remove="Images\silo03_c.png" />
+    <None Remove="Images\silo03_d.png" />
+    <None Remove="Images\SkipHoistArrowDown1.png" />
+    <None Remove="Images\SkipHoistArrowDown2.png" />
+    <None Remove="Images\SkipHoistArrowUp1.png" />
+    <None Remove="Images\SkipHoistArrowUp2.png" />
+    <None Remove="Images\SkipHoistFrame.png" />
+    <None Remove="Images\SkipHoistFrame_1.png" />
+    <None Remove="Images\SkipHoistSkip.png" />
+    <None Remove="Images\weighted_bin2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Images\concrete_truck_1.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.3.0" />
+    <PackageReference Include="FastReport.OpenSource" Version="2025.2.11" />
+    <PackageReference Include="FastReport.OpenSource.Export.PdfSimple" Version="2025.2.11" />
+    <PackageReference Include="MySqlConnector" Version="2.4.0" />
+    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+    <PackageReference Include="S7netplus_ncm" Version="1.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+    <PackageReference Include="System.Management" Version="9.0.9" />
+    <PackageReference Include="System.Speech" Version="9.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NMComm\NMComm.csproj" />
+    <ProjectReference Include="..\NMPrinting\NMPrinting.csproj" />
+    <ProjectReference Include="..\NMWPFControls\NMWPFControls.csproj" />
+    <ProjectReference Include="..\PdfiumViewer\PdfiumViewer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\arr2_down_16.png" />
+    <Resource Include="Images\arr3_x1.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\arr3_x2.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\arrow_l_3.png" />
+    <Resource Include="Images\arrow_l_4.png" />
+    <Resource Include="Images\arrow_r_3.png" />
+    <Resource Include="Images\arrow_r_4.png" />
+    <Resource Include="Images\bin01_0.png" />
+    <Resource Include="Images\bin01_1.png" />
+    <Resource Include="Images\bin01_2.png" />
+    <Resource Include="Images\bin01_3.png" />
+    <Resource Include="Images\concrete_truck_1.ico" />
+    <Resource Include="Images\conveyor01_a.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\conveyor01_b.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\conveyor01_c.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\conveyor_screw01.png" />
+    <Resource Include="Images\logo_tpa.png" />
+    <Resource Include="Images\mixer01.png" />
+    <Resource Include="Images\mixer01_base.png" />
+    <Resource Include="Images\mixer01_hand.png" />
+    <Resource Include="Images\pump.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\silo03_b1.png" />
+    <Resource Include="Images\silo03_b2.png" />
+    <Resource Include="Images\silo03_c.png" />
+    <Resource Include="Images\silo03_d.png" />
+    <Resource Include="Images\SkipHoistArrowDown1.png" />
+    <Resource Include="Images\SkipHoistArrowDown2.png" />
+    <Resource Include="Images\SkipHoistArrowUp1.png" />
+    <Resource Include="Images\SkipHoistArrowUp2.png" />
+    <Resource Include="Images\SkipHoistFrame.png" />
+    <Resource Include="Images\SkipHoistFrame_1.png" />
+    <Resource Include="Images\SkipHoistSkip.png" />
+    <Resource Include="Images\weighted_bin2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="TronBeTongV3.View.GrCtrlXeSkip"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TronBeTongV3.View"
+             xmlns:nmwpfctrl="clr-namespace:NMWPFControls.Controls;assembly=NMWPFControls"
+             mc:Ignorable="d" >
+    <Canvas>
+        <TextBlock x:Name="LblDebug" Foreground="Red" Canvas.Left="230" Canvas.Top="170"/>
+        <Canvas>
+            <Canvas.LayoutTransform>
+                <ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+            </Canvas.LayoutTransform>
+            <local:BlendImageCtrl x:Name="GrSkip" ZSource="../../Images/SkipHoistSkip.png"/>
+            <local:BlendImageCtrl ZSource="../../Images/SkipHoistFrame.png" ZBlend="Gray"/>
+            <local:BlendImageCtrl x:Name="GrArrowUp1" ZSource="../../Images/SkipHoistArrowUp1.png" ZBlend="LimeGreen" Visibility="Collapsed"/>
+            <local:BlendImageCtrl x:Name="GrArrowUp2" ZSource="../../Images/SkipHoistArrowUp2.png" ZBlend="LimeGreen" Visibility="Collapsed"/>
+            <local:BlendImageCtrl x:Name="GrArrowDown1" ZSource="../../Images/SkipHoistArrowDown1.png" ZBlend="LimeGreen" Visibility="Collapsed"/>
+            <local:BlendImageCtrl x:Name="GrArrowDown2" ZSource="../../Images/SkipHoistArrowDown2.png" ZBlend="LimeGreen" Visibility="Collapsed"/>
+
+        </Canvas>
+        <nmwpfctrl:CtrlLEDIndicator x:Name="LEDDT0" Height="20" Width="20" Canvas.Left="12"  Canvas.Top="246" OnColor="LimeGreen"/>
+        <nmwpfctrl:CtrlLEDIndicator x:Name="LEDDT1" Height="20" Width="20" Canvas.Left="222" Canvas.Top="140" OnColor="LimeGreen"/>
+        <nmwpfctrl:CtrlLEDIndicator x:Name="LEDDT2" Height="20" Width="20" Canvas.Left="432" Canvas.Top="34" OnColor="LimeGreen"/>
+    </Canvas>
+</UserControl>

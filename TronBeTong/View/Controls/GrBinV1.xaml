@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="TronBeTongV3.View.GrBinV1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TronBeTongV3.View"
+             mc:Ignorable="d">
+    <Grid>
+        <StackPanel>
+            <local:BlendImageCtrl x:Name="ImgRect1" ZSource="../../Images/bin01_0.png" Width="96" Height="12"/>
+            <StackPanel x:Name="Pnl2Out" Orientation="Horizontal" Margin="0 0 0 0">
+                <StackPanel>
+                    <local:BlendImageCtrl x:Name="ImgRect2" ZSource="../../Images/bin01_1.png" Width="48"
+                                          ToolTip="Xả 1"/>
+
+                    <StackPanel Margin="8 -16 0 0">
+                        <local:CtrlMultiStateButton x:Name="BtOn1" Width="22" Height="22" ZText="V" ZMaxState="2"
+                                                    ZActiveFill="LimeGreen"/>
+                        <local:GrArrowDown x:Name="Arrow1" Margin="0 3 0 0" Foreground="White" HorizontalAlignment="Center"
+                                     FontSize="10"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <local:BlendImageCtrl x:Name="ImgRect3" ZSource="../../Images/bin01_2.png" Width="48"
+                                          ToolTip="Xả 2"/>
+
+                    <StackPanel Margin="-8 -16 0 0">
+                        <local:CtrlMultiStateButton x:Name="BtOn2" Width="22" Height="22" ZText="V" ZMaxState="2"
+                                                    ZActiveFill="LimeGreen"/>
+                        <local:GrArrowDown x:Name="Arrow2" Margin="0 3 0 0" Foreground="White" HorizontalAlignment="Center"
+                                     FontSize="10"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            
+        </StackPanel>
+    </Grid>
+</UserControl>

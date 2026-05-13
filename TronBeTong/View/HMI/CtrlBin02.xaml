@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="TronBeTongV3.View.CtrlBin02"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TronBeTongV3.View"
+             xmlns:nmctrl="clr-namespace:NMWPFControls.Controls;assembly=NMWPFControls"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/Colors.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.ContextMenu>
+        <ContextMenu>
+            <MenuItem x:Name="CmnConfig" Header="Cấu hình..." Click="CmnConfig_Click"/>
+        </ContextMenu>
+    </UserControl.ContextMenu>
+    <StackPanel x:Name="PnlMain">
+        <Border BorderBrush="LightGray" BorderThickness="1" CornerRadius="3" Margin="3"
+                Background="{StaticResource SCADABg03}">
+            <StackPanel Margin="3 ">
+                <TextBlock Text="{Binding ZTitle}" FontWeight="Bold"/>
+                <DockPanel Margin="0 0 0 3">
+                    <TextBlock Text="kg" DockPanel.Dock="Right" VerticalAlignment="Center" Width="14" FontSize="12" Margin="2 0 0 0"/>
+                    <TextBox x:Name="TxtField1" IsReadOnly="True" Text="0" Focusable="False" Background="WhiteSmoke"/>
+                </DockPanel>
+                <DockPanel Margin="0 0 0 3">
+                    <TextBlock Text="kg" DockPanel.Dock="Right" VerticalAlignment="Center" Width="14" FontSize="12" Margin="2 0 0 0"/>
+                    <TextBox x:Name="TxtField2" IsReadOnly="True" Text="0" Focusable="False" Background="WhiteSmoke" FontWeight="Bold"/>
+                </DockPanel>
+                <DockPanel Margin="0 0 0 3">
+                    <TextBlock Text="kg" DockPanel.Dock="Right" VerticalAlignment="Center" Width="14" FontSize="12" Margin="2 0 0 0"/>
+                    <TextBox x:Name="TxtField3" IsReadOnly="True" Text="0" Foreground="Red" Focusable="False" Background="WhiteSmoke" FontWeight="Bold"/>
+                </DockPanel>
+                <DockPanel Margin="0 0 0 3" ToolTip="Thêm bớt">
+                    <TextBlock Text="kg" DockPanel.Dock="Right" VerticalAlignment="Center" Width="14" FontSize="12" Margin="2 0 0 0"/>
+                    <nmctrl:TextBoxDouble x:Name="TxtField4" Text="0" ValueChanged="TxtField4_ValueChanged"/>
+                </DockPanel>
+                <DockPanel Margin="0 0 0 3" ToolTip="Độ ẩm">
+                    <TextBlock Text="%" DockPanel.Dock="Right" VerticalAlignment="Center" Width="14" FontSize="12" Margin="2 0 0 0"/>
+                    <nmctrl:TextBoxDouble x:Name="TxtField5" Text="0" ValueChanged="TxtField5_ValueChanged"/>
+                </DockPanel>
+            </StackPanel>
+        </Border>
+        <Grid>
+            <local:GrBinV2 x:Name="GrBin1" FontSize="10"/>
+            <local:CtrlMultiStateButton x:Name="BtVib" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="22" Height="22" ZText="Vib" Margin="0 0 0 64"
+                                        ZMaxState="2" ZActiveFill="LightCoral" FontSize="10"
+                                        ZStateChanged="BtVib_ZStateChanged"/>
+        </Grid>
+    </StackPanel>
+</UserControl>

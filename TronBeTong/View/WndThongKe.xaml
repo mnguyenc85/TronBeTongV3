@@ -1,0 +1,111 @@
+﻿<Window x:Class="TronBeTongV3.View.WndThongKe"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TronBeTongV3.View"
+        xmlns:nmwpfctrl="clr-namespace:NMWPFControls.Controls;assembly=NMWPFControls"
+        mc:Ignorable="d"        
+        Title="Thống kê" Height="768" Width="1366" WindowStartupLocation="CenterScreen" Background="WhiteSmoke"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Colors.xaml"/>
+                <ResourceDictionary Source="../Styles/BootstrapButtons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <DockPanel.LayoutTransform>
+            <ScaleTransform ScaleX="{Binding AppZoom}" ScaleY="{Binding AppZoom}"/>
+        </DockPanel.LayoutTransform>
+        <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="3" Margin="3">
+            <StackPanel Width="200" Margin="3">
+                <TextBlock Text="Đơn hàng" FontWeight="Bold"/>
+                <TextBlock Text="Mã đơn"/>
+                <TextBox x:Name="TxtMaDon" Padding="2 1"/>
+                <TextBlock Text="Khách hàng"/>
+                <ComboBox x:Name="CboKH" Margin="0 0 0 3" ItemsSource="{Binding DsKhachHang}" IsEditable="True" DisplayMemberPath="Ten"/>
+                <TextBlock Text="Dự án/Công trình/Hạng mục"/>
+                <TextBox x:Name="TxtHangMuc" Margin="0 0 0 3" Padding="2 1"/>
+
+                <TextBlock Text="Phiếu" FontWeight="Bold"/>
+                <TextBlock Text="Số phiếu"/>
+                <TextBox x:Name="TxtSoPhieu" Margin="0 0 0 3" Padding="2 1"/>
+                <TextBlock Text="Biển số xe"/>
+                <TextBox x:Name="TxtBSX" Margin="0 0 0 3" Padding="2 1"/>
+                <TextBlock Text="Tên lái xe"/>
+                <TextBox x:Name="TxtLaiXe" Margin="0 0 0 3" Padding="2 1"/>
+
+                <TextBlock Text="Thời gian:"/>
+                <DockPanel Margin="0 0 0 3">
+                    <CheckBox x:Name="ChkTimeStart" Content="Từ:" VerticalAlignment="Center" Width="48" IsChecked="True"/>
+                    <nmwpfctrl:NMDateTimeVn x:Name="DtStart" BorderBrush="Gray" BorderThickness="1" ShowTime="True" ShowSecond="False"/>
+                </DockPanel>
+                <DockPanel Margin="0 0 0 6">
+                    <CheckBox x:Name="ChkTimeEnd" Content="Đến:" VerticalAlignment="Center" Width="48"/>
+                    <nmwpfctrl:NMDateTimeVn x:Name="DtEnd" BorderBrush="Gray" BorderThickness="1" ShowTime="True" ShowSecond="False"/>
+                </DockPanel>
+
+                <Separator Margin="0 0 0 3"/>
+                <RadioButton x:Name="OptAll" Content="Toàn bộ" IsChecked="True"/>
+                <RadioButton x:Name="OptGoodBatch" Content="Mẻ chốt tự động"/>
+                <RadioButton x:Name="OptBadBatch" Content="Mẻ dừng tay"/>
+                <CheckBox x:Name="ChkSimBatch" Content="Mẻ mô phỏng"/>
+                <Separator Margin="0 3"/>
+                <CheckBox x:Name="ChkCapPhoi" Content="Hiển thị cấp phối" Margin="0 0 0 3"
+                          Checked="ChkCapPhoi_Checked" Unchecked="ChkCapPhoi_Unchecked"/>
+                <CheckBox x:Name="ChkChiTietMe" Content="Hiển thị mẻ" Margin="0 0 0 3"
+                          Checked="ChkChiTietMe_Checked" Unchecked="ChkChiTietMe_Unchecked"/>
+
+                <Button x:Name="BtThongKe" Content="Thống kê" Style="{StaticResource BtnPrimary}" Margin="0 0 0 3"
+                        Click="BtThongKe_Click"/>
+                <CheckBox x:Name="ChkInChiTiet" Content="In báo cáo chi tiết" Margin="0 0 0 3"/>
+                <Button x:Name="BtPrint" Content="In báo cáo" Style="{StaticResource BtnPrimary}" Margin="0 0 0 3"
+                        Click="BtPrint_Click"/>
+
+                <Button x:Name="BtExportExcel" Content="Xuất Excel" Style="{StaticResource BtnSuccess}" Margin="0 0 0 3"
+                        Click="BtExportExcel_Click"/>
+                <Button x:Name="BtExportXML" Content="Xuất Xml" Style="{StaticResource BtnWarning}" Click="BtExportXML_Click"/>
+            </StackPanel>
+        </Border>
+        <DataGrid x:Name="Dgrid1" Margin="0 3 3 3" ItemsSource="{Binding KQMe}" AutoGenerateColumns="False"
+                  HorizontalGridLinesBrush="LightGray" VerticalGridLinesBrush="LightGray"
+                  IsReadOnly="True" EnableRowVirtualization="True" CanUserSortColumns="False"
+                  CanUserAddRows="False" CanUserDeleteRows="False">
+            <DataGrid.Resources>
+                <!-- Style cho DataGridRow -->
+                <Style TargetType="DataGridRow">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding MeId}" Value="-3">
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding MeId}" Value="-2">
+                            <Setter Property="Background" Value="WhiteSmoke"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding MeId}" Value="-1">
+                            <Setter Property="Background" Value="WhiteSmoke"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding MeId}" Value="-5">
+                            <Setter Property="Background" Value="Yellow"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã đơn" Binding="{Binding DonMa}"/>
+                <DataGridTextColumn Header="Khách hàng" Binding="{Binding DonKhachHang}"/>
+                <DataGridTextColumn Header="Dự án" Binding="{Binding DonDuAn}"/>
+                <DataGridTextColumn Header="Số phiếu" Binding="{Binding PhieuMa}"/>
+                <DataGridTextColumn Header="BSX" Binding="{Binding PhieuBSX}"/>
+                <DataGridTextColumn Header="Lái xe" Binding="{Binding PhieuLaiXe}"/>
+                <DataGridTextColumn Header="Cấp phối" Binding="{Binding PhieuCapPhoi}"/>
+                <DataGridTextColumn Header="TGHT" Binding="{Binding TGHT}"/>
+                <DataGridTextColumn Header="M3 Trộn" Binding="{Binding M3Tron}"/>
+                <DataGridTextColumn Header="Số mẻ" Binding="{Binding SoMe}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

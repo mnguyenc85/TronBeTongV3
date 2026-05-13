@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/25/2025 15:18:59" ReportInfo.Modified="12/09/2025 09:54:23" ReportInfo.CreatorVersion="2026.1.0.0">
+  <Dictionary>
+    <XmlDataConnection Name="dataset" ConnectionString="rijcmlqQ3tOQ3WJ+qbm+fkGR2lVXnMVtLIxI8Gh5g8WGxYmsWeV1WxtqQXUz1v6ZSZD8PEwYa0qElHn6IBVASJObN6izks2ilzGsF58xS3AtXmLh01fvF1EYXefKAFzNPAESzYA38Vtd7oX1CaPtn+2GgIz2xe5lHcZL6MUX868vmR6N3I=">
+      <TableDataSource Name="TKMeInDO" DataType="System.Int32" Enabled="true" TableName="TKMeInDO">
+        <Column Name="DonId" DataType="System.String"/>
+        <Column Name="PhieuId" DataType="System.String"/>
+        <Column Name="MeId" DataType="System.String"/>
+        <Column Name="STT" DataType="System.String"/>
+        <Column Name="DonMa" DataType="System.String"/>
+        <Column Name="DonKhachHang" DataType="System.String"/>
+        <Column Name="DonDuAn" DataType="System.String"/>
+        <Column Name="PhieuMa" DataType="System.String"/>
+        <Column Name="PhieuBSX" DataType="System.String"/>
+        <Column Name="PhieuLaiXe" DataType="System.String"/>
+        <Column Name="PhieuCapPhoi" DataType="System.String"/>
+        <Column Name="TGHT" DataType="System.String"/>
+        <Column Name="M3Tron" DataType="System.String"/>
+        <Column Name="SoMe" DataType="System.String"/>
+        <Column Name="TP0" DataType="System.String"/>
+        <Column Name="TP1" DataType="System.String"/>
+        <Column Name="TP2" DataType="System.String"/>
+        <Column Name="TP3" DataType="System.String"/>
+        <Column Name="TP4" DataType="System.String"/>
+        <Column Name="TP5" DataType="System.String"/>
+        <Column Name="TP6" DataType="System.String"/>
+        <Column Name="TP7" DataType="System.String"/>
+        <Column Name="TP8" DataType="System.String"/>
+        <Column Name="TP9" DataType="System.String"/>
+        <Column Name="Flags" DataType="System.String"/>
+      </TableDataSource>
+    </XmlDataConnection>
+    <Parameter Name="Title" DataType="System.String" AsString="">
+      <Parameter Name="CTy" DataType="System.String" AsString="">
+        <Parameter Name="Ten" DataType="System.String" AsString=""/>
+        <Parameter Name="DiaChi" DataType="System.String" AsString=""/>
+        <Parameter Name="SDT1" DataType="System.String" AsString=""/>
+        <Parameter Name="SDT2" DataType="System.String" AsString=""/>
+      </Parameter>
+    </Parameter>
+    <Parameter Name="DieuKien" DataType="System.String" AsString="">
+      <Parameter Name="MaDon" DataType="System.String" AsString=""/>
+      <Parameter Name="KhachHang" DataType="System.String" AsString=""/>
+      <Parameter Name="CongTrinh" DataType="System.String" AsString=""/>
+      <Parameter Name="SoPhieu" DataType="System.String" AsString=""/>
+      <Parameter Name="BienSoXe" DataType="System.String" AsString=""/>
+      <Parameter Name="LaiXe" DataType="System.String" AsString=""/>
+      <Parameter Name="TGBD" DataType="System.String" AsString=""/>
+      <Parameter Name="TGKT" DataType="System.String" AsString=""/>
+      <Parameter Name="MeTuDong" DataType="System.String" AsString=""/>
+      <Parameter Name="MeDungTay" DataType="System.String" AsString=""/>
+      <Parameter Name="MeMoPhong" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="TongKL" DataType="System.String" AsString="">
+      <Parameter Name="CotLieu" DataType="System.String" AsString="">
+        <Parameter Name="Ten" DataType="System.String" AsString="">
+          <Parameter Name="0" DataType="System.String" AsString=""/>
+          <Parameter Name="1" DataType="System.String" AsString=""/>
+          <Parameter Name="2" DataType="System.String" AsString=""/>
+          <Parameter Name="3" DataType="System.String" AsString=""/>
+          <Parameter Name="4" DataType="System.String" AsString=""/>
+          <Parameter Name="5" DataType="System.String" AsString=""/>
+        </Parameter>
+        <Parameter Name="KL" DataType="System.String" AsString="">
+          <Parameter Name="0" DataType="System.String" AsString=""/>
+          <Parameter Name="1" DataType="System.String" AsString=""/>
+          <Parameter Name="2" DataType="System.String" AsString=""/>
+          <Parameter Name="3" DataType="System.String" AsString=""/>
+          <Parameter Name="4" DataType="System.String" AsString=""/>
+          <Parameter Name="5" DataType="System.String" AsString=""/>
+        </Parameter>
+      </Parameter>
+      <Parameter Name="XiMang" DataType="System.String" AsString="">
+        <Parameter Name="Ten" DataType="System.String" AsString="">
+          <Parameter Name="0" DataType="System.String" AsString=""/>
+          <Parameter Name="1" DataType="System.String" AsString=""/>
+          <Parameter Name="2" DataType="System.String" AsString=""/>
+          <Parameter Name="3" DataType="System.String" AsString=""/>
+          <Parameter Name="4" DataType="System.String" AsString=""/>
+          <Parameter Name="5" DataType="System.String" AsString=""/>
+        </Parameter>
+        <Parameter Name="KL" DataType="System.String" AsString="">
+          <Parameter Name="0" DataType="System.String" AsString=""/>
+          <Parameter Name="1" DataType="System.String" AsString=""/>
+          <Parameter Name="2" DataType="System.String" AsString=""/>
+          <Parameter Name="3" DataType="System.String" AsString=""/>
+          <Parameter Name="4" DataType="System.String" AsString=""/>
+          <Parameter Name="5" DataType="System.String" AsString=""/>
+        </Parameter>
+      </Parameter>
+      <Parameter Name="PhuGia" DataType="System.String" AsString="">
+        <Parameter Name="Ten" DataType="System.String" AsString="">
+          <Parameter Name="0" DataType="System.String" AsString=""/>
+          <Parameter Name="1" DataType="System.String" AsString=""/>
+          <Parameter Name="2" DataType="System.String" AsString=""/>
+          <Parameter Name="3" DataType="System.String" AsString=""/>
+          <Parameter Name="4" DataType="System.String" AsString=""/>
+          <Parameter Name="5" DataType="System.String" AsString=""/>
+        </Parameter>
+        <Parameter Name="KL" DataType="System.String" AsString="">
+          <Parameter Name="0" DataType="System.String" AsString=""/>
+          <Parameter Name="1" DataType="System.String" AsString=""/>
+          <Parameter Name="2" DataType="System.String" AsString=""/>
+          <Parameter Name="3" DataType="System.String" AsString=""/>
+          <Parameter Name="4" DataType="System.String" AsString=""/>
+          <Parameter Name="5" DataType="System.String" AsString=""/>
+        </Parameter>
+      </Parameter>
+      <Parameter Name="Nuoc" DataType="System.String" AsString="">
+        <Parameter Name="KL" DataType="System.String" AsString="">
+          <Parameter Name="0" DataType="System.String" AsString=""/>
+        </Parameter>
+        <Parameter Name="Ten" DataType="System.String" AsString="">
+          <Parameter Name="0" DataType="System.String" AsString=""/>
+        </Parameter>
+      </Parameter>
+    </Parameter>
+    <Parameter Name="Tong" DataType="System.String" AsString="">
+      <Parameter Name="M3" DataType="System.String" AsString=""/>
+      <Parameter Name="Phieu" DataType="System.String" AsString=""/>
+      <Parameter Name="CotLieu" DataType="System.String" AsString=""/>
+      <Parameter Name="XiMang" DataType="System.String" AsString=""/>
+      <Parameter Name="PhuGia" DataType="System.String" AsString=""/>
+      <Parameter Name="Nuoc" DataType="System.String" AsString=""/>
+    </Parameter>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="113.4">
+      <TextObject Name="lblCTy1" Left="28.35" Top="9.45" Width="650.16" Height="26.46" Text="CÔNG TY CỔ PHẦN CHÈM NGỌC HỒI" HorzAlign="Center" Font="Times New Roman, 15.75pt, style=Bold"/>
+      <TextObject Name="lblCTy2" Left="28.35" Top="37.8" Width="650.16" Height="30.24" Text="TRẠM TRỘN BÊ TÔNG CHÈM - MLS" HorzAlign="Center" Font="Times New Roman, 20.25pt, style=Bold"/>
+      <TextObject Name="lblCTyDiaChi" Left="28.35" Top="66.15" Width="648.27" Height="26.46" Text="đ/c : Km12, Quốc Lộ 1A, Xã Thanh Trì, Hà Nội. ĐT :0981270138" HorzAlign="Center" Font="Times New Roman, 15.75pt"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="117.4" Width="718.2" Height="483.84">
+      <TextObject Name="Text55" Left="28.35" Width="650.16" Height="30.24" Text="BẢNG SỐ LIỆU VẬT LIỆU" HorzAlign="Center" Font="Times New Roman, 20.25pt, style=Bold"/>
+      <TextObject Name="Text56" Top="75.6" Width="300.51" Height="30.24" Text="TỔNG KHỐI LƯỢNG BÊ TÔNG(M3):" Font="Times New Roman, 12pt, style=Bold"/>
+      <TableObject Name="Table1" Top="94.5" Width="703.08" Height="75.6" Border.Lines="Left, Bottom">
+        <TableColumn Name="Column1" Width="117.18"/>
+        <TableColumn Name="Column2" Width="117.18"/>
+        <TableColumn Name="Column3" Width="117.18"/>
+        <TableColumn Name="Column4" Width="117.18"/>
+        <TableColumn Name="Column5" Width="117.18"/>
+        <TableColumn Name="Column6" Width="117.18"/>
+        <TableRow Name="Row1" Height="37.8">
+          <TableCell Name="Cell1" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text60" Width="111.51" Height="30.24" Text="[TongKL.CotLieu.Ten.0]" Font="Times New Roman, 12pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell2" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text61" Left="9.45" Width="111.51" Height="30.24" Text="[TongKL.CotLieu.Ten.1]" Font="Times New Roman, 12pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell3" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text62" Left="9.45" Width="111.51" Height="30.24" Text="[TongKL.CotLieu.Ten.2]" Font="Times New Roman, 12pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell4" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text63" Left="9.45" Top="9.45" Width="111.51" Height="30.24" Text="XI MĂNG" Font="Times New Roman, 12pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell5" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text64" Left="9.45" Width="111.51" Height="30.24" Text="[TongKL.Nuoc.Ten.0]" Font="Times New Roman, 12pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell26" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text65" Left="9.45" Top="9.45" Width="111.51" Height="30.24" Text="P.G.LỎNG" Font="Times New Roman, 12pt, style=Bold"/>
+          </TableCell>
+        </TableRow>
+        <TableRow Name="Row2" Height="37.8">
+          <TableCell Name="Cell6" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text66" Width="111.51" Height="30.24" Text="[TongKL.CotLieu.KL.0]" Font="Times New Roman, 12pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell7" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text67" Left="9.45" Width="111.51" Height="30.24" Text="[TongKL.CotLieu.KL.1]" Font="Times New Roman, 12pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell8" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text68" Left="9.45" Width="111.51" Height="30.24" Text="[TongKL.CotLieu.KL.2]" Font="Times New Roman, 12pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell9" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text69" Left="9.45" Width="111.51" Height="30.24" Text="[Tong.XiMang]" Font="Times New Roman, 12pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell10" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text70" Left="9.45" Width="111.51" Height="30.24" Text="[Tong.Nuoc]" Font="Times New Roman, 12pt, style=Bold"/>
+          </TableCell>
+          <TableCell Name="Cell27" Border.Lines="All" Font="Arial, 10pt">
+            <TextObject Name="Text71" Left="9.45" Width="111.51" Height="30.24" Text="[Tong.PhuGia]" Font="Times New Roman, 12pt, style=Bold"/>
+          </TableCell>
+        </TableRow>
+      </TableObject>
+      <TextObject Name="Text57" Left="283.5" Top="75.6" Width="92.61" Height="30.24" Text="[Tong.M3]" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text58" Left="434.7" Top="75.6" Width="177.66" Height="30.24" Text="TỔNG SỐ XE TRỘN :" HorzAlign="Right" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text59" Left="604.8" Top="75.6" Width="177.66" Height="30.24" Text="[Tong.Phieu]" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text72" Top="189" Width="376.11" Height="30.24" Text="TỔNG KHỐI LƯỢNG XI MĂNG TỪNG SILO:" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text73" Top="217.35" Width="83.16" Height="30.24" Text="[TongKL.XiMang.Ten.0]" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text74" Left="85.05" Top="217.35" Width="83.16" Height="30.24" Text="[TongKL.XiMang.KL.0]" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text75" Left="189" Top="217.35" Width="83.16" Height="30.24" Text="[TongKL.XiMang.Ten.1]" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text76" Left="274.05" Top="217.35" Width="83.16" Height="30.24" Text="[TongKL.XiMang.KL.1]" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text77" Left="378" Top="217.35" Width="83.16" Height="30.24" Text="[TongKL.XiMang.Ten.2]" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text78" Left="463.05" Top="217.35" Width="83.16" Height="30.24" Text="[TongKL.XiMang.KL.2]" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text79" Left="567" Top="217.35" Width="83.16" Height="30.24" Text="[TongKL.XiMang.Ten.3]" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text80" Left="652.05" Top="217.35" Width="83.16" Height="30.24" Text="[TongKL.XiMang.KL.3]" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text81" Top="274.05" Width="376.11" Height="30.24" Text="TỔNG KHỐI LƯỢNG PHỤ GIA TỪNG BÌNH:" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text82" Top="302.4" Width="83.16" Height="30.24" Text="[TongKL.PhuGia.Ten.0]" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text83" Left="85.05" Top="302.4" Width="83.16" Height="30.24" Text="[TongKL.PhuGia.KL.0]" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text84" Left="189" Top="302.4" Width="83.16" Height="30.24" Text="[TongKL.PhuGia.Ten.1]" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text85" Left="274.05" Top="302.4" Width="83.16" Height="30.24" Text="[TongKL.PhuGia.KL.1]" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text86" Left="28.35" Top="28.35" Width="650.16" Height="30.24" Text="Từ ngày : [DieuKien.TGBD] đến ngày : [DieuKien.TGKT]" HorzAlign="Center" Font="Times New Roman, 12pt, style=Italic"/>
+      <TextObject Name="Text87" Left="292.95" Top="378" Width="376.11" Height="30.24" Text="Ngày làm thống kê :" HorzAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+      <TextObject Name="Text88" Left="292.95" Top="396.9" Width="376.11" Height="30.24" Text="NGƯỜI VẬN HÀNH" HorzAlign="Center" Font="Times New Roman, 12pt, style=Bold"/>
+    </PageHeaderBand>
+    <PageFooterBand Name="PageFooter1" Top="605.24" Width="718.2" Height="689.85"/>
+  </ReportPage>
+</Report>

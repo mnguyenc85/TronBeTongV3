@@ -1,0 +1,176 @@
+﻿<Window x:Class="TronBeTongV3.View.WndCreateBill"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TronBeTongV3.View"
+        xmlns:nmwpfctrl="clr-namespace:NMWPFControls.Controls;assembly=NMWPFControls"
+        mc:Ignorable="d"
+        Title="Đơn trộn" Height="450" Width="800" Background="WhiteSmoke" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Colors.xaml"/>
+                <ResourceDictionary Source="../Styles/BootstrapButtons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="344"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="3" Margin="3" Background="{StaticResource SCADABg04}">
+            <DockPanel Margin="3">
+                <StackPanel DockPanel.Dock="Top">
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 6">
+                        <TextBlock Text="Khách hàng: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                        <nmwpfctrl:NMComboBoxV2 x:Name="CboKH" Width="240"
+                                                ZItemsSource="{Binding DsKH}" DisplayMemberPath="Ten"
+                                                ZSelectedChanged="CboKH_ZSelectedChanged">
+                            <nmwpfctrl:NMComboBoxV2.ZListItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Ten}"/>
+                                </DataTemplate>
+                            </nmwpfctrl:NMComboBoxV2.ZListItemTemplate>
+                        </nmwpfctrl:NMComboBoxV2>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
+                        <TextBlock Text="Mã phiếu: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                        <TextBox Width="240" Padding="2 1"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
+                        <TextBlock Text="Dự án: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                        <nmwpfctrl:NMComboBoxV2 x:Name="CboDA" Width="240"
+                                                ZItemsSource="{Binding DsDuAn}" DisplayMemberPath="DuAn"
+                                                ZSelectedChanged="CboDA_ZSelectedChanged">
+                            <nmwpfctrl:NMComboBoxV2.ZListItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding DuAn}" Margin="0 0 3 0"/>
+                                        <TextBlock Text="{Binding CongTrinh}" Margin="0 0 3 0"/>
+                                        <TextBlock Text="{Binding HangMuc}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </nmwpfctrl:NMComboBoxV2.ZListItemTemplate>
+                        </nmwpfctrl:NMComboBoxV2>
+                    </StackPanel>
+                
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 6">
+                        <TextBlock Text="Xe: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                        <nmwpfctrl:NMComboBoxV2 x:Name="CboXe" Width="240"
+                                                ZItemsSource="{Binding DsXe}" DisplayMemberPath="BSX"
+                                                ZSelectedChanged="CboXe_ZSelectedChanged">
+                            <nmwpfctrl:NMComboBoxV2.ZListItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding BSX}"/>
+                                </DataTemplate>
+                            </nmwpfctrl:NMComboBoxV2.ZListItemTemplate>
+                        </nmwpfctrl:NMComboBoxV2>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 6">
+                        <TextBlock Text="Dung tích: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                        <TextBlock x:Name="LblXeDungTich" Text="{Binding Don.Xe.DungTich}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
+                        <TextBlock Text="Lái xe: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                        <nmwpfctrl:NMComboBoxV2 x:Name="CboLaiXe" Width="240"
+                                                ZItemsSource="{Binding DsLaiXe}" DisplayMemberPath="Ten"
+                                                ZSelectedChanged="CboLaiXe_ZSelectedChanged">
+                            <nmwpfctrl:NMComboBoxV2.ZListItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Ten}"/>
+                                </DataTemplate>
+                            </nmwpfctrl:NMComboBoxV2.ZListItemTemplate>
+                        </nmwpfctrl:NMComboBoxV2>
+                    </StackPanel>
+                
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 6">
+                        <TextBlock Text="Công thức: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                        <nmwpfctrl:NMComboBoxV2 x:Name="CboCongThuc" Width="240"
+                                                ZItemsSource="{Binding DsCongThuc}" DisplayMemberPath="Ma"
+                                                ZSelectedChanged="CboCongThuc_ZSelectedChanged">
+                            <nmwpfctrl:NMComboBoxV2.ZListItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Ma}"/>
+                                </DataTemplate>
+                            </nmwpfctrl:NMComboBoxV2.ZListItemTemplate>
+                        </nmwpfctrl:NMComboBoxV2>
+                    </StackPanel>
+                
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 12">
+                        <TextBlock Text="Độ sụt: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                        <TextBox x:Name="TxtSlump" Width="240" Padding="2 1"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 6">
+                        <TextBlock Text="M3 trộn: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                        <nmwpfctrl:TextBoxDouble x:Name="TxtM3" Width="90" Padding="2 1" Text="0"
+                                              ValueChanged="TxtM3_ValueChanged"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 6">
+                        <TextBlock Text="Số mẻ: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                        <nmwpfctrl:TextBoxInt x:Name="TxtSoMe" Width="90" Padding="2 1" Text="0" ValueChanged="TxtSoMe_ValueChanged"/>
+                        <Button x:Name="BtAutoCalSoMe" Content="Tự động tính" Margin="3 0 0 0" Style="{StaticResource BtnPrimary}"
+                                Click="BtAutoCalSoMe_Click"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 6">
+                        <TextBlock Text="M3/mẻ: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                        <TextBox x:Name="TxtM3OverMe" Width="90" Padding="2 1" Text="0" IsReadOnly="True"/>
+                    </StackPanel>
+
+                    <Separator/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 3 0 0">
+                        <Button x:Name="BtCreate" Content="Tạo phiếu" Width="90" Style="{StaticResource BtnSuccess}"
+                                Click="BtCreate_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <DockPanel Grid.Column="1" Margin="0 3 3 3">
+            <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="3" DockPanel.Dock="Bottom" Margin="0 3 0 0">
+                <TextBlock x:Name="LblCheckCongThuc"/>
+            </Border>
+            <ListView ItemsSource="{Binding Don.CongThuc.DsThanhPhan}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"/>
+                        <GridViewColumn Header="Nguyên liệu">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding NL_Ten}" FontWeight="Bold">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Foreground" Value="Black"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding NL_PhanLoai}" Value="1">
+                                                        <Setter Property="Foreground" Value="#4040ff"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding NL_PhanLoai}" Value="2">
+                                                        <Setter Property="Foreground" Value="#afaf00"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding NL_PhanLoai}" Value="3">
+                                                        <Setter Property="Foreground" Value="#ff0010"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding NL_PhanLoai}" Value="4">
+                                                        <Setter Property="Foreground" Value="DeepSkyBlue"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Silo" DisplayMemberBinding="{Binding SiloTen}"/>
+                        <GridViewColumn Header="Cấp phối (kg/m3)" DisplayMemberBinding="{Binding KLCongThuc}"/>
+                        <GridViewColumn Header="KL Tổng (kg)" DisplayMemberBinding="{Binding KLTong}"/>
+                        <GridViewColumn Header="KL mẻ (kg)" DisplayMemberBinding="{Binding KLMe}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </DockPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,123 @@
+﻿<Window x:Class="TronBeTongV3.View.WndEditSilo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TronBeTongV3.View"
+        xmlns:corecvt="clr-namespace:TronBeTongV3.Core.MVVM.Converters"
+        xmlns:core="clr-namespace:TronBeTongV3.Core"
+        xmlns:nmwpfctrl="clr-namespace:NMWPFControls.Controls;assembly=NMWPFControls"
+        mc:Ignorable="d"
+        Title="Cấu hình silo" Height="600" Width="900" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded" Closing="Window_Closing">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Colors.xaml"/>
+                <ResourceDictionary Source="../Styles/BootstrapButtons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Background="WhiteSmoke">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="3"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
+
+        <Border BorderThickness="1" BorderBrush="Gray" CornerRadius="3" Background="{StaticResource SCADABg04}" Margin="3 3 0 3">
+            <ListView x:Name="LvSilos" Margin="3" ItemsSource="{Binding DsSilos}" SelectionChanged="LvSilos_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"/>
+                        <GridViewColumn Header="Tên">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Ten}" FontWeight="Bold">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Foreground" Value="Black"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding PhanLoai}" Value="1">
+                                                        <Setter Property="Foreground" Value="#4040ff"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding PhanLoai}" Value="2">
+                                                        <Setter Property="Foreground" Value="#afaf00"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding PhanLoai}" Value="3">
+                                                        <Setter Property="Foreground" Value="#ff0010"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger Binding="{Binding PhanLoai}" Value="4">
+                                                        <Setter Property="Foreground" Value="DeepSkyBlue"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Nguyên liệu" DisplayMemberBinding="{Binding NguyenLieu.Ten}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Border>
+
+        <Border Margin="0 3 3 3" Grid.Column="2" BorderThickness="1" BorderBrush="Gray" CornerRadius="3" Background="{StaticResource SCADABg04}">
+            <DockPanel Margin="3">
+                <TextBlock x:Name="LblSilo" DockPanel.Dock="Top" Text="Silo: " Margin="0 0 0 3" FontSize="14" FontWeight="Bold"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="3"/>
+                        <ColumnDefinition Width="240"/>
+                    </Grid.ColumnDefinitions>
+                    <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Background="Transparent"/>
+                    
+                    <DockPanel>
+                        <DockPanel DockPanel.Dock="Top">
+                            <Button x:Name="BtFilterClear" Content="Clear" DockPanel.Dock="Right" Click="BtFilterClear_Click"/>
+                            <TextBox x:Name="TxtFilter" Padding="2 1" TextChanged="TxtFilter_TextChanged"/>
+                        </DockPanel>
+                        
+                        <ListView x:Name="LvNguyenLieu"
+                                ItemsSource="{Binding CVDsNL}" SelectionChanged="LvNguyenLieu_SelectionChanged">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"/>
+                                    <GridViewColumn Header="Mã" DisplayMemberBinding="{Binding Ma}"/>
+                                    <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding Ten}"/>
+                                    <GridViewColumn Header="Độ ẩm" DisplayMemberBinding="{Binding DoAm}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </DockPanel>
+
+
+                    <Border x:Name="BdrNguyenLieuInputs" Grid.Column="4" BorderThickness="1" BorderBrush="Gray" CornerRadius="3" Background="{StaticResource SCADABg04}">
+                        <StackPanel Grid.Column="2" Margin="3">
+                            <TextBlock x:Name="LblNLTitle" FontWeight="Bold" Foreground="SteelBlue"/>
+                            <TextBlock Text="Phân loại:" Margin="0 3 0 0"/>
+                            <TextBlock Text="{Binding CurNL.PhanLoai, Converter={corecvt:AggrTypeToStringCvt}}" Background="White" Padding="2 1"/>
+                            <TextBlock Text="* Mã:"/>
+                            <TextBox Padding="2 1" Text="{Binding CurNL.Ma}"/>
+                            <TextBlock Text="Tên:"/>
+                            <TextBox Padding="2 1" Text="{Binding CurNL.Ten}"/>
+                            <!--<TextBlock Text="Độ ẩm:"/>
+                            <TextBox Padding="2 1" Text="{Binding CurNL.DoAm}"/>-->
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 6 0 0">
+                                <Button x:Name="BtNLNew" Content="Mới" Style="{StaticResource BtnPrimary}" Width="60" Click="BtNLNew_Click"/>
+                                <Button Content="Lưu" Style="{StaticResource BtnSuccess}" Width="60" Margin="6 0 0 0" Command="{Binding CmdNLSave}"/>
+                            </StackPanel>
+                            <Button x:Name="BtNLSet" Content="Đặt" Margin="0 6 0 0" Width="126" HorizontalAlignment="Right" Style="{StaticResource BtnSuccess}"
+                                    Click="BtNLSet_Click"/>
+                            <Button x:Name="BtNLClear" Content="Xóa" Margin="0 6 0 0" Width="126" HorizontalAlignment="Right" Style="{StaticResource BtnDanger}"
+                                    Click="BtNLClear_Click"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>

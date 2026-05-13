@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\DSEG7Classic-Bold.ttf" />
+    <None Remove="Fonts\DSEG7Classic-BoldItalic.ttf" />
+    <None Remove="Fonts\DSEG7Classic-Italic.ttf" />
+    <None Remove="Fonts\DSEG7Classic-Regular.ttf" />
+    <None Remove="Images\calendar-black-32.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\DSEG7Classic-Bold.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\DSEG7Classic-BoldItalic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\DSEG7Classic-Italic.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\DSEG7Classic-Regular.ttf">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\calendar-black-32.png" />
+  </ItemGroup>
+
+</Project>

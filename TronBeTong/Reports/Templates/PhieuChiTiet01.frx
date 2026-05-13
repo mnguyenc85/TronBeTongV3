@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="09/25/2025 15:49:38" ReportInfo.Modified="12/05/2025 17:23:30" ReportInfo.CreatorVersion="2025.2.0.0">
+  <Dictionary>
+    <XmlDataConnection Name="dataset" ConnectionString="rijcmlqCXEVFbNTIxOQMPWtol5eof04hPGVqNcbHeNiD+myT8n/ZSls4vaxc3VV2PD3T123+sAyoTRU1JrtvXxWxJpvARjmlHUuaIdkwcb9O/qpwUM=">
+      <TableDataSource Name="TKMeInVM" DataType="System.Int32" Enabled="true" TableName="TKMeInVM">
+        <Column Name="STT" DataType="System.String"/>
+        <Column Name="M3Tron" DataType="System.String"/>
+        <Column Name="KLCL0" DataType="System.String"/>
+        <Column Name="KLCL1" DataType="System.String"/>
+        <Column Name="KLCL2" DataType="System.String"/>
+        <Column Name="KLCL3" DataType="System.String"/>
+        <Column Name="KLCL4" DataType="System.String"/>
+        <Column Name="KLCL5" DataType="System.String"/>
+        <Column Name="KLXi0" DataType="System.String"/>
+        <Column Name="KLXi1" DataType="System.String"/>
+        <Column Name="KLXi2" DataType="System.String"/>
+        <Column Name="KLXi3" DataType="System.String"/>
+        <Column Name="KLXi4" DataType="System.String"/>
+        <Column Name="KLPG0" DataType="System.String"/>
+        <Column Name="KLPG1" DataType="System.String"/>
+        <Column Name="KLPG2" DataType="System.String"/>
+        <Column Name="KLPG3" DataType="System.String"/>
+        <Column Name="KLPG4" DataType="System.String"/>
+        <Column Name="KLPG5" DataType="System.String"/>
+        <Column Name="KLPG6" DataType="System.String"/>
+        <Column Name="KLPG7" DataType="System.String"/>
+        <Column Name="KLNuoc" DataType="System.String"/>
+        <Column Name="HoanThanh" DataType="System.String"/>
+        <Column Name="Flags" DataType="System.Int32"/>
+      </TableDataSource>
+    </XmlDataConnection>
+    <Relation Name="KLCL_string" ParentDataSource="null" ChildDataSource="null" ParentColumns="KLCL_Id" ChildColumns="KLCL_Id" Enabled="true"/>
+    <Relation Name="HuCL_string" ParentDataSource="null" ChildDataSource="null" ParentColumns="HuCL_Id" ChildColumns="HuCL_Id" Enabled="true"/>
+    <Relation Name="KLXi_string" ParentDataSource="null" ChildDataSource="null" ParentColumns="KLXi_Id" ChildColumns="KLXi_Id" Enabled="true"/>
+    <Relation Name="KLPG_string" ParentDataSource="null" ChildDataSource="null" ParentColumns="KLPG_Id" ChildColumns="KLPG_Id" Enabled="true"/>
+    <Relation Name="TKMeVM_KLCL" ParentDataSource="null" ChildDataSource="null" ParentColumns="TKMeVM_Id" ChildColumns="TKMeVM_Id" Enabled="true"/>
+    <Relation Name="TKMeVM_HuCL" ParentDataSource="null" ChildDataSource="null" ParentColumns="TKMeVM_Id" ChildColumns="TKMeVM_Id" Enabled="true"/>
+    <Relation Name="TKMeVM_KLXi" ParentDataSource="null" ChildDataSource="null" ParentColumns="TKMeVM_Id" ChildColumns="TKMeVM_Id" Enabled="true"/>
+    <Relation Name="TKMeVM_KLPG" ParentDataSource="null" ChildDataSource="null" ParentColumns="TKMeVM_Id" ChildColumns="TKMeVM_Id" Enabled="true"/>
+    <Parameter Name="Title" DataType="System.String" AsString="">
+      <Parameter Name="CTy" DataType="System.String" AsString="">
+        <Parameter Name="Ten" DataType="System.String" AsString=""/>
+        <Parameter Name="DiaChi" DataType="System.String" AsString=""/>
+        <Parameter Name="SDT1" DataType="System.String" AsString=""/>
+        <Parameter Name="SDT2" DataType="System.String" AsString=""/>
+      </Parameter>
+    </Parameter>
+    <Parameter Name="KH" DataType="System.String" AsString="">
+      <Parameter Name="Ten" DataType="System.String" AsString=""/>
+      <Parameter Name="DiaChi" DataType="System.String" AsString=""/>
+      <Parameter Name="SDT" DataType="System.String" AsString=""/>
+      <Parameter Name="Ma" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="DuAn" DataType="System.String" AsString="">
+      <Parameter Name="DA" DataType="System.String" AsString=""/>
+      <Parameter Name="CT" DataType="System.String" AsString=""/>
+      <Parameter Name="HM" DataType="System.String" AsString=""/>
+      <Parameter Name="DiaChi" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="Xe" DataType="System.String" AsString="">
+      <Parameter Name="BSX" DataType="System.String" AsString=""/>
+      <Parameter Name="LaiXe" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="CapPhoi" DataType="System.String" AsString="">
+      <Parameter Name="CL1" DataType="System.String" AsString=""/>
+      <Parameter Name="CL2" DataType="System.String" AsString=""/>
+      <Parameter Name="CL3" DataType="System.String" AsString=""/>
+      <Parameter Name="CL4" DataType="System.String" AsString=""/>
+      <Parameter Name="CL5" DataType="System.String" AsString=""/>
+      <Parameter Name="Xi1" DataType="System.String" AsString=""/>
+      <Parameter Name="Xi2" DataType="System.String" AsString=""/>
+      <Parameter Name="Slump" DataType="System.String" AsString=""/>
+      <Parameter Name="AggMax" DataType="System.String" AsString=""/>
+      <Parameter Name="Ten" DataType="System.String" AsString=""/>
+      <Parameter Name="Ma" DataType="System.String" AsString=""/>
+      <Parameter Name="Mac" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="KLTP" DataType="System.String" AsString="">
+      <Parameter Name="CL1" DataType="System.String" AsString=""/>
+      <Parameter Name="CL2" DataType="System.String" AsString=""/>
+      <Parameter Name="CL3" DataType="System.String" AsString=""/>
+      <Parameter Name="CL4" DataType="System.String" AsString=""/>
+      <Parameter Name="CL5" DataType="System.String" AsString=""/>
+      <Parameter Name="Xi1" DataType="System.String" AsString=""/>
+      <Parameter Name="Xi2" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="Phieu" DataType="System.String" AsString="">
+      <Parameter Name="TGBD" DataType="System.String" AsString=""/>
+      <Parameter Name="TGKT" DataType="System.String" AsString=""/>
+      <Parameter Name="SoPhieu" DataType="System.String" AsString=""/>
+      <Parameter Name="NgayXuatTram" DataType="System.String" AsString=""/>
+      <Parameter Name="GioXuatTram" DataType="System.String" AsString=""/>
+      <Parameter Name="NgayXuatTramShort" DataType="System.String" AsString=""/>
+      <Parameter Name="GioXuatTramShort" DataType="System.String" AsString=""/>
+      <Parameter Name="DonGia" DataType="System.String" AsString=""/>
+      <Parameter Name="TongTien" DataType="System.String" AsString=""/>
+      <Parameter Name="KL" DataType="System.String" AsString=""/>
+      <Parameter Name="TongKL" DataType="System.String" AsString=""/>
+      <Parameter Name="M3" DataType="System.String" AsString=""/>
+      <Parameter Name="STT" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="Don" DataType="System.String" AsString="">
+      <Parameter Name="Ma" DataType="System.String" AsString=""/>
+      <Parameter Name="TichLuy" DataType="System.String" AsString=""/>
+      <Parameter Name="M3" DataType="System.String" AsString=""/>
+    </Parameter>
+    <Parameter Name="Tram" DataType="System.String" AsString="">
+      <Parameter Name="Ten" DataType="System.String" AsString=""/>
+    </Parameter>
+  </Dictionary>
+  <ReportPage Name="Page1" LeftMargin="13" TopMargin="7" BottomMargin="7" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="706.86" Height="378">
+      <TextObject Name="lblCTyDiaChi" Left="28.35" Top="75.6" Width="648.27" Height="26.46" Text="đ/c : Km12, Quốc Lộ 1A, Xã Thanh Trì, Hà Nội. ĐT :0981270138" HorzAlign="Center" Font="Times New Roman, 15.75pt"/>
+      <TextObject Name="Text3" Top="122.85" Width="128.52" Height="22.68" Text="Ngày:" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text10" Left="132.3" Top="122.85" Width="200.34" Height="22.68" Text="[Phieu.NgayXuatTramShort]" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text12" Left="311.85" Top="122.85" Width="189" Height="22.68" Text="Phiếu số:" HorzAlign="Right" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text64" Left="491.4" Top="122.85" Width="189" Height="22.68" Text="[Phieu.STT]" HorzAlign="Right" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text5" Top="151.2" Width="128.52" Height="22.68" Text="Khách hàng:" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text14" Left="132.3" Top="151.2" Width="200.34" Height="22.68" Text="[KH.Ten]" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text7" Left="368.55" Top="151.2" Width="128.52" Height="22.68" Text="Công trình:" HorzAlign="Right" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text9" Top="179.55" Width="128.52" Height="22.68" Text="Địa điểm:" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text18" Left="132.3" Top="170.1" Width="200.34" Height="45.36" Text="[DuAn.DiaChi]" VertAlign="Center" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text17" Left="349.65" Top="179.55" Width="151.2" Height="22.68" Text="Số xe:" HorzAlign="Right" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text65" Left="529.2" Top="179.55" Width="151.2" Height="22.68" Text="[Xe.BSX]" HorzAlign="Right" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text23" Top="207.9" Width="128.52" Height="22.68" Text="Slum (mm) :" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text25" Left="113.4" Top="207.9" Width="194.67" Height="22.68" Text="[CapPhoi.Slump]" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text29" Left="359.1" Top="207.9" Width="137.97" Height="22.68" Text="Quantily (m3):" HorzAlign="Right" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text31" Left="548.1" Top="207.9" Width="128.52" Height="22.68" Text="[Phieu.M3]" HorzAlign="Right" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text41" Top="236.25" Width="128.52" Height="22.68" Text="Total (m3):" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text43" Left="132.3" Top="236.25" Width="175.77" Height="22.68" Text="[Don.TichLuy]" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text20" Left="359.1" Top="236.25" Width="137.97" Height="22.68" Text="Mác bê tông:" HorzAlign="Right" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text34" Left="481.95" Top="236.25" Width="194.67" Height="22.68" Text="[CapPhoi.Mac]" HorzAlign="Right" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text69" Top="264.6" Width="128.52" Height="22.68" Text="Rời trạm trộn :" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text46" Left="132.3" Top="264.6" Width="194.67" Height="22.68" Text="[Phieu.GioXuatTramShort]" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="Text15" Left="557.55" Top="151.2" Width="124.74" Height="22.68" Text="[DuAn.DA]" HorzAlign="Right" Font="Times New Roman, 14.25pt"/>
+      <TextObject Name="lblCTy2" Left="28.35" Top="37.8" Width="650.16" Height="30.24" Text="TRẠM TRỘN BÊ TÔNG CHÈM - MLS" HorzAlign="Center" Font="Times New Roman, 20.25pt, style=Bold"/>
+      <TextObject Name="lblCTy1" Left="28.35" Top="9.45" Width="650.16" Height="26.46" Text="CÔNG TY CỔ PHẦN CHÈM NGỌC HỒI" HorzAlign="Center" Font="Times New Roman, 15.75pt, style=Bold"/>
+    </ReportTitleBand>
+    <DataBand Name="Data4" Top="380.29" Width="706.86" Height="18.9" DataSource="TKMeInVM" Filter="ToInt32([TKMeInVM.Flags])==64">
+      <TableObject Name="Table5" Restrictions="DontResize" Width="756" Height="18.9" PrintOnParent="true">
+        <TableColumn Name="Column61" Width="22.68"/>
+        <TableColumn Name="Column62" Width="56.7"/>
+        <TableColumn Name="Column63" Width="62.37"/>
+        <TableColumn Name="Column64" Width="62.37"/>
+        <TableColumn Name="Column65" Width="62.37"/>
+        <TableColumn Name="Column66" Width="62.37"/>
+        <TableColumn Name="Column67" Width="62.37"/>
+        <TableColumn Name="Column68" Width="62.37"/>
+        <TableColumn Name="Column69" Width="62.37"/>
+        <TableColumn Name="Column70" Width="62.37"/>
+        <TableColumn Name="Column71" Width="62.37"/>
+        <TableColumn Name="Column72" Width="62.37"/>
+        <TableRow Name="Row6">
+          <TableCell Name="Cell81" Border.Lines="All" Fill.Color="WhiteSmoke" Font="Arial, 10pt"/>
+          <TableCell Name="Cell82" Border.Lines="All" Fill.Color="WhiteSmoke" Text="Cấp phối" Font="Arial, 8pt"/>
+          <TableCell Name="Cell83" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLCL0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell84" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLCL1]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell85" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLCL2]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell86" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLXi0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell87" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLXi1]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell88" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLXi2]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell89" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLXi3]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell90" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLNuoc]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell91" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLPG0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell92" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLPG1]" Font="Arial, 10pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <DataBand Name="Data3" Top="401.47" Width="706.86" Height="37.8" DataSource="TKMeInVM" Filter="ToInt32([TKMeInVM.Flags])==256">
+      <TableObject Name="Table3" Restrictions="DontResize" Width="756" Height="18.9">
+        <TableColumn Name="Column37" Width="22.68"/>
+        <TableColumn Name="Column38" Width="56.7"/>
+        <TableColumn Name="Column39" Width="62.37"/>
+        <TableColumn Name="Column40" Width="62.37"/>
+        <TableColumn Name="Column41" Width="62.37"/>
+        <TableColumn Name="Column42" Width="62.37"/>
+        <TableColumn Name="Column43" Width="62.37"/>
+        <TableColumn Name="Column44" Width="62.37"/>
+        <TableColumn Name="Column45" Width="62.37"/>
+        <TableColumn Name="Column46" Width="62.37"/>
+        <TableColumn Name="Column47" Width="62.37"/>
+        <TableColumn Name="Column48" Width="62.37"/>
+        <TableRow Name="Row4">
+          <TableCell Name="Cell57" Border.Lines="All" Fill.Color="WhiteSmoke" Font="Arial, 10pt"/>
+          <TableCell Name="Cell58" Border.Lines="All" Fill.Color="WhiteSmoke" Text="1 M3" Font="Arial, 10pt"/>
+          <TableCell Name="Cell59" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLCL0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell60" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLCL1]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell61" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLCL2]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell62" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLXi0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell63" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLXi1]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell64" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLXi2]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell65" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLXi3]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell66" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLNuoc]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell67" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLPG0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell68" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLPG1]" Font="Arial, 10pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <DataBand Name="Data5" Top="441.56" Width="706.86" Height="18.9" DataSource="TKMeInVM" Filter="ToInt32([TKMeInVM.Flags])==512">
+      <TableObject Name="Table1" Restrictions="DontResize" Width="756" Height="18.9" PrintOnParent="true">
+        <TableColumn Name="Column13" Width="22.68"/>
+        <TableColumn Name="Column14" Width="56.7"/>
+        <TableColumn Name="Column15" Width="62.37"/>
+        <TableColumn Name="Column16" Width="62.37"/>
+        <TableColumn Name="Column17" Width="62.37"/>
+        <TableColumn Name="Column18" Width="62.37"/>
+        <TableColumn Name="Column19" Width="62.37"/>
+        <TableColumn Name="Column20" Width="62.37"/>
+        <TableColumn Name="Column21" Width="62.37"/>
+        <TableColumn Name="Column22" Width="62.37"/>
+        <TableColumn Name="Column23" Width="62.37"/>
+        <TableColumn Name="Column24" Width="62.37"/>
+        <TableRow Name="Row2">
+          <TableCell Name="Cell33" Border.Lines="All" Fill.Color="WhiteSmoke" Font="Arial, 10pt"/>
+          <TableCell Name="Cell34" Border.Lines="All" Fill.Color="WhiteSmoke" Text="M3" Font="Arial, 10pt"/>
+          <TableCell Name="Cell35" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLCL0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell36" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLCL1]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell37" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLCL2]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell38" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLXi0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell39" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLXi1]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell40" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLXi2]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell41" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLXi3]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell42" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLNuoc]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell43" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLPG0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell44" Border.Lines="All" Fill.Color="WhiteSmoke" Text="[TKMeInVM.KLPG1]" Font="Arial, 10pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <DataBand Name="Data1" Top="462.74" Width="706.86" Height="18.9" DataSource="TKMeInVM" Filter="ToInt32([TKMeInVM.Flags]) &lt; 64">
+      <TableObject Name="tblMe" Width="703.08" Height="18.9">
+        <TableColumn Name="Column1" Width="22.68"/>
+        <TableColumn Name="Column2" Width="56.7"/>
+        <TableColumn Name="Column3" Width="62.37"/>
+        <TableColumn Name="Column4" Width="62.37"/>
+        <TableColumn Name="Column5" Width="62.37"/>
+        <TableColumn Name="Column6" Width="62.37"/>
+        <TableColumn Name="Column7" Width="62.37"/>
+        <TableColumn Name="Column8" Width="62.37"/>
+        <TableColumn Name="Column9" Width="62.37"/>
+        <TableColumn Name="Column10" Width="62.37"/>
+        <TableColumn Name="Column11" Width="62.37"/>
+        <TableColumn Name="Column12" Width="62.37"/>
+        <TableRow Name="Row1">
+          <TableCell Name="Cell1" Border.Lines="All" Text="[TKMeInVM.STT]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell2" Border.Lines="All" Text="[TKMeInVM.M3Tron]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell3" Border.Lines="All" Text="[TKMeInVM.KLCL0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell4" Border.Lines="All" Text="[TKMeInVM.KLCL1]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell5" Border.Lines="All" Text="[TKMeInVM.KLCL2]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell26" Border.Lines="All" Text="[TKMeInVM.KLXi0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell27" Border.Lines="All" Text="[TKMeInVM.KLXi1]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell28" Border.Lines="All" Text="[TKMeInVM.KLXi2]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell29" Border.Lines="All" Text="[TKMeInVM.KLXi3]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell30" Border.Lines="All" Text="[TKMeInVM.KLNuoc]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell31" Border.Lines="All" Text="[TKMeInVM.KLPG0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell32" Border.Lines="All" Text="[TKMeInVM.KLPG1]" Font="Arial, 10pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <DataBand Name="Data2" Top="483.93" Width="706.86" Height="18.9" DataSource="TKMeInVM" Filter="[TKMeInVM.Flags]==128">
+      <TableObject Name="Table2" Width="703.08" Height="18.9" Fill.Color="Gainsboro">
+        <TableColumn Name="Column25" Width="22.68"/>
+        <TableColumn Name="Column26" Width="56.7"/>
+        <TableColumn Name="Column27" Width="62.37"/>
+        <TableColumn Name="Column28" Width="62.37"/>
+        <TableColumn Name="Column29" Width="62.37"/>
+        <TableColumn Name="Column30" Width="62.37"/>
+        <TableColumn Name="Column31" Width="62.37"/>
+        <TableColumn Name="Column32" Width="62.37"/>
+        <TableColumn Name="Column33" Width="62.37"/>
+        <TableColumn Name="Column34" Width="62.37"/>
+        <TableColumn Name="Column35" Width="62.37"/>
+        <TableColumn Name="Column36" Width="62.37"/>
+        <TableRow Name="Row3">
+          <TableCell Name="Cell45" Border.Lines="All" Font="Arial, 10pt"/>
+          <TableCell Name="Cell46" Border.Lines="All" Text="[TKMeInVM.M3Tron]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell47" Border.Lines="All" Text="[TKMeInVM.KLCL0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell48" Border.Lines="All" Text="[TKMeInVM.KLCL1]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell49" Border.Lines="All" Text="[TKMeInVM.KLCL2]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell50" Border.Lines="All" Text="[TKMeInVM.KLXi0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell51" Border.Lines="All" Text="[TKMeInVM.KLXi1]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell52" Border.Lines="All" Text="[TKMeInVM.KLXi2]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell53" Border.Lines="All" Text="[TKMeInVM.KLXi3]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell54" Border.Lines="All" Text="[TKMeInVM.KLNuoc]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell55" Border.Lines="All" Text="[TKMeInVM.KLPG0]" Font="Arial, 10pt"/>
+          <TableCell Name="Cell56" Border.Lines="All" Text="[TKMeInVM.KLPG1]" Font="Arial, 10pt"/>
+        </TableRow>
+      </TableObject>
+    </DataBand>
+    <ReportSummaryBand Name="ReportSummary1" Top="505.11" Width="706.86" Height="340.2">
+      <TextObject Name="Text66" Left="94.5" Top="18.9" Width="128.52" Height="22.68" Text="Bên Giao" Font="Times New Roman, 14.25pt, style=Bold"/>
+      <TextObject Name="Text68" Left="472.5" Top="18.9" Width="128.52" Height="22.68" Text="Bên Nhận" Font="Times New Roman, 14.25pt, style=Bold"/>
+    </ReportSummaryBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="TronBeTongV3.View.CtrlWaterSilo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TronBeTongV3.View"
+             xmlns:ncmwpfctrl="clr-namespace:NMWPFControls.Controls;assembly=NMWPFControls"
+             mc:Ignorable="d">
+    <StackPanel x:Name="PnlMain" Orientation="Horizontal">
+        <StackPanel Width="72">
+            <TextBlock Text="{Binding ZTitle}" Foreground="White"/>
+            <local:GrSiloV1Part2 x:Name="SiloPart1" IsReadonly="True" ZText="0"/>
+            <local:GrSiloV1Part2 x:Name="SiloPart2" IsReadonly="True" FontWeight="Bold" ZText="0"/>
+            <local:GrSiloV1Part2 x:Name="SiloPart3" IsReadonly="True" ZText="0" FontWeight="Bold" ZForeground="Red"/>
+            <Grid>
+                <StackPanel>
+                    <local:BlendImageCtrl x:Name="ImgRect1" ZSource="../../Images/silo03_c.png"/>
+                    <local:BlendImageCtrl x:Name="ImgConveyor" ZSource="../../Images/pump.png" Width="78" Margin="-53 0 0 0"
+                                          ToolTip="Máy bơm"/>
+                </StackPanel>
+
+                <local:CtrlMultiStateButton x:Name="BtPump" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="22" Height="22" Margin="-10 0 0 2"
+                                            ZText="P" ZActiveFill="Green" ZMaxState="2"
+                                            ZStateChanged="BtPump_ZStateChanged"/>
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

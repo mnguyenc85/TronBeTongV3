@@ -1,0 +1,211 @@
+﻿<Window x:Class="TronBeTongV3.View.WndViewDonHang"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TronBeTongV3.View"
+        xmlns:corecvt="clr-namespace:TronBeTongV3.Core.MVVM.Converters"
+        xmlns:nmwpfctrl="clr-namespace:NMWPFControls.Controls;assembly=NMWPFControls"
+        mc:Ignorable="d"
+        Title="WndViewDonHang" Height="768" Width="1366" Background="WhiteSmoke" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded" Closing="Window_Closing">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/BootstrapButtons.xaml"/>
+                <ResourceDictionary Source="../Styles/Colors.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <DockPanel>
+        <DockPanel.LayoutTransform>
+            <ScaleTransform ScaleX="{Binding AppZoom}" ScaleY="{Binding AppZoom}"/>
+        </DockPanel.LayoutTransform>
+        <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="3" Background="{StaticResource SCADABg04}" Margin="3">
+            <StackPanel Margin="6">
+                <DockPanel Margin="0 0 0 6">
+                    <TextBlock Text="Mã đơn hàng: " VerticalAlignment="Center" TextAlignment="Right" Width="90" FontWeight="Bold"/>
+                    <TextBox MinWidth="90" Padding="2 1" IsReadOnly="True" Text="{Binding DonHang.Ma}"/>
+                </DockPanel>
+                <DockPanel Margin="0 0 0 6">
+                    <TextBlock Text="Khách hàng: " VerticalAlignment="Center" TextAlignment="Right" Width="90" FontWeight="Bold"/>
+                    <TextBox MinWidth="90" Padding="2 1" IsReadOnly="True" Text="{Binding DonHang.KhachHang.Ten}"/>
+                </DockPanel>
+                <DockPanel Margin="0 0 0 6">
+                    <TextBlock Text="Dự án: " VerticalAlignment="Center" TextAlignment="Right" Width="90" FontWeight="Bold"/>
+                    <TextBox MinWidth="90" Padding="2 1" IsReadOnly="True" Text="{Binding DonHang.DuAn.DuAn}"/>
+                </DockPanel>
+                <DockPanel Margin="0 0 0 6">
+                    <TextBlock Text="Công trình: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                    <TextBox MinWidth="90" Padding="2 1" IsReadOnly="True" Text="{Binding DonHang.DuAn.CongTrinh}"/>
+                </DockPanel>
+                <DockPanel Margin="0 0 0 6">
+                    <TextBlock Text="Hạng mục: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                    <TextBox MinWidth="90" Padding="2 1" IsReadOnly="True" Text="{Binding DonHang.DuAn.HangMuc}"/>
+                </DockPanel>
+                <DockPanel Margin="0 0 0 6">
+                    <TextBlock Text="M3 đặt (m3): " VerticalAlignment="Center" TextAlignment="Right" Width="90" FontWeight="Bold"/>
+                    <TextBox MinWidth="90" Padding="2 1" IsReadOnly="True" Text="{Binding DonHang.TheTichDH}"/>
+                </DockPanel>
+                <DockPanel Margin="0 0 0 6">
+                    <TextBlock Text="Tích luỹ (m3): " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                    <TextBox MinWidth="90" Padding="2 1" IsReadOnly="True" Text="{Binding DonHang.TheTichHT}"/>
+                </DockPanel>
+            
+                <Separator Margin="0 3"/>
+
+
+
+                <DockPanel Margin="0 3 0 3">
+                    <TextBlock Text="Kẹp chì: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                    <TextBox x:Name="TxtSeal" MinWidth="90" Padding="2 1"/>
+                </DockPanel>
+                
+                <Separator Margin="0 3"/>
+
+                <TextBlock Text="Lọc phiếu" FontWeight="Bold" Margin="0 0 0 3"/>
+                <CheckBox x:Name="ChkFilterDate" Content="Lọc theo ngày" 
+                          Checked="ChkFilterDate_Checked" Unchecked="ChkFilterDate_Unchecked"/>
+                <nmwpfctrl:NMDateTimeVn x:Name="DtFilterDate" ShowTime="False" BorderBrush="Gray" BorderThickness="1" Margin="0 0 0 3"
+                                        ValueChanged="DtFilterDate_ValueChanged"/>
+                <TextBlock Text="Biển số xe"/>
+                <TextBox x:Name="TxtFilterBSX" Padding="2 1" Margin="0 0 0 3" TextChanged="TxtFilterBSX_TextChanged"/>
+                <TextBlock Text="Lái xe"/>
+                <TextBox x:Name="TxtFilterLaiXe" Padding="2 1" Margin="0 0 0 6" TextChanged="TxtFilterLaiXe_TextChanged"/>
+            </StackPanel>
+        </Border>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="6"/>
+                <ColumnDefinition x:Name="ColDef2" Width="300"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <GridSplitter Grid.Column="1" Grid.RowSpan="2" HorizontalAlignment="Stretch"/>
+
+            <ListView x:Name="LvPhieu" ItemsSource="{Binding CVDsPhieu}" Margin="0 3 3 3" SelectedItem="{Binding SelectedPhieu}"
+                      SelectionChanged="LvPhieu_SelectionChanged">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"/>
+                        <GridViewColumn Header="Số phiếu" DisplayMemberBinding="{Binding SoPhieu}"/>
+                        <GridViewColumn Header="Xe" DisplayMemberBinding="{Binding Xe.BSX}"/>
+                        <GridViewColumn Header="Lái Xe" DisplayMemberBinding="{Binding LaiXe.Ten}"/>
+                        <GridViewColumn Header="Cấp phối" DisplayMemberBinding="{Binding CongThuc.Ma}"/>
+                        <GridViewColumn Header="Mác" DisplayMemberBinding="{Binding CongThuc.Mac}"/>
+                        <GridViewColumn Header="Số tp" DisplayMemberBinding="{Binding CongThuc.SoTP}"/>
+                        <GridViewColumn Header="M3 Trộn" DisplayMemberBinding="{Binding TheTichHT}"/>
+                        <GridViewColumn Header="M3 Tích luỹ">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding TheTichTichLuy, StringFormat={}{0:F3}}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Thời điểm bắt đầu" DisplayMemberBinding="{Binding TGBD}"/>
+                        <GridViewColumn Header="Thời điểm hoàn thành" DisplayMemberBinding="{Binding TGHT}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ListView x:Name="LvMe" Grid.Row="1" Margin="0 3 3 3" ItemsSource="{Binding DsMe}">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Background" Value="{Binding Flags, Converter={corecvt:MeFlags2BgCvt}}" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"/>
+                        <GridViewColumn Header="M3 Trộn" DisplayMemberBinding="{Binding M3Tron}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <DockPanel Grid.Column="2" Grid.RowSpan="2" Margin="0 3 3 3">
+                <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="1" DockPanel.Dock="Top">
+                    <StackPanel x:Name="PnlHack" Margin="3">
+                        <DockPanel Margin="0 3 0 3">
+                            <TextBlock Text="Số phiếu: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                            <TextBox x:Name="TxtHackSoPhieu" MinWidth="180" Padding="2 1"/>
+                        </DockPanel>
+                        <DockPanel Margin="0 3 0 3">
+                            <TextBlock Text="Ngày trộn: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                            <TextBox x:Name="TxtHackPhieuNgay" MinWidth="90" Padding="2 1"/>
+                        </DockPanel>
+                        <DockPanel Margin="0 3 0 3">
+                            <TextBlock Text="TG rời trạm: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                            <TextBox x:Name="TxtHackTGRoiTram" MinWidth="90" Padding="2 1"/>
+                        </DockPanel>
+                        <Separator/>
+
+                        <DockPanel Margin="0 3 0 3">
+                            <TextBlock Text="Khách hàng: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                            <TextBox x:Name="TxtHackKhachHang" MinWidth="90" Padding="2 1" Height="48" TextWrapping="Wrap"/>
+                        </DockPanel>
+                        <DockPanel Margin="0 3 0 3">
+                            <TextBlock Text="Công trình: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                            <TextBox x:Name="TxtHackCongTrinh" MinWidth="90" Padding="2 1"/>
+                        </DockPanel>
+                        <DockPanel Margin="0 3 0 3">
+                            <TextBlock Text="Địa điểm: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                            <TextBox x:Name="TxtHackCongTrinhDiaChi" MinWidth="90" Padding="2 1"/>
+                        </DockPanel>
+                        <DockPanel Margin="0 3 0 3">
+                            <TextBlock Text="Biển số xe: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                            <TextBox x:Name="TxtHackBienSoXe" MinWidth="90" Padding="2 1"/>
+                        </DockPanel>
+                        <DockPanel Margin="0 3 0 3">
+                            <TextBlock Text="Lái xe: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                            <TextBox x:Name="TxtHackLaiXe" MinWidth="90" Padding="2 1"/>
+                        </DockPanel>
+
+                        <Separator/>
+                        <DockPanel Margin="0 3 0 3">
+                            <TextBlock Text="Mác bê tông: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                            <TextBox x:Name="TxtHackBeTongMac" MinWidth="90" Padding="2 1"/>
+                        </DockPanel>
+                        <DockPanel Margin="0 3 0 3">
+                            <TextBlock Text="Độ sụt: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                            <TextBox x:Name="TxtHackBeTongSlump" MinWidth="90" Padding="2 1"/>
+                        </DockPanel>
+                        <DockPanel Margin="0 3 0 3">
+                            <TextBlock Text="Cốt liệu max: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                            <TextBox x:Name="TxtHackBeTongAggMax" MinWidth="90" Padding="2 1"/>
+                        </DockPanel>
+                        <DockPanel Margin="0 3 0 3">
+                            <TextBlock Text="Mã số: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                            <TextBox x:Name="TxtHackCode" MinWidth="90" Padding="2 1"/>
+                        </DockPanel>
+
+                        <Separator/>
+                        <StackPanel Orientation="Horizontal" Margin="0 3 0 3">
+                            <TextBlock Text="M3 trộn (m3): " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                            <TextBox x:Name="TxtHackPhieuM3Tron" Width="90" Padding="2 1"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0 3 0 3">
+                            <TextBlock Text="Tích lũy (m3): " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                            <TextBox x:Name="TxtHackPhieuTichLuy" Width="90" Padding="2 1"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+                <StackPanel Margin="0 6 6 6" HorizontalAlignment="Right">
+                    <StackPanel Orientation="Horizontal" Margin="0 0 0 6">
+                        <CheckBox x:Name="ChkInChiTiet" Content="Phiếu chi tiết" VerticalAlignment="Center"/>
+                        <Button x:Name="BtInPhieu" Content="In Phiếu" Width="90" Style="{StaticResource BtnPrimary}" Click="BtInPhieu_Click" Margin="6 0 0 0"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right">
+                        <TextBlock Text="Số lần in:"/>
+                        <nmwpfctrl:TextBoxInt x:Name="TxtPrintRepeat" Margin="0 0 0 6" Value="1"/>
+                        <Button x:Name="BtPhieuXml" Content="Export XML" Width="90" Style="{StaticResource BtnWarning}" Click="BtPhieuXml_Click"/>
+                    </StackPanel>
+                </StackPanel>
+            </DockPanel>
+
+        </Grid>
+    </DockPanel>
+</Window>
