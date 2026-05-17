@@ -264,24 +264,24 @@ namespace TronBeTongV3.View
 
         private async void BtTestServerConnection_Click(object sender, RoutedEventArgs e)
         {
-            var r = DbRepository.Instance;
-            var s = r.Settings;
+            //var r = DbRepository.Instance;
+            //var s = r.Settings;
 
-            _has_test_server_connect = true;
+            //_has_test_server_connect = true;
 
-            var sync = new SyncAgent();
-            await sync.Init(TxtServerIP.Text, TxtServerDb.Text, TxtServerUser.Text, txtServerPw.Password);
+            //var sync = new SyncAgent();
+            //await sync.Init(TxtServerIP.Text, TxtServerDb.Text, TxtServerUser.Text, txtServerPw.Password);
 
-            if (sync.IsLocalOk)
-            {
-                _tram_ma = s.GetValue("srv.tram.ma");
-                _tram_ma ??= $"{DateTime.Now:yyyyMMddHHmmss}";
-                await sync.InitServer(TxtTramId.Text, _tram_ma);
-                if (sync.IsServerOk)
-                {
-                    MessageBox.Show("Kết nối thành công!", "Server");
-                }
-            }
+            //if (sync.IsLocalOk)
+            //{
+            //    _tram_ma = s.GetValue("srv.tram.ma");
+            //    _tram_ma ??= $"{DateTime.Now:yyyyMMddHHmmss}";
+            //    await sync.InitServer(TxtTramId.Text, _tram_ma);
+            //    if (sync.IsServerOk)
+            //    {
+            //        MessageBox.Show("Kết nối thành công!", "Server");
+            //    }
+            //}
         }
 
         public void SetPrivilege(int p)
