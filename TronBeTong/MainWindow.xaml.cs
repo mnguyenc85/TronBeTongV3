@@ -83,7 +83,7 @@ namespace TronBeTongV3
 
             XuLyInPhieu.Instance.Close();
             //XuLyInBaoCao.Instance.Close();
-            _client.Stop();
+            //_client.Stop();
 
             // Save settings before exit program
             var r = DbRepository.Instance;
@@ -1106,8 +1106,8 @@ namespace TronBeTongV3
         #endregion
 
         #region Sync
-        private SyncAgent _sync = new SyncAgent();
-        private OnlineMonitorClient _client = new OnlineMonitorClient();
+        private SyncAgent _sync = new();
+        //private OnlineMonitorClient _client = new();
 
         private async void InitServerSync()
         {
@@ -1122,7 +1122,7 @@ namespace TronBeTongV3
                 await _sync.Init(srvip, srvdb, srvuser, srvpw);
                 PnlServer.Visibility = _sync.IsLocalOk? Visibility.Visible: Visibility.Collapsed;
 
-                _client.Init();
+                //_client.Init();
             }
 
             if (_sync.IsLocalOk)
@@ -1142,14 +1142,14 @@ namespace TronBeTongV3
                     {
                         StartSync();
 
-                        _client.Start(_sync.SourceId);
+                        //_client.Start(_sync.SourceId);
                     }
                     else
                     {
                         LblSrvStatus.Text = "Invalid";
                         LblSrvStatus.Foreground = Brushes.Red;
 
-                        _client.Stop();
+                        //_client.Stop();
                     }
                 }
                 else
@@ -1157,7 +1157,7 @@ namespace TronBeTongV3
                     LblSrvStatus.Text = "Disconnected";
                     LblSrvStatus.Foreground = Brushes.Red;
 
-                    _client.Stop();
+                    //_client.Stop();
                 }
             }
         }
@@ -1191,9 +1191,9 @@ namespace TronBeTongV3
             TPXiMang.MeDat = medat;
             TPPhuGia.MeDat = medat;
 
-            _client.TramKetNoiPLC = _tramtron.CommState == CommStates.Opened;
-            _client.TramCoiTron = _tramtron.MixerRunning.GetBool();
-            _client.TramDangTron = _tramtron.SysRunning.GetBool();
+            //_client.TramKetNoiPLC = _tramtron.CommState == CommStates.Opened;
+            //_client.TramCoiTron = _tramtron.MixerRunning.GetBool();
+            //_client.TramDangTron = _tramtron.SysRunning.GetBool();
 
         }
         #endregion
