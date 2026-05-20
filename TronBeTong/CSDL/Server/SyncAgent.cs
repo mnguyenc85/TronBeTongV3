@@ -3,9 +3,10 @@ using TronBeTongV3.Core;
 
 namespace TronBeTongV3.CSDL.Server
 {
+
     public class SyncAgent
     {
-        private ServerSync _srv = new ServerSync();
+        private DbServerSync _srv = new();
 
         public int SourceId { get; private set; } = -1;
         private string[] sync_tables = ["pm_strings", "kd_khachhang", "kd_laixe", "kd_xe", "ht_thanhphan", "ht_congthuc", "ht_congthuc_thanhphan", "ht_donhang", "ht_phieu", "ht_me"];

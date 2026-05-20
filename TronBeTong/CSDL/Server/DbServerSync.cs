@@ -4,7 +4,10 @@ using static System.Runtime.InteropServices.Marshalling.IIUnknownCacheStrategy;
 
 namespace TronBeTongV3.CSDL.Server
 {
-    public class ServerSync
+    /// <summary>
+    /// Đồng bộ dữ liệu lên server
+    /// </summary>
+    public class DbServerSync
     {
         private DbBridge _db = DbBridge.Instance;
         public string SrvConnStr = "";
