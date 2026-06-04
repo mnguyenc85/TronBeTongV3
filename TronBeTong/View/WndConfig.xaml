@@ -230,24 +230,24 @@
                         <TextBlock Text="Trạm" Margin="3" FontWeight="Bold"/>
                         <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
                             <TextBlock Text="Tên trạm:" VerticalAlignment="Center" Width="120"/>
-                            <TextBox x:Name="TxtTramId" Width="120"/>
+                            <TextBox x:Name="TxtTramId" Width="120" Padding="2 1"/>
                         </StackPanel>
                         <TextBlock Text="Địa chỉ server" Margin="3" FontWeight="Bold"/>
                         <DockPanel Margin="9 0 3 3">
                             <TextBlock Text="Địa chỉ IP:" VerticalAlignment="Center" Width="120"/>
-                            <TextBox x:Name="TxtServerIP"/>
+                            <TextBox x:Name="TxtServerIP" Padding="2 1"/>
                         </DockPanel>
                         <DockPanel Margin="9 0 3 3">
                             <TextBlock Text="Tên CSDL:" VerticalAlignment="Center" Width="120"/>
-                            <TextBox x:Name="TxtServerDb"/>
+                            <TextBox x:Name="TxtServerDb" Padding="2 1"/>
                         </DockPanel>
                         <DockPanel Margin="9 0 3 3">
                             <TextBlock Text="Username:" VerticalAlignment="Center" Width="120"/>
-                            <TextBox x:Name="TxtServerUser"/>
+                            <TextBox x:Name="TxtServerUser" Padding="2 1"/>
                         </DockPanel>
                         <DockPanel Margin="9 0 3 3">
                             <TextBlock Text="Password:" VerticalAlignment="Center" Width="120"/>
-                            <PasswordBox x:Name="txtServerPw"/>
+                            <PasswordBox x:Name="txtServerPw" Padding="2 1"/>
                         </DockPanel>
                         <Button x:Name="BtTestServerConnection" Content="Thử kết nối" Margin="129 0 3 3" Width="90" HorizontalAlignment="Left" Style="{StaticResource BtnSuccess}"
                                 Click="BtTestServerConnection_Click"/>

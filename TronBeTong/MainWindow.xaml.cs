@@ -1107,35 +1107,45 @@ namespace TronBeTongV3
 
         #region Sync
         //private SyncAgent _sync = new();
+        /// <summary>
+        /// Server Sync Agent
+        /// </summary>
+        private ServerComm _ssAgent = new();
         //private OnlineMonitorClient _client = new();
 
         private async void InitServerSync()
         {
             var s = DbRepository.Instance.Settings;
+            string? srvip = s.GetValue("srv.ip");
+            string? srvdb = s.GetValue("srv.db");
+            string? srvuser = s.GetValue("srv.user");
+            string? srvpw = s.GetValue("srv.pw");
 
-            //if (!_sync.IsLocalOk)
-            //{
-            //    string? srvip = s.GetValue("srv.ip");
-            //    string? srvdb = s.GetValue("srv.db");
-            //    string? srvuser = s.GetValue("srv.user");
-            //    string? srvpw = s.GetValue("srv.pw");
-            //    await _sync.Init(srvip, srvdb, srvuser, srvpw);
-            //    PnlServer.Visibility = _sync.IsLocalOk? Visibility.Visible: Visibility.Collapsed;
+            if (!_ssAgent.IsLocalOk)
+            {
+                await _ssAgent.InitLocal();
+                PnlServer.Visibility = _ssAgent.IsLocalOk ? Visibility.Visible : Visibility.Collapsed;
 
-            //    //_client.Init();
-            //}
+                //_client.Init();
+            }
 
-            //if (_sync.IsLocalOk)
-            //{
-            //    LblSrvStatus.Text = "Test connection";
-            //    await _sync.TestServerConnection();
+            if (_ssAgent.IsLocalOk)
+            {
+                LblSrvStatus.Text = "Test connection";
+                if (string.IsNullOrEmpty(srvip) || string.IsNullOrEmpty(srvuser) || string.IsNullOrEmpty(srvpw))
+                {
+                    LblSrvStatus.Text = "Invalid";
+                    LblSrvStatus.Foreground = Brushes.Red;
+                    return;
+                }
+                await _ssAgent.Connect(srvip, srvuser, srvpw);
 
-            //    if (_sync.IsServerOk)
-            //    {
-            //        LblSrvStatus.Foreground = Brushes.DarkBlue;
+                if (_ssAgent.IsServerOk)
+                {
+                    LblSrvStatus.Foreground = Brushes.DarkBlue;
 
-            //        string? tramten = s.GetValue("srv.tram.id");
-            //        string? tramma = s.GetValue("srv.tram.ma");
+                    string? tramten = s.GetValue("srv.tram.id");
+                    string? tramma = s.GetValue("srv.tram.ma");
             //        await _sync.GetSourceId(tramten, tramma);
 
             //        if (_sync.SourceId > 0)
@@ -1151,15 +1161,15 @@ namespace TronBeTongV3
 
             //            //_client.Stop();
             //        }
-            //    }
-            //    else
-            //    {
-            //        LblSrvStatus.Text = "Disconnected";
-            //        LblSrvStatus.Foreground = Brushes.Red;
+                }
+                else
+                {
+                    LblSrvStatus.Text = "Disconnected";
+                    LblSrvStatus.Foreground = Brushes.Red;
 
             //        //_client.Stop();
-            //    }
-            //}
+                }
+            }
         }
 
         private async void StartSync()

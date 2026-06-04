@@ -28,7 +28,7 @@ namespace TronBeTongV3.CSDL.Server
 
             try
             {
-                var lst = await _srv.Init(srv, db, user, pw, sync_tables);
+                var lst = await _srv.Init(sync_tables);
                 _tblInfos.Clear();
                 foreach (var tbl in lst)
                     _tblInfos[tbl.TableName] = tbl;
@@ -64,7 +64,7 @@ namespace TronBeTongV3.CSDL.Server
                     if (tentram != null && dbcreatedat != null)
                     {
                         string ma = GetMa(dbcreatedat);
-                        await _srv.Server_Source_Init(tentram, ma);
+                        await _srv.Server_Source_Init(tentram, ma, dbcreatedat);
                     }
                 }
                 catch (Exception ex)
@@ -113,7 +113,7 @@ namespace TronBeTongV3.CSDL.Server
             try
             {
                 string ma = GetMa(tramma);
-                SourceId = await _srv.Server_Source_Init(tramten, ma);
+                SourceId = await _srv.Server_Source_Init(tramten, ma, null);
             }
             catch { }
         }

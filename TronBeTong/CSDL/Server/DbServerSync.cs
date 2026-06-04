@@ -45,9 +45,9 @@ BEGIN
     END IF;
 END;";
 
-        public async Task<List<TableInfo>> Init(string srv, string db, string user, string pw, string[] sync_tables)
+        public async Task<List<TableInfo>> Init(string[] sync_tables)
         {
-            SrvConnStr = string.Format("Server={0};Port={1};Database={2};User={3};Password={4};", srv, 3306, db, user, pw);
+            //SrvConnStr = string.Format("Server={0};Port={1};Database={2};User={3};Password={4};", srv, 3306, db, user, pw);
 
             List<TableInfo> _tblInfos = [];
             
@@ -65,6 +65,11 @@ END;";
             await _db.CloseConnAsync(localConn);
 
             return _tblInfos;
+        }
+
+        public void CreateConnStr(string srv, string db, string user, string pw)
+        {
+            SrvConnStr = string.Format("Server={0};Port={1};Database={2};User={3};Password={4};", srv, 3306, db, user, pw);
         }
 
         public async Task<bool> TestConnection()
@@ -92,7 +97,7 @@ END;";
 
             string query = @"CREATE TABLE IF NOT EXISTS sources (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                ten VARCHAR(63), ma VARCHAR(128), flags INT,
+                ten VARCHAR(63), ma1 VARCHAR(128), ma2 VARCHAR(128), flags INT,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);";
             var cmd = new MySqlCommand(query, srvConn);
             await cmd.ExecuteNonQueryAsync();
@@ -264,14 +269,14 @@ END;";
             return 0;
         }
     
-        public async Task<int> Server_Source_Init(string ten, string ma)
+        public async Task<int> Server_Source_Init(string ten, string ma1, string? ma2)
         {
             using var conn = new MySqlConnection(SrvConnStr);
             await conn.OpenAsync();
 
-            using var cmd = new MySqlCommand("SELECT id,ten,ma,flags FROM sources WHERE ten=@ten AND ma=@ma;", conn);
+            using var cmd = new MySqlCommand("SELECT id,ten,ma1,flags FROM sources WHERE ten=@ten AND ma1=@ma1;", conn);
             cmd.Parameters.AddWithValue("@ten", ten);
-            cmd.Parameters.AddWithValue("@ma", ma);
+            cmd.Parameters.AddWithValue("@ma1", ma1);
             var reader = await cmd.ExecuteReaderAsync();
 
             int id = 0;
@@ -286,7 +291,8 @@ END;";
 
             if (id == 0)
             {
-                cmd.CommandText = "INSERT INTO sources(ten,ma) VALUES (@ten,@ma);";
+                cmd.CommandText = "INSERT INTO sources(ten,ma1,ma2) VALUES (@ten,@ma1,@ma2);";
+                cmd.Parameters.AddWithValue("@ma2", ma2);
                 await cmd.ExecuteNonQueryAsync();
             }
 

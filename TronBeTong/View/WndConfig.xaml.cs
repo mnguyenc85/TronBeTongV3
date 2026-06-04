@@ -264,24 +264,44 @@ namespace TronBeTongV3.View
 
         private async void BtTestServerConnection_Click(object sender, RoutedEventArgs e)
         {
-            //var r = DbRepository.Instance;
-            //var s = r.Settings;
+            var r = DbRepository.Instance;
+            var s = r.Settings;
 
-            //_has_test_server_connect = true;
+            try
+            {
+                ServerComm _srv_comm = new();
 
-            //var sync = new SyncAgent();
-            //await sync.Init(TxtServerIP.Text, TxtServerDb.Text, TxtServerUser.Text, txtServerPw.Password);
+                await _srv_comm.InitLocal();
 
-            //if (sync.IsLocalOk)
-            //{
-            //    _tram_ma = s.GetValue("srv.tram.ma");
-            //    _tram_ma ??= $"{DateTime.Now:yyyyMMddHHmmss}";
-            //    await sync.InitServer(TxtTramId.Text, _tram_ma);
-            //    if (sync.IsServerOk)
-            //    {
-            //        MessageBox.Show("Kết nối thành công!", "Server");
-            //    }
-            //}
+                if (_srv_comm.IsLocalOk)
+                {
+
+                    string? dbparams = await _srv_comm.Connect(TxtServerIP.Text, TxtServerUser.Text, txtServerPw.Password);
+
+                    _tram_ma = s.GetValue("srv.tram.ma");
+                    if (string.IsNullOrWhiteSpace(_tram_ma))
+                    {
+                        _tram_ma = $"{DateTime.Now:yyyyMMddHHmmss}";
+                    }                    
+
+                    await _srv_comm.InitServer(TxtTramId.Text, _tram_ma);
+
+                    if (_srv_comm.IsServerOk)
+                    {
+                        MessageBox.Show($"Kết nối server thành công.", "Kết nối server");
+                        s.Update("srv.tram.ma", _tram_ma);
+                        _has_test_server_connect = true;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"Lỗi kết nối local");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Lỗi kết nối server: {ex.Message}", "Kết nối server");
+            }
         }
 
         public void SetPrivilege(int p)
