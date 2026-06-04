@@ -1146,21 +1146,23 @@ namespace TronBeTongV3
 
                     string? tramten = s.GetValue("srv.tram.id");
                     string? tramma = s.GetValue("srv.tram.ma");
-            //        await _sync.GetSourceId(tramten, tramma);
+            
+                    await _ssAgent.GetSourceId(tramten, tramma);
 
-            //        if (_sync.SourceId > 0)
-            //        {
-            //            StartSync();
+                    if (_ssAgent.FactoryId > 0)
+                    {
+                        LblSrvStatus.Foreground = Brushes.Black;
+                        StartSync();
 
-            //            //_client.Start(_sync.SourceId);
-            //        }
-            //        else
-            //        {
-            //            LblSrvStatus.Text = "Invalid";
-            //            LblSrvStatus.Foreground = Brushes.Red;
+                        //_client.Start(_sync.SourceId);
+                    }
+                    else
+                    {
+                        LblSrvStatus.Text = "Invalid";
+                        LblSrvStatus.Foreground = Brushes.Red;
 
-            //            //_client.Stop();
-            //        }
+                        //_client.Stop();
+                    }
                 }
                 else
                 {
@@ -1174,9 +1176,9 @@ namespace TronBeTongV3
 
         private async void StartSync()
         {
-            //LblSrvStatus.Text = "Synchronizing...";
-            //await _sync.StartSync();
-            //LblSrvStatus.Text = "Idle";
+            LblSrvStatus.Text = "Synchronizing...";
+            await _ssAgent.StartSync();
+            LblSrvStatus.Text = "Idle";
         }
 
         private void UpdateOnlineMonitor()

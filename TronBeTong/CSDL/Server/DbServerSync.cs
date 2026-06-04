@@ -1,12 +1,10 @@
 ﻿using MySqlConnector;
 using System.Text;
-using static System.Runtime.InteropServices.Marshalling.IIUnknownCacheStrategy;
+using TronBeTongV3.CSDL;
+using TronBeTongV3.CSDL.Server;
 
 namespace TronBeTongV3.CSDL.Server
 {
-    /// <summary>
-    /// Đồng bộ dữ liệu lên server
-    /// </summary>
     public class DbServerSync
     {
         private DbBridge _db = DbBridge.Instance;
@@ -16,41 +14,44 @@ namespace TronBeTongV3.CSDL.Server
         /// {0}: table name, {1}: extra params with type, {2} [field=param], {3}: fields, {4}: params
         /// </summary>
         public static readonly string QueryUpsertTemplate = @"
-DROP PROCEDURE IF EXISTS srv_upsert_{0};
+            DROP PROCEDURE IF EXISTS srv_upsert_{0};
 
-CREATE PROCEDURE srv_upsert_{0} (
-    IN p_local_id INT,
-    IN p_src_id INT,
-    IN p_local_updated_at TIMESTAMP,
-    IN p_local_created_at TIMESTAMP,
-    {1}
-)
-BEGIN
-    DECLARE existing_id INT;
+            CREATE PROCEDURE srv_upsert_{0} (
+                IN p_local_id INT,
+                IN p_src_id INT,
+                IN p_local_updated_at TIMESTAMP,
+                IN p_local_created_at TIMESTAMP,
+                {1}
+            )
+            BEGIN
+                DECLARE existing_id INT;
 
-    -- Tìm id nếu đã tồn tại văn bản
-    SELECT id INTO existing_id
-    FROM {0}
-    WHERE local_id = p_local_id AND source_id = p_src_id
-    LIMIT 1;
+                -- Tìm id nếu đã tồn tại văn bản
+                SELECT id INTO existing_id
+                FROM {0}
+                WHERE local_id = p_local_id AND source_id = p_src_id
+                LIMIT 1;
 
-    IF existing_id IS NOT NULL THEN
-        UPDATE {0}
-        SET local_updated_at=p_local_updated_at, local_created_at=p_local_created_at,{2}
-        WHERE id = existing_id;
+                IF existing_id IS NOT NULL THEN
+                    UPDATE {0}
+                    SET local_updated_at=p_local_updated_at, local_created_at=p_local_created_at,{2}
+                    WHERE id = existing_id;
 
-    ELSE
-        INSERT IGNORE INTO {0} (local_id, source_id, local_updated_at, local_created_at, {3})
-        VALUES (p_local_id, p_src_id, p_local_updated_at, p_local_created_at, {4});
-    END IF;
-END;";
+                ELSE
+                    INSERT IGNORE INTO {0} (local_id, source_id, local_updated_at, local_created_at, {3})
+                    VALUES (p_local_id, p_src_id, p_local_updated_at, p_local_created_at, {4});
+                END IF;
+            END;";
+
+        public void CreateConnStr(string srv, string db, string user, string pw)
+        {
+            SrvConnStr = string.Format("Server={0};Port={1};Database={2};User={3};Password={4};", srv, 3306, db, user, pw);
+        }
 
         public async Task<List<TableInfo>> Init(string[] sync_tables)
         {
-            //SrvConnStr = string.Format("Server={0};Port={1};Database={2};User={3};Password={4};", srv, 3306, db, user, pw);
-
             List<TableInfo> _tblInfos = [];
-            
+
             var localConn = await _db.OpenConnAsync();
 
             for (int i = 0; i < sync_tables.Length; i++)
@@ -65,11 +66,6 @@ END;";
             await _db.CloseConnAsync(localConn);
 
             return _tblInfos;
-        }
-
-        public void CreateConnStr(string srv, string db, string user, string pw)
-        {
-            SrvConnStr = string.Format("Server={0};Port={1};Database={2};User={3};Password={4};", srv, 3306, db, user, pw);
         }
 
         public async Task<bool> TestConnection()
@@ -97,7 +93,7 @@ END;";
 
             string query = @"CREATE TABLE IF NOT EXISTS sources (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                ten VARCHAR(63), ma1 VARCHAR(128), ma2 VARCHAR(128), flags INT,
+                ten VARCHAR(63), ma VARCHAR(128), flags INT,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);";
             var cmd = new MySqlCommand(query, srvConn);
             await cmd.ExecuteNonQueryAsync();
@@ -136,7 +132,7 @@ END;";
                 {
                     defaultStr = $"DEFAULT '{defaultVal}'";
                 }
-                
+
                 if (colName == "updated_at") defaultStr = "DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP";
                 else if (colName == "created_at") defaultStr = "DEFAULT CURRENT_TIMESTAMP";
 
@@ -195,8 +191,8 @@ END;";
             var cmdServer = new MySqlCommand(createSql, srvConn);
             await cmdServer.ExecuteNonQueryAsync();
 
-            string createProc = string.Format(QueryUpsertTemplate, 
-                tblInfo.TableName, 
+            string createProc = string.Format(QueryUpsertTemplate,
+                tblInfo.TableName,
                 string.Join(",", paramWithTypes),
                 string.Join(",", fieldEquParams),
                 string.Join(",", fields),
@@ -208,7 +204,7 @@ END;";
 
         public Dictionary<string, int> SavedRecords { get; set; } = [];
 
-        public async Task Server_Sync(Dictionary<string, TableInfo> sync_tables, int srcid)
+        public async Task Server_Sync(Dictionary<string, TableInfo> sync_tables, long srcid)
         {
             SavedRecords.Clear();
 
@@ -227,7 +223,7 @@ END;";
             await localConn.CloseAsync();
         }
 
-        private async Task<int> Server_Sync_Table(MySqlConnection localConn, MySqlConnection srvConn, TableInfo tbl, int srcid)
+        private async Task<int> Server_Sync_Table(MySqlConnection localConn, MySqlConnection srvConn, TableInfo tbl, long srcid)
         {
             int n = 0;
 
@@ -268,7 +264,7 @@ END;";
 
             return 0;
         }
-    
+
         public async Task<int> Server_Source_Init(string ten, string ma1, string? ma2)
         {
             using var conn = new MySqlConnection(SrvConnStr);
@@ -284,7 +280,7 @@ END;";
             while (await reader.ReadAsync())
             {
                 id = reader.GetInt32(0);
-                flags = reader.IsDBNull(3)? 0: reader.GetInt32(3);
+                flags = reader.IsDBNull(3) ? 0 : reader.GetInt32(3);
                 break;
             }
             await reader.CloseAsync();
@@ -295,6 +291,33 @@ END;";
                 cmd.Parameters.AddWithValue("@ma2", ma2);
                 await cmd.ExecuteNonQueryAsync();
             }
+
+            await conn.CloseAsync();
+
+            if (id > 0)
+                if ((flags & 1) == 1) return id;
+                else return -id;
+            return id;
+        }
+
+        public async Task<int> Server_Get_Factory_Id(string ma1)
+        {
+            using var conn = new MySqlConnection(SrvConnStr);
+            await conn.OpenAsync();
+
+            using var cmd = new MySqlCommand("SELECT id,ten,ma1,flags FROM sources WHERE ma1=@ma1;", conn);
+            cmd.Parameters.AddWithValue("@ma1", ma1);
+            var reader = await cmd.ExecuteReaderAsync();
+
+            int id = 0;
+            int flags = 0;
+            while (await reader.ReadAsync())
+            {
+                id = reader.GetInt32(0);
+                flags = reader.IsDBNull(3) ? 0 : reader.GetInt32(3);
+                break;
+            }
+            await reader.CloseAsync();
 
             await conn.CloseAsync();
 

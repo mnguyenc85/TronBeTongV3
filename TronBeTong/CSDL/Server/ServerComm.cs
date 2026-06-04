@@ -1,5 +1,4 @@
-﻿using Org.BouncyCastle.Math.Field;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
@@ -48,7 +47,7 @@ namespace TronBeTongV3.CSDL.Server
         public async Task<string?> Connect(string addr, string username, string password)
         {
             _addr = addr;
-            string url = addr.StartsWith("http")? $"{addr}:10001/bttt/login": $"http://{addr}:10001/bttt/login";
+            string url = addr.StartsWith("http") ? $"{addr}:10001/bttt/login" : $"http://{addr}:10001/bttt/login";
             HttpClient client = new();
 
             client.DefaultRequestHeaders.UserAgent.ParseAdd($"{SoftwareName}/1.0");
@@ -140,12 +139,52 @@ namespace TronBeTongV3.CSDL.Server
             }
         }
 
+        public async Task GetSourceId(string? tramten, string? tramma)
+        {
 
+            if (tramten == null || tramma == null) { FactoryId = 0; return; }
+            try
+            {
+                string ma = GetMa(tramma);
+                FactoryId = await _srv.Server_Get_Factory_Id(ma);
+            }
+            catch { }
+        }
 
         private string GetMa(string matg)
         {
             string ma = $"{MyCopyright.GetPCFootPrint()}-{matg}";
             return MyCopyright.ComputeMD5(ma);
         }
+
+
+        private bool _isSynchronizing = false;
+        private bool _needSynchonize = false;
+        public async Task StartSync()
+        {
+            if (!IsServerOk || FactoryId <= 0) { _needSynchonize = false; return; }
+
+            _needSynchonize = true;
+            if (_isSynchronizing) { return; }
+
+            _isSynchronizing = true;
+            try
+            {
+                while (_needSynchonize)
+                {
+                    _needSynchonize = false;
+                    if (IsServerOk)
+                    {
+                        await _srv.Server_Sync(_tblInfos, FactoryId);
+                    }
+                }
+            }
+            catch
+            {
+                IsServerOk = false;
+            }
+            _isSynchronizing = false;
+        }
+
     }
 }
