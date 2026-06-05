@@ -587,6 +587,11 @@ namespace TronBeTongV3
             wnd.ShowDialog();
         }
 
+        private void MniViewZoom75_Click(object sender, RoutedEventArgs e)
+        {
+            SetAppZoom(0.75);
+        }
+
         private void MniViewZoom100_Click(object sender, RoutedEventArgs e)
         {
             SetAppZoom(1);
@@ -610,11 +615,17 @@ namespace TronBeTongV3
         }
 
         private bool _skipSetZoom = false;
-        private void CheckMniViewZoom(double z)
+        private void CheckMniViewZoom(double dz)
         {
+            if (_skipSetZoom) return;
             _skipSetZoom = true;
+            double z = Math.Round(dz, 2);
+            ResetViewChecked();
             switch (z)
             {
+                case 0.75:
+                    MniViewZoom75.IsChecked = true;
+                    break;
                 case 1.1:
                     MniViewZoom110.IsChecked = true;
                     break;
@@ -636,14 +647,23 @@ namespace TronBeTongV3
 
         private async void SetAppZoom(double z)
         {
-            if (_skipSetZoom) return;
             if (z > 0.5)
             {
                 _vm.AppZoom = z;
+                CheckMniViewZoom(z);
                 var s = DbRepository.Instance.Settings;
                 s.UpdateDouble("app.zoom", z);
                 await _db.SaveSettingsAsync(s);
             }
+        }
+
+        private void ResetViewChecked()
+        {
+            MniViewZoom75.IsChecked = false;
+            MniViewZoom100.IsChecked = false;
+            MniViewZoom110.IsChecked = false;
+            MniViewZoom120.IsChecked = false;
+            MniViewZoom125.IsChecked = false;
         }
         #endregion
 

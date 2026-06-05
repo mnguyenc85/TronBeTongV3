@@ -147,7 +147,7 @@ namespace TronBeTongV3.View
 
                 TxtHackTGRoiTram.Text = SelectedPhieu.TGHT?.ToString("HH:mm");
 
-                TxtHackPhieuM3Tron.Text = string.Format(_vnCulture, "{0:F1}", SelectedPhieu.TheTichHT);
+                TxtHackPhieuM3Tron.Text = string.Format(_vnCulture, "{0:F2}", SelectedPhieu.TheTichHT);
                 TxtHackPhieuTichLuy.Text = string.Format(_vnCulture, "{0:F1}", SelectedPhieu.TheTichTichLuy);
                 TxtSeal.Text = SelectedPhieu.KepChi;
             }

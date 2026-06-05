@@ -7,7 +7,7 @@
         xmlns:view="clr-namespace:TronBeTongV3.View"
         xmlns:wpfctrls="clr-namespace:NMWPFControls.Controls;assembly=NMWPFControls"
         mc:Ignorable="d"
-        Title="Trạm trộn bê tông" MinWidth="1500" MinHeight="800"
+        Title="Trạm trộn bê tông" MinWidth="1366" MinHeight="800"
         Loaded="Window_Loaded" Closing="Window_Closing" WindowStartupLocation="CenterScreen"
         WindowState="Maximized">
     <Window.Resources>
@@ -53,6 +53,7 @@
                 <MenuItem x:Name="MniSetParams" Header="Tham số" Click="MniSetParams_Click"/>
                 <MenuItem Header="Giao diện">
                     <MenuItem Header="Zoom">
+                        <MenuItem x:Name="MniViewZoom75" Header="75%" Click="MniViewZoom75_Click"/>
                         <MenuItem x:Name="MniViewZoom100" Header="100%" Click="MniViewZoom100_Click"/>
                         <MenuItem x:Name="MniViewZoom110" Header="110%" Click="MniViewZoom110_Click"/>
                         <MenuItem x:Name="MniViewZoom120" Header="120%" Click="MniViewZoom120_Click"/>

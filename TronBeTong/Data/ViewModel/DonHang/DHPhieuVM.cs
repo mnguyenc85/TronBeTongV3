@@ -223,7 +223,7 @@ namespace TronBeTongV3.Data.ViewModel.DonHang
             o.TheTichDat = TheTichDat;
             o.MeHT = MeHT;
             o.KLHT = Math.Round(KLHT, 1);
-            o.TheTichHT = Math.Round(TheTichHT, 1);
+            o.TheTichHT = Math.Round(TheTichHT, 2);
 
             o.TGBD = TGBD;
             o.TGHT = TGHT;
