@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using System.Windows;
 using TronBeTongV3.Core;
 
 namespace TronBeTongV3.CSDL.Server
@@ -135,6 +136,7 @@ namespace TronBeTongV3.CSDL.Server
                 catch (Exception ex)
                 {
                     System.Diagnostics.Debug.WriteLine(ex.Message);
+                    MessageBox.Show(ex.Message);
                 }
             }
         }

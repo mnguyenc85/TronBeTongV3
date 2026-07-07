@@ -93,7 +93,7 @@ namespace TronBeTongV3.CSDL.Server
 
             string query = @"CREATE TABLE IF NOT EXISTS sources (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                ten VARCHAR(63), ma VARCHAR(128), flags INT,
+                ten VARCHAR(63), ma1 VARCHAR(128), ma2 VARCHAR(128), flags INT,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);";
             var cmd = new MySqlCommand(query, srvConn);
             await cmd.ExecuteNonQueryAsync();
