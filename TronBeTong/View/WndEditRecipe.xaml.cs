@@ -256,7 +256,7 @@ namespace TronBeTongV3.View
         private void TxtTongKLDat_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (TxtTongKLDat == null || LblKLBu == null) return;
-            if (double.TryParse(TxtTongKLDat.Text, out double _tongkldat)) {
+            if (double.TryParse(TxtTongKLDat.Text, out _tongkldat)) {
                 UpdateKLBu();
             }
         }

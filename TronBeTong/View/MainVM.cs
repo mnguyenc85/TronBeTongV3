@@ -173,12 +173,12 @@ namespace TronBeTongV3.View
                     {
                         ActivePhieu.TGHT = DateTime.Now;
                         double tklme = me.TongKL();
-                        double klthem = Math.Round(tklme - me.KLDaLuuPhieu, 1);
-                        ActivePhieu.KLHT += klthem;
+                        double klthme = Math.Round(tklme - me.KLDaLuuPhieu, 2);
+                        ActivePhieu.KLHT += klthme;
                         me.KLDaLuuPhieu = tklme;
                         await _db.HT_Phieu_UpdateHoanThanhAsync(conn, ActivePhieu.CreateDO());
                         if (ActivePhieu.DonHang != null) 
-                            ActivePhieu.DonHang.KLHT = Math.Round(ActivePhieu.DonHang.KLHT + klthem, 1);
+                            ActivePhieu.DonHang.KLHT = Math.Round(ActivePhieu.DonHang.KLHT + klthme, 2);
                     }
 
                     me.PhieuId = ActivePhieu.Id;
