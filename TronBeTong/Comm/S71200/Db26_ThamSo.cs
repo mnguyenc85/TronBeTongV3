@@ -113,7 +113,16 @@ namespace TronBeTongV3.Comm.S71200
         public PlcTag MucCanNhayPG2 { get; private set; }
         #endregion
 
-        public Db26_ThamSo() : base(26, 238, 0) {
+        #region Rung & Sục khí: -> DB29
+
+        public PlcTag EnableSucKhiSilo1 { get; private set; } = new PlcTag(TagTypes.Bool, 298, 0);
+        public PlcTag EnableSucKhiSilo2 { get; private set; } = new PlcTag(TagTypes.Bool, 298, 1);
+        public PlcTag EnableDamRungTP1 { get; private set; } = new PlcTag(TagTypes.Bool, 298, 2);
+        public PlcTag EnableDamRungTP2 { get; private set; } = new PlcTag(TagTypes.Bool, 298, 3);
+        public PlcTag EnableDamRungTP3 { get; private set; } = new PlcTag(TagTypes.Bool, 298, 4);
+        #endregion
+
+        public Db26_ThamSo() : base(26, 300, 0) {
             #region Empty Level
             EmptyLevelCL1 = new PlcTag(TagTypes.Real, 0);
             EmptyLevelCL2 = new PlcTag(TagTypes.Real, 4);
@@ -338,6 +347,14 @@ namespace TronBeTongV3.Comm.S71200
             MucCanNhayNuoc.ParseDb(_buf, StartByteAddr);
             MucCanNhayPG1.ParseDb(_buf, StartByteAddr);
             MucCanNhayPG2.ParseDb(_buf, StartByteAddr);
+            #endregion
+
+            #region Rung & Sục khí: -> DB29
+            EnableSucKhiSilo1.ParseDb(_buf, StartByteAddr);
+            EnableSucKhiSilo2.ParseDb(_buf, StartByteAddr);
+            EnableDamRungTP1.ParseDb(_buf, StartByteAddr);
+            EnableDamRungTP2.ParseDb(_buf, StartByteAddr);
+            EnableDamRungTP3.ParseDb(_buf, StartByteAddr);
             #endregion
 
             T = DateTime.Now.Ticks;

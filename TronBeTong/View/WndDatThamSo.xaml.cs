@@ -207,6 +207,12 @@ namespace TronBeTongV3.View
 
                 _textboxes.Add(new TagTextBox(TxtBomMoRungOn, TramTron, TramTron.BomMoTGOn));
                 _textboxes.Add(new TagTextBox(TxtBomMoRungOff, TramTron, TramTron.BomMoTGOff));
+
+                _checkboxes.Add(new TagCheckbox(ChkEnRungTP1, TramTron, TramTron.EnableRungTP1));
+                _checkboxes.Add(new TagCheckbox(ChkEnRungTP2, TramTron, TramTron.EnableRungTP2));
+                _checkboxes.Add(new TagCheckbox(ChkEnRungTP3, TramTron, TramTron.EnableRungTP3));
+                _checkboxes.Add(new TagCheckbox(ChkEnSucKhiSilo1, TramTron, TramTron.EnableSucKhiSilo1));
+                _checkboxes.Add(new TagCheckbox(ChkEnSucKhiSilo2, TramTron, TramTron.EnableSucKhiSilo2));
                 #endregion
 
                 #region Hiệu chuẩn cân

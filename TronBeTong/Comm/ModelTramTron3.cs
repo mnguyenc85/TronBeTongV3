@@ -305,6 +305,12 @@ namespace TronBeTongV3.Comm
             AddLink(RungTCXM2On, db29, db29.RungTCXM2On);
             AddLink(RungTCXM2Cycle, db29, db29.RungTCXM2Cycle);
             AddLink(RungCLTGTre, db29, db29.RungCLTGTre);
+
+            AddLink(EnableSucKhiSilo1, db26, db26.EnableSucKhiSilo1);
+            AddLink(EnableSucKhiSilo2, db26, db26.EnableSucKhiSilo2);
+            AddLink(EnableRungTP1, db26, db26.EnableDamRungTP1);
+            AddLink(EnableRungTP2, db26, db26.EnableDamRungTP2);
+            AddLink(EnableRungTP3, db26, db26.EnableDamRungTP3);
             #endregion
 
             #region KL0 rung xả cân

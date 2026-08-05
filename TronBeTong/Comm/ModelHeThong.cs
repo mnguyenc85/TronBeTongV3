@@ -389,6 +389,12 @@ namespace TronBeTongV3.Comm
         public ModelTag RungTCXM2Cycle { get; private set; } = new ModelTag("Pr.Rung.TCXM2.Cycle");
 
         public ModelTag RungCLTGTre { get; private set; } = new ModelTag("Pr.Rung.CLTG.Tre");
+
+        public ModelTag EnableSucKhiSilo1 { get; private set; } = new ModelTag("Pr.SucKhi.Silo1.Enable");
+        public ModelTag EnableSucKhiSilo2 { get; private set; } = new ModelTag("Pr.SucKhi.Silo2.Enable");
+        public ModelTag EnableRungTP1 { get; private set; } = new ModelTag("Pr.Rung.TP1.Enable");
+        public ModelTag EnableRungTP2 { get; private set; } = new ModelTag("Pr.Rung.TP2.Enable");
+        public ModelTag EnableRungTP3 { get; private set; } = new ModelTag("Pr.Rung.TP3.Enable");
         #endregion
 
         #region KL0 rung xả cân
