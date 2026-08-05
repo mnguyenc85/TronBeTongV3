@@ -103,7 +103,6 @@ namespace TronBeTongV3.Comm.S71200
         public PlcTag RungTCXM2On { get; private set; }
         public PlcTag RungTCXM2Cycle { get; private set; }
         public PlcTag RungCLTGTre { get; private set; }
-
         #endregion
 
         #region Bơm mỡ
