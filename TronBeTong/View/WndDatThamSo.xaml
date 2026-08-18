@@ -246,6 +246,7 @@
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
 
                     <TextBlock Text="Cốt liệu 1" VerticalAlignment="Center" Grid.Column="1" Margin="3 0 0 0"/>
@@ -369,6 +370,8 @@
                     <nmwpfctrl:TextBoxDouble x:Name="TxtXeSkipTGDT0DT2" Grid.Row="25" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <TextBlock Text="TG xe skip DT0 -> DT1" Grid.Row="26" VerticalAlignment="Center" HorizontalAlignment="Right"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtXeSkipTGDT0DT1" Grid.Row="26" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <TextBlock Text="Quá tải xe skip" Grid.Row="27" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtXeSkipQuaTai" Grid.Row="27" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                 </Grid>
             </TabItem>
 
@@ -450,8 +453,8 @@
                     <nmwpfctrl:TextBoxDouble x:Name="TxtSucKhiOn" Grid.Row="7" Grid.Column="6" Grid.ColumnSpan="2" Width="68"
                                              VerticalAlignment="Center" Margin="40,0,40,0" Value="0"/>
                     <TextBlock Grid.Row="8" Text="Điều khiển tự động" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 3 0" Grid.ColumnSpan="2"/>
-                    <CheckBox x:Name="ChkEnSucKhiSilo1" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
-                    <CheckBox x:Name="ChkEnSucKhiSilo2" Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
+                    <CheckBox x:Name="ChkEnSucKhiSilo1" Grid.Column="6" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
+                    <CheckBox x:Name="ChkEnSucKhiSilo2" Grid.Column="7" Grid.Row="8" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
 
                     <Border Grid.ColumnSpan="13" Grid.Row="9" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0,2,0,2"/>
                     <TextBlock Grid.Row="10" Text="TG trễ rung CLTG " VerticalAlignment="Center" HorizontalAlignment="Left" Margin="83,0,0,0" Grid.ColumnSpan="2"/>

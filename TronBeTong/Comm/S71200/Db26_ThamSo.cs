@@ -113,8 +113,8 @@ namespace TronBeTongV3.Comm.S71200
         public PlcTag MucCanNhayPG2 { get; private set; }
         #endregion
 
+        public PlcTag QuaTaiXeSkip { get; private set; } = new PlcTag(TagTypes.Real, 294);
         #region Rung & Sục khí: -> DB29
-
         public PlcTag EnableSucKhiSilo1 { get; private set; } = new PlcTag(TagTypes.Bool, 298, 0);
         public PlcTag EnableSucKhiSilo2 { get; private set; } = new PlcTag(TagTypes.Bool, 298, 1);
         public PlcTag EnableDamRungTP1 { get; private set; } = new PlcTag(TagTypes.Bool, 298, 2);
@@ -348,6 +348,8 @@ namespace TronBeTongV3.Comm.S71200
             MucCanNhayPG1.ParseDb(_buf, StartByteAddr);
             MucCanNhayPG2.ParseDb(_buf, StartByteAddr);
             #endregion
+
+            QuaTaiXeSkip.ParseDb(_buf, StartByteAddr);
 
             #region Rung & Sục khí: -> DB29
             EnableSucKhiSilo1.ParseDb(_buf, StartByteAddr);

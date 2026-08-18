@@ -193,6 +193,8 @@ namespace TronBeTongV3.Comm
         public ModelTag XeSkipDT0_DT2 { get; private set; } = new ModelTag("XeSkip.TG_DT0_DT2");
         public ModelTag XeSkipDT0_DT1 { get; private set; } = new ModelTag("XeSkip.TG_DT0_DT1");
         public ModelTag XeSkipTGXaCLDT2 { get; private set; } = new ModelTag("XeSkip.TGXaCL_DT2");
+
+        public ModelTag XeSkipQuaTai { get; private set; } = new ModelTag("XeSkip.QuaTai");
         #endregion
 
         #region Calibration
