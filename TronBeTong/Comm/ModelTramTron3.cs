@@ -20,6 +20,8 @@ namespace TronBeTongV3.Comm
 
         protected override void InitLinks()
         {
+            var db26 = _plc.Db26ThamSo;
+
             #region Cấp phối
             var db43 = _plc.Db43CP;
             for (int i = 0; i < SoCLReal; i++)
@@ -121,6 +123,9 @@ namespace TronBeTongV3.Comm
             //AddLink(SensorMoCLTG, m100, m100.SensorBaoMoCLTG);
             //AddLink(SensorDongCLTG, m100, m100.SensorBaoDongCLTG);
             AddLink(MixerRunning, m100, m100.MixerRunning);
+            #endregion
+
+            #region Băng Tải & Xe Skip
 
             AddLink(XeSkipDT0, m100, m100.XeSkipDT0);
             AddLink(XeSkipDT1, m100, m100.XeSkipDT1);
@@ -128,6 +133,8 @@ namespace TronBeTongV3.Comm
             AddLink(XeSkipDown, m100, m100.XeSkipDown);
             AddLink(XeSkipUp, m100, m100.XeSkipUp);
             AddLink(XeSkipEMC, m100, m100.XeSkipEMC);
+
+            AddLink(XeSkipQuaTai, db26, db26.QuaTaiXeSkip);
             #endregion
 
             #region Hệ thống
@@ -155,7 +162,6 @@ namespace TronBeTongV3.Comm
             #endregion
 
             #region Tham số
-            var db26 = _plc.Db26ThamSo;
             AddLink(EmptyLevelCL1, db26, db26.EmptyLevelCL1);
             AddLink(EmptyLevelCL2, db26, db26.EmptyLevelCL2);
             AddLink(EmptyLevelCL3, db26, db26.EmptyLevelCL3);

@@ -229,6 +229,7 @@ namespace TronBeTongV3.View
                 _textboxes.Add(new TagTextBox(TxtXeSkipTGTrungCap, TramTron, TramTron.XeSkipTGTrungCap));
                 _textboxes.Add(new TagTextBox(TxtXeSkipTGDT0DT2, TramTron, TramTron.XeSkipDT0_DT2));
                 _textboxes.Add(new TagTextBox(TxtXeSkipTGDT0DT1, TramTron, TramTron.XeSkipDT0_DT1));
+                _textboxes.Add(new TagTextBox(TxtXeSkipQuaTai, TramTron, TramTron.XeSkipQuaTai));
                 #endregion
 
                 // Cho phép đọc tham số
