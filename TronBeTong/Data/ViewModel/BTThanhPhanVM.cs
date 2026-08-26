@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using NMWPFControls.Core.MVVM;
 using TronBeTongV3.Core;
 using TronBeTongV3.Data.DO;
@@ -22,6 +23,17 @@ namespace TronBeTongV3.Data.ViewModel
 
         private ViewModelStates _state = ViewModelStates.None;
         public ViewModelStates State { get { return _state; } set { if (_state != value) { _state = value; NotifyChanged(); } } }
+
+        public bool IsChanged { get; set; }
+
+        protected override void NotifyChanged([CallerMemberName] string? propertyName = null)
+        {
+            base.NotifyChanged(propertyName);
+            if (propertyName == nameof(KL))
+            {
+                IsChanged = true;
+            }
+        }
 
         public BTThanhPhanVM Clone()
         {

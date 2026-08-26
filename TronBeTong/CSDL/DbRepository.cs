@@ -316,7 +316,7 @@ namespace TronBeTongV3.CSDL
                     ct1.KLSilos = ch.TinhKLTheoSilo(ct1);
                 }
 
-                ct.IsChanged = false;
+                ct.MarkNotChanged();
             }
         }
 

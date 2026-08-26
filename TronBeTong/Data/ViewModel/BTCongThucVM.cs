@@ -42,7 +42,7 @@ namespace TronBeTongV3.Data.ViewModel
 
         public ObservableCollection<BTThanhPhanVM> DsThanhPhan { get; private set; } = [];
 
-        public bool IsChanged { get; set; }
+        public bool IsChanged { get; private set; }
 
         protected override void NotifyChanged([CallerMemberName] string? propertyName = null)
         {
@@ -179,6 +179,34 @@ namespace TronBeTongV3.Data.ViewModel
             BTCongThucDO o = new();
             ToDO(o);
             return o;
+        }
+
+        public bool CheckChanged()
+        {
+            foreach (var tp in DsThanhPhan)
+            {
+                if (tp.IsChanged)
+                {
+                    IsChanged = true;
+                    break;
+                }
+            }
+
+            return IsChanged;
+        }
+
+        public void MarkChanged()
+        {
+            IsChanged = true;
+        }
+
+        public void MarkNotChanged()
+        {
+            IsChanged = false;
+            foreach (var tp in DsThanhPhan)
+            {
+                tp.IsChanged = false;
+            }
         }
     }
 }

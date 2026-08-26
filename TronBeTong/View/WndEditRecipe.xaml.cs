@@ -353,6 +353,8 @@ namespace TronBeTongV3.View
             if (_isSavingCT) return;
             _isSavingCT = true;
 
+            // Kiểm tra công thức hiện tại có thay đổi không?
+            CurCT.CheckChanged();
             System.Diagnostics.Debug.WriteLine($"Start save ct -> Id = {CurCT.Id}");
 
             CurCT.STT = DsCongThuc.Count + 1;
@@ -362,6 +364,10 @@ namespace TronBeTongV3.View
 
             System.Diagnostics.Debug.WriteLine($"Saved ct -> Id = {CurCT.Id}");
 
+            // Load lại công thức hiện tại
+            await DbRepository.Instance.CongThuc_LoadThanhPhan(CurCT);
+            UpdateTongKLCT();
+
             _isSavingCT = false;
         }
 
@@ -370,7 +376,7 @@ namespace TronBeTongV3.View
             if (LvCongThuc.SelectedItem is BTCongThucVM ct)
             {
                 CurCT.CopyFrom(ct);
-                await DbRepository.Instance.CongThuc_LoadThanhPhan(CurCT);                
+                await DbRepository.Instance.CongThuc_LoadThanhPhan(CurCT);          
                 UpdateTongKLCT();
             }
         }
