@@ -88,8 +88,8 @@
                         </nmwpfctrl:NMComboBoxV2.ZListItemTemplate>
                     </nmwpfctrl:NMComboBoxV2>
                 </DockPanel>
-                <CheckBox x:Name="CboCanPGRieng" Content="Cân PG riêng" Margin="90 0 0 3" IsChecked="{Binding Phieu.CanPGNgoai}"
-                          Checked="CboCanPGRieng_Checked" Unchecked="CboCanPGRieng_Unchecked"/>
+                <CheckBox x:Name="ChkCanPGRieng" Content="Cân PG riêng" Margin="90 0 0 3" IsChecked="{Binding Phieu.CanPGNgoai}"
+                          Checked="ChkCanPGRieng_Checked" Unchecked="ChkCanPGRieng_Unchecked"/>
                 <TextBlock x:Name="LblCongThucLoi1" Text="Lỗi: Cấp phối không phù hợp cấu hình silo. (Nhấn chuột để sửa)" Foreground="Red" Margin="90 0 0 6" TextWrapping="Wrap"
                            MouseLeftButtonDown="LblCongThucLoi1_MouseLeftButtonDown" Visibility="Collapsed"/>
 

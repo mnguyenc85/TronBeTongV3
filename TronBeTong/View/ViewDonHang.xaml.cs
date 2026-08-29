@@ -24,29 +24,7 @@ namespace TronBeTongV3.View
     /// </summary>
     public partial class ViewDonHang : UserControl, INotifyPropertyChanged
     {
-        #region INotifyPropertyChanged
-        private readonly Dictionary<string, PropertyChangedEventArgs> _argsCache = new();
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected virtual void NotifyChanged([CallerMemberName] string? propertyName = null)
-        {
-            if (_argsCache != null && propertyName != null)
-            {
-                if (!_argsCache.ContainsKey(propertyName))
-                    _argsCache[propertyName] = new PropertyChangedEventArgs(propertyName);
-
-                NotifyChanged(_argsCache[propertyName]);
-            }
-        }
-
-        private void NotifyChanged(PropertyChangedEventArgs e)
-        {
-            PropertyChanged?.Invoke(this, e);
-        }
-        #endregion
-
-        private DbRepository _r = DbRepository.Instance;
+        private readonly DbRepository _r = DbRepository.Instance;
 
         #region ZSelectedPhieu
         public object ZSelectedPhieu
@@ -58,7 +36,7 @@ namespace TronBeTongV3.View
             DependencyProperty.Register("ZSelectedPhieu", typeof(object), typeof(ViewDonHang), new PropertyMetadata(null));
         #endregion
 
-        private KDDsXeVM _dsxe = new KDDsXeVM();
+        private readonly KDDsXeVM _dsxe = new();
 
         /// <summary>
         /// Ngăn không truyền dữ liệu xuống PLC
@@ -218,7 +196,7 @@ namespace TronBeTongV3.View
                 EnableEditor();
             }
         }
-        private void CboCanPGRieng_Checked(object sender, RoutedEventArgs e)
+        private void ChkCanPGRieng_Checked(object sender, RoutedEventArgs e)
         {
             if (!LockPLC)
             {
@@ -233,7 +211,7 @@ namespace TronBeTongV3.View
             }
         }
 
-        private void CboCanPGRieng_Unchecked(object sender, RoutedEventArgs e)
+        private void ChkCanPGRieng_Unchecked(object sender, RoutedEventArgs e)
         {
             if (!LockPLC)
             {
@@ -400,7 +378,12 @@ namespace TronBeTongV3.View
             }
         }
 
-        public async Task SetCongThucTheoMa(string ma)
+        /// <summary>
+        /// Đặt cấp phối theo mã
+        /// </summary>
+        /// <param name="ma"></param>
+        /// <returns></returns>
+        public async Task DatCapPhoiTheoMa(string ma)
         {
             var ct = DsCongThuc.FirstOrDefault(c => c.Ma == ma);
             await ThayCongThuc(ct);
@@ -412,6 +395,7 @@ namespace TronBeTongV3.View
         }
 
         public bool IsConnect { get; set; }
+        
         /// <summary>
         /// Enable/disable controls
         /// </summary>
@@ -467,5 +451,27 @@ namespace TronBeTongV3.View
 
             EnableEditor();
         }
+
+        #region INotifyPropertyChanged
+        private readonly Dictionary<string, PropertyChangedEventArgs> _argsCache = new();
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected virtual void NotifyChanged([CallerMemberName] string? propertyName = null)
+        {
+            if (_argsCache != null && propertyName != null)
+            {
+                if (!_argsCache.ContainsKey(propertyName))
+                    _argsCache[propertyName] = new PropertyChangedEventArgs(propertyName);
+
+                NotifyChanged(_argsCache[propertyName]);
+            }
+        }
+
+        private void NotifyChanged(PropertyChangedEventArgs e)
+        {
+            PropertyChanged?.Invoke(this, e);
+        }
+        #endregion
     }
 }

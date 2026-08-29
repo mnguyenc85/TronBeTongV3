@@ -770,7 +770,7 @@ namespace TronBeTongV3
                     string? ct_ma = await _db.HT_CongThuc_ByLastDonHang(don.Id);
                     if (ct_ma != null)
                     {
-                        await ViewDonHang.SetCongThucTheoMa(ct_ma);
+                        await ViewDonHang.DatCapPhoiTheoMa(ct_ma);
                     }
                 }
 

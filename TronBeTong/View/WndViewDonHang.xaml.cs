@@ -61,6 +61,8 @@ namespace TronBeTongV3.View
 
             double appZoom = DbRepository.Instance.Settings.GetDoubleValue("app.zoom", 1);
             AppZoom = appZoom;
+
+            BtInPhieu.IsEnabled = false;
         }
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
@@ -150,6 +152,8 @@ namespace TronBeTongV3.View
                 TxtHackPhieuM3Tron.Text = string.Format(_vnCulture, "{0:F2}", SelectedPhieu.TheTichHT);
                 TxtHackPhieuTichLuy.Text = string.Format(_vnCulture, "{0:F1}", SelectedPhieu.TheTichTichLuy);
                 TxtSeal.Text = SelectedPhieu.KepChi;
+
+                BtInPhieu.IsEnabled = true;
             }
             else
             {
@@ -167,6 +171,8 @@ namespace TronBeTongV3.View
                 TxtHackTGRoiTram.Text = "";
                 TxtHackPhieuM3Tron.Text = "";
                 TxtHackPhieuTichLuy.Text = "";
+
+                BtInPhieu.IsEnabled = false;
             }
         }
 
@@ -285,16 +291,19 @@ namespace TronBeTongV3.View
         private void ChkFilterDate_Unchecked(object sender, RoutedEventArgs e)
         {
             LocPhieu();
+            BtInPhieu.IsEnabled = SelectedPhieu != null;
         }
 
         private void TxtFilterBSX_TextChanged(object sender, TextChangedEventArgs e)
         {
             LocPhieu();
+            BtInPhieu.IsEnabled = SelectedPhieu != null;
         }
 
         private void TxtFilterLaiXe_TextChanged(object sender, TextChangedEventArgs e)
         {
             LocPhieu();
+            BtInPhieu.IsEnabled = SelectedPhieu != null;
         }
 
         private void ChkFilterDate_Checked(object sender, RoutedEventArgs e)
