@@ -74,6 +74,7 @@ namespace TronBeTongV3
         {
             PnlDebug.Visibility = Visibility.Collapsed;
             await Init();
+            ViewDonHang.CanPGRieng = _s.GetBoolValue("vanhanh.canpgrieng");
             _tramtron.StartConnection();
         }
 
@@ -86,11 +87,10 @@ namespace TronBeTongV3
             //_client.Stop();
 
             // Save settings before exit program
-            var r = DbRepository.Instance;
-            var s = r.Settings;
-            s.UpdateBool("in.phieu.auto", ChkAutoPrint.IsChecked == true);
-            s.UpdateDouble("in.phieu.auto.times", TxtPrintRepeat.Value);
-            await _db.SaveSettingsAsync(s);
+            _s.UpdateBool("in.phieu.auto", ChkAutoPrint.IsChecked == true);
+            _s.UpdateDouble("in.phieu.auto.times", TxtPrintRepeat.Value);
+            _s.UpdateBool("vanhanh.canpgrieng", ViewDonHang.CanPGRieng);
+            await _db.SaveSettingsAsync(_s);
         }
 
         private async Task Init()

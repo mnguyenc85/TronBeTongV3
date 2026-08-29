@@ -36,6 +36,18 @@ namespace TronBeTongV3.View
             DependencyProperty.Register("ZSelectedPhieu", typeof(object), typeof(ViewDonHang), new PropertyMetadata(null));
         #endregion
 
+        private bool _lockCanPGRieng = false;
+        public bool CanPGRieng
+        {
+            get { return ChkCanPGRieng.IsChecked == true; }
+            set
+            {
+                _lockCanPGRieng = true;
+                ChkCanPGRieng.IsChecked = value;
+                _lockCanPGRieng = false;
+            }
+        }
+
         private readonly KDDsXeVM _dsxe = new();
 
         /// <summary>
@@ -198,6 +210,7 @@ namespace TronBeTongV3.View
         }
         private void ChkCanPGRieng_Checked(object sender, RoutedEventArgs e)
         {
+            if (_lockCanPGRieng) return;
             if (!LockPLC)
             {
                 ButtonClick?.Invoke(this, new ButtonArgs()
@@ -213,6 +226,7 @@ namespace TronBeTongV3.View
 
         private void ChkCanPGRieng_Unchecked(object sender, RoutedEventArgs e)
         {
+            if (_lockCanPGRieng) return;
             if (!LockPLC)
             {
                 ButtonClick?.Invoke(this, new ButtonArgs()

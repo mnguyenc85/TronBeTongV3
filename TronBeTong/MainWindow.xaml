@@ -169,7 +169,7 @@
             <DockPanel DockPanel.Dock="Top" MinHeight="640">
                 <Grid>
                     <Canvas>
-                        <view:ViewSoftwareInfo Margin="10" Opacity="50"/>
+                        <view:ViewSoftwareInfo Margin="10" Opacity="0.8"/>
 
                         <view:GrCtrlKhungXeSkip x:Name="CtrlXeSkip" Canvas.Left="240" Canvas.Top="330" Width="340" Height="270"/>
 
