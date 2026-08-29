@@ -37,6 +37,7 @@
     <None Remove="Images\conveyor_screw01.png" />
     <None Remove="Images\hsep1.png" />
     <None Remove="Images\logo_tpa.png" />
+    <None Remove="Images\logo_tpa_1.png" />
     <None Remove="Images\mixer01.png" />
     <None Remove="Images\mixer01_base.png" />
     <None Remove="Images\mixer01_hand.png" />
@@ -106,6 +107,7 @@
     </Resource>
     <Resource Include="Images\conveyor_screw01.png" />
     <Resource Include="Images\logo_tpa.png" />
+    <Resource Include="Images\logo_tpa_1.png" />
     <Resource Include="Images\mixer01.png" />
     <Resource Include="Images\mixer01_base.png" />
     <Resource Include="Images\mixer01_hand.png" />

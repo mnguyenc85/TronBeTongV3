@@ -169,15 +169,17 @@
             <DockPanel DockPanel.Dock="Top" MinHeight="640">
                 <Grid>
                     <Canvas>
+                        <view:ViewSoftwareInfo Margin="10" Opacity="50"/>
+
                         <view:GrCtrlKhungXeSkip x:Name="CtrlXeSkip" Canvas.Left="240" Canvas.Top="330" Width="340" Height="270"/>
 
-                        <view:CtrlTPXiMang x:Name="TPXiMang" Canvas.Left="380" Canvas.Top="5" ZNoTP="4"/>
+                        <view:CtrlTPXiMang x:Name="TPXiMang" Canvas.Left="440" Canvas.Top="5" ZNoTP="4"/>
 
                         <view:CtrlTPCotLieu2 x:Name="TPCotLieu" Canvas.Left="15" Canvas.Top="280" ZSoTP="3"/>
 
-                        <view:CtrlTPNuoc x:Name="TPNuoc" Canvas.Left="780" Canvas.Top="10"/>
+                        <view:CtrlTPNuoc x:Name="TPNuoc" Canvas.Left="880" Canvas.Top="10"/>
 
-                        <view:CtrlTPPhuGia x:Name="TPPhuGia" ZNoTP="2" Canvas.Left="60" Canvas.Top="10"/>
+                        <view:CtrlTPPhuGia x:Name="TPPhuGia" ZNoTP="2" Canvas.Left="260" Canvas.Top="10"/>
 
                         <view:CtrlTPBangTai x:Name="TPBangTai" Canvas.Left="10" Canvas.Top="520" Visibility="Collapsed"/>
 
