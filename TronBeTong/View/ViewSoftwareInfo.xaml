@@ -5,17 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TronBeTongV3.View"
              mc:Ignorable="d" 
-             FontSize="16">
-    <Border Padding="6" BorderBrush="Gray" CornerRadius="3" BorderThickness="1">
+             FontSize="12">
+    <Border Padding="3" BorderBrush="Gray" CornerRadius="3" BorderThickness="1" Background="#c0f0f0f0">
         <StackPanel>
-            <Image Source="/Images/logo_tpa_1.png" Width="180"/>
+            <Image Source="/Images/logo_tpa.png" Width="120"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Text="Website: " Foreground="Gray"/>
-                <TextBlock Text="tpatech.vn" Foreground="White"/>
+                <TextBlock Text="tpatech.vn" Foreground="Black"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Text="ĐT/Zalo: " Foreground="Gray"/>
-                <TextBlock Text="098 8087 289" Foreground="White"/>
+                <TextBlock Text="098 8087 289" Foreground="Black"/>
             </StackPanel>
         </StackPanel>
     </Border>
