@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows;
 using TronBeTongV3.Core;
+using TronBeTongV3.Debugger;
 
 namespace TronBeTongV3
 {
@@ -28,7 +29,7 @@ namespace TronBeTongV3
         private static extern bool IsWindowVisible(IntPtr hWnd);
 
         [DllImport("user32.dll")]
-        private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+        private static extern IntPtr FindWindow(string? lpClassName, string lpWindowName);
 
         [DllImport("user32.dll")]
         private static extern bool SetForegroundWindow(IntPtr hWnd);
@@ -41,8 +42,8 @@ namespace TronBeTongV3
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            //AppLogger.Init(); // Khởi tạo logger
-                              
+            CrashLogger.Initialize();   // Khởi tạo logger
+
             // Đăng ký handler ở đây
             AppDomain.CurrentDomain.ProcessExit += (s, e) => Log.CloseAndFlush();
             AppDomain.CurrentDomain.UnhandledException += (s, e) => Log.CloseAndFlush();            
@@ -72,7 +73,7 @@ namespace TronBeTongV3
 
         protected override void OnExit(ExitEventArgs e)
         {
-            AppLogger.Shutdown(); // Flush log khi thoát
+            CrashLogger.Shutdown(); // Flush log khi thoát
             base.OnExit(e);
         }
 
