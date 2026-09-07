@@ -65,11 +65,14 @@ namespace TronBeTongV3.View
         /// </summary>
         public int RoundDigit { get; set; } = 1;
         public string RoundFormat { get; set; } = "0.0";
+        private string _capphoi0 = "";
 
         public CtrlWaterSilo()
         {
             InitializeComponent();
             PnlMain.DataContext = this;
+
+            SiloPart1.ValueChanged += SiloPart1_ValueChanged;
         }
 
         public string GetText(int i)
@@ -88,7 +91,8 @@ namespace TronBeTongV3.View
             double cp = Math.Round(capphoi, RoundDigit);
             double tt = Math.Round(m3, RoundDigit);
 
-            SiloPart1.ZText = cp.ToString(RoundFormat);
+            _capphoi0 = cp.ToString(RoundFormat);
+            SiloPart1.ZText = _capphoi0;
             //if (some > 0)
             //    SiloPart2.ZText = (cp * tt / some).ToString(RoundFormat);
             //else SiloPart2.ZText = "-";
@@ -127,6 +131,18 @@ namespace TronBeTongV3.View
             //    BtState = e,
             //    ObjectId = Id,
             //});
+        }
+
+        private void SiloPart1_ValueChanged(object? sender, string e)
+        {
+            if (double.TryParse(e, out double v))
+            {
+
+            }
+            else
+            {
+                SiloPart1.ZText = _capphoi0;
+            }
         }
     }
 }

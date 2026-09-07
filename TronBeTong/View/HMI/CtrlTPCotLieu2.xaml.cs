@@ -94,7 +94,7 @@ namespace TronBeTongV3.View
                     {
                         //WsTotalCL1.NeedSaveWeights = false;                        
                         WsTotalCL1.IsSaveWeightsState = false;
-                        ret |= true;
+                        ret = true;
                     }
                 }
                 if (WsTotalCL2.CheckChotMe(TramTron.WIState.ChotCoLieu))
@@ -104,7 +104,7 @@ namespace TronBeTongV3.View
                     {
                         //WsTotalCL2.NeedSaveWeights = false;
                         WsTotalCL2.IsSaveWeightsState = false;
-                        ret |= true;
+                        ret = true;
                     }
                 }
                 if (WsTotalCL3.CheckChotMe(TramTron.WIState.ChotCoLieu))
@@ -114,7 +114,7 @@ namespace TronBeTongV3.View
                     {
                         //WsTotalCL3.NeedSaveWeights = false;
                         WsTotalCL3.IsSaveWeightsState = false;
-                        ret |= true;
+                        ret = true;
                     }
                 }
             }

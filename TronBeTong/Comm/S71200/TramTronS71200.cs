@@ -154,7 +154,9 @@ namespace TronBeTongV3.Comm.S71200
                 if (Db26ThamSo.NeedRead(delta))
                 {
                     await Db26ThamSo.ReadAsync(plc, delta);
-                    await Db26ThamSo.WriteAsync(plc, delta);
+                    int n = await Db26ThamSo.WriteAsync(plc, delta);
+                    if (n > 0) 
+                        Db26ThamSo.ForceRead = true;
                 }
                 if (Db29ThamSo.NeedRead(delta))
                 {

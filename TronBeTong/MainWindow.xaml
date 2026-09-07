@@ -197,7 +197,7 @@
                     </Border>
 
                     <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="3" Background="{StaticResource RAL7035}"
-                        Height="480" Width="150" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="3 3 3 0">
+                        Height="480" Width="162" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="3 3 3 0">
                         <StackPanel Margin="6">
                             <view:ViewSoftwareInfo Margin="0 0 0 12" Opacity="0.8"/>
 
@@ -230,10 +230,10 @@
                             <wpfctrls:CtrlLEDIndicator x:Name="LEDSimulation" Height="20" OnColor="DodgerBlue" Title="Mô phỏng" FontSize="14" Margin="0 3 0 0"/>
 
                             <Separator Margin="0 3"/>
-                            <wpfctrls:CtrlLEDIndicator x:Name="LEDWeightMode" Height="20" OnColor="Lime" Title="Cân tay" FontSize="14"/>
-                            <wpfctrls:CtrlLEDIndicator x:Name="LEDCementDischargeMode" Height="20" OnColor="Lime" Title="Xả tay" FontSize="14" Margin="0 3 0 0"/>
-                            <wpfctrls:CtrlLEDIndicator x:Name="LEDConcreteDischargeMode" Height="20" OnColor="Lime" Title="Xả bê tông tay" FontSize="14" Margin="0 3 0 0"/>
-                            <wpfctrls:CtrlLEDIndicator x:Name="LEDSkipMode" Height="20" OnColor="Lime" Title="Xe Skip" FontSize="14" Margin="0 3 0 0"/>
+                            <wpfctrls:CtrlLEDIndicator x:Name="LEDWeightMode" Height="20" OnColor="Lime" Title="Cân tự động" FontSize="14"/>
+                            <wpfctrls:CtrlLEDIndicator x:Name="LEDCementDischargeMode" Height="20" OnColor="Lime" Title="Xả tự động" FontSize="14" Margin="0 3 0 0"/>
+                            <wpfctrls:CtrlLEDIndicator x:Name="LEDConcreteDischargeMode" Height="20" OnColor="Lime" Title="Xả bê tông tự động" FontSize="14" Margin="0 3 0 0"/>
+                            <wpfctrls:CtrlLEDIndicator x:Name="LEDSkipMode" Height="20" OnColor="Lime" Title="Xe skip tự động" FontSize="14" Margin="0 3 0 0"/>
                         </StackPanel>
                     </Border>
                 </Grid>

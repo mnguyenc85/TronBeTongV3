@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using TronBeTongV3.Data.DO.DonHang;
 using TronBeTongV3.Comm;
 using TronBeTongV3.CSDL;
+using System.Windows.Media;
 
 namespace TronBeTongV3.View
 {
@@ -20,6 +21,7 @@ namespace TronBeTongV3.View
         public int MeMax { get { return WSWater.MeHT; } }
 
         private double add_water = 0;
+        private long _lastReadWaterKeep = 0;
 
         public CtrlTPNuoc()
         {
@@ -110,6 +112,15 @@ namespace TronBeTongV3.View
             
             SiloWater.ZState = (int)TramTron.VanNuoc.Value;
             SetWasherState(TramTron.SysWashMixer.GetBool());
+
+            if (TramTron.WaterKeep.LastUpdated > _lastReadWaterKeep)
+            {
+                TxtKeepWater.BlockInvoke = true;
+                TxtKeepWater.Value = Math.Round(TramTron.WaterKeep.Value);
+                TxtKeepWater.Foreground = Brushes.Black;
+                TxtKeepWater.BlockInvoke = false;
+                _lastReadWaterKeep = DateTime.Now.Ticks;
+            }
         }
 
         private void WSWater_ButtonClicked(object sender, ButtonArgs e)
@@ -161,6 +172,12 @@ namespace TronBeTongV3.View
             if (TramTron == null) return 0;
             if (WSWater.TTCanHT == TramTron.WIState.DayNuoc) return 1;
             return 0;
+        }
+
+        private void TxtKeepWater_ValueChanged(object sender, double e)
+        {
+            TxtKeepWater.Foreground = Brushes.Red;
+            TramTron?.S71200_WriteNuocKeep(TxtKeepWater.Value);
         }
     }
 }

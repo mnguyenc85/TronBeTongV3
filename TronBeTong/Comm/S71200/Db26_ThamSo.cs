@@ -122,7 +122,11 @@ namespace TronBeTongV3.Comm.S71200
         public PlcTag EnableDamRungTP3 { get; private set; } = new PlcTag(TagTypes.Bool, 298, 4);
         #endregion
 
-        public Db26_ThamSo() : base(26, 300, 0) {
+        public PlcTag XM1VitTinh { get; private set; } = new PlcTag(TagTypes.Bool, 298, 5);
+
+        public PlcTag WaterKeep { get; private set; } = new PlcTag(TagTypes.Real, 300);
+
+        public Db26_ThamSo() : base(26, 304, 0) {
             #region Empty Level
             EmptyLevelCL1 = new PlcTag(TagTypes.Real, 0);
             EmptyLevelCL2 = new PlcTag(TagTypes.Real, 4);
@@ -358,6 +362,10 @@ namespace TronBeTongV3.Comm.S71200
             EnableDamRungTP2.ParseDb(_buf, StartByteAddr);
             EnableDamRungTP3.ParseDb(_buf, StartByteAddr);
             #endregion
+
+            XM1VitTinh.ParseDb(_buf, StartByteAddr);
+
+            WaterKeep.ParseDb(_buf, StartByteAddr);
 
             T = DateTime.Now.Ticks;
             IsParsingData = false;

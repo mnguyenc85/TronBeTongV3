@@ -270,7 +270,7 @@ namespace TronBeTongV3.CSDL
         public ObservableCollection<BTCongThucVM> DsCongThuc { get; private set; } = [];
 
         public async Task CongThuc_Save(BTCongThucVM ct)
-        {
+        {            
             if (ct.Id <= 0 || ct.IsChanged)
             {
                 var ch = CauHinhTramTron.Instance;
@@ -325,7 +325,12 @@ namespace TronBeTongV3.CSDL
         /// </summary>
         private async void CongThuc_UpdateThanhPhan(BTCongThucVM ct, BTCongThucVM ct0)
         {
-            foreach (var tp in ct.DsThanhPhan) {
+            //try
+            //{
+            int i = 0;
+            while (i < ct.DsThanhPhan.Count)
+            {
+                var tp = ct.DsThanhPhan[i];
                 // Lưu kl nước riêng!
                 if (tp.NL?.PhanLoai != Core.LoaiThanhPhan.Nuoc)
                 {
@@ -351,9 +356,15 @@ namespace TronBeTongV3.CSDL
                         }
                     }
                 }
+                i++;
             }
-
+            
             CongThuc_Clear(ct);
+            //}
+            //catch (Exception ex)
+            //{
+                
+            //}
         }
 
         public void CongThuc_Clear(BTCongThucVM ct)

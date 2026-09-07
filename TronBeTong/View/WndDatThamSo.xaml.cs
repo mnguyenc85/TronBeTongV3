@@ -121,7 +121,7 @@ namespace TronBeTongV3.View
                 _textboxes.Add(new TagTextBox(TxtMucCanNhayNuoc, TramTron, TramTron.MucCanNhayNuoc));
                 _textboxes.Add(new TagTextBox(TxtMucCanNhayPG1, TramTron, TramTron.MucCanNhayPG1));
 
-                //_checkboxes.Add(new TagCheckbox(ChkVitTinh, TramTron, TramTron.ChonVitTinh));
+                _checkboxes.Add(new TagCheckbox(ChkEnVitTinh1, TramTron, TramTron.XM1VitTinh));
                 _checkboxes.Add(new TagCheckbox(ChkEnPulseCL1, TramTron, TramTron.EnablePulseCL1));
                 _checkboxes.Add(new TagCheckbox(ChkEnPulseCL2, TramTron, TramTron.EnablePulseCL2));
                 _checkboxes.Add(new TagCheckbox(ChkEnPulseCL3, TramTron, TramTron.EnablePulseCL3));

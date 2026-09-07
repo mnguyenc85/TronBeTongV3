@@ -171,8 +171,9 @@
                     <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayPG1" Grid.Row="8" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
 
                     <Border Grid.ColumnSpan="12" Grid.Row="11" BorderThickness="0 0 0 1" BorderBrush="Gray"/>
-                    <TextBlock Text="Vít tinh 1, 2" Grid.Row="12"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
-                    <CheckBox x:Name="ChkEnVitTinh1" Grid.Row="12" Grid.Column="5" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
+                    <TextBlock Text="Chọn vít tinh 1/2" Grid.Row="12"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
+                    <CheckBox x:Name="ChkEnVitTinh1" Grid.Row="12" Grid.Column="5" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"
+                              ToolTip="Tích: chọn vít 1"/>
                     <CheckBox x:Name="ChkEnVitTinh2" Grid.Row="12" Grid.Column="7" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"
                               IsEnabled="False"/>
 

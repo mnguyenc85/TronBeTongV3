@@ -147,8 +147,9 @@ namespace NMComm.S71200
             return Tags.ContainsKey(n) ? Tags[n].Value : 0;
         }
 
-        public virtual void AddWriteBytesCmd(WriteBytesCmd writeCmd) { 
-            WriteCmds.Add(writeCmd); 
+        public virtual void AddWriteBytesCmd(WriteBytesCmd writeCmd, bool forceread = false) { 
+            WriteCmds.Add(writeCmd);
+            ForceRead = forceread;
         }
         public void ClearWriteCmds() { WriteCmds.Clear(); }
 

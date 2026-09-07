@@ -429,6 +429,10 @@ namespace TronBeTongV3.Comm
         public ModelTag MucCanNhayPG2 { get; private set; } = new ModelTag("Pr.MucCanNhay.PG2");
         #endregion
 
+        public ModelTag XM1VitTinh { get; private set; } = new ModelTag("Pr.XM1.VitTinh");
+
+        public ModelTag WaterKeep { get; private set; } = new ModelTag("Water.GiuNuoc");
+
         #endregion
         protected readonly Dictionary<string, TagLink> _allLinks = [];
         public Dictionary<string, TagLink> AllLinks { get { return _allLinks; } }
@@ -866,6 +870,12 @@ namespace TronBeTongV3.Comm
             WriteBytesCmd cmd = new();
             cmd.AddTag(_plc.Db43CP.WaterAdd, v);
             _plc.Db43CP.AddWriteBytesCmd(cmd);
+        }
+        public void S71200_WriteNuocKeep(double v)
+        {
+            WriteBytesCmd cmd = new();
+            cmd.AddTag(_plc.Db26ThamSo.WaterKeep, v);
+            _plc.Db26ThamSo.AddWriteBytesCmd(cmd, true);
         }
 
         public void S71200_WriteMixerWash(double v)

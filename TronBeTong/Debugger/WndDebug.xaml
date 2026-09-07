@@ -29,7 +29,7 @@
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding STT}" Width="36"/>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Ten}" Width="150"/>
-                    <GridViewColumn Header="Address" DisplayMemberBinding="{Binding DiaChi}" Width="90"/>
+                    <GridViewColumn Header="Address" DisplayMemberBinding="{Binding DiaChi}" Width="120"/>
                     <GridViewColumn Header="Value" DisplayMemberBinding="{Binding GiaTri}" Width="90"/>
                     <GridViewColumn Header="Updated Time" DisplayMemberBinding="{Binding TGCapNhat}"/>
                     <GridViewColumn Header="Observe">

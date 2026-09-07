@@ -23,11 +23,13 @@
                                ButtonClicked="WSWater_ButtonClicked"/>
         </StackPanel>
 
-        <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="3" VerticalAlignment="Top" Margin="80 20 0 0"
+        <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="3" VerticalAlignment="Top" Margin="80 10 0 0"
                 Background="{StaticResource SCADABg03}">
             <StackPanel Margin="3">
                 <TextBlock Text="Thêm bớt nước"/>
-                <ncmwpfctrl:TextBoxDouble x:Name="TxtAddWater" Value="0" Margin="0 0 0 12" ValueChanged="TxtAddWater_ValueChanged"/>
+                <ncmwpfctrl:TextBoxDouble x:Name="TxtAddWater" Value="0" Margin="0 0 0 0" ValueChanged="TxtAddWater_ValueChanged"/>
+                <TextBlock Text="Giữ nước"/>
+                <ncmwpfctrl:TextBoxDouble x:Name="TxtKeepWater" Value="0" Margin="0 0 0 6" ValueChanged="TxtKeepWater_ValueChanged"/>
 
                 <ncmwpfctrl:CtrlLEDIndicator x:Name="LEDWashMixer" Title="Rửa cối trộn" Height="16" Margin="0 0 0 3"/>
                 <Button x:Name="BtStartWash" Content="Chạy" Style="{StaticResource BtnPrimary}" Margin="0 0 0 3"

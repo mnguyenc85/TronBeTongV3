@@ -320,7 +320,7 @@ namespace TronBeTongV3
         private readonly TimeSpan _tgTreChot = new TimeSpan(0, 0, 3);
         private async Task UpdateView(double delta)
         {
-            LEDWeightMode.IsOn = !_tramtron.CheDoCan.GetBool();
+            LEDWeightMode.IsOn = _tramtron.CheDoCan.GetBool();
             LEDMixCompleleted.IsOn = _tramtron.MixerCompleted.GetBool();
             LEDRunning.IsOn = _tramtron.SysRunning.GetBool();
             LEDSkipMode.IsOn = _tramtron.CheDoSkip.GetBool();
@@ -402,8 +402,8 @@ namespace TronBeTongV3
                 _is_sim0 = _is_sim;
             }
 
-            LEDCementDischargeMode.IsOn = !_tramtron.CheDoXa.GetBool();
-            LEDConcreteDischargeMode.IsOn = !_tramtron.CheDoXaBeTong.GetBool();
+            LEDCementDischargeMode.IsOn = _tramtron.CheDoXa.GetBool();
+            LEDConcreteDischargeMode.IsOn = _tramtron.CheDoXaBeTong.GetBool();
 
             UpdateOnlineMonitor();
 

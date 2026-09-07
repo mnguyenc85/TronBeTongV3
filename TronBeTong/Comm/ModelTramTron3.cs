@@ -229,6 +229,9 @@ namespace TronBeTongV3.Comm
             AddLink(EnablePulseCL4, db26, db26.EnablePulseCL4);
             //AddLink(EnablePulseCL5, db26, db26.EnablePulseCL5);
             //AddLink(EnablePulseCL6, db26, db26.EnablePulseCL6);
+
+            AddLink(XM1VitTinh, db26, db26.XM1VitTinh);
+            AddLink(WaterKeep, db26, db26.WaterKeep);
             #endregion
 
             #region Tham số thời gian

@@ -9,7 +9,9 @@
         <local:BlendImageCtrl x:Name="ImgSep" ZSource="../../Images/silo03_b1.png" Height="6"/>
         <Grid Margin="0 -1 0 0">
             <local:BlendImageCtrl x:Name="ImgBody" ZSource="../../Images/silo03_b2.png"/>
-            <TextBox x:Name="TxtInput" Margin="6 3" Padding="1 0" TextAlignment="Center" Text="{Binding ZText}"/>
+            <TextBox x:Name="TxtInput" Margin="6 3" Padding="1 0" TextAlignment="Center" Text="{Binding ZText}"
+                     TextChanged="TxtInput_TextChanged"
+                     LostFocus="TxtInput_LostFocus" KeyDown="TxtInput_KeyDown"/>
         </Grid>
     </StackPanel>
 </UserControl>
