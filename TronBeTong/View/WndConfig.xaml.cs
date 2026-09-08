@@ -123,6 +123,7 @@ namespace TronBeTongV3.View
             ChkShowDebug.IsChecked = s.GetBoolValue("debug.visible");
             ChkAutoCongThucDonHang.IsChecked = s.GetBoolValue("auto.congthuc.donhang");
             ChkPhieuAllowChangeM3.IsChecked = s.GetBoolValue("hack.phieu.m3");
+            ChkAutoReset.IsChecked = s.GetBoolValue("start.auto.reset");
 
             // Liệt kê danh sách Network interfaces
             NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
@@ -189,6 +190,7 @@ namespace TronBeTongV3.View
                 }
 
                 s.UpdateBool("hack.phieu.m3", ChkPhieuAllowChangeM3.IsChecked == true);
+                s.UpdateBool("start.auto.reset", ChkAutoReset.IsChecked == true);
 
                 SaveChotKLSettings(s);
             }
@@ -318,6 +320,7 @@ namespace TronBeTongV3.View
 
                 TabMain.SelectedItem = TabItemPhieu;
                 PnlHack.Visibility = Visibility.Collapsed;
+                PnlStartMode.Visibility = Visibility.Collapsed;
             }
         }
 

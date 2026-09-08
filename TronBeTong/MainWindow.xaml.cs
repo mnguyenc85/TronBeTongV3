@@ -42,6 +42,8 @@ namespace TronBeTongV3
         /// đã ấn nút reset chưa? chỉ tạo phiếu mới khi đã ấn nút này!
         /// </summary>
         private bool _daAnReset = true;
+        private bool _autoReset = false;
+        private double _unlockBtRunTime = 0;
 
         private TagsObserver _debugObserver;
 
@@ -132,6 +134,9 @@ namespace TronBeTongV3
             double appZoom = Math.Round(r.Settings.GetDoubleValue("app.zoom", 1), 2);
             _vm.AppZoom = appZoom;
             CheckMniViewZoom(appZoom);
+
+            _autoReset = r.Settings.GetBoolValue("start.auto.reset");
+            BtReset.Visibility = _autoReset? Visibility.Hidden: Visibility.Collapsed;
 
             SetSilosNguyenLieu();
 
@@ -390,6 +395,8 @@ namespace TronBeTongV3
                 ViewDonHang.IsEnabled = false;
 
                 await _db.PM_Activites_SaveAsync(2, 1, "Cân");
+
+                BtRun.IsEnabled = true;
             }
             _running0 = running;
             #endregion
@@ -408,6 +415,12 @@ namespace TronBeTongV3
             UpdateOnlineMonitor();
 
             BaoPCChoPhepCan();
+
+            if (_autoReset && !BtRun.IsEnabled)
+            {
+                _unlockBtRunTime += delta;
+                if (_unlockBtRunTime > 5) BtRun.IsEnabled = true;
+            }
         }
         #endregion
 
@@ -913,11 +926,30 @@ namespace TronBeTongV3
             }
 
             DebugMsg1.AddMessage("Bắt đầu chạy");
-            //_tramtron.S71200_WriteStart();
-            _tramtron.WriteTag(_tramtron.SysRunning, 1);
+            SendStartToPLC();
             TxtPhieuSeal.Text = "";
 
             await _db.PM_Activites_SaveAsync(3, 1, "Ấn chạy");
+        }
+
+        private void SendStartToPLC()
+        {
+            BtRun.IsEnabled = false;
+            if (_autoReset)
+            {
+                if (_tramtron.SysRunning.GetBool()) return;
+                _tramtron.WriteTag(_tramtron.SysReset, 1);
+                _tramtron.WriteTag(_tramtron.SysReset, 0, 0.05);
+                _daAnReset = true;
+                ViewDonHang.IsEnabled = true;
+
+                _tramtron.WriteTag(_tramtron.SysRunning, 1, 0.2);
+            }
+            else
+            {
+                //_tramtron.S71200_WriteStart();
+                _tramtron.WriteTag(_tramtron.SysRunning, 1);
+            }
         }
 
         private async void BtStop_Click(object sender, RoutedEventArgs e)
@@ -943,10 +975,7 @@ namespace TronBeTongV3
             _tramtron.WriteTag(_tramtron.SysReset, 1);
             _daAnReset = true;
             //BtRun.Content = "Bắt đầu trộn";
-            if (!_tramtron.SysRunning.GetBool())
-            {
-                ViewDonHang.IsEnabled = true;
-            }
+            ViewDonHang.IsEnabled = true;
         }
 
         private void BtReset_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
