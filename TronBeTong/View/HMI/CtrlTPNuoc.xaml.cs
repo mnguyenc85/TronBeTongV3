@@ -174,6 +174,14 @@ namespace TronBeTongV3.View
             return 0;
         }
 
+        /// <summary>
+        /// Kiểm tra các cân đã reset mẻ hiện tại chưa?
+        /// </summary>
+        public bool CheckReset()
+        {
+            return WSWater.MeHT == 0;
+        }
+
         private void TxtKeepWater_ValueChanged(object sender, double e)
         {
             TxtKeepWater.Foreground = Brushes.Red;

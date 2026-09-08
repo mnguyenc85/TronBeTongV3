@@ -310,5 +310,17 @@ namespace TronBeTongV3.View
             //if (WsTotalCL4.TTCanHT == TramTron.WIState.DayCotLieu) return true;
             return 0;
         }
+
+        /// <summary>
+        /// Kiểm tra các cân đã reset mẻ hiện tại chưa?
+        /// </summary>
+        public bool CheckReset()
+        {
+            if (WsTotalCL1.MeHT > 0) return false;
+            //if (WsTotalCL2.MeHT > 0) return false;
+            //if (WsTotalCL3.MeHT > 0) return false;
+            //if (WsTotalCL4.MeHT > 0) return false;
+            return true;
+        }
     }
 }

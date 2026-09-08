@@ -315,5 +315,14 @@ namespace TronBeTongV3.View
             if (WScale1.TTCanHT == TramTron.WIState.DayPG) return 1;
             return 0;
         }
+
+        /// <summary>
+        /// Kiểm tra các cân đã reset mẻ hiện tại chưa?
+        /// </summary>
+        public bool CheckReset()
+        {
+            if (WScale1.MeHT > 0) return false;
+            return true;
+        }
     }
 }

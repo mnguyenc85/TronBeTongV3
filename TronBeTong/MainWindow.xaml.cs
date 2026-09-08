@@ -930,6 +930,27 @@ namespace TronBeTongV3
                 return;
             }
 
+            if (!TPCotLieu.CheckReset())
+            {
+                MessageBox.Show("Lỗi: Cân cốt liệu chưa reset!", "Bắt đầu chạy", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            if (!TPXiMang.CheckReset())
+            {
+                MessageBox.Show("Lỗi: Cân xi măng chưa reset!", "Bắt đầu chạy", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            if (!TPPhuGia.CheckReset())
+            {
+                MessageBox.Show("Lỗi: Cân phụ gia chưa reset!", "Bắt đầu chạy", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            if (!TPNuoc.CheckReset())
+            {
+                MessageBox.Show("Lỗi: Cân nước chưa reset!", "Bắt đầu chạy", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             DebugMsg1.AddMessage("Bắt đầu chạy");
             SendStartToPLC();
             TxtPhieuSeal.Text = "";

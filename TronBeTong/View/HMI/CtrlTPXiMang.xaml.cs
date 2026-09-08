@@ -258,5 +258,15 @@ namespace TronBeTongV3.View
             if (WSCements2.TTCanHT == TramTron.WIState.DayXM) return 2;
             return 0;
         }
+
+        /// <summary>
+        /// Kiểm tra các cân đã reset mẻ hiện tại chưa?
+        /// </summary>
+        public bool CheckReset()
+        {
+            if (WSCements1.MeHT > 0) return false;
+            //if (WSCements2.MeHT > 0) return false;
+            return true;
+        }
     }
 }
