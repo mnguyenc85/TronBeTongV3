@@ -172,10 +172,17 @@
 
                     <Border Grid.ColumnSpan="12" Grid.Row="11" BorderThickness="0 0 0 1" BorderBrush="Gray"/>
                     <TextBlock Text="Chọn vít tinh 1/2" Grid.Row="12"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
-                    <CheckBox x:Name="ChkEnVitTinh1" Grid.Row="12" Grid.Column="5" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"
-                              ToolTip="Tích: chọn vít 1"/>
-                    <CheckBox x:Name="ChkEnVitTinh2" Grid.Row="12" Grid.Column="7" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"
-                              IsEnabled="False"/>
+                    <StackPanel Orientation="Horizontal"
+                        Grid.Row="12" Grid.Column="5" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0">
+                        <CheckBox x:Name="ChkEnVitTinh1" ToolTip="Tích: chọn vít 1" VerticalAlignment="Center" Margin="0 0 6 0"
+                                  Checked="ChkEnVitTinh1_Checked" Unchecked="ChkEnVitTinh1_Unchecked"/>
+                        <TextBlock x:Name="LblVitTinh1" Text="2"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="12" Grid.Column="7" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0">
+                        <CheckBox x:Name="ChkEnVitTinh2" VerticalAlignment="Center" Margin="0 0 6 0"
+                                  IsEnabled="False"/>
+                        <TextBlock x:Name="LblVitTinh2" Text="2"/>
+                    </StackPanel>
 
                     <Border Grid.ColumnSpan="12" Grid.Row="9" BorderThickness="0 0 0 1" BorderBrush="Gray"/>
                     <TextBlock Grid.Row="10" Text="KL 0 bật rung xả cân" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>

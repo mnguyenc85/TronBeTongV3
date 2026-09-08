@@ -136,7 +136,7 @@ namespace TronBeTongV3
             CheckMniViewZoom(appZoom);
 
             _autoReset = r.Settings.GetBoolValue("start.auto.reset");
-            BtReset.Visibility = _autoReset? Visibility.Hidden: Visibility.Collapsed;
+            BtReset.Visibility = _autoReset? Visibility.Hidden: Visibility.Visible;
 
             SetSilosNguyenLieu();
 
@@ -948,7 +948,7 @@ namespace TronBeTongV3
                 _daAnReset = true;
                 ViewDonHang.IsEnabled = true;
 
-                _tramtron.WriteTag(_tramtron.SysRunning, 1, 0.2);
+                _tramtron.WriteTag(_tramtron.SysRunning, 1, 0.1);
             }
             else
             {

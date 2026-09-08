@@ -398,5 +398,15 @@ namespace TronBeTongV3.View
             PropertyChanged?.Invoke(this, e);
         }
         #endregion
+
+        private void ChkEnVitTinh1_Checked(object sender, RoutedEventArgs e)
+        {
+            LblVitTinh1.Text = "1";
+        }
+
+        private void ChkEnVitTinh1_Unchecked(object sender, RoutedEventArgs e)
+        {
+            LblVitTinh1.Text = "2";
+        }
     }
 }
