@@ -898,6 +898,11 @@ namespace TronBeTongV3
                 MessageBox.Show("Lỗi: Chưa chọn xe!", "Bắt đầu chạy", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            if (ViewDonHang.Phieu.CongThuc == null)
+            {
+                MessageBox.Show("Lỗi: Chưa chọn công thức!", "Bắt đầu chạy", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             if (_tramtron.SysWashMixer.GetBool())
             {
                 MessageBox.Show("Lỗi: Đang rửa cối trộn!", "Bắt đầu chạy", MessageBoxButton.OK, MessageBoxImage.Error);
