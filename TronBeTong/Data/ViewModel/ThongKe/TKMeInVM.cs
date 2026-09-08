@@ -46,6 +46,8 @@ namespace TronBeTongV3.Data.ViewModel.ThongKe
         public string? HoanThanh { get; set; }
         public int Flags { get; set; }
 
+        public string? KLTron { get; set; }
+
         // ------------------------------
         // Helpers: lấy property theo index
         // ------------------------------
@@ -119,18 +121,31 @@ namespace TronBeTongV3.Data.ViewModel.ThongKe
         public void FromDHMeDO(DHMeDO me, int CLDigit = 0, int XMDigit= 0, int PGDigit = 1, int NuocDigit = 0)
         {
             M3Tron = me.M3Tron.ToString("F3");
+            double klDaTron = 0;
 
             for (int i = 0; i < me.KLCL.Length; i++)
+            {
                 SetKLCL(i, Math.Round(me.KLCL[i], CLDigit).ToString());
+                klDaTron += me.KLCL[i];
+            }
 
             for (int i = 0; i < me.KLXi.Length; i++)
+            {
                 SetKLXi(i, Math.Round(me.KLXi[i], XMDigit).ToString());
+                klDaTron += me.KLXi[i];
+            }
 
             for (int i = 0; i < me.KLPG.Length; i++)
+            {
                 SetKLPG(i, Math.Round(me.KLPG[i], PGDigit).ToString());
+                klDaTron += me.KLPG[i];
+            }
 
             KLNuoc = Math.Round(me.KLNuoc, NuocDigit).ToString();
+            klDaTron += me.KLNuoc;
+            
             HoanThanh = me.CreateAt?.ToString("HH:mm:ss");
+            KLTron = Math.Round(klDaTron, XMDigit).ToString();
         }
 
         // ------------------------------
@@ -139,17 +154,29 @@ namespace TronBeTongV3.Data.ViewModel.ThongKe
         public void FromPhieuTongKL(DHPhieuVM ph, int CLDigit = 0, int XMDigit = 0, int PGDigit = 1, int NuocDigit = 0)
         {
             M3Tron = "Tổng";
+            double klDaTron = 0;
 
             for (int i = 0; i < 5; i++)
+            {
                 SetKLCL(i, Math.Round(ph.TongKLTheoSilos[i], CLDigit).ToString());
+                klDaTron += ph.TongKLTheoSilos[i];
+            }
 
             for (int i = 0; i < 5; i++)
+            {
                 SetKLXi(i, Math.Round(ph.TongKLTheoSilos[5 + i], XMDigit).ToString());
+                klDaTron += ph.TongKLTheoSilos[5 + i];
+            }
 
             for (int i = 0; i < 8; i++)
+            {
                 SetKLPG(i, Math.Round(ph.TongKLTheoSilos[10 + i], PGDigit).ToString());
+                klDaTron += ph.TongKLTheoSilos[10 + i];
+            }
 
             KLNuoc = Math.Round(ph.TongKLTheoSilos[18], NuocDigit).ToString();
+            klDaTron += ph.TongKLTheoSilos[18];
+            KLTron = Math.Round(klDaTron, XMDigit).ToString();
         }
 
         // ------------------------------
@@ -176,20 +203,37 @@ namespace TronBeTongV3.Data.ViewModel.ThongKe
         public void CapPhoiFromDHCongThuc(DHCongThucVM ct, string ten, double m3 = 1, int CLDigit = 0, int XMDigit = 0, int PGDigit = 1, int NuocDigit = 0)
         {
             M3Tron = ten;
+            double kl;
+            double klTong = 0;
 
             foreach (var tp in ct.DsThanhPhan)
             {
                 if (tp.NL_PhanLoai == Core.LoaiThanhPhan.CotLieu && tp.NL_SiloIndex < 5)
-                    SetKLCL(tp.NL_SiloIndex, Math.Round(tp.KLCongThuc * m3, CLDigit).ToString());
+                {
+                    kl = Math.Round(tp.KLCongThuc * m3, CLDigit);
+                    SetKLCL(tp.NL_SiloIndex, kl.ToString());
+                    klTong += kl;
+                }
 
                 else if (tp.NL_PhanLoai == Core.LoaiThanhPhan.XiMang && tp.NL_SiloIndex < 5)
-                    SetKLXi(tp.NL_SiloIndex, Math.Round(tp.KLCongThuc * m3, XMDigit).ToString());
+                {
+                    kl = Math.Round(tp.KLCongThuc * m3, XMDigit);
+                    SetKLXi(tp.NL_SiloIndex, kl.ToString());
+                    klTong += kl;
+                }
 
                 else if (tp.NL_PhanLoai == Core.LoaiThanhPhan.PhuGia && tp.NL_SiloIndex < 8)
-                    SetKLPG(tp.NL_SiloIndex, Math.Round(tp.KLCongThuc * m3, PGDigit).ToString());
+                {
+                    kl = Math.Round(tp.KLCongThuc * m3, PGDigit);
+                    SetKLPG(tp.NL_SiloIndex, kl.ToString());
+                    klTong += kl;
+                }
             }
 
-            KLNuoc = Math.Round(ct.KLNuoc * m3, NuocDigit).ToString();
+            kl = Math.Round(ct.KLNuoc * m3, NuocDigit);
+            KLNuoc = kl.ToString();
+            klTong += kl;
+            KLTron = klTong.ToString();
         }
     }
 }

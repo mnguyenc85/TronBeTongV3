@@ -116,12 +116,14 @@
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="Background" Value="{Binding Flags, Converter={corecvt:MeFlags2BgCvt}}" />
+                        <Setter Property="FontWeight" Value="{Binding Flags, Converter={corecvt:MeFlags2FontWeight}}"/>
                     </Style>
                 </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"/>
                         <GridViewColumn Header="M3 Trộn" DisplayMemberBinding="{Binding M3Tron}"/>
+                        <GridViewColumn Header="Tổng KL" DisplayMemberBinding="{Binding KLTron}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
