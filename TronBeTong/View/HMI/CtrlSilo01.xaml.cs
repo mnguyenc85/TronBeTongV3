@@ -105,6 +105,7 @@ namespace TronBeTongV3.View
         public string RoundFormat { get; set; } = "0.0";
 
         public double KLMe { get; set; }
+        public double KLCP { get; set; }
 
         public CtrlSilo01()
         {
@@ -134,10 +135,10 @@ namespace TronBeTongV3.View
 
         public void UpdateCapPhoi(double capphoi, double m3, int some)
         {
-            double cp = Math.Round(capphoi, RoundDigit);
+            KLCP = Math.Round(capphoi, RoundDigit);
             double tt = Math.Round(m3, RoundDigit);
 
-            SiloPart1.ZText = cp.ToString(RoundFormat);
+            SiloPart1.ZText = KLCP.ToString(RoundFormat);
             //if (some > 0)
             //    SiloPart2.ZText = (cp * tt / some).ToString("0.0");
             //else SiloPart2.ZText = "-";

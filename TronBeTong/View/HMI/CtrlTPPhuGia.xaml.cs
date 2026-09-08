@@ -307,11 +307,13 @@ namespace TronBeTongV3.View
 
         /// <summary>
         /// Kiểm tra xem có cân nào ở trạng thái đầy không?
+        /// Điều kiện có cấp phối
         /// </summary>
         /// <returns></returns>
         public int CheckCanDay()
         {
             if (TramTron == null) return 0;
+            if (!CheckCoCapPhoi()) return 0;
             if (WScale1.TTCanHT == TramTron.WIState.DayPG) return 1;
             return 0;
         }
@@ -323,6 +325,19 @@ namespace TronBeTongV3.View
         {
             if (WScale1.MeHT > 0) return false;
             return true;
+        }
+
+        /// <summary>
+        /// Kiểm tra xem có cấp phối nào > 0 không?
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckCoCapPhoi()
+        {
+            foreach (var tp in _tps)
+            {
+                if (tp.KLCP > 0) return true;
+            }
+            return false;
         }
     }
 }
