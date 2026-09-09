@@ -126,6 +126,12 @@
                                     </Border>
                                 </DockPanel>
                                 <DockPanel Margin="0 0 0 3">
+                                    <TextBlock Text="Tổng KL (kg): " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
+                                    <Border Background="WhiteSmoke" BorderBrush="Gray" BorderThickness="1">
+                                        <TextBlock x:Name="LblPhieuKL" Padding="2 1" Text="{Binding ActivePhieu.KLHT, StringFormat={}{0:F0}}"/>
+                                    </Border>
+                                </DockPanel>
+                                <DockPanel Margin="0 0 0 3">
                                     <TextBlock Text="Kẹp chì: " VerticalAlignment="Center" TextAlignment="Right" Width="90"/>
                                     <TextBox x:Name="TxtPhieuSeal" Padding="2 1"/>
                                 </DockPanel>
