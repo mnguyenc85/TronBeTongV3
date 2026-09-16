@@ -389,5 +389,25 @@ namespace TronBeTongV3.View
             }
         }
         #endregion
+
+        private async void BtDelDonHang_Click(object sender, RoutedEventArgs e)
+        {
+            WndEnterPass wnd = new WndEnterPass()
+            {
+                Pw = "csdl2812"
+            };
+            if (wnd.ShowDialog() == true)
+            {
+                try
+                {
+                    var db = DbBridge.Instance;
+                    await db.DeleteWorkData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("CSDL", $"Lỗi: {ex.Message}");
+                }
+            }
+        }
     }
 }

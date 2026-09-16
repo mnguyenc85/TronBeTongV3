@@ -10,6 +10,8 @@ namespace TronBeTongV3.View
     public partial class WndEnterPass : Window
     {
         public string? PassType { get; set; }
+        public string? Pw { get; set; }
+
         public WndEnterPass()
         {
             InitializeComponent();
@@ -36,11 +38,22 @@ namespace TronBeTongV3.View
 
         private void CheckPw()
         {
-            var s = DbRepository.Instance.Settings;
-            if (PassType != null && s.GetValue(PassType) == TxtPass.Password)
+            var s = DbRepository.Instance.Settings;            
+            if (PassType != null)
             {
-                DialogResult = true;
-                return;
+                if (s.GetValue(PassType) == TxtPass.Password)
+                {
+                    DialogResult = true;
+                    return;
+                }
+            }
+            else
+            {
+                if (TxtPass.Password == $"ncm.{Pw}")
+                {
+                    DialogResult = true;
+                    return;
+                }    
             }
 
             DialogResult = false;

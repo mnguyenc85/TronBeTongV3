@@ -242,5 +242,12 @@ namespace TronBeTongV3.View
             else if (LoaiSilo == LoaiThanhPhan.PhuGia)
                 TPPhuGia?.SetupBin(SiloIndex);
         }
+
+
+        private void ShowPopup_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender == BtMaHelp) PopupMaHelp.IsOpen = true;
+            else if (sender == BtTenHelp) PopupTenHelp.IsOpen = true;
+        }
     }
 }

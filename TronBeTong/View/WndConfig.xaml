@@ -43,6 +43,11 @@
                             <Button x:Name="BtDelLog" Content="Xóa log" Margin="3 0 0 0" Style="{StaticResource BtnDanger}"
                                     Click="BtDelLog_Click"/>
                         </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="12 6 3 0">
+                            <TextBlock Text="Log" Width="60" VerticalAlignment="Center"/>
+                            <Button x:Name="BtDelDonHang" Content="Xóa dữ liệu trộn" Margin="3 0 0 0" Style="{StaticResource BtnDanger}"
+                                    Click="BtDelDonHang_Click"/>
+                        </StackPanel>
                     </StackPanel>
                 </DockPanel>
             </TabItem>

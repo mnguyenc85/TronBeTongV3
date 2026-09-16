@@ -1816,6 +1816,31 @@ namespace TronBeTongV3.CSDL
         {
             await conn.CloseAsync();
         }
+
+        public async Task DeleteWorkData()
+        {
+            using var connection = new MySqlConnection(ConnStr);
+            await connection.OpenAsync();
+
+            string query = "DELETE FROM ht_donhang;";
+            using var command = new MySqlCommand(query, connection);
+            await command.ExecuteNonQueryAsync();
+
+            command.CommandText = "DELETE FROM  ht_phieu;";
+            await command.ExecuteNonQueryAsync();
+
+            command.CommandText = "DELETE FROM  ht_me;";
+            await command.ExecuteNonQueryAsync();
+
+            command.CommandText = "DELETE FROM  ht_congthuc_thanhphan;";
+            await command.ExecuteNonQueryAsync();
+
+            command.CommandText = "DELETE FROM  ht_congthuc;";
+            await command.ExecuteNonQueryAsync();
+
+            command.CommandText = "DELETE FROM  ht_thanhphan;";
+            await command.ExecuteNonQueryAsync();
+        }
         #endregion
     }
 }
