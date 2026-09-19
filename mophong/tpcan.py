@@ -22,7 +22,7 @@ class CTPCan:
     self.meht = 0
     self.vanxa = 0
     self.DbVan = None
-    self.TTCanDu = 1
+    self.TTCanDu = -1
     self.klxa = klxa
 
   def addTP(self, cpAddr, closeAddr) -> tpsilo.CTPSilo:
@@ -161,7 +161,11 @@ class CTPCan:
               self.trangthai = self.tp_i * 3 + 2
         else:
           # cân đủ
-          self.trangthai = self.tp_i * 3 + 1
+          # TODO: chia thành cân tinh thô và cân thô không
+          if self.TTCanDu > 0:
+            self.trangthai = self.TTCanDu
+          else:
+            self.trangthai = self.tp_i * 3 + 1
 
         utils.float2db(self.kl, self.DbCanTT, self.klAddr)                          # update kl trên cân
         utils.int162db(self.trangthai, self.DbCanTT, self.TTAddr)                   # update trạng thái cân
