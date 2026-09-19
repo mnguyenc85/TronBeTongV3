@@ -78,7 +78,9 @@
                     
                     <DockPanel>
                         <DockPanel DockPanel.Dock="Top">
-                            <Button x:Name="BtFilterClear" Content="Clear" DockPanel.Dock="Right" Click="BtFilterClear_Click"/>
+                            <Button x:Name="BtFilterClear" Content="Clear" DockPanel.Dock="Right" 
+                                    BorderThickness="0 1 1 1"
+                                    Click="BtFilterClear_Click"/>
                             <TextBox x:Name="TxtFilter" Padding="2 1" TextChanged="TxtFilter_TextChanged"/>
                         </DockPanel>
                         
@@ -87,9 +89,9 @@
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="STT" DisplayMemberBinding="{Binding STT}"/>
-                                    <GridViewColumn Header="Mã" DisplayMemberBinding="{Binding Ma}"/>
-                                    <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding Ten}"/>
-                                    <GridViewColumn Header="Độ ẩm" DisplayMemberBinding="{Binding DoAm}"/>
+                                    <GridViewColumn Header="Mã" DisplayMemberBinding="{Binding Ma}" Width="72"/>
+                                    <GridViewColumn Header="Tên" DisplayMemberBinding="{Binding Ten}" Width="120"/>
+                                    <GridViewColumn Header="KL riêng (kg/l)" DisplayMemberBinding="{Binding DoAm}" Width="90"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>
@@ -99,8 +101,12 @@
                     <Border x:Name="BdrNguyenLieuInputs" Grid.Column="4" BorderThickness="1" BorderBrush="Gray" CornerRadius="3" Background="{StaticResource SCADABg04}">
                         <StackPanel Grid.Column="2" Margin="3">
                             <TextBlock x:Name="LblNLTitle" FontWeight="Bold" Foreground="SteelBlue"/>
+                            
+                            <!-- Phân loại -->
                             <TextBlock Text="Phân loại:" Margin="0 3 0 0"/>
                             <TextBlock Text="{Binding CurNL.PhanLoai, Converter={corecvt:AggrTypeToStringCvt}}" Background="White" Padding="2 1"/>
+
+                            <!-- Mã -->
                             <StackPanel Orientation="Horizontal" Margin="0 6 0 3">
                                 <TextBlock Text="* Mã:"/>
                                 <Button x:Name="BtMaHelp" Content="?" Style="{StaticResource RoundButtonStyle}"
@@ -119,6 +125,8 @@
                                     </Border>
                                 </Popup>
                             </StackPanel>
+                            
+                            <!-- Tên -->
                             <TextBox Padding="2 1" Text="{Binding CurNL.Ma}"/>
                             <StackPanel Orientation="Horizontal" Margin="0 6 0 3">
                                 <TextBlock Text="Tên:"/>
@@ -137,8 +145,26 @@
                                 </Popup>
                             </StackPanel>
                             <TextBox Padding="2 1" Text="{Binding CurNL.Ten}"/>
-                            <!--<TextBlock Text="Độ ẩm:"/>
-                            <TextBox Padding="2 1" Text="{Binding CurNL.DoAm}"/>-->
+
+                            <!-- KL riêng -->
+                            <StackPanel Orientation="Horizontal" Margin="0 6 0 3">
+                                <TextBlock Text="Khối lượng riêng (kg/l):"/>
+                                <Button x:Name="BtKLRiengHelp" Content="?" Style="{StaticResource RoundButtonStyle}"
+                                    Width="16" Height="16" Margin="6 0 0 0"
+                                    Click="ShowPopup_Click"/>
+                                <Popup x:Name="PopupKLRiengHelp" Placement="Bottom" StaysOpen="False"
+                                    PlacementTarget="{Binding ElementName=BtMaHelp}">
+                                    <Border Background="LightYellow" Padding="6"
+                                        BorderBrush="Gray" BorderThickness="1">
+                                        <StackPanel>
+                                            <TextBlock Width="250" TextWrapping="Wrap"
+                                                Text="Để chuyển đổi khối lượng &lt;-> thể tích cho phụ gia." />
+                                        </StackPanel>
+                                    </Border>
+                                </Popup>
+                            </StackPanel>
+                            <TextBox Padding="2 1" Text="{Binding CurNL.KLRieng}"/>
+                            
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 6 0 0">
                                 <Button x:Name="BtNLNew" Content="Mới" Style="{StaticResource BtnPrimary}" Width="60" Click="BtNLNew_Click"/>
                                 <Button Content="Lưu" Style="{StaticResource BtnSuccess}" Width="60" Margin="6 0 0 0" Command="{Binding CmdNLSave}"/>

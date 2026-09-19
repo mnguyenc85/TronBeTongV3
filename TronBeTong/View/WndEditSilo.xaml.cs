@@ -248,6 +248,7 @@ namespace TronBeTongV3.View
         {
             if (sender == BtMaHelp) PopupMaHelp.IsOpen = true;
             else if (sender == BtTenHelp) PopupTenHelp.IsOpen = true;
+            else if (sender == BtKLRiengHelp) PopupKLRiengHelp.IsOpen = true;
         }
     }
 }

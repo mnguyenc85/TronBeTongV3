@@ -1,0 +1,3 @@
+Sửa csdl local:
+- Thêm trường klrieng vào bảng ct_nguyenlieu
+- Sửa proc: ct_save_nguyenlieu_unique_ma -> bằng cách vào config -> csdl -> test connection

@@ -25,6 +25,9 @@ namespace TronBeTongV3.Data.ViewModel
         private double _da;
         public double DoAm { get { return _da; } set { if (_da != value) { _da = value; NotifyChanged(); } } }
 
+        private double _klrieng;
+        public double KLRieng { get { return _klrieng; } set { if (_klrieng != value) { _klrieng = value; NotifyChanged(); } } }
+
         public bool IsChanged { get; set; }
 
         public SiloNguyenLieuVM() { }
@@ -46,6 +49,7 @@ namespace TronBeTongV3.Data.ViewModel
             Ten = null;
             PhanLoai = LoaiThanhPhan.None;
             DoAm = 0;
+            KLRieng = 0;
             IsChanged = false;
         }
 
@@ -56,6 +60,7 @@ namespace TronBeTongV3.Data.ViewModel
             Ten = o.Ten;  
             PhanLoai = o.PhanLoai;
             DoAm = o.DoAm;
+            KLRieng = o.KLRieng;
         }
 
         public void FromDO(SiloNguyenLieuDO o)
@@ -65,6 +70,7 @@ namespace TronBeTongV3.Data.ViewModel
             Ten = o.Ten;
             PhanLoai = (LoaiThanhPhan)o.PhanLoai;
             DoAm = o.DoAm;
+            KLRieng = o.KLRieng;
         }
 
         public void ToDO(SiloNguyenLieuDO o)
@@ -74,6 +80,7 @@ namespace TronBeTongV3.Data.ViewModel
             o.Ten = Ten;
             o.PhanLoai = (int)PhanLoai;
             o.DoAm = DoAm;
+            o.KLRieng = KLRieng;
         }
 
         public SiloNguyenLieuDO CreateDO()
