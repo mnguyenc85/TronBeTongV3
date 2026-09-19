@@ -429,6 +429,7 @@ namespace TronBeTongV3.CSDL
                         NL_Ma = value.Ma,
                         NL_Ten = value.Ten,
                         NL_PhanLoai = value.PhanLoai,
+                        NL_KLRieng = value.KLRieng,
                         KLCongThuc = i.KL,
                     };
                     ct.DsThanhPhan.Add(tp1);
@@ -442,6 +443,7 @@ namespace TronBeTongV3.CSDL
                 Id = -1,
                 NL_Ma = "Nuoc",
                 NL_Ten = "Nước",
+                NL_KLRieng = 1,
                 NL_PhanLoai = Core.LoaiThanhPhan.Nuoc,
                 KLCongThuc = ct.KLNuoc,
             };
