@@ -228,6 +228,7 @@ CREATE PROCEDURE ht_upsert_congthuc_thanhphan_rel (
     IN p_ctid INT,
     IN p_ma VARCHAR(63),
     IN p_ten VARCHAR(127),
+    IN p_klrieng DOUBLE,
     IN p_pl INT,
     IN p_silo INT,
     IN p_klcongthuc DOUBLE,
@@ -241,6 +242,7 @@ BEGIN
     FROM ht_thanhphan
     WHERE ma = p_ma
         AND ten = p_ten
+        AND klrieng = p_klrieng
         AND phanloai = p_pl
         AND silo = p_silo
         AND klcongthuc = p_klcongthuc
@@ -250,8 +252,8 @@ BEGIN
 
     -- Nếu không tìm thấy bản ghi, thêm mới
     IF p_id IS NULL THEN
-        INSERT INTO ht_thanhphan (ma, ten, phanloai, silo, klcongthuc, kltong, klme)
-        VALUES (p_ma, p_ten, p_pl, p_silo, p_klcongthuc, p_kltong, p_klme);
+        INSERT INTO ht_thanhphan (ma, ten, klrieng, phanloai, silo, klcongthuc, kltong, klme)
+        VALUES (p_ma, p_ten, p_klrieng, p_pl, p_silo, p_klcongthuc, p_kltong, p_klme);
         
         -- Lấy ID của bản ghi vừa thêm
         SET p_id = LAST_INSERT_ID();
@@ -272,6 +274,7 @@ DROP PROCEDURE IF EXISTS ht_upsert_congthuc_thanhphan;
 CREATE PROCEDURE ht_upsert_congthuc_thanhphan (
     IN p_ma VARCHAR(63),
     IN p_ten VARCHAR(127),
+    IN p_klrieng DOUBLE,
     IN p_pl INT,
     IN p_silo INT,
     IN p_klcongthuc DOUBLE,
@@ -286,6 +289,7 @@ BEGIN
     WHERE ma = p_ma
         AND ten = p_ten
         AND phanloai = p_pl
+        AND klrieng = p_klrieng
         AND silo = p_silo
         AND klcongthuc = p_klcongthuc
         AND kltong = p_kltong
@@ -294,8 +298,8 @@ BEGIN
 
     -- Nếu không tìm thấy bản ghi, thêm mới
     IF p_id IS NULL THEN
-        INSERT INTO ht_thanhphan (ma, ten, phanloai, silo, klcongthuc, kltong, klme)
-        VALUES (p_ma, p_ten, p_pl, p_silo, p_klcongthuc, p_kltong, p_klme);
+        INSERT INTO ht_thanhphan (ma, ten, klrieng, phanloai, silo, klcongthuc, kltong, klme)
+        VALUES (p_ma, p_ten, p_klrieng, p_pl, p_silo, p_klcongthuc, p_kltong, p_klme);
         
         -- Lấy ID của bản ghi vừa thêm
         SET p_id = LAST_INSERT_ID();

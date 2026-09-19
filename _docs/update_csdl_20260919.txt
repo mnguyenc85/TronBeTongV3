@@ -1,3 +1,8 @@
+** GHI CHÚ: 
+	- do không có migration nên cần sửa bảng trong csdl
+	- không cần sửa proceduce vì có thể update qua config
+
 Sửa csdl local:
 - Thêm trường klrieng vào bảng ct_nguyenlieu
-- Sửa proc: ct_save_nguyenlieu_unique_ma -> bằng cách vào config -> csdl -> test connection
+	- Sửa proc: ct_save_nguyenlieu_unique_ma -> bằng cách vào config -> csdl -> test connection
+- Thêm trường klrieng vào bảng ht_thanhphan

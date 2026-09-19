@@ -37,10 +37,12 @@ namespace TronBeTongV3.Data.ViewModel
 
         public BTThanhPhanVM Clone()
         {
-            var tp1 = new BTThanhPhanVM();
-            tp1.STT = _stt;
-            tp1.NL = NL;
-            tp1.KL = KL;
+            var tp1 = new BTThanhPhanVM
+            {
+                STT = _stt,
+                NL = NL,
+                KL = KL
+            };
             return tp1;
         }
 
