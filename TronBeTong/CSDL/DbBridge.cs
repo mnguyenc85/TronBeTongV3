@@ -1137,7 +1137,7 @@ namespace TronBeTongV3.CSDL
             // Lưu từng thành phần trong công thức đơn hàng
             query = @"CREATE TABLE IF NOT EXISTS ht_thanhphan (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                ma VARCHAR(63), ten VARCHAR(127), phanloai INT, silo INT,
+                ma VARCHAR(63), ten VARCHAR(127), klrieng DOUBLE, phanloai INT, silo INT,
                 klcongthuc DOUBLE, kltong DOUBLE, klme DOUBLE,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);";
@@ -1417,6 +1417,7 @@ namespace TronBeTongV3.CSDL
                 command.Parameters.AddWithValue("p_ctid", ctid);
                 command.Parameters.AddWithValue("p_ma", tp.NL_Ma);
                 command.Parameters.AddWithValue("p_ten", tp.NL_Ten);
+                command.Parameters.AddWithValue("p_klrieng", tp.NL_KLRieng);
                 command.Parameters.AddWithValue("p_pl", tp.NL_PhanLoai);
                 command.Parameters.AddWithValue("p_silo", tp.NL_Silo);
                 command.Parameters.AddWithValue("p_klcongthuc", tp.KLCongThuc);

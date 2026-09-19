@@ -7,6 +7,8 @@ namespace TronBeTongV3.Data.DO.DonHang
         public int Id { get; set; }
         public string? NL_Ma { get; set; }
         public string? NL_Ten { get; set; }
+        public double NL_KLRieng { get; set; }
+
         /// <summary>
         /// Xem Core.Enums.LoaiThanhPhan
         /// </summary>
@@ -25,7 +27,7 @@ namespace TronBeTongV3.Data.DO.DonHang
 
         public int RoundDigit { get; set; } = 0;
 
-        public const string SelectFields = "id,ma,ten,phanloai,silo,klcongthuc,kltong,klme";
+        public const string SelectFields = "id,ma,ten,klrieng,phanloai,silo,klcongthuc,kltong,klme";
         public static DHThanhPhanDO FromDataReader(MySqlDataReader rd)
         {
             var tp = new DHThanhPhanDO()
@@ -33,11 +35,12 @@ namespace TronBeTongV3.Data.DO.DonHang
                 Id = rd.GetInt32(0),
                 NL_Ma = rd.IsDBNull(1) ? null : rd.GetString(1),
                 NL_Ten = rd.IsDBNull(2) ? null : rd.GetString(2),
-                NL_PhanLoai = rd.IsDBNull(3)? 0: rd.GetInt32(3),
-                NL_Silo = rd.IsDBNull(4) ? 0 : rd.GetInt32(4),
-                KLCongThuc = rd.IsDBNull(5) ? 0 : rd.GetDouble(5),
-                KLTong = rd.IsDBNull(6) ? 0 : rd.GetDouble(6),
-                KLMe = rd.IsDBNull(7) ? 0 : rd.GetDouble(7),
+                NL_KLRieng = rd.IsDBNull(3) ? 0: rd.GetDouble(3),
+                NL_PhanLoai = rd.IsDBNull(4)? 0: rd.GetInt32(4),
+                NL_Silo = rd.IsDBNull(5) ? 0 : rd.GetInt32(5),
+                KLCongThuc = rd.IsDBNull(6) ? 0 : rd.GetDouble(6),
+                KLTong = rd.IsDBNull(7) ? 0 : rd.GetDouble(7),
+                KLMe = rd.IsDBNull(8) ? 0 : rd.GetDouble(8),
             };
             tp.RoundDigit = tp.NL_PhanLoai == 3 ? 1 : 0;
             return tp;

@@ -31,6 +31,7 @@
                             <ComboBox x:Name="CboDbSrcs" Width="240"
                                       ItemsSource="{Binding DbSrcs}" DisplayMemberPath="Name" SelectedValuePath="Id"/>
                             <Button x:Name="BtTestConn" Content="Thử kết nối" Margin="3 0 0 0" Style="{StaticResource BtnSuccess}"
+                                    Width="120"
                                     Click="BtTestConn_Click"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="12 6 3 0">
@@ -39,13 +40,13 @@
                             <TextBlock Text=" Mb" Width="60" VerticalAlignment="Center"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="12 6 3 0">
-                            <TextBlock Text="Log" Width="60" VerticalAlignment="Center"/>
-                            <Button x:Name="BtDelLog" Content="Xóa log" Margin="3 0 0 0" Style="{StaticResource BtnDanger}"
+                            <Button x:Name="BtDelLog" Content="Xóa log" Margin="60 0 0 0" Style="{StaticResource BtnWarning}"
+                                    Width="120"
                                     Click="BtDelLog_Click"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="12 6 3 0">
-                            <TextBlock Text="Log" Width="60" VerticalAlignment="Center"/>
-                            <Button x:Name="BtDelDonHang" Content="Xóa dữ liệu trộn" Margin="3 0 0 0" Style="{StaticResource BtnDanger}"
+                            <Button x:Name="BtDelDonHang" Content="Xóa dữ liệu trộn" Margin="60 0 0 0" Style="{StaticResource BtnDanger}"
+                                    Width="120"
                                     Click="BtDelDonHang_Click"/>
                         </StackPanel>
                     </StackPanel>

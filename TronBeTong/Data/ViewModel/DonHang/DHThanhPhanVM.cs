@@ -12,6 +12,7 @@ namespace TronBeTongV3.Data.ViewModel
         public int NL_SiloIndex { get; set; }
         public string? NL_Ma { get; set; }
         public string? NL_Ten { get; set; }
+        public double NL_KLRieng { get; set; }        
 
         private double _klct;
         /// <summary>
@@ -46,6 +47,7 @@ namespace TronBeTongV3.Data.ViewModel
             Id = o.Id;
             NL_Ma = o.NL_Ma;
             NL_Ten = o.NL_Ten;
+            NL_KLRieng = o.NL_KLRieng;
             NL_PhanLoai = (LoaiThanhPhan)o.NL_PhanLoai;
             NL_SiloIndex = o.NL_Silo;
             KLCongThuc = o.KLCongThuc;
@@ -58,6 +60,7 @@ namespace TronBeTongV3.Data.ViewModel
             o.Id = Id;
             o.NL_Ma = NL_Ma;
             o.NL_Ten = NL_Ten;
+            o.NL_KLRieng = NL_KLRieng;
             o.NL_PhanLoai = (int)NL_PhanLoai;
             o.NL_Silo = NL_SiloIndex;
             o.KLCongThuc = Math.Round(KLCongThuc, 3);
