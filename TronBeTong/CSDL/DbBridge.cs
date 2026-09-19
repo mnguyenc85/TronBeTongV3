@@ -789,14 +789,14 @@ namespace TronBeTongV3.CSDL
         #endregion
 
         #region Công thức (cấp phối)
-        #region ct_nguyenlieu:ma,ten,phanloai,doam
+        #region ct_nguyenlieu:ma,ten,phanloai,doam,klrieng
         public async Task<List<SiloNguyenLieuDO>> NguyenLieu_SelectLimitAsync(int i0, int n)
         {
             using var connection = new MySqlConnection(ConnStr);
             await connection.OpenAsync();
             string query = n > 0 ?
                 $"SELECT {SiloNguyenLieuDO.SelectFields} FROM ct_nguyenlieu ORDER BY id DESC LIMIT {i0},{n};" :
-                $"SELECT {SiloNguyenLieuDO.SelectFields} FROM tblsilonguct_nguyenlieuyenlieu ORDER BY id DESC;";
+                $"SELECT {SiloNguyenLieuDO.SelectFields} FROM ct_nguyenlieu ORDER BY id DESC;";
             using var command = new MySqlCommand(query, connection);
             using var reader = await command.ExecuteReaderAsync();
 
@@ -846,6 +846,7 @@ namespace TronBeTongV3.CSDL
                 command.Parameters.AddWithValue("p_ten", m.Ten);
                 command.Parameters.AddWithValue("p_pl", m.PhanLoai);
                 command.Parameters.AddWithValue("p_doam", m.DoAm);
+                command.Parameters.AddWithValue("p_klrieng", m.KLRieng);
 
                 // Thêm tham số đầu ra
                 var idParam = new MySqlParameter("p_id", MySqlDbType.Int32)
@@ -906,7 +907,7 @@ namespace TronBeTongV3.CSDL
             // silo
             string query = @"CREATE TABLE IF NOT EXISTS ct_nguyenlieu (
                 id INT AUTO_INCREMENT PRIMARY KEY,
-                ma VARCHAR(63), ten VARCHAR(63), phanloai INT, doam DOUBLE,
+                ma VARCHAR(63), ten VARCHAR(63), phanloai INT, doam DOUBLE, klrieng DOUBLE,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);";
             command.CommandText = query;

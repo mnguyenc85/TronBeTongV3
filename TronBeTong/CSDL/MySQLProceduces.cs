@@ -106,6 +106,7 @@ CREATE PROCEDURE ct_save_nguyenlieu_unique_ma (
     IN p_ten VARCHAR(63),
     IN p_pl INT,
     IN p_doam DOUBLE,
+    IN p_klrieng DOUBLE,
     OUT p_id INT
 )
 BEGIN
@@ -121,13 +122,14 @@ BEGIN
                 ma = p_ma,
                 ten = p_ten,
                 phanloai = p_pl,
-                doam = p_doam
+                doam = p_doam,
+                klrieng = p_klrieng
             WHERE id=p_inid;
             
             SET p_id = p_inid;
         ELSE
-            INSERT INTO ct_nguyenlieu (ma,ten,phanloai,doam)
-            VALUES (p_ma, p_ten, p_pl, p_doam);
+            INSERT INTO ct_nguyenlieu (ma,ten,phanloai,doam,klrieng)
+            VALUES (p_ma, p_ten, p_pl, p_doam, p_klrieng);
             -- Lấy ID của bản ghi vừa thêm
             SET p_id = LAST_INSERT_ID();
         END IF;
@@ -137,7 +139,8 @@ BEGIN
                 ma = p_ma,
                 ten = p_ten,
                 phanloai = p_pl,
-                doam = p_doam
+                doam = p_doam,
+                klrieng = p_klrieng
             WHERE id=p_inid;
             
             SET p_id = p_inid;
