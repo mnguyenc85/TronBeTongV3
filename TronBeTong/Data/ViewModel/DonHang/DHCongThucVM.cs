@@ -62,6 +62,7 @@ namespace TronBeTongV3.Data.ViewModel.DonHang
                 NL_Ma = nl.Ma,
                 NL_Ten = nl.Ten,
                 NL_PhanLoai = nl.PhanLoai,
+                NL_KLRieng = nl.KLRieng,
             };
             DsThanhPhan.Add(tp);
         }

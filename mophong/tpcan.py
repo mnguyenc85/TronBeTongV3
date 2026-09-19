@@ -6,13 +6,12 @@ import utils
 KL_ZERO = 1
 
 class CTPCan:
-  def __init__(self, ten, dbCP, dbCanTT, ttAddr, klAddr, dbCanMe, meAddr, klxa = 20):
+  def __init__(self, ten, dbCP, dbCanTT, ttAddr, klAddr, meAddr, klxa = 40):
     self.ten = ten
     self.DbCapphoi = dbCP
     self.DbCanTT = dbCanTT
     self.TTAddr = ttAddr
     self.klAddr = klAddr
-    self.DbCanMe = dbCanMe
     self.meAddr = meAddr
     self.thanhPhan: list[tpsilo.CTPSilo] = []
     self.soMeDat = 0
@@ -27,10 +26,13 @@ class CTPCan:
     self.klxa = klxa
 
   def addTP(self, cpAddr, closeAddr) -> tpsilo.CTPSilo:
+    '''
+    Thêm thành phần vào nhóm cân này
+    '''
     tp = tpsilo.CTPSilo(cpAddr, closeAddr)
     self.thanhPhan.append(tp)
     self.TTCanDu = 3 * len(self.thanhPhan) + 1
-    return tp  
+    return tp
 
   def addDischarge(self, dbVan, byte, bit):
     self.DbVan = dbVan
@@ -45,7 +47,7 @@ class CTPCan:
     self.meht = 0
     utils.float2db(self.kl, self.DbCanTT, self.klAddr)                          # update kl trên cân
     utils.int162db(self.trangthai, self.DbCanTT, self.TTAddr)                   # update trạng thái cân
-    utils.int162db(self.meht, self.DbCanMe, self.meAddr)                        # update mẻ hiện tại    
+    utils.int162db(self.meht, self.DbCanTT, self.meAddr)                        # update mẻ hiện tại    
 
   def start(self, m3: float, some: int):
     self.soMeDat = some
@@ -163,4 +165,4 @@ class CTPCan:
 
         utils.float2db(self.kl, self.DbCanTT, self.klAddr)                          # update kl trên cân
         utils.int162db(self.trangthai, self.DbCanTT, self.TTAddr)                   # update trạng thái cân
-        utils.int162db(self.meht, self.DbCanMe, self.meAddr)                        # update mẻ hiện tại
+        utils.int162db(self.meht, self.DbCanTT, self.meAddr)                        # update mẻ hiện tại
