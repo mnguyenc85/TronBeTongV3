@@ -1,0 +1,25 @@
+﻿<Window x:Class="TBTv3Key.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TBTv3Key"
+        mc:Ignorable="d"
+        Title="Trộn bê tông V3 Keygen" SizeToContent="WidthAndHeight"
+        Background="WhiteSmoke" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <StackPanel Margin="6">
+            <TextBlock Text="Mở khóa hiệu chuẩn cân" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal" Margin="6 0 0 3">
+                <TextBlock Text="Code:" VerticalAlignment="Center" Margin="0 0 6 0" Width="72"/>
+                <TextBox x:Name="TxtCalibCode" Width="120"/>
+                <Button x:Name="BtCalibGenKey" Content="Tạo key" Margin="6 0 0 0" Width="72"
+                        Click="BtCalibGenKey_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="6 0 0 0">
+                <TextBlock Text="Key:" VerticalAlignment="Center" Margin="0 0 6 0" Width="72"/>
+                <TextBox x:Name="TxtCalibKey" Width="120"/>
+            </StackPanel>
+        </StackPanel>
+    </StackPanel>
+</Window>

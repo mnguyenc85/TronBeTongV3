@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113
+# Visual Studio Version 18
+VisualStudioVersion = 18.10.12210.168 stable
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TronBeTongV3", "TronBeTong\TronBeTongV3.csproj", "{581FA01B-1B89-4757-9D34-A136C74ED9DA}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PdfiumViewer", "PdfiumViewer\PdfiumViewer.csproj", "{6CD1DEDC-6785-652E-13CE-9EB64157357E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NMComm", "NMComm\NMComm.csproj", "{308ECCFF-B738-4F66-A0E3-F42D67F2E94A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TBTv3Key", "TBTv3Key\TBTv3Key.csproj", "{274324F2-7B68-B231-EB4D-C5C5538092E1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +63,14 @@ Global
 		{308ECCFF-B738-4F66-A0E3-F42D67F2E94A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{308ECCFF-B738-4F66-A0E3-F42D67F2E94A}.Release|x64.ActiveCfg = Release|Any CPU
 		{308ECCFF-B738-4F66-A0E3-F42D67F2E94A}.Release|x64.Build.0 = Release|Any CPU
+		{274324F2-7B68-B231-EB4D-C5C5538092E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{274324F2-7B68-B231-EB4D-C5C5538092E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{274324F2-7B68-B231-EB4D-C5C5538092E1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{274324F2-7B68-B231-EB4D-C5C5538092E1}.Debug|x64.Build.0 = Debug|Any CPU
+		{274324F2-7B68-B231-EB4D-C5C5538092E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{274324F2-7B68-B231-EB4D-C5C5538092E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{274324F2-7B68-B231-EB4D-C5C5538092E1}.Release|x64.ActiveCfg = Release|Any CPU
+		{274324F2-7B68-B231-EB4D-C5C5538092E1}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
