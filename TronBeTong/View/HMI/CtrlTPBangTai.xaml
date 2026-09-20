@@ -7,6 +7,6 @@
              mc:Ignorable="d">
     <Canvas>
         <local:CtrlConveyor x:Name="BTNgang" Height="24" ZLength="5" Canvas.Top="60"/>
-        <local:CtrlConveyor x:Name="BTXien" Height="24" ZLength="6" RAngle="-46" RCenter="205,12" Canvas.Left="290" Canvas.Top="-60"/>
+        <local:CtrlConveyor x:Name="BTXien" Height="24" ZLength="4" RAngle="-45" RCenter="150,12" Canvas.Left="300" Canvas.Top="-10"/>
     </Canvas>
 </UserControl>

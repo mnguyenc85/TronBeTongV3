@@ -175,21 +175,21 @@
             <DockPanel DockPanel.Dock="Top" MinHeight="640">
                 <Grid>
                     <Canvas>
-                        <view:GrCtrlKhungXeSkip x:Name="CtrlXeSkip" Canvas.Left="240" Canvas.Top="330" Width="340" Height="270"/>
+                        <view:CtrlTPBangTai x:Name="TPBangTai" Canvas.Left="10" Canvas.Top="450"/>
+
+                        <view:GrCtrlKhungXeSkip x:Name="CtrlXeSkip" Canvas.Left="240" Canvas.Top="330" Width="340" Height="270" Visibility="Collapsed"/>
 
                         <view:CtrlTPXiMang x:Name="TPXiMang" Canvas.Left="440" Canvas.Top="5" ZNoTP="4"/>
 
-                        <view:CtrlTPCotLieu2 x:Name="TPCotLieu" Canvas.Left="15" Canvas.Top="280" ZSoTP="3"/>
+                        <view:CtrlTPCotLieu2 x:Name="TPCotLieu" Canvas.Left="15" Canvas.Top="300" ZSoTP="3"/>
 
                         <view:CtrlTPNuoc x:Name="TPNuoc" Canvas.Left="880" Canvas.Top="10"/>
 
                         <view:CtrlTPPhuGia x:Name="TPPhuGia" ZNoTP="2" Canvas.Left="260" Canvas.Top="10"/>
 
-                        <view:CtrlTPBangTai x:Name="TPBangTai" Canvas.Left="10" Canvas.Top="520" Visibility="Collapsed"/>
-
-                        <view:CtrlMixer x:Name="CtrlMixer1" Canvas.Left="460" Canvas.Top="400"/>
+                        <view:CtrlMixer x:Name="CtrlMixer1" Canvas.Left="480" Canvas.Top="450"/>
                         
-                        <view:CtrlMidBin x:Name="CtrlThungCLTG" Canvas.Left="640" Canvas.Top="330" ZFill="#a0f5b04f" Visibility="Collapsed"/>
+                        <view:CtrlMidBin x:Name="CtrlThungCLTG" Canvas.Left="560" Canvas.Top="340" ZFill="#a0f5b04f"/>
                     </Canvas>
 
                     <Border x:Name="PnlDebug" BorderBrush="Gray" BorderThickness="1" CornerRadius="1" Background="{StaticResource RAL_7032_7035}"

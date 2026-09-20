@@ -16,7 +16,7 @@
                 <local:CtrlBin01 x:Name="Silo5" ZFill="#a04040ff" FontSize="14" ZHasVib="False" Margin="9 0" Visibility="Collapsed"/>
                 <local:CtrlBin01 x:Name="Silo6" ZFill="#a04040ff" FontSize="14" ZHasVib="False" Margin="9 0" Visibility="Collapsed"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 30 0 0">
                 <local:CtrlWeightScale x:Name="WsTotalCL1" ZFill="#a04040ff" Width="108" Margin="3 0"/>
                 <local:CtrlWeightScale x:Name="WsTotalCL2" ZFill="#a04040ff" Width="108" Margin="3 0"
                                    Visibility="Collapsed"/>
