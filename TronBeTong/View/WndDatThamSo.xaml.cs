@@ -284,13 +284,22 @@ namespace TronBeTongV3.View
 
         private void BtUnlock_Click(object sender, RoutedEventArgs e)
         {
-            WndUnlockPassword wnd = new WndUnlockPassword()
-            {
-                Owner = this
-            };
-            if (wnd.ShowDialog() == true)
+            bool skipLock = DbRepository.Instance.Settings.GetBoolValue("calib.skiplock", false);
+            if (skipLock)
             {
                 PnlCalib.IsEnabled = true;
+                return;
+            }
+            else
+            {
+                WndUnlockPassword wnd = new()
+                {
+                    Owner = this
+                };
+                if (wnd.ShowDialog() == true)
+                {
+                    PnlCalib.IsEnabled = true;
+                }
             }
         }
 

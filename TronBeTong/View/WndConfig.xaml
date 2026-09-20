@@ -176,6 +176,13 @@
                             </StackPanel>
                         </StackPanel>
 
+                        <StackPanel>
+                            <TextBlock Text="Hiệu chuẩn cân" Margin="3 0 3 3" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
+                                <CheckBox x:Name="ChkCalibSkipLock" Content="Không cần nhập password"/>
+                            </StackPanel>
+                        </StackPanel>
+
                         <StackPanel x:Name="PnlHack">
                             <TextBlock Text="Phiếu: Ghi đè m3" Margin="3 0 3 3" FontWeight="Bold"/>
                             <StackPanel Orientation="Horizontal" Margin="9 0 3 3">

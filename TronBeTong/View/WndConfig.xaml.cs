@@ -124,6 +124,8 @@ namespace TronBeTongV3.View
             ChkAutoCongThucDonHang.IsChecked = s.GetBoolValue("auto.congthuc.donhang");
             ChkPhieuAllowChangeM3.IsChecked = s.GetBoolValue("hack.phieu.m3");
 
+            ChkCalibSkipLock.IsChecked = s.GetBoolValue("calib.skiplock");
+
             // Liệt kê danh sách Network interfaces
             NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
             foreach (NetworkInterface net in interfaces)
@@ -189,6 +191,7 @@ namespace TronBeTongV3.View
                 }
 
                 s.UpdateBool("hack.phieu.m3", ChkPhieuAllowChangeM3.IsChecked == true);
+                s.UpdateBool("calib.skiplock", ChkCalibSkipLock.IsChecked == true);
 
                 SaveChotKLSettings(s);
             }
