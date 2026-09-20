@@ -198,20 +198,25 @@ namespace TronBeTongV3.Comm
         #endregion
 
         #region Calibration
-        public ModelTag CLCanAI { get; private set; } = new ModelTag("CanCL.AI");
-        public ModelTag CLCanKL { get; private set; } = new ModelTag("CanCL.KL");
-        public ModelTag CLCanZero { get; private set; } = new ModelTag("CanCL.Zero");
-        public ModelTag CLCanSpan { get; private set; } = new ModelTag("CanCL.Span");
+        public ModelTag CLCanAI { get; private set; } = new ModelTag("Calib.CanCL.AI");
+        //public ModelTag CLCanKL { get; private set; } = new ModelTag("Calib.CanCL.KL");
+        public ModelTag CLCanZero { get; private set; } = new ModelTag("Calib.CanCL.Zero");
+        public ModelTag CLCanSpan { get; private set; } = new ModelTag("Calib.CanCL.Span");
 
-        public ModelTag XiCanAI { get; private set; } = new ModelTag("CanXi.AI");
-        public ModelTag XiCanKL { get; private set; } = new ModelTag("CanXi.KL");
-        public ModelTag XiCanZero { get; private set; } = new ModelTag("CanXi.Zero");
-        public ModelTag XiCanSpan { get; private set; } = new ModelTag("CanXi.Span");
+        public ModelTag XiCanAI { get; private set; } = new ModelTag("Calib.CanXi.AI");
+        //public ModelTag XiCanKL { get; private set; } = new ModelTag("Calib.CanXi.KL");
+        public ModelTag XiCanZero { get; private set; } = new ModelTag("Calib.CanXi.Zero");
+        public ModelTag XiCanSpan { get; private set; } = new ModelTag("Calib.CanXi.Span");
 
-        public ModelTag NuocCanAI { get; private set; } = new ModelTag("CanNuoc.AI");
-        public ModelTag NuocCanKL { get; private set; } = new ModelTag("CanNuoc.KL");
-        public ModelTag NuocCanZero { get; private set; } = new ModelTag("CanNuoc.Zero");
-        public ModelTag NuocCanSpan { get; private set; } = new ModelTag("CanNuoc.Span");
+        public ModelTag PGCanAI { get; private set; } = new ModelTag("Calib.CanPG.AI");
+        //public ModelTag PGCanKL { get; private set; } = new ModelTag("Calib.CanPG.KL");
+        public ModelTag PGCanZero { get; private set; } = new ModelTag("Calib.CanPG.Zero");
+        public ModelTag PGCanSpan { get; private set; } = new ModelTag("Calib.CanPG.Span");
+
+        public ModelTag NuocCanAI { get; private set; } = new ModelTag("Calib.CanNuoc.AI");
+        //public ModelTag NuocCanKL { get; private set; } = new ModelTag("Calib.CanNuoc.KL");
+        public ModelTag NuocCanZero { get; private set; } = new ModelTag("Calib.CanNuoc.Zero");
+        public ModelTag NuocCanSpan { get; private set; } = new ModelTag("Calib.CanNuoc.Span");
         #endregion
 
         #region Tham số

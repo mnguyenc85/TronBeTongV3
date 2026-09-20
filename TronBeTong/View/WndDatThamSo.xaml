@@ -474,12 +474,15 @@
 
             <TabItem Header="Chuẩn cân">
                 <StackPanel Background="WhiteSmoke">
-                    <WrapPanel x:Name="PnlCalib" IsEnabled="False" Width="744">
+                    <!-- W = 248 * 4 + 2 -->
+                    <WrapPanel x:Name="PnlCalib" IsEnabled="False" Width="994">
                         <local:CtrlWICalibration x:Name="WICalibCL1" ZTitle="Cân cốt liệu 1" Margin="2 0 0 0"/>
-                        <local:CtrlWICalibration x:Name="WICalibCL2" ZTitle="Cân cốt liệu 2" Margin="2 0 0 0"/>
-                        <local:CtrlWICalibration x:Name="WICalibCL3" ZTitle="Cân cốt liệu 3" Margin="2 0 0 0"/>
+                        <local:CtrlWICalibration x:Name="WICalibCL2" ZTitle="Cân cốt liệu 2" Margin="2 0 0 0" IsEnabled="False"/>
+                        <local:CtrlWICalibration x:Name="WICalibCL3" ZTitle="Cân cốt liệu 3" Margin="2 0 0 0" IsEnabled="False"/>
+                        <StackPanel Width="248"/>
                         <local:CtrlWICalibration x:Name="WICalibXM1" ZTitle="Cân xi 1" Margin="2 0 0 0"/>
-                        <local:CtrlWICalibration x:Name="WICalibXM2" ZTitle="Cân xi 2" Margin="2 0 0 0"/>
+                        <local:CtrlWICalibration x:Name="WICalibXM2" ZTitle="Cân xi 2" Margin="2 0 0 0" IsEnabled="False"/>
+                        <local:CtrlWICalibration x:Name="WICalibPG" ZTitle="Cân phụ gia" Margin="2 0 0 0"/>
                         <local:CtrlWICalibration x:Name="WICalibWater" ZTitle="Cân nước" Margin="2 0 0 0"/>
                     </WrapPanel>
                     <StackPanel Orientation="Horizontal" Margin="3" HorizontalAlignment="Right">
