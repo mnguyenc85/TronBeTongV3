@@ -48,7 +48,7 @@ class CTramTron:
     tp.addVan(PLCM, 202, 6)
     tp.addVan(PLCM, 203, 3)    
     self.TPCL1.addDischarge(PLCM, 202, 2)
-    self.TPCL1.TTCanDu = 9
+    self.TPCL1.TTCanDu = 10
 
     self.TPXM1 = tpcan.CTPCan("XM1", DB43, DB26, 252, 254, 258, 50)
     tp = self.TPXM1.addTP(24, 110)

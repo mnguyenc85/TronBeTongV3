@@ -75,17 +75,21 @@ namespace TronBeTongV3.Comm.S71200
         /// </summary>
         public PlcTag ModeSkip { get; private set; } = new PlcTag(TagTypes.Bool, 107, 4);
 
-        [Obsolete("Không dùng")]
         public PlcTag SensorBaoMoCLTG { get; private set; } = new PlcTag(TagTypes.Bool, 104, 6);
-        [Obsolete("Không dùng")]
         public PlcTag SensorBaoDongCLTG { get; private set; } = new PlcTag(TagTypes.Bool, 101, 5);
 
+        [Obsolete("Không dùng")]
         public PlcTag XeSkipDT0 { get; private set; } = new PlcTag(TagTypes.Bool, 107, 1);
+        [Obsolete("Không dùng")]
         public PlcTag XeSkipDT1 { get; private set; } = new PlcTag(TagTypes.Bool, 107, 2);
+        [Obsolete("Không dùng")]
         public PlcTag XeSkipDT2 { get; private set; } = new PlcTag(TagTypes.Bool, 107, 3);
-
+        
+        [Obsolete("Không dùng")]
         public PlcTag XeSkipDown { get; private set; } = new PlcTag(TagTypes.Bool, 107, 5);
+        [Obsolete("Không dùng")]
         public PlcTag XeSkipUp { get; private set; } = new PlcTag(TagTypes.Bool, 107, 6);
+        [Obsolete("Không dùng")]
         public PlcTag XeSkipEMC { get; private set; } = new PlcTag(TagTypes.Bool, 107, 7);
 
         public DbMemory100() : base(0, 8, 100)
@@ -109,15 +113,15 @@ namespace TronBeTongV3.Comm.S71200
             SensorMixerOpen.ParseDb(_buf, StartByteAddr);
             SensorMixerOpenHalf.ParseDb(_buf, StartByteAddr);
 
-            XeSkipDT0.ParseDb(_buf, StartByteAddr);
-            XeSkipDT1.ParseDb(_buf, StartByteAddr);
-            XeSkipDT2.ParseDb(_buf, StartByteAddr);
-            XeSkipDown.ParseDb(_buf, StartByteAddr);
-            XeSkipUp.ParseDb(_buf, StartByteAddr);
-            XeSkipEMC.ParseDb(_buf, StartByteAddr);
+            //XeSkipDT0.ParseDb(_buf, StartByteAddr);
+            //XeSkipDT1.ParseDb(_buf, StartByteAddr);
+            //XeSkipDT2.ParseDb(_buf, StartByteAddr);
+            //XeSkipDown.ParseDb(_buf, StartByteAddr);
+            //XeSkipUp.ParseDb(_buf, StartByteAddr);
+            //XeSkipEMC.ParseDb(_buf, StartByteAddr);
 
-            //SensorBaoMoCLTG.ParseDb(_buf, StartByteAddr);
-            //SensorBaoDongCLTG.ParseDb(_buf, StartByteAddr);
+            SensorBaoMoCLTG.ParseDb(_buf, StartByteAddr);
+            SensorBaoDongCLTG.ParseDb(_buf, StartByteAddr);
 
             T = DateTime.Now.Ticks;
 
@@ -161,9 +165,7 @@ namespace TronBeTongV3.Comm.S71200
 
         public PlcTag MixerDischarge { get; private set; } = new PlcTag(TagTypes.Bool, 201, 0);
         
-        [Obsolete ("Không dùng")]                
         public PlcTag BangTaiNgang { get; private set; } = new PlcTag(TagTypes.Bool, 200, 1);
-        [Obsolete("Không dùng")]
         public PlcTag BangTaiXien { get; private set; } = new PlcTag(TagTypes.Bool, 200, 3);
 
         public DbMemory200() : base(0, 6, 200)
@@ -203,8 +205,8 @@ namespace TronBeTongV3.Comm.S71200
 
             VanCLTG.ParseDb(_buf, StartByteAddr);
             MixerDischarge.ParseDb(_buf, StartByteAddr);
-            //BangTaiNgang.ParseDb(_buf, StartByteAddr);
-            //BangTaiXien.ParseDb(_buf, StartByteAddr);
+            BangTaiNgang.ParseDb(_buf, StartByteAddr);
+            BangTaiXien.ParseDb(_buf, StartByteAddr);
 
             T = DateTime.Now.Ticks;
 

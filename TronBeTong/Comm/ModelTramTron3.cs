@@ -7,7 +7,7 @@ namespace TronBeTongV3.Comm
     /// </summary>
     public class ModelTramTron3: ModelHeThong
     {
-        public override WeightIndicatorState WIState { get; protected set; } = WeightIndicatorState.GetWIS_60m3();
+        public override WeightIndicatorState WIState { get; protected set; } = WeightIndicatorState.GetWIS_SonLa();
 
         public ModelTramTron3() : base()
         {
@@ -113,28 +113,28 @@ namespace TronBeTongV3.Comm
             AddLink(VanPGs[0], m200, m200.VanPhuGia1);
             AddLink(VanPGs[1], m200, m200.VanPhuGia2);
             AddLink(MixerDischarge, m200, m200.MixerDischarge);
-            //AddLink(BangTaiNgang, m200, m200.BangTaiNgang);
-            //AddLink(BangTaiXien, m200, m200.BangTaiXien);
 
             var m100 = _plc.M100;
             AddLink(SensorMixerClose, m100, m100.SensorMixerClose);
             AddLink(SensorMixerOpen, m100, m100.SensorMixerOpen);
             AddLink(SensorMixerOpenHalf, m100, m100.SensorMixerOpenHalf);
-            //AddLink(SensorMoCLTG, m100, m100.SensorBaoMoCLTG);
-            //AddLink(SensorDongCLTG, m100, m100.SensorBaoDongCLTG);
             AddLink(MixerRunning, m100, m100.MixerRunning);
             #endregion
 
-            #region Băng Tải & Xe Skip
+            #region Băng Tải & Xe Skip & CLTG
 
-            AddLink(XeSkipDT0, m100, m100.XeSkipDT0);
-            AddLink(XeSkipDT1, m100, m100.XeSkipDT1);
-            AddLink(XeSkipDT2, m100, m100.XeSkipDT2);
-            AddLink(XeSkipDown, m100, m100.XeSkipDown);
-            AddLink(XeSkipUp, m100, m100.XeSkipUp);
-            AddLink(XeSkipEMC, m100, m100.XeSkipEMC);
+            //AddLink(XeSkipDT0, m100, m100.XeSkipDT0);
+            //AddLink(XeSkipDT1, m100, m100.XeSkipDT1);
+            //AddLink(XeSkipDT2, m100, m100.XeSkipDT2);
+            //AddLink(XeSkipDown, m100, m100.XeSkipDown);
+            //AddLink(XeSkipUp, m100, m100.XeSkipUp);
+            //AddLink(XeSkipEMC, m100, m100.XeSkipEMC);
 
-            AddLink(XeSkipQuaTai, db26, db26.QuaTaiXeSkip);
+            //AddLink(XeSkipQuaTai, db26, db26.QuaTaiXeSkip);
+            AddLink(SensorMoCLTG, m100, m100.SensorBaoMoCLTG);
+            AddLink(SensorDongCLTG, m100, m100.SensorBaoDongCLTG);
+            AddLink(BangTaiNgang, m200, m200.BangTaiNgang);
+            AddLink(BangTaiXien, m200, m200.BangTaiXien);
             #endregion
 
             #region Hệ thống
@@ -156,9 +156,6 @@ namespace TronBeTongV3.Comm
             AddLink(MixerSetTGXa, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGXa);
             AddLink(MixerSetTGXaNua, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGXaNua);
             AddLink(MixerMeHt, _plc.Db26WIs, _plc.Db26WIs.CoiTronMeHt);
-
-            //AddLink(TGLenPheuCLTG, _plc.Db42ReadTG, _plc.Db42ReadTG.TGLenPheuCLTG);
-            //AddLink(TGTreMoXaCLTG, _plc.Db42ReadTG, _plc.Db42ReadTG.TGTreMoXaCLTG);
             #endregion
 
             #region Tham số
@@ -239,7 +236,7 @@ namespace TronBeTongV3.Comm
             AddLink(TreKhoiDongCL1, db29, db29.TreKhoiDongCL1);
             AddLink(TreKhoiDongCL2, db29, db29.TreKhoiDongCL2);
             AddLink(TreKhoiDongCL3, db29, db29.TreKhoiDongCL3);
-            AddLink(TreKhoiDongCL4, db29, db29.TreKhoiDongCL4);
+            //AddLink(TreKhoiDongCL4, db29, db29.TreKhoiDongCL4);
             //AddLink(TreKhoiDongCL5, db28, db28.TreKhoiDongCL5);
             //AddLink(TreKhoiDongCL6, db28, db28.TreKhoiDongCL6);
             AddLink(TreKhoiDongXM1, db29, db29.TreKhoiDongXM1);
@@ -248,9 +245,9 @@ namespace TronBeTongV3.Comm
             AddLink(TreKhoiDongPG1, db29, db29.TreKhoiDongPG1);
 
             AddLink(TreXaCanCL1, db29, db29.TreXaCanCL1);
-            AddLink(TreXaCanCL2, db29, db29.TreXaCanCL2);
-            AddLink(TreXaCanCL3, db29, db29.TreXaCanCL3);
-            AddLink(TreXaCanCL4, db29, db29.TreXaCanCL4);
+            //AddLink(TreXaCanCL2, db29, db29.TreXaCanCL2);
+            //AddLink(TreXaCanCL3, db29, db29.TreXaCanCL3);
+            //AddLink(TreXaCanCL4, db29, db29.TreXaCanCL4);
             //AddLink(TreXaCanCL5, db28, db28.TreXaCanCL5);
             //AddLink(TreXaCanCL6, db28, db28.TreXaCanCL6);
             AddLink(TreXaCanXM1, db29, db29.TreXaCanXM1);
@@ -262,13 +259,13 @@ namespace TronBeTongV3.Comm
             AddLink(TGVaoBTXCL2, db29, db29.TGVaoBTXCL2);
             AddLink(TGVaoBTXCL3, db29, db29.TGVaoBTXCL3);
             AddLink(TGVaoBTXCL4, db29, db29.TGVaoBTXCL4);
-            AddLink(TGVaoBTXCL5, db29, db29.TGVaoBTXCL5);
-            AddLink(TGVaoBTXCL6, db29, db29.TGVaoBTXCL6);
+            //AddLink(TGVaoBTXCL5, db29, db29.TGVaoBTXCL5);
+            //AddLink(TGVaoBTXCL6, db29, db29.TGVaoBTXCL6);
 
             AddLink(TreDongCuaXaCL1, db29, db29.TreDongCuaXaCl1);
             AddLink(TreDongCuaXaCL2, db29, db29.TreDongCuaXaCl2);
             AddLink(TreDongCuaXaCL3, db29, db29.TreDongCuaXaCl3);
-            AddLink(TreDongCuaXaCL4, db29, db29.TreDongCuaXaCl4);
+            //AddLink(TreDongCuaXaCL4, db29, db29.TreDongCuaXaCl4);
             //AddLink(TreDongCuaXaCL5, db28, db28.TreDongCuaXaCl5);
             //AddLink(TreDongCuaXaCL6, db28, db28.TreDongCuaXaCl6);
             AddLink(TreDongCuaXaXM1, db29, db29.TreDongCuaXaXM1);
@@ -279,11 +276,11 @@ namespace TronBeTongV3.Comm
             AddLink(TGChuTrinhXaCL1, db29, db29.TGChuTrinhXaCL1);
             AddLink(TGChuTrinhXaCL2, db29, db29.TGChuTrinhXaCL2);
             AddLink(TGChuTrinhXaCL3, db29, db29.TGChuTrinhXaCL3);
-            AddLink(TGChuTrinhXaCL4, db29, db29.TGChuTrinhXaCL4);
+            //AddLink(TGChuTrinhXaCL4, db29, db29.TGChuTrinhXaCL4);
             AddLink(TGMoXaCL1, db29, db29.TGMoXaCL1);
             AddLink(TGMoXaCL2, db29, db29.TGMoXaCL2);
             AddLink(TGMoXaCL3, db29, db29.TGMoXaCL3);
-            AddLink(TGMoXaCL4, db29, db29.TGMoXaCL4);
+            //AddLink(TGMoXaCL4, db29, db29.TGMoXaCL4);
 
             AddLink(TGTreDungBTXMeCuoi, db29, db29.TGTreDungBTXMeCuoi);
             AddLink(SetTGLenPheuCLTG, db29, db29.TGCLDiQuaBTX);
