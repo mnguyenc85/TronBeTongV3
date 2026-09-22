@@ -144,9 +144,10 @@
                     </StackPanel>
                 </DockPanel>
             </TabItem>
-            
+
             <TabItem x:Name="TabItemOperate" Header="Vận hành" Style="{StaticResource FlatRightTabItemStyle}" BorderBrush="DodgerBlue" Width="80" FontSize="14">
                 <DockPanel Background="#fdfdfd">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <StackPanel Background="WhiteSmoke" Margin="3" DockPanel.Dock="Top">
                         <StackPanel x:Name="PnlOpSim" Background="WhiteSmoke" Margin="3">
                             <TextBlock Text="Mô phỏng" Margin="3" FontWeight="Bold"/>
@@ -162,11 +163,6 @@
                         <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
                             <TextBlock Text="TG DT1 - DT2: "/>
                             <TextBox x:Name="TxtXeSkipDT12" Width="90"/>
-                        </StackPanel>
-                        
-                        <TextBlock Text="Debug" Margin="3 0 3 3" FontWeight="Bold"/>
-                        <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
-                            <CheckBox x:Name="ChkShowDebug" Content="Hiển thị debug"/>
                         </StackPanel>
                         
                         <StackPanel>
@@ -187,7 +183,21 @@
                             <TextBlock Text="Tự động Reset khi ấn Start" Margin="3 0 6 3" FontWeight="Bold"/>
                             <CheckBox x:Name="ChkAutoReset" VerticalAlignment="Center"/>
                         </StackPanel>
-                    </StackPanel>
+
+                            <StackPanel>
+                                <TextBlock Text="Hiệu chuẩn cân" Margin="3 0 3 3" FontWeight="Bold"/>
+                                <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
+                                    <CheckBox x:Name="ChkCalibSkipLock" Content="Không cần nhập password"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <TextBlock Text="Debug" Margin="3 0 3 3" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
+                                <CheckBox x:Name="ChkShowDebug" Content="Hiển thị debug"/>
+                            </StackPanel>
+
+                        </StackPanel>
+                    </ScrollViewer>
                 </DockPanel>
             </TabItem>
 

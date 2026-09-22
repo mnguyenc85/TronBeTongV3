@@ -51,7 +51,10 @@ namespace TronBeTongV3.Comm.S71200
 
         #region Tham số
         public Db26_ThamSo Db26ThamSo { get; private set; } = new();
-        public Db29_ThamSo Db29ThamSo { get; private set; } = new();
+        public Db29_ThamSo Db29ThamSo { get; private set; } = new();        
+        public Db26_Calib Db26Cablib { get; private set; } = new();
+        
+        public Db26_ReadTG Db26ReadTG { get; private set; } = new();
         #endregion
 
         public TramTronS71200()
@@ -107,6 +110,7 @@ namespace TronBeTongV3.Comm.S71200
                 //if (Db35CanPGTT.NeedRead(delta)) await Db35CanPGTT.ReadAsync(plc, delta);
                 //if (Db23CanPGMe.NeedRead(delta)) await Db23CanPGMe.ReadAsync(plc, delta);
                 if (Db26WIs.NeedRead(delta)) await Db26WIs.ReadAsync(plc, delta);
+                if (Db26ReadTG.NeedRead(delta)) await Db26ReadTG.ReadAsync(plc, delta);
                 #endregion
 
                 #region TG Trộn
@@ -163,6 +167,14 @@ namespace TronBeTongV3.Comm.S71200
                     await Db29ThamSo.ReadAsync(plc, delta);
                     await Db29ThamSo.WriteAsync(plc, delta);
                 }
+
+                if (Db26Cablib.NeedRead(delta))
+                {
+                    await Db26Cablib.ReadAsync(plc, delta);
+                    int n = await Db26Cablib.WriteAsync(plc, delta);
+                    if (n > 0)
+                        Db26Cablib.ForceRead = true;
+                }
                 #endregion
             }
             catch (Exception ex)
@@ -179,6 +191,8 @@ namespace TronBeTongV3.Comm.S71200
             Db09MeDat.ClearWriteCmds();
             Db29ThamSo.ClearWriteCmds();
             Db26ThamSo.ClearWriteCmds();
+            Db26Cablib.ClearWriteCmds();
+            // Db26ReadTG.ClearWriteCmds(); // Không ghi
         }
 
         public void Reset()
@@ -190,36 +204,6 @@ namespace TronBeTongV3.Comm.S71200
             Db43KLMe.UpdateViewT = 0;
             Db43KLMe.ForceRead = true;
 
-            //Db16CanCL1TT.UpdateViewT = 0;
-            //Db28CanCL1Me.UpdateViewT = 0;
-            //Db19CanCL2TT.UpdateViewT = 0;
-            //Db30CanCL2Me.UpdateViewT = 0;
-            //Db21CanCL3TT.UpdateViewT = 0;
-            //Db27CanCL3Me.UpdateViewT = 0;
-            //Db36CanXM1TT.UpdateViewT = 0;
-            //Db34CanXM1Me.UpdateViewT = 0;
-            //Db90CanXM2TT.UpdateViewT = 0;
-            //Db68CanXM2Me.UpdateViewT = 0;
-            //Db24CanNuocTT.UpdateViewT = 0;
-            //Db33CanNuocMe.UpdateViewT = 0;
-            //Db35CanPGTT.UpdateViewT = 0;
-            //Db23CanPGMe.UpdateViewT = 0;
-
-            //Db16CanCL1TT.ForceRead = true;
-            //Db28CanCL1Me.ForceRead = true;
-            //Db19CanCL2TT.ForceRead = true;
-            //Db30CanCL2Me.ForceRead = true;
-            //Db21CanCL3TT.ForceRead = true;   
-            //Db27CanCL3Me.ForceRead = true;
-            //Db36CanXM1TT.ForceRead = true;
-            //Db34CanXM1Me.ForceRead = true;
-            //Db90CanXM2TT.ForceRead = true;
-            //Db68CanXM2Me.ForceRead = true;
-            //Db24CanNuocTT.ForceRead = true;
-            //Db33CanNuocMe.ForceRead = true;
-            //Db35CanPGTT.ForceRead = true;
-            //Db23CanPGMe.ForceRead = true;
-
             Db26WIs.UpdateViewT = 0;
             Db26WIs.ForceRead = true;
 
@@ -227,6 +211,11 @@ namespace TronBeTongV3.Comm.S71200
             Db29ThamSo.ForceRead = true;
             Db26ThamSo.UpdateViewT = 0;
             Db26ThamSo.ForceRead = true;
+            Db26Cablib.UpdateViewT = 0;
+            Db26Cablib.ForceRead = true;
+
+            Db26ReadTG.UpdateViewT = 0;
+            Db26ReadTG.ForceRead = true;
         }
 
         public void MarkUpdateView()
@@ -253,6 +242,9 @@ namespace TronBeTongV3.Comm.S71200
 
             Db29ThamSo.UpdateViewT = Db29ThamSo.T;
             Db26ThamSo.UpdateViewT = Db26ThamSo.T;
+            Db26Cablib.UpdateViewT = Db26Cablib.T;
+
+            Db26ReadTG.UpdateViewT = Db26ReadTG.T;
         }
 
         #region Export Tags

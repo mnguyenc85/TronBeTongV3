@@ -146,6 +146,8 @@ namespace TronBeTongV3
 
             InitServerSync();
             Log.Information("Successful init server");
+
+            _tramtron.EnableRead(0);
         }
 
         private void SetSilosNguyenLieu()

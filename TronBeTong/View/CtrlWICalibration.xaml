@@ -38,24 +38,35 @@
 
                 <StackPanel Margin="6 0 6 6" Orientation="Horizontal">
                     <TextBlock Text="Zero" Width="96" VerticalAlignment="Center" FontSize="14"/>
-                    <TextBox x:Name="txtZero" FontSize="20" TextAlignment="Center" Width="108"/>
+                    <TextBox x:Name="txtZero" FontSize="20" TextAlignment="Center" Width="108"
+                             TextChanged="txtZero_TextChanged"/>
                 </StackPanel>
 
                 <StackPanel Margin="6 0 6 6" Orientation="Horizontal">
                     <TextBlock Text="Span" Width="96" VerticalAlignment="Center" FontSize="14"/>
-                    <TextBox x:Name="txtSpan" FontSize="20" TextAlignment="Center" Width="108"/>
+                    <TextBox x:Name="txtSpan" FontSize="20" TextAlignment="Center" Width="108"
+                             TextChanged="txtSpan_TextChanged"/>
                 </StackPanel>
 
                 <StackPanel Margin="6 0 6 6" Orientation="Horizontal">
-                    <TextBlock Text="Set Mass" Width="96" VerticalAlignment="Center" FontSize="14"/>
+                    <TextBlock Text="Set Mass" Width="96" VerticalAlignment="Center" FontSize="14"
+                               MouseDown="LblSetMass_MouseDown"/>
                     <TextBox x:Name="txtSetMass" FontSize="20" TextAlignment="Center" Width="108"/>
                 </StackPanel>
 
                 <DockPanel Margin="6">
-                    <Button x:Name="BtSetZero" Content="SET ZERO" Width="96" Style="{StaticResource BtnPrimary}" FontSize="16"
-                            Click="BtSetZero_Click"/>
+                    <StackPanel>
+                        <Button x:Name="BtSetZero" Content="SET ZERO" Width="96" Style="{StaticResource BtnPrimary}" FontSize="16"
+                                Click="BtSetZero_Click"/>
+                        <TextBlock x:Name="LblWriteZero" Text="0" FontSize="10" Foreground="Gray" TextAlignment="Center"
+                                   Visibility="Collapsed"/>
+                    </StackPanel>
+                    <StackPanel>
                     <Button x:Name="BtSetSpan" Content="SET SPAN" HorizontalAlignment="Right" Width="96" Style="{StaticResource BtnPrimary}" FontSize="16"
                             Click="BtSetSpan_Click"/>
+                        <TextBlock x:Name="LblWriteSpan" Text="0" FontSize="10" Foreground="Gray" TextAlignment="Center"
+                                   Visibility="Collapsed"/>
+                    </StackPanel>
                 </DockPanel>
             </StackPanel>
         </GroupBox>

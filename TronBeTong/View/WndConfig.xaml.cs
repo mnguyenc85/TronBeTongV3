@@ -125,6 +125,8 @@ namespace TronBeTongV3.View
             ChkPhieuAllowChangeM3.IsChecked = s.GetBoolValue("hack.phieu.m3");
             ChkAutoReset.IsChecked = s.GetBoolValue("start.auto.reset");
 
+            ChkCalibSkipLock.IsChecked = s.GetBoolValue("calib.skiplock");
+
             // Liệt kê danh sách Network interfaces
             NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
             foreach (NetworkInterface net in interfaces)
@@ -191,6 +193,7 @@ namespace TronBeTongV3.View
 
                 s.UpdateBool("hack.phieu.m3", ChkPhieuAllowChangeM3.IsChecked == true);
                 s.UpdateBool("start.auto.reset", ChkAutoReset.IsChecked == true);
+                s.UpdateBool("calib.skiplock", ChkCalibSkipLock.IsChecked == true);
 
                 SaveChotKLSettings(s);
             }

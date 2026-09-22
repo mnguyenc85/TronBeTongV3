@@ -158,6 +158,9 @@ namespace TronBeTongV3.Comm
             AddLink(MixerMeHt, _plc.Db26WIs, _plc.Db26WIs.CoiTronMeHt);
             #endregion
 
+            AddLink(TGLenPheuCLTG, _plc.Db26ReadTG, _plc.Db26ReadTG.TGLenPheuCLTG);
+            AddLink(TGTreMoXaCLTG, _plc.Db26ReadTG, _plc.Db26ReadTG.TGTreMoXaCLTG);
+
             #region Tham số
             AddLink(EmptyLevelCL1, db26, db26.EmptyLevelCL1);
             AddLink(EmptyLevelCL2, db26, db26.EmptyLevelCL2);
@@ -347,23 +350,23 @@ namespace TronBeTongV3.Comm
             AddLink(MucCanNhayPG2, db26, db26.MucCanNhayPG2);
             #endregion
 
-            var db26wi = _plc.Db26WIs;
+            var db26c = _plc.Db26Cablib;
             #region Hiệu chuẩn
-            AddLink(CLCanAI, db26wi, db26wi.CalibCL1AI);
-            AddLink(CLCanZero, db26wi, db26wi.CalibCL1Zero);
-            AddLink(CLCanSpan, db26wi, db26wi.CalibCL1Span);
+            AddLink(CLCanAI, db26c, db26c.CalibCL1AI);
+            AddLink(CLCanZero, db26c, db26c.CalibCL1Zero);
+            AddLink(CLCanSpan, db26c, db26c.CalibCL1Span);
 
-            AddLink(XiCanAI, db26wi, db26wi.CalibXM1AI);
-            AddLink(XiCanZero, db26wi, db26wi.CalibXM1Zero);
-            AddLink(XiCanSpan, db26wi, db26wi.CalibXM1Span);
+            AddLink(XiCanAI, db26c, db26c.CalibXM1AI);
+            AddLink(XiCanZero, db26c, db26c.CalibXM1Zero);
+            AddLink(XiCanSpan, db26c, db26c.CalibXM1Span);
 
-            AddLink(PGCanAI, db26wi, db26wi.CalibPGAI);
-            AddLink(PGCanZero, db26wi, db26wi.CalibPGZero);
-            AddLink(PGCanSpan, db26wi, db26wi.CalibPGSpan);
+            AddLink(PGCanAI, db26c, db26c.CalibPGAI);
+            AddLink(PGCanZero, db26c, db26c.CalibPGZero);
+            AddLink(PGCanSpan, db26c, db26c.CalibPGSpan);
 
-            AddLink(NuocCanAI, db26wi, db26wi.CalibNuocAI);
-            AddLink(NuocCanZero, db26wi, db26wi.CalibNuocZero);
-            AddLink(NuocCanSpan, db26wi, db26wi.CalibNuocSpan);
+            AddLink(NuocCanAI, db26c, db26c.CalibNuocAI);
+            AddLink(NuocCanZero, db26c, db26c.CalibNuocZero);
+            AddLink(NuocCanSpan, db26c, db26c.CalibNuocSpan);
             #endregion
 
             foreach (var (key, link) in _allLinks)
@@ -395,12 +398,14 @@ namespace TronBeTongV3.Comm
                 _plc.Db26ThamSo.Cycle = 0.2;
                 _plc.Db29SetMixerTime.Cycle = -1;
                 _plc.Db29ThamSo.Cycle = 0.2;
+                _plc.Db26Cablib.Cycle = 0.2;
             }
             else
             {
                 _plc.Db26ThamSo.Cycle = -1;
                 _plc.Db29SetMixerTime.Cycle = 0.2;
                 _plc.Db29ThamSo.Cycle = -1;
+                _plc.Db26Cablib.Cycle = -1;
             }
         }
 

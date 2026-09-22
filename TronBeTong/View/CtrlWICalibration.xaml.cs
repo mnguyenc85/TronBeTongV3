@@ -57,20 +57,20 @@ namespace TronBeTongV3.View
 
         public void Update()
         {
-            if (TagAI != null && (TagAI.IsChanged || !firstUpdate))
+            if (TagAI != null)
             {
                 txtChanelAI.Text = TagAI.Value.ToString("F0");
             }
-            if (TagKL != null && (TagKL.IsChanged || !firstUpdate))
+            if (TagKL != null)
             {
                 txtMass.Text = TagKL.Value.ToString("F1");
             }
 
-            if (TagZero != null && (TagZero.IsChanged || !firstUpdate))
+            if (TagZero != null && !txtZero.IsFocused)
             {
                 txtZero.Text = TagZero.Value.ToString();
             }
-            if (TagSpan != null && (TagSpan.IsChanged || !firstUpdate))
+            if (TagSpan != null && !txtSpan.IsFocused)
             {
                 txtSpan.Text = TagSpan.Value.ToString("F5");
             }
@@ -81,8 +81,9 @@ namespace TronBeTongV3.View
         {
             if (_ttbt != null && TagZero != null)
             {
-                if (double.TryParse(txtZero.Text, out double z))
-                    _ttbt.WriteTag(TagZero, z);
+                // if (double.TryParse(txtZero.Text, out double z))
+                // _ttbt.WriteTag(TagZero, z);
+                _ttbt.WriteTag(TagZero, _setZero);
             }
         }
 
@@ -90,8 +91,48 @@ namespace TronBeTongV3.View
         {
             if (_ttbt != null && TagSpan != null)
             {
-                if (double.TryParse(txtSpan.Text, out double s))
-                    _ttbt.WriteTag(TagSpan, s);
+                // if (double.TryParse(txtSpan.Text, out double s))
+                // _ttbt.WriteTag(TagSpan, s);
+                _ttbt.WriteTag(TagSpan, _setSpan);
+            }
+        }
+
+        private double _setZero;
+        private void txtZero_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!txtZero.IsFocused) return;
+            if (double.TryParse(txtZero.Text, out _setZero))
+            {
+                BtSetZero.IsEnabled = true;
+                LblWriteZero.Text = _setZero.ToString("F0");
+            }
+            else
+            {
+                BtSetZero.IsEnabled = false;
+            }
+        }
+
+        private double _setSpan;
+        private void txtSpan_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!txtSpan.IsFocused) return;
+            if (double.TryParse(txtSpan.Text, out _setSpan))
+            {
+                BtSetSpan.IsEnabled = true;
+                LblWriteSpan.Text = _setSpan.ToString("F5");
+            }
+            else
+            {
+                BtSetSpan.IsEnabled = false;
+            }
+        }
+
+        private void LblSetMass_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Right)
+            {
+                LblWriteZero.Visibility = Visibility.Visible;
+                LblWriteSpan.Visibility = Visibility.Visible;
             }
         }
     }
