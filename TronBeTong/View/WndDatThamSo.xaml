@@ -249,12 +249,7 @@
                         <RowDefinition Height="30"/>
 
                         <RowDefinition Height="6"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="180"/>
                     </Grid.RowDefinitions>
 
                     <TextBlock Text="Cốt liệu 1" VerticalAlignment="Center" Grid.Column="1" Margin="3 0 0 0"/>
@@ -369,17 +364,79 @@
                     <nmwpfctrl:TextBoxDouble x:Name="TxtBomMoRungOff" Grid.Row="18" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
 
                     <Border Grid.ColumnSpan="12" Grid.Row="21" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
-                    <TextBlock Text="Xe Skip" Grid.Row="22" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"/>
-                    <TextBlock Text="TG dừng đổ cốt liệu DT2" Grid.Row="23" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtXeSkipTGDoCL" Grid.Row="23" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <TextBlock Text="TG trùng cáp" Grid.Row="24" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtXeSkipTGTrungCap" Grid.Row="24" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <TextBlock Text="TG xe skip DT0 -> DT2" Grid.Row="25" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtXeSkipTGDT0DT2" Grid.Row="25" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <TextBlock Text="TG xe skip DT0 -> DT1" Grid.Row="26" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtXeSkipTGDT0DT1" Grid.Row="26" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <TextBlock Text="Quá tải xe skip" Grid.Row="27" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtXeSkipQuaTai" Grid.Row="27" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <Grid Grid.Row="22" Grid.ColumnSpan="12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid IsEnabled="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="210"/>
+                                <ColumnDefinition Width="72"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Xe Skip" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"
+                                       Foreground="LightGray"/>
+
+                            <TextBlock Text="TG dừng đổ cốt liệu DT2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"
+                                       Foreground="LightGray"/>
+                            <nmwpfctrl:TextBoxDouble x:Name="TxtXeSkipTGDoCL" Grid.Row="1" Grid.Column="1" 
+                                                 VerticalAlignment="Center" Margin="3 0" Value="0"/>
+
+                            <TextBlock Text="TG trùng cáp" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"
+                                       Foreground="LightGray"/>
+                            <nmwpfctrl:TextBoxDouble x:Name="TxtXeSkipTGTrungCap" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+
+                            <TextBlock Text="TG xe skip DT0 -> DT2" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Right"
+                                       Foreground="LightGray"/>
+                            <nmwpfctrl:TextBoxDouble x:Name="TxtXeSkipTGDT0DT2" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+
+                            <TextBlock Text="TG xe skip DT0 -> DT1" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Right"
+                                       Foreground="LightGray"/>
+                            <nmwpfctrl:TextBoxDouble x:Name="TxtXeSkipTGDT0DT1" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+
+                            <TextBlock Text="Quá tải xe skip" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Right"
+                                       Foreground="LightGray"/>
+                            <nmwpfctrl:TextBoxDouble x:Name="TxtXeSkipQuaTai" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="210"/>
+                                <ColumnDefinition Width="72"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="Cốt liệu trung gian" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="Bold"
+                                       />
+
+                            <TextBlock Text="TG cốt liệu lên phễu CLTG" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"
+                                       />
+                            <nmwpfctrl:TextBoxDouble x:Name="TxtCLTGTGLen" Grid.Row="1" Grid.Column="1" 
+                                                 VerticalAlignment="Center" Margin="3 0" Value="0"/>
+
+                            <TextBlock Text="TG mở xả CLTG" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"
+                                       />
+                            <nmwpfctrl:TextBoxDouble x:Name="TxtCLTGMoXa" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </TabItem>
 

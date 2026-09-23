@@ -6,7 +6,7 @@ import tpcan, tpsilo
 PLCM = (ctypes.c_ubyte * 1001)()
 DB09 = (ctypes.c_ubyte * 6)()
 DB26 = (ctypes.c_ubyte * 378)()
-DB29 = (ctypes.c_ubyte * 200)()
+DB29 = (ctypes.c_ubyte * 208)()
 DB42 = (ctypes.c_ubyte * 16)()
 DB43 = (ctypes.c_ubyte * 292)()
 

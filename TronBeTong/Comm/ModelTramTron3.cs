@@ -403,8 +403,10 @@ namespace TronBeTongV3.Comm
             else
             {
                 _plc.Db26ThamSo.Cycle = -1;
+                _plc.Db26ThamSo.ForceRead = true;
                 _plc.Db29SetMixerTime.Cycle = 0.2;
                 _plc.Db29ThamSo.Cycle = -1;
+                _plc.Db29ThamSo.ForceRead = true;
                 _plc.Db26Cablib.Cycle = -1;
             }
         }

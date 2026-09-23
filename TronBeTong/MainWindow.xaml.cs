@@ -595,6 +595,7 @@ namespace TronBeTongV3
                 TramTron = _tramtron
             };
             wnd.ShowDialog();
+            CtrlThungCLTG.ForceUpdate(3);
         }
         private void MniAbout_Click(object sender, RoutedEventArgs e)
         {

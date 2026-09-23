@@ -226,11 +226,16 @@ namespace TronBeTongV3.View
                 #endregion
 
                 #region Xe skip
-                _textboxes.Add(new TagTextBox(TxtXeSkipTGDoCL, TramTron, TramTron.XeSkipTGDungDoCLDT2));
-                _textboxes.Add(new TagTextBox(TxtXeSkipTGTrungCap, TramTron, TramTron.XeSkipTGTrungCap));
-                _textboxes.Add(new TagTextBox(TxtXeSkipTGDT0DT2, TramTron, TramTron.XeSkipDT0_DT2));
-                _textboxes.Add(new TagTextBox(TxtXeSkipTGDT0DT1, TramTron, TramTron.XeSkipDT0_DT1));
-                _textboxes.Add(new TagTextBox(TxtXeSkipQuaTai, TramTron, TramTron.XeSkipQuaTai));
+                //_textboxes.Add(new TagTextBox(TxtXeSkipTGDoCL, TramTron, TramTron.XeSkipTGDungDoCLDT2));
+                //_textboxes.Add(new TagTextBox(TxtXeSkipTGTrungCap, TramTron, TramTron.XeSkipTGTrungCap));
+                //_textboxes.Add(new TagTextBox(TxtXeSkipTGDT0DT2, TramTron, TramTron.XeSkipDT0_DT2));
+                //_textboxes.Add(new TagTextBox(TxtXeSkipTGDT0DT1, TramTron, TramTron.XeSkipDT0_DT1));
+                //_textboxes.Add(new TagTextBox(TxtXeSkipQuaTai, TramTron, TramTron.XeSkipQuaTai));
+                #endregion
+
+                #region Cốt liệu trung gian
+                _textboxes.Add(new TagTextBox(TxtCLTGTGLen, TramTron, TramTron.SetTGLenPheuCLTG));
+                _textboxes.Add(new TagTextBox(TxtCLTGMoXa, TramTron, TramTron.SetTGTreMoXaCLTG));
                 #endregion
 
                 // Cho phép đọc tham số
@@ -293,13 +298,22 @@ namespace TronBeTongV3.View
 
         private void BtUnlock_Click(object sender, RoutedEventArgs e)
         {
-            WndUnlockPassword wnd = new WndUnlockPassword()
-            {
-                Owner = this
-            };
-            if (wnd.ShowDialog() == true)
+            bool skipLock = DbRepository.Instance.Settings.GetBoolValue("calib.skiplock", false);
+            if (skipLock)
             {
                 PnlCalib.IsEnabled = true;
+                return;
+            }
+            else
+            {
+                WndUnlockPassword wnd = new()
+                {
+                    Owner = this
+                };
+                if (wnd.ShowDialog() == true)
+                {
+                    PnlCalib.IsEnabled = true;
+                }
             }
         }
 

@@ -43,6 +43,9 @@ namespace TronBeTongV3.View
         public int SetTGLenPheuCLTG { get; set; }
         public int SetTGTreMoXaCLTG { get; set; }
 
+        private bool _forceUpdate = false;
+        private double _forceUpdateTime = 0;
+
         public CtrlMidBin()
         {
             InitializeComponent();
@@ -63,22 +66,23 @@ namespace TronBeTongV3.View
         public void UpdateView(double delta)
         {
             if (TramTron == null) return;
-            if (TramTron.SetTGTreMoXaCLTG.IsChanged)
+
+            if (TramTron.SetTGTreMoXaCLTG.IsChanged || _forceUpdate)
             {
                 SetTGLenPheuCLTG = (int)TramTron.SetTGLenPheuCLTG.Value;
                 LblLenCLTG.Content = $"{TramTron.TGLenPheuCLTG.Value}/{SetTGLenPheuCLTG}";
             }
-            if (TramTron.TGLenPheuCLTG.IsChanged)
+            else if (TramTron.TGLenPheuCLTG.IsChanged)
             {
                 LblLenCLTG.Content = $"{TramTron.TGLenPheuCLTG.Value}/{SetTGLenPheuCLTG}";
             }
 
-            if (TramTron.SetTGTreMoXaCLTG.IsChanged)
+            if (TramTron.SetTGTreMoXaCLTG.IsChanged || _forceUpdate)
             {
                 SetTGTreMoXaCLTG = (int)TramTron.SetTGTreMoXaCLTG.Value;
                 LblTreMoXaCLTG.Content = $"{TramTron.TGTreMoXaCLTG.Value}/{SetTGTreMoXaCLTG}";
             }
-            if (TramTron.TGTreMoXaCLTG.IsChanged)
+            else if (TramTron.TGTreMoXaCLTG.IsChanged)
             {
                 LblTreMoXaCLTG.Content = $"{TramTron.TGTreMoXaCLTG.Value}/{SetTGTreMoXaCLTG}";
             }
@@ -97,6 +101,18 @@ namespace TronBeTongV3.View
             {
                 UpdateOutputValve((int)TramTron.VanCLTG.Value, delta);
             }
+
+            if (_forceUpdateTime > 0)
+            {
+                _forceUpdateTime -= delta;
+                if (_forceUpdateTime <= 0) _forceUpdate = false;
+            }
+        }
+
+        public void ForceUpdate(double t)
+        {
+            _forceUpdateTime = t;
+            _forceUpdate = true;
         }
     }
 }
