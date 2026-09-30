@@ -9,6 +9,16 @@ namespace TronBeTongV3.Comm.S71200
         public PlcTag CL_KL { get; private set; } = new PlcTag(TagTypes.Real, 246);
         public PlcTag CL_Me { get; private set; } = new PlcTag(TagTypes.Int16, 250);
 
+        public PlcTag CL2_TT { get; private set; } = new PlcTag(TagTypes.Int16, 378);
+        public PlcTag CL2_KL { get; private set; } = new PlcTag(TagTypes.Real, 380);
+        public PlcTag CL2_Me { get; private set; } = new PlcTag(TagTypes.Int16, 384);
+
+        public PlcTag CL3_TT { get; private set; } = new PlcTag(TagTypes.Int16, 386);
+        public PlcTag CL3_KL { get; private set; } = new PlcTag(TagTypes.Real, 388);
+        public PlcTag CL3_Me { get; private set; } = new PlcTag(TagTypes.Int16, 392);
+
+        // TODO: cốt liệu 4 ~ 6
+
         public PlcTag XM_TT { get; private set; } = new PlcTag(TagTypes.Int16, 252);
         public PlcTag XM_KL { get; private set; } = new PlcTag(TagTypes.Real, 254);
         public PlcTag XM_Me { get; private set; } = new PlcTag(TagTypes.Int16, 258);
@@ -41,6 +51,12 @@ namespace TronBeTongV3.Comm.S71200
             CL_TT.ParseDb(_buf, StartByteAddr);
             CL_KL.ParseDb(_buf, StartByteAddr);
             CL_Me.ParseDb(_buf, StartByteAddr);
+            CL2_TT.ParseDb(_buf, StartByteAddr);
+            CL2_KL.ParseDb(_buf, StartByteAddr);
+            CL2_Me.ParseDb(_buf, StartByteAddr);
+            CL3_TT.ParseDb(_buf, StartByteAddr);
+            CL3_KL.ParseDb(_buf, StartByteAddr);
+            CL3_Me.ParseDb(_buf, StartByteAddr);
 
             XM_TT.ParseDb(_buf, StartByteAddr);
             XM_KL.ParseDb(_buf, StartByteAddr);

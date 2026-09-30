@@ -216,7 +216,7 @@ namespace TronBeTongV3.Comm
             return wis;
         }
 
-        // <summary>
+        /// <summary>
         /// Cho trạm 60m3: 3 CL Tinh thô, 2 Xi, 1 Pg
         /// </summary>
         /// <returns></returns>
@@ -281,6 +281,72 @@ namespace TronBeTongV3.Comm
             wis.ChotNuoc = 4;
 
             wis.DayCotLieu = 11;
+            wis.DayXM = 8;
+            wis.DayPG = 8;
+            wis.DayNuoc = 5;
+
+            return wis;
+        }
+
+        /// <summary>
+        /// Cho trạm 60m3: 3 CL Tinh thô độc lập, 2 Xi, 1 Pg
+        /// </summary>
+        /// <returns></returns>
+        public static WeightIndicatorState GetWIS_QuangBinh()
+        {
+            string[] ttcl =
+            [
+                "Cân rỗng",
+                "Cân thô",
+                "Cân tinh",
+                "Chờ",
+                "Cân đủ",
+                "Cân đầy"
+            ];
+
+            string[] ttxm =
+            [
+                "Cân rỗng",
+                "Cân thô xi 1",
+                "Cân tinh xi 1",
+                "Chờ xi 1",
+                "Cân thô xi 2",
+                "Cân tinh xi 2",
+                "Chờ xi 2",
+                "Cân đủ",
+                "Cân đầy",
+            ];
+
+            string[] ttw =
+            [
+                "Cân rỗng",
+                "Cân thô",
+                "Cân tinh",
+                "Chờ",
+                "Cân đủ",
+                "Cân đầy",
+            ];
+
+            string[] ttpg = [
+                "Cân rỗng",
+                "Cân thô pg 1",
+                "Cân tinh pg 1",
+                "Chờ pg 1",
+                "Cân thô pg 2",
+                "Cân tinh pg 2",
+                "Chờ pg 2",
+                "Cân đủ",
+                "Cân đầy",
+            ];
+
+
+            var wis = new WeightIndicatorState(ttcl, ttxm, ttpg, ttw);
+            wis.ChotCoLieu = 4;
+            wis.ChotXM = 7;
+            wis.ChotPG = 7;
+            wis.ChotNuoc = 4;
+
+            wis.DayCotLieu = 5;
             wis.DayXM = 8;
             wis.DayPG = 8;
             wis.DayNuoc = 5;

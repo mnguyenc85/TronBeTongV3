@@ -6,235 +6,154 @@ namespace TronBeTongV3.Comm.S71200
     public class Db26_ThamSo : PlcDb
     {
         #region Empty Level
-        public PlcTag EmptyLevelCL1 { get; private set; }
-        public PlcTag EmptyLevelCL2 { get; private set; }
-        public PlcTag EmptyLevelCL3 { get; private set; }
-        public PlcTag EmptyLevelCL4 { get; private set; }
-        public PlcTag EmptyLevelXM1 { get; private set; }
-        public PlcTag EmptyLevelXM2 { get; private set; }
-        public PlcTag EmptyLevelNuoc { get; private set; }
-        public PlcTag EmptyLevelPG1 { get; private set; }
+        public PlcTag[] EmptyLevelCLs { get; private set; } = new PlcTag[5];
+        public PlcTag[] EmptyLevelXMs { get; private set; } = new PlcTag[2];
+        public PlcTag[] EmptyLevelNuoc { get; private set; } = new PlcTag[2];
+        public PlcTag[] EmptyLevelPGs { get; private set; } = new PlcTag[2];
         #endregion
 
         #region CutOff Level
-        public PlcTag CutOffLevelCL1 { get; private set; }
-        public PlcTag CutOffLevelCL2 { get; private set; }
-        public PlcTag CutOffLevelCL3 { get; private set; }
-        public PlcTag CutOffLevelCL4 { get; private set; }
-        public PlcTag CutOffLevelCL5 { get; private set; }
-        public PlcTag CutOffLevelCL6 { get; private set; }
-        public PlcTag CutOffLevelXM1 { get; private set; }
-        public PlcTag CutOffLevelXM2 { get; private set; }
-        public PlcTag CutOffLevelXM3 { get; private set; }
-        public PlcTag CutOffLevelXM4 { get; private set; }
-        public PlcTag CutOffLevelNuoc { get; private set; }
-        public PlcTag CutOffLevelPG1 { get; private set; }
-        public PlcTag CutOffLevelPG2 { get; private set; }
+        public PlcTag[] CutOffLevelCLs { get; private set; } = new PlcTag[5];
+        public PlcTag[] CutOffLevelXMs { get; private set; } = new PlcTag[4];
+        public PlcTag[] CutOffLevelNuoc { get; private set; } = new PlcTag[2];
+        public PlcTag[] CutOffLevelPGs { get; private set; } = new PlcTag[2];
 
-        public PlcTag EnableCutOffLevelCL1 { get; private set; }
-        public PlcTag EnableCutOffLevelCL2 { get; private set; }
-        public PlcTag EnableCutOffLevelCL3 { get; private set; }
-        public PlcTag EnableCutOffLevelCL4 { get; private set; }
-        public PlcTag EnableCutOffLevelCL5 { get; private set; }
-        public PlcTag EnableCutOffLevelCL6 { get; private set; }
-        public PlcTag EnableCutOffLevelXM1 { get; private set; }
-        public PlcTag EnableCutOffLevelXM2 { get; private set; }
-        public PlcTag EnableCutOffLevelXM3 { get; private set; }
-        public PlcTag EnableCutOffLevelXM4 { get; private set; }
-        public PlcTag EnableCutOffLevelNuoc { get; private set; }
-        public PlcTag EnableCutOffLevelPG1 { get; private set; }
-        public PlcTag EnableCutOffLevelPG2 { get; private set; }
+        public PlcTag[] EnableAutoCutOffCLs { get; private set; } = new PlcTag[5];
+        public PlcTag[] EnableAutoCutOffXMs { get; private set; } = new PlcTag[4];
+        public PlcTag[] EnableAutoCutOffNuoc { get; private set; } = new PlcTag[2];
+        public PlcTag[] EnableAutoCutOffPGs { get; private set; } = new PlcTag[2];
         #endregion
 
         #region CoarsFine
-        public PlcTag CoarsFineCL1 { get; private set; }
-        public PlcTag CoarsFineCL2 { get; private set; }
-        public PlcTag CoarsFineCL3 { get; private set; }
-        public PlcTag CoarsFineCL4 { get; private set; }
-        public PlcTag CoarsFineXM1 { get; private set; }
-        public PlcTag CoarsFineXM2 { get; private set; }
-        public PlcTag CoarsFineXM3 { get; private set; }
-        public PlcTag CoarsFineXM4 { get; private set; }
-        public PlcTag CoarsFineNuoc { get; private set; }
-        public PlcTag CoarsFinePG1 { get; private set; }
+        public PlcTag[] CoarsFineCLs { get; private set; } = new PlcTag[5];
+        public PlcTag[] CoarsFineXMs { get; private set; } = new PlcTag[4];
+        public PlcTag[] CoarsFineNuoc { get; private set; } = new PlcTag[2];
+        public PlcTag[] CoarsFinePGs { get; private set; } = new PlcTag[2];
         #endregion
 
         #region Pause Time
-        public PlcTag PauseTimeCL1 { get; private set; }
-        public PlcTag PauseTimeCL2 { get; private set; }
-        public PlcTag PauseTimeCL3 { get; private set; }
-        public PlcTag PauseTimeCL4 { get; private set; }
-        public PlcTag PauseTimeXM1 { get; private set; }
-        public PlcTag PauseTimeXM2 { get; private set; }
-        public PlcTag PauseTimeNuoc { get; private set; }
-        public PlcTag PauseTimePG1 { get; private set; }
+        public PlcTag[] PauseTimeCLs { get; private set; } = new PlcTag[5];
+        public PlcTag[] PauseTimeXMs { get; private set; } = new PlcTag[2];
+        public PlcTag[] PauseTimeNuoc { get; private set; } = new PlcTag[2];
+        public PlcTag[] PauseTimePGs { get; private set; } = new PlcTag[2];
         #endregion
 
         #region FineFactor
-        public PlcTag FineFactorCL1 { get; private set; }
-        public PlcTag FineFactorCL2 { get; private set; }
-        public PlcTag FineFactorCL3 { get; private set; }
-        public PlcTag FineFactorCL4 { get; private set; }
-        public PlcTag FineFactorXM1 { get; private set; }
-        public PlcTag FineFactorXM2 { get; private set; }
-        public PlcTag FineFactorNuoc { get; private set; }
-        public PlcTag FineFactorPG1 { get; private set; }
+        public PlcTag[] FineFactorCLs { get; private set; } = new PlcTag[5];
+        public PlcTag[] FineFactorXMs { get; private set; } = new PlcTag[2];
+        public PlcTag[] FineFactorNuoc { get; private set; } = new PlcTag[2];
+        public PlcTag[] FineFactorPGs { get; private set; } = new PlcTag[2];
         #endregion
 
         #region EnablePulse
-        public PlcTag EnablePulseCL1 { get; private set; }
-        public PlcTag EnablePulseCL2 { get; private set; }
-        public PlcTag EnablePulseCL3 { get; private set; }
-        public PlcTag EnablePulseCL4 { get; private set; }
-        public PlcTag EnablePulseCL5 { get; private set; }
-        public PlcTag EnablePulseCL6 { get; private set; }
-        
-        public PlcTag KL0RungXaCanCL1 { get; private set; }
-        public PlcTag KL0RungXaCanCL2 { get; private set; }
-        public PlcTag KL0RungXaCanCL3 { get; private set; }
-        public PlcTag KL0RungXaCanCL4 { get; private set; }
-        public PlcTag KL0RungXaCanCL5 { get; private set; }
-        public PlcTag KL0RungXaCanCL6 { get; private set; }
-        public PlcTag KL0RungXaCanXM1 { get; private set; }
-        public PlcTag KL0RungXaCanXM2 { get; private set; }
+        public PlcTag[] EnablePulseCLs { get; private set; } = new PlcTag[5];
+
+        public PlcTag[] KL0RungXaCanCLs { get; private set; } = new PlcTag[5];
+        public PlcTag[] KL0RungXaCanXMs { get; private set; } = new PlcTag[2];
         #endregion
 
         #region Mức cân nháy
-        public PlcTag MucCanNhayCL1 { get; private set; }
-        public PlcTag MucCanNhayCL2 { get; private set; }
-        public PlcTag MucCanNhayCL3 { get; private set; }
-        public PlcTag MucCanNhayCL4 { get; private set; }
-        public PlcTag MucCanNhayCL5 { get; private set; }
-        public PlcTag MucCanNhayCL6 { get; private set; }
-        public PlcTag MucCanNhayXM1 { get; private set; }
-        public PlcTag MucCanNhayXM2 { get; private set; }
-        public PlcTag MucCanNhayNuoc { get; private set; }
-        public PlcTag MucCanNhayPG1 { get; private set; }
-        public PlcTag MucCanNhayPG2 { get; private set; }
+        public PlcTag[] MucCanNhayCLs { get; private set; } = new PlcTag[5];
+        //public PlcTag[] MucCanNhayXMs { get; private set; }
+        //public PlcTag[] MucCanNhayNuoc { get; private set; }
+        //public PlcTag[] MucCanNhayPGs { get; private set; }
         #endregion
 
-        public PlcTag QuaTaiXeSkip { get; private set; } = new PlcTag(TagTypes.Real, 294);
-        #region Rung & Sục khí: -> DB29
-        public PlcTag EnableSucKhiSilo1 { get; private set; } = new PlcTag(TagTypes.Bool, 298, 0);
-        public PlcTag EnableSucKhiSilo2 { get; private set; } = new PlcTag(TagTypes.Bool, 298, 1);
-        public PlcTag EnableDamRungTP1 { get; private set; } = new PlcTag(TagTypes.Bool, 298, 2);
-        public PlcTag EnableDamRungTP2 { get; private set; } = new PlcTag(TagTypes.Bool, 298, 3);
-        public PlcTag EnableDamRungTP3 { get; private set; } = new PlcTag(TagTypes.Bool, 298, 4);
+        #region Rung & Sục khí
+        public PlcTag[] EnableSucKhiSiloes { get; private set; } = new PlcTag[4];
+        public PlcTag[] EnableDamRungCLs { get; private set; } = new PlcTag[5];
         #endregion
-
-        public PlcTag XM1VitTinh { get; private set; } = new PlcTag(TagTypes.Bool, 298, 5);
-
-        public PlcTag WaterKeep { get; private set; } = new PlcTag(TagTypes.Real, 300);
 
         public Db26_ThamSo() : base(26, 304, 0) {
             #region Empty Level
-            EmptyLevelCL1 = new PlcTag(TagTypes.Real, 0);
-            EmptyLevelCL2 = new PlcTag(TagTypes.Real, 4);
-            EmptyLevelCL3 = new PlcTag(TagTypes.Real, 8);
-            EmptyLevelCL4 = new PlcTag(TagTypes.Real, 12);
-            EmptyLevelXM1 = new PlcTag(TagTypes.Real, 24);
-            EmptyLevelXM2 = new PlcTag(TagTypes.Real, 28);
-            EmptyLevelNuoc = new PlcTag(TagTypes.Real, 32);
-            EmptyLevelPG1 = new PlcTag(TagTypes.Real, 36);
+            for (int i = 0; i < 5; i++)
+                EmptyLevelCLs[i] = new PlcTag(TagTypes.Real, i * 4);
+            
+            for (int i = 0; i < 2; i++)
+                EmptyLevelXMs[i] = new PlcTag(TagTypes.Real, 20 + i * 4);
+
+            for (int i = 0; i < 2; i++)
+                EmptyLevelNuoc[i] = new PlcTag(TagTypes.Real, 28 + i * 4);
+
+            for (int i = 0; i < 2; i++)
+                EmptyLevelPGs[i] = new PlcTag(TagTypes.Real, 36 + i * 4);
             #endregion
 
             #region CutOff Level
-            CutOffLevelCL1 = new PlcTag(TagTypes.Real, 40);
-            CutOffLevelCL2 = new PlcTag(TagTypes.Real, 44);
-            CutOffLevelCL3 = new PlcTag(TagTypes.Real, 48);
-            CutOffLevelCL4 = new PlcTag(TagTypes.Real, 52);
-            CutOffLevelCL5 = new PlcTag(TagTypes.Real, 56);
-            CutOffLevelCL6 = new PlcTag(TagTypes.Real, 60);
-            CutOffLevelXM1 = new PlcTag(TagTypes.Real, 64);
-            CutOffLevelXM2 = new PlcTag(TagTypes.Real, 68);
-            CutOffLevelXM3 = new PlcTag(TagTypes.Real, 72);
-            CutOffLevelXM4 = new PlcTag(TagTypes.Real, 76);
-            CutOffLevelNuoc = new PlcTag(TagTypes.Real, 80);
-            CutOffLevelPG1 = new PlcTag(TagTypes.Real, 84);
-            CutOffLevelPG2 = new PlcTag(TagTypes.Real, 88);
+            for (int i = 0; i < 5; i++)
+                CutOffLevelCLs[i] = new PlcTag(TagTypes.Real, 44 + i * 4);
+            for (int i = 0; i < 4; i++)
+                CutOffLevelXMs[i] = new PlcTag(TagTypes.Real, 64 + i * 4);
+            for (int i = 0; i < 2; i++)
+                CutOffLevelNuoc[i] = new PlcTag(TagTypes.Real, 80 + i * 4);
+            for (int i = 0; i < 2; i++)
+                CutOffLevelPGs[i] = new PlcTag(TagTypes.Real, 88 + i * 4);
 
-            EnableCutOffLevelCL1 = new PlcTag(TagTypes.Bool, 214, 0);
-            EnableCutOffLevelCL2 = new PlcTag(TagTypes.Bool, 214, 1);
-            EnableCutOffLevelCL3 = new PlcTag(TagTypes.Bool, 214, 2);
-            EnableCutOffLevelCL4 = new PlcTag(TagTypes.Bool, 214, 3);
-            EnableCutOffLevelCL5 = new PlcTag(TagTypes.Bool, 214, 4);
-            EnableCutOffLevelCL6 = new PlcTag(TagTypes.Bool, 214, 5);
-            EnableCutOffLevelXM1 = new PlcTag(TagTypes.Bool, 214, 6);
-            EnableCutOffLevelXM2 = new PlcTag(TagTypes.Bool, 214, 7);
-            EnableCutOffLevelXM3 = new PlcTag(TagTypes.Bool, 215, 0);
-            EnableCutOffLevelXM4 = new PlcTag(TagTypes.Bool, 215, 1);
-            EnableCutOffLevelNuoc = new PlcTag(TagTypes.Bool, 215, 2);
-            EnableCutOffLevelPG1 = new PlcTag(TagTypes.Bool, 215, 3);
-            EnableCutOffLevelPG2 = new PlcTag(TagTypes.Bool, 215, 4);
+            for (int i = 0; i < 5; i++)
+                EnableAutoCutOffCLs[i] = new PlcTag(TagTypes.Bool, 222, i);
+            for (int i = 0; i < 4; i++)
+                EnableAutoCutOffXMs[i] = new PlcTag(TagTypes.Bool, 224, i);
+            for (int i = 0; i < 2; i++)
+                EnableAutoCutOffNuoc[i] = new PlcTag(TagTypes.Bool, 226, i);
+            for (int i = 0; i < 2; i++)
+                EnableAutoCutOffPGs[i] = new PlcTag(TagTypes.Bool, 228, i);
             #endregion
 
             #region CoarsFine
-            CoarsFineCL1 = new PlcTag(TagTypes.Real, 92);
-            CoarsFineCL2 = new PlcTag(TagTypes.Real, 96);
-            CoarsFineCL3 = new PlcTag(TagTypes.Real, 100);
-            CoarsFineCL4 = new PlcTag(TagTypes.Real, 104);
-            CoarsFineXM1 = new PlcTag(TagTypes.Real, 116);
-            CoarsFineXM2 = new PlcTag(TagTypes.Real, 120);
-            CoarsFineXM3 = new PlcTag(TagTypes.Real, 124);
-            CoarsFineXM4 = new PlcTag(TagTypes.Real, 128);
-            CoarsFineNuoc = new PlcTag(TagTypes.Real, 132);
-            CoarsFinePG1 = new PlcTag(TagTypes.Real, 136);
+            for (int i = 0; i < 5; i++)
+                CoarsFineCLs[i] = new PlcTag(TagTypes.Real, 96 + i * 4);
+            for (int i = 0; i < 4; i++)
+                CoarsFineXMs[i] = new PlcTag(TagTypes.Real, 116 + i * 4);
+            for (int i = 0; i < 2; i++)
+                CoarsFineNuoc[i] = new PlcTag(TagTypes.Real, 132 + i * 4);
+            for (int i = 0; i < 2; i++)
+                CoarsFinePGs[i] = new PlcTag(TagTypes.Real, 140 + i * 4);
             #endregion
 
             #region Pause Time
-            PauseTimeCL1 = new PlcTag(TagTypes.Int16, 140);
-            PauseTimeCL2 = new PlcTag(TagTypes.Int16, 142);
-            PauseTimeCL3 = new PlcTag(TagTypes.Int16, 144);
-            PauseTimeCL4 = new PlcTag(TagTypes.Int16, 146);
-            PauseTimeXM1 = new PlcTag(TagTypes.Int16, 152);
-            PauseTimeXM2 = new PlcTag(TagTypes.Int16, 154);
-            PauseTimeNuoc = new PlcTag(TagTypes.Int16, 156);
-            PauseTimePG1 = new PlcTag(TagTypes.Int16, 158);
+            for (int i = 0; i < 5; i++)
+                PauseTimeCLs[i] = new PlcTag(TagTypes.Int16, 148 + i * 2);
+            for (int i = 0; i < 2; i++)
+                PauseTimeXMs[i] = new PlcTag(TagTypes.Int16, 158 + i * 2);
+            for (int i = 0; i < 2; i++)
+                PauseTimeNuoc[i] = new PlcTag(TagTypes.Int16, 162 + i * 2);
+            for (int i = 0; i < 2; i++)
+                PauseTimePGs[i] = new PlcTag(TagTypes.Int16, 166 + i * 2);
             #endregion
 
             #region FineFactor
-            FineFactorCL1 = new PlcTag(TagTypes.Int16, 160);
-            FineFactorCL2 = new PlcTag(TagTypes.Int16, 162);
-            FineFactorCL3 = new PlcTag(TagTypes.Int16, 164);
-            FineFactorCL4 = new PlcTag(TagTypes.Int16, 166);
-            FineFactorXM1 = new PlcTag(TagTypes.Int16, 172);
-            FineFactorXM2 = new PlcTag(TagTypes.Int16, 174);
-            FineFactorNuoc = new PlcTag(TagTypes.Int16, 176);
-            FineFactorPG1 = new PlcTag(TagTypes.Int16, 178);
+            for (int i = 0; i < 5; i++)
+                FineFactorCLs[i] = new PlcTag(TagTypes.Int16, 170 + i * 2);
+            for (int i = 0; i < 2; i++)
+                FineFactorXMs[i] = new PlcTag(TagTypes.Int16, 180 + i * 2);
+            for (int i = 0; i < 2; i++)
+                FineFactorNuoc[i] = new PlcTag(TagTypes.Int16, 184 + i * 2);
+            for (int i = 0; i < 2; i++)
+                FineFactorPGs[i] = new PlcTag(TagTypes.Int16, 188 + i * 2);
             #endregion
 
             #region Enable Pulse
-            EnablePulseCL1 = new PlcTag(TagTypes.Bool, 180, 2);
-            EnablePulseCL2 = new PlcTag(TagTypes.Bool, 180, 3);
-            EnablePulseCL3 = new PlcTag(TagTypes.Bool, 180, 4);
-            EnablePulseCL4 = new PlcTag(TagTypes.Bool, 180, 5);
-            EnablePulseCL5 = new PlcTag(TagTypes.Bool, 180, 6);
-            EnablePulseCL6 = new PlcTag(TagTypes.Bool, 180, 7);
+            for (int i = 0; i < 5; i++)
+                EnablePulseCLs[i] = new PlcTag(TagTypes.Bool, 192, i);
             #endregion
 
             #region Rung xả cân
-            KL0RungXaCanCL1 = new PlcTag(TagTypes.Real, 182);
-            KL0RungXaCanCL2 = new PlcTag(TagTypes.Real, 186);
-            KL0RungXaCanCL3 = new PlcTag(TagTypes.Real, 190);
-            KL0RungXaCanCL4 = new PlcTag(TagTypes.Real, 194);
-            KL0RungXaCanCL5 = new PlcTag(TagTypes.Real, 198);
-            KL0RungXaCanCL6 = new PlcTag(TagTypes.Real, 202);
-            KL0RungXaCanXM1 = new PlcTag(TagTypes.Real, 206);
-            KL0RungXaCanXM2 = new PlcTag(TagTypes.Real, 210);
+            for (int i = 0; i < 5; i++)
+                KL0RungXaCanCLs[i] = new PlcTag(TagTypes.Real, 194 + i * 4);
+            for (int i = 0; i < 2; i++)
+                KL0RungXaCanXMs[i] = new PlcTag(TagTypes.Real, 214 + i * 4);
             #endregion
 
             #region Mức cân nháy
-            MucCanNhayCL1 = new PlcTag(TagTypes.Int16, 216);
-            MucCanNhayCL2 = new PlcTag(TagTypes.Int16, 218);
-            MucCanNhayCL3 = new PlcTag(TagTypes.Int16, 220);
-            MucCanNhayCL4 = new PlcTag(TagTypes.Int16, 222);
-            MucCanNhayCL5 = new PlcTag(TagTypes.Int16, 224);
-            MucCanNhayCL6 = new PlcTag(TagTypes.Int16, 226);
-            MucCanNhayXM1 = new PlcTag(TagTypes.Int16, 228);
-            MucCanNhayXM2 = new PlcTag(TagTypes.Int16, 230);
-            MucCanNhayNuoc = new PlcTag(TagTypes.Int16, 232);
-            MucCanNhayPG1 = new PlcTag(TagTypes.Int16, 234);
-            MucCanNhayPG2 = new PlcTag(TagTypes.Int16, 236);
+            for (int i = 0; i < 5; i++)
+                MucCanNhayCLs[i] = new PlcTag(TagTypes.Int16, 230 + i * 4);
+            #endregion
+
+            #region Rung & sục khí
+            for (int i = 0; i < 4; i++)
+                EnableSucKhiSiloes[i] = new PlcTag(TagTypes.Bool, 250, i);
+            for (int i = 0; i < 5; i++)
+                EnableDamRungCLs[i] = new PlcTag(TagTypes.Bool, 252, i);
             #endregion
 
             Cycle = -1;
@@ -246,126 +165,92 @@ namespace TronBeTongV3.Comm.S71200
             IsParsingData = true;
 
             #region Empty Level
-            EmptyLevelCL1.ParseDb(_buf, StartByteAddr);
-            EmptyLevelCL2.ParseDb(_buf, StartByteAddr);
-            EmptyLevelCL3.ParseDb(_buf, StartByteAddr);
-            EmptyLevelCL4.ParseDb(_buf, StartByteAddr);
-            EmptyLevelXM1.ParseDb(_buf, StartByteAddr);
-            EmptyLevelXM2.ParseDb(_buf, StartByteAddr);
-            EmptyLevelNuoc.ParseDb(_buf, StartByteAddr);
-            EmptyLevelPG1.ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 5; i++)
+                EmptyLevelCLs[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 2; i++)
+                EmptyLevelXMs[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 2; i++)
+                EmptyLevelNuoc[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 2; i++)
+                EmptyLevelPGs[i].ParseDb(_buf, StartByteAddr);
             #endregion
 
             #region CutOff Level
-            CutOffLevelCL1.ParseDb(_buf, StartByteAddr);
-            CutOffLevelCL2.ParseDb(_buf, StartByteAddr);
-            CutOffLevelCL3.ParseDb(_buf, StartByteAddr);
-            CutOffLevelCL4.ParseDb(_buf, StartByteAddr);
-            //CutOffLevelCL5.ParseDb(_buf, StartByteAddr);
-            //CutOffLevelCL6.ParseDb(_buf, StartByteAddr);
-            CutOffLevelXM1.ParseDb(_buf, StartByteAddr);
-            CutOffLevelXM2.ParseDb(_buf, StartByteAddr);
-            CutOffLevelXM3.ParseDb(_buf, StartByteAddr);
-            CutOffLevelXM4.ParseDb(_buf, StartByteAddr);
-            CutOffLevelNuoc.ParseDb(_buf, StartByteAddr);
-            CutOffLevelPG1.ParseDb(_buf, StartByteAddr);
-            CutOffLevelPG2.ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 5; i++)
+                CutOffLevelCLs[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 4; i++)
+                CutOffLevelXMs[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 2; i++)
+                CutOffLevelNuoc[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 2; i++)
+                CutOffLevelPGs[i].ParseDb(_buf, StartByteAddr);
 
-            EnableCutOffLevelCL1.ParseDb(_buf, StartByteAddr);
-            EnableCutOffLevelCL2.ParseDb(_buf, StartByteAddr);
-            EnableCutOffLevelCL3.ParseDb(_buf, StartByteAddr);
-            EnableCutOffLevelCL4.ParseDb(_buf, StartByteAddr);
-            EnableCutOffLevelCL5.ParseDb(_buf, StartByteAddr);
-            EnableCutOffLevelCL6.ParseDb(_buf, StartByteAddr);
-            EnableCutOffLevelXM1.ParseDb(_buf, StartByteAddr);
-            EnableCutOffLevelXM2.ParseDb(_buf, StartByteAddr);
-            EnableCutOffLevelXM3.ParseDb(_buf, StartByteAddr);
-            EnableCutOffLevelXM4.ParseDb(_buf, StartByteAddr);
-            EnableCutOffLevelNuoc.ParseDb(_buf, StartByteAddr);
-            EnableCutOffLevelPG1.ParseDb(_buf, StartByteAddr);
-            EnableCutOffLevelPG2.ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 5; i++)
+                EnableAutoCutOffCLs[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 4; i++)
+                EnableAutoCutOffXMs[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 2; i++)
+                EnableAutoCutOffNuoc[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 2; i++)
+                EnableAutoCutOffPGs[i].ParseDb(_buf, StartByteAddr);
             #endregion
 
             #region CoarsFine
-            CoarsFineCL1.ParseDb(_buf);
-            CoarsFineCL2.ParseDb(_buf);
-            CoarsFineCL3.ParseDb(_buf);
-            CoarsFineCL4.ParseDb(_buf);
-            CoarsFineXM1.ParseDb(_buf);
-            CoarsFineXM2.ParseDb(_buf);
-            CoarsFineXM3.ParseDb(_buf);
-            CoarsFineXM4.ParseDb(_buf);
-            CoarsFineNuoc.ParseDb(_buf);
-            CoarsFinePG1.ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 5; i++)
+                CoarsFineCLs[i].ParseDb(_buf);
+            for (int i = 0; i < 4; i++)
+                CoarsFineXMs[i].ParseDb(_buf);
+            for (int i = 0; i < 2; i++)
+                CoarsFineNuoc[i].ParseDb(_buf);
+            for (int i = 0; i < 2; i++)
+                CoarsFinePGs[i].ParseDb(_buf, StartByteAddr);
             #endregion
 
             #region Pause Time
-            PauseTimeCL1.ParseDb(_buf, StartByteAddr);
-            PauseTimeCL2.ParseDb(_buf, StartByteAddr);
-            PauseTimeCL3.ParseDb(_buf, StartByteAddr);
-            PauseTimeCL4.ParseDb(_buf, StartByteAddr);
-            PauseTimeXM1.ParseDb(_buf, StartByteAddr);
-            PauseTimeXM2.ParseDb(_buf, StartByteAddr);
-            PauseTimeNuoc.ParseDb(_buf, StartByteAddr);
-            PauseTimePG1.ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 5; i++)
+                PauseTimeCLs[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 2; i++)
+                PauseTimeXMs[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 2; i++)
+                PauseTimeNuoc[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 2; i++)
+                PauseTimePGs[i].ParseDb(_buf, StartByteAddr);
             #endregion
 
             #region FineFactor
-            FineFactorCL1.ParseDb(_buf, StartByteAddr);
-            FineFactorCL2.ParseDb(_buf, StartByteAddr);
-            FineFactorCL3.ParseDb(_buf, StartByteAddr);
-            FineFactorCL4.ParseDb(_buf, StartByteAddr);
-            FineFactorXM1.ParseDb(_buf, StartByteAddr);
-            FineFactorXM2.ParseDb(_buf, StartByteAddr);
-            FineFactorNuoc.ParseDb(_buf, StartByteAddr);
-            FineFactorPG1.ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 5; i++)
+                FineFactorCLs[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 2; i++)
+                FineFactorXMs[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 2; i++)
+                FineFactorNuoc[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 2; i++)
+                FineFactorPGs[i].ParseDb(_buf, StartByteAddr);
             #endregion
 
             #region Enable Pulse
-            EnablePulseCL1.ParseDb( _buf, StartByteAddr);
-            EnablePulseCL2.ParseDb(_buf, StartByteAddr);
-            EnablePulseCL3.ParseDb(_buf, StartByteAddr);
-            EnablePulseCL4.ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 5; i++)
+                EnablePulseCLs[i].ParseDb( _buf, StartByteAddr);
             #endregion
 
             #region KL 0 rung xả cân
-            KL0RungXaCanCL1.ParseDb(_buf, StartByteAddr);
-            KL0RungXaCanCL2.ParseDb(_buf, StartByteAddr);
-            KL0RungXaCanCL3.ParseDb(_buf, StartByteAddr);
-            KL0RungXaCanCL4.ParseDb(_buf, StartByteAddr);
-            KL0RungXaCanCL5.ParseDb(_buf, StartByteAddr);
-            KL0RungXaCanCL6.ParseDb(_buf, StartByteAddr);
-            KL0RungXaCanXM1.ParseDb(_buf, StartByteAddr);
-            KL0RungXaCanXM2.ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 5; i++)
+                KL0RungXaCanCLs[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 2; i++)
+                KL0RungXaCanXMs[i].ParseDb(_buf, StartByteAddr);
             #endregion
 
             #region Mức cân nháy
-            MucCanNhayCL1.ParseDb(_buf, StartByteAddr);
-            MucCanNhayCL2.ParseDb(_buf, StartByteAddr);
-            MucCanNhayCL3.ParseDb(_buf, StartByteAddr);
-            MucCanNhayCL4.ParseDb(_buf, StartByteAddr);
-            MucCanNhayCL5.ParseDb(_buf, StartByteAddr);
-            MucCanNhayCL6.ParseDb(_buf, StartByteAddr);
-            MucCanNhayXM1.ParseDb(_buf, StartByteAddr);
-            MucCanNhayXM2.ParseDb(_buf, StartByteAddr);
-            MucCanNhayNuoc.ParseDb(_buf, StartByteAddr);
-            MucCanNhayPG1.ParseDb(_buf, StartByteAddr);
-            MucCanNhayPG2.ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 5; i++)
+                MucCanNhayCLs[i].ParseDb(_buf, StartByteAddr);
             #endregion
 
-            QuaTaiXeSkip.ParseDb(_buf, StartByteAddr);
-
-            #region Rung & Sục khí: -> DB29
-            EnableSucKhiSilo1.ParseDb(_buf, StartByteAddr);
-            EnableSucKhiSilo2.ParseDb(_buf, StartByteAddr);
-            EnableDamRungTP1.ParseDb(_buf, StartByteAddr);
-            EnableDamRungTP2.ParseDb(_buf, StartByteAddr);
-            EnableDamRungTP3.ParseDb(_buf, StartByteAddr);
+            #region Rung & sục khí
+            for (int i = 0; i < 4; i++)
+                EnableSucKhiSiloes[i].ParseDb(_buf, StartByteAddr);
+            for (int i = 0; i < 5; i++)
+                EnableDamRungCLs[i].ParseDb(_buf, StartByteAddr);
             #endregion
-
-            XM1VitTinh.ParseDb(_buf, StartByteAddr);
-
-            WaterKeep.ParseDb(_buf, StartByteAddr);
 
             T = DateTime.Now.Ticks;
             IsParsingData = false;
