@@ -79,6 +79,92 @@ namespace TronBeTongV3.Comm
             return "Error";
         }
 
+
+        /// <summary>
+        /// Chuẩn trạng thái 3 thành phần
+        /// 2026/09/30
+        /// </summary>
+        /// <returns></returns>
+        public static WeightIndicatorState GetWIS_QuangBinh()
+        {
+            string[] ttcl =
+            [
+                "Cân rỗng",
+                "Cân thô 1",
+                "Cân tinh 1",
+                "Chờ 1",
+                "Cân thô 2",
+                "Cân tinh 2",
+                "Chờ 2",
+                "Cân thô 3",
+                "Cân tinh 3",
+                "Chờ 3",
+                "Cân đủ",
+                "Cân đầy"
+            ];
+
+            string[] ttxm =
+            [
+                "Cân rỗng",
+                "Cân thô xi 1",
+                "Cân tinh xi 1",
+                "Chờ xi 1",
+                "Cân thô xi 2",
+                "Cân tinh xi 2",
+                "Chờ xi 2",
+                "Cân thô xi 3",
+                "Cân tinh xi 3",
+                "Chờ xi 3",
+                "Cân đủ",
+                "Cân đầy",
+            ];
+
+            string[] ttw =
+            [
+                "Cân rỗng",
+                "Cân thô nước 1",
+                "Cân tinh nước 1",
+                "Chờ nước 1",
+                "Cân thô nước 2",
+                "Cân tinh nước 2",
+                "Chờ nước 2",
+                "Cân thô nước 3",
+                "Cân tinh nước 3",
+                "Chờ nước 3",
+                "Cân đủ",
+                "Cân đầy",
+            ];
+
+            string[] ttpg = [
+                "Cân rỗng",
+                "Cân thô pg 1",
+                "Cân tinh pg 1",
+                "Chờ pg 1",
+                "Cân thô pg 2",
+                "Cân tinh pg 2",
+                "Chờ pg 2",
+                "Cân thô pg 3",
+                "Cân tinh pg 3",
+                "Chờ pg 3",
+                "Cân đủ",
+                "Cân đầy",
+            ];
+
+
+            var wis = new WeightIndicatorState(ttcl, ttxm, ttpg, ttw);
+            wis.ChotCoLieu = 10;
+            wis.ChotXM = 10;
+            wis.ChotPG = 10;
+            wis.ChotNuoc = 10;
+
+            wis.DayCotLieu = 11;
+            wis.DayXM = 11;
+            wis.DayPG = 11;
+            wis.DayNuoc = 11;
+
+            return wis;
+        }
+
         /// <summary>
         /// Cho trạm trộn Thanh Trì 2025-11-07. S7-1200
         /// </summary>
@@ -281,72 +367,6 @@ namespace TronBeTongV3.Comm
             wis.ChotNuoc = 4;
 
             wis.DayCotLieu = 11;
-            wis.DayXM = 8;
-            wis.DayPG = 8;
-            wis.DayNuoc = 5;
-
-            return wis;
-        }
-
-        /// <summary>
-        /// Cho trạm 60m3: 3 CL Tinh thô độc lập, 2 Xi, 1 Pg
-        /// </summary>
-        /// <returns></returns>
-        public static WeightIndicatorState GetWIS_QuangBinh()
-        {
-            string[] ttcl =
-            [
-                "Cân rỗng",
-                "Cân thô",
-                "Cân tinh",
-                "Chờ",
-                "Cân đủ",
-                "Cân đầy"
-            ];
-
-            string[] ttxm =
-            [
-                "Cân rỗng",
-                "Cân thô xi 1",
-                "Cân tinh xi 1",
-                "Chờ xi 1",
-                "Cân thô xi 2",
-                "Cân tinh xi 2",
-                "Chờ xi 2",
-                "Cân đủ",
-                "Cân đầy",
-            ];
-
-            string[] ttw =
-            [
-                "Cân rỗng",
-                "Cân thô",
-                "Cân tinh",
-                "Chờ",
-                "Cân đủ",
-                "Cân đầy",
-            ];
-
-            string[] ttpg = [
-                "Cân rỗng",
-                "Cân thô pg 1",
-                "Cân tinh pg 1",
-                "Chờ pg 1",
-                "Cân thô pg 2",
-                "Cân tinh pg 2",
-                "Chờ pg 2",
-                "Cân đủ",
-                "Cân đầy",
-            ];
-
-
-            var wis = new WeightIndicatorState(ttcl, ttxm, ttpg, ttw);
-            wis.ChotCoLieu = 4;
-            wis.ChotXM = 7;
-            wis.ChotPG = 7;
-            wis.ChotNuoc = 4;
-
-            wis.DayCotLieu = 5;
             wis.DayXM = 8;
             wis.DayPG = 8;
             wis.DayNuoc = 5;
