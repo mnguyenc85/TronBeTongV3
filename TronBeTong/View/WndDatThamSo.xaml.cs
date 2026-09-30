@@ -213,6 +213,8 @@ namespace TronBeTongV3.View
                 _checkboxes.Add(new TagCheckbox(ChkEnRungTP3, TramTron, TramTron.EnableRungTP3));
                 _checkboxes.Add(new TagCheckbox(ChkEnSucKhiSilo1, TramTron, TramTron.EnableSucKhiSilo1));
                 _checkboxes.Add(new TagCheckbox(ChkEnSucKhiSilo2, TramTron, TramTron.EnableSucKhiSilo2));
+                _checkboxes.Add(new TagCheckbox(ChkEnSucKhiSilo3, TramTron, TramTron.EnableSucKhiSilo3));
+                _checkboxes.Add(new TagCheckbox(ChkEnSucKhiSilo4, TramTron, TramTron.EnableSucKhiSilo4));
                 #endregion
 
                 #region Hiệu chuẩn cân
