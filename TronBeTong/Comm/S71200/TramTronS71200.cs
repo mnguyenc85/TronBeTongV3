@@ -48,13 +48,14 @@ namespace TronBeTongV3.Comm.S71200
         public DbMemory200 M200 { get; private set; } = new();
         public DbMemory1000 M1000 { get; private set; } = new();
         #endregion
+        public Db29_ThamSo Db29ThamSo { get; private set; } = new();
+        public Db26_ReadTG Db26ReadTG { get; private set; } = new();
 
+        #region Db26
         #region Tham số
         public Db26_ThamSo Db26ThamSo { get; private set; } = new();
-        public Db29_ThamSo Db29ThamSo { get; private set; } = new();        
-        public Db26_Calib Db26Cablib { get; private set; } = new();
-        
-        public Db26_ReadTG Db26ReadTG { get; private set; } = new();
+        public Db26_Khac Db26Khac { get; private set; } = new();
+        #endregion
         #endregion
 
         public TramTronS71200()
@@ -162,20 +163,20 @@ namespace TronBeTongV3.Comm.S71200
                     if (n > 0) 
                         Db26ThamSo.ForceRead = true;
                 }
+                if (Db26Khac.NeedRead(delta))
+                {
+                    await Db26Khac.ReadAsync(plc, delta);
+                    int n = await Db26Khac.WriteAsync(plc, delta);
+                    if (n > 0)
+                        Db26Khac.ForceRead = true;
+                }
+                #endregion
+
                 if (Db29ThamSo.NeedRead(delta))
                 {
                     await Db29ThamSo.ReadAsync(plc, delta);
                     await Db29ThamSo.WriteAsync(plc, delta);
                 }
-
-                if (Db26Cablib.NeedRead(delta))
-                {
-                    await Db26Cablib.ReadAsync(plc, delta);
-                    int n = await Db26Cablib.WriteAsync(plc, delta);
-                    if (n > 0)
-                        Db26Cablib.ForceRead = true;
-                }
-                #endregion
             }
             catch (Exception ex)
             {
@@ -190,9 +191,10 @@ namespace TronBeTongV3.Comm.S71200
             Db43CP.ClearWriteCmds();
             Db09MeDat.ClearWriteCmds();
             Db29ThamSo.ClearWriteCmds();
-            Db26ThamSo.ClearWriteCmds();
-            Db26Cablib.ClearWriteCmds();
             // Db26ReadTG.ClearWriteCmds(); // Không ghi
+
+            Db26ThamSo.ClearWriteCmds();
+            Db26Khac.ClearWriteCmds();
         }
 
         public void Reset()
@@ -209,13 +211,13 @@ namespace TronBeTongV3.Comm.S71200
 
             Db29ThamSo.UpdateViewT = 0;
             Db29ThamSo.ForceRead = true;
-            Db26ThamSo.UpdateViewT = 0;
-            Db26ThamSo.ForceRead = true;
-            Db26Cablib.UpdateViewT = 0;
-            Db26Cablib.ForceRead = true;
-
             Db26ReadTG.UpdateViewT = 0;
             Db26ReadTG.ForceRead = true;
+
+            Db26ThamSo.UpdateViewT = 0;
+            Db26ThamSo.ForceRead = true;
+            Db26Khac.UpdateViewT = 0;
+            Db26Khac.ForceRead = true;
         }
 
         public void MarkUpdateView()
@@ -223,28 +225,13 @@ namespace TronBeTongV3.Comm.S71200
             Db43CP.UpdateViewT = Db43CP.T;
             Db43KLMe.UpdateViewT = Db43KLMe.T;
             Db09MeDat.UpdateViewT = Db09MeDat.T;
-
-            //Db16CanCL1TT.UpdateViewT = Db16CanCL1TT.T;
-            //Db28CanCL1Me.UpdateViewT = Db28CanCL1Me.T;
-            //Db19CanCL2TT.UpdateViewT = Db19CanCL2TT.T;
-            //Db30CanCL2Me.UpdateViewT = Db30CanCL2Me.T;
-            //Db21CanCL3TT.UpdateViewT = Db21CanCL3TT.T;
-            //Db27CanCL3Me.UpdateViewT = Db27CanCL3Me.T;
-            //Db36CanXM1TT.UpdateViewT = Db36CanXM1TT.T;
-            //Db34CanXM1Me.UpdateViewT = Db34CanXM1Me.T;
-            //Db90CanXM2TT.UpdateViewT = Db90CanXM2TT.T;
-            //Db68CanXM2Me.UpdateViewT = Db68CanXM2Me.T;
-            //Db24CanNuocTT.UpdateViewT = Db24CanNuocTT.T;
-            //Db33CanNuocMe.UpdateViewT = Db33CanNuocMe.T;
-            //Db35CanPGTT.UpdateViewT = Db35CanPGTT.T;
-            //Db23CanPGMe.UpdateViewT = Db23CanPGMe.T;
             Db26WIs.UpdateViewT = Db26WIs.T;
 
             Db29ThamSo.UpdateViewT = Db29ThamSo.T;
-            Db26ThamSo.UpdateViewT = Db26ThamSo.T;
-            Db26Cablib.UpdateViewT = Db26Cablib.T;
-
             Db26ReadTG.UpdateViewT = Db26ReadTG.T;
+
+            Db26ThamSo.UpdateViewT = Db26ThamSo.T;
+            Db26Khac.UpdateViewT = Db26Khac.T;
         }
 
         #region Export Tags

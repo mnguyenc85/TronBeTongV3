@@ -19,9 +19,7 @@ namespace TronBeTongV3.Comm
         }
 
         protected override void InitLinks()
-        {
-            var db26 = _plc.Db26ThamSo;
-
+        {            
             #region Cấp phối
             var db43 = _plc.Db43CP;
             for (int i = 0; i < SoCLReal; i++)
@@ -70,28 +68,32 @@ namespace TronBeTongV3.Comm
             AddLink(MeM3Me, _plc.Db43CP, _plc.Db43CP.M3Me);
             #endregion
 
+            var db26wi = _plc.Db26WIs;
             #region Cân
-            AddLink(CanCLs[0].TrangThai, _plc.Db26WIs, _plc.Db26WIs.CL_TT);
-            AddLink(CanCLs[0].KL, _plc.Db26WIs, _plc.Db26WIs.CL_KL);
-            AddLink(CanCLs[0].MeHT, _plc.Db26WIs, _plc.Db26WIs.CL_Me);
+            for (int i = 0; i < SoCLReal; i++)
+            {
+                AddLink(CanCLs[i].TrangThai, db26wi, db26wi.CL_TT[i]);
+                AddLink(CanCLs[i].KL, db26wi, db26wi.CL_KL[i]);
+                AddLink(CanCLs[i].MeHT, db26wi, db26wi.CL_Me[i]);
+            }
             AddLink(CanCLs[0].OutputValves, _plc.M200, _plc.M200.VanCanCL1);
+            AddLink(CanCLs[1].OutputValves, _plc.M200, _plc.M200.VanCanCL2);
+            AddLink(CanCLs[2].OutputValves, _plc.M200, _plc.M200.VanCanCL3);
 
-            AddLink(CanXMs[0].TrangThai, _plc.Db26WIs, _plc.Db26WIs.XM_TT);
-            AddLink(CanXMs[0].KL, _plc.Db26WIs, _plc.Db26WIs.XM_KL);
-            AddLink(CanXMs[0].MeHT, _plc.Db26WIs, _plc.Db26WIs.XM_Me);
+            AddLink(CanXMs[0].TrangThai, db26wi, db26wi.XM_TT[0]);
+            AddLink(CanXMs[0].KL, db26wi, db26wi.XM_KL[0]);
+            AddLink(CanXMs[0].MeHT, db26wi, db26wi.XM_Me[0]);
             AddLink(CanXMs[0].OutputValves, _plc.M200, _plc.M200.VanCanXM1);
 
-            AddLink(CanNuoc.TrangThai, _plc.Db26WIs, _plc.Db26WIs.Nuoc_TT);
-            AddLink(CanNuoc.KL, _plc.Db26WIs, _plc.Db26WIs.Nuoc_KL);
-            AddLink(CanNuoc.MeHT, _plc.Db26WIs, _plc.Db26WIs.Nuoc_Me);
+            AddLink(CanNuoc.TrangThai, db26wi, db26wi.Nuoc_TT[0]);
+            AddLink(CanNuoc.KL, db26wi, db26wi.Nuoc_KL[0]);
+            AddLink(CanNuoc.MeHT, db26wi, db26wi.Nuoc_Me[0]);
             AddLink(CanNuoc.OutputValves, _plc.M200, _plc.M200.VanCanNuoc);
 
-            AddLink(CanPGs[0].TrangThai, _plc.Db26WIs, _plc.Db26WIs.PG_TT);
-            AddLink(CanPGs[0].KL, _plc.Db26WIs, _plc.Db26WIs.PG_KL);
-            AddLink(CanPGs[0].MeHT, _plc.Db26WIs, _plc.Db26WIs.PG_Me);
+            AddLink(CanPGs[0].TrangThai, db26wi, db26wi.PG_TT[0]);
+            AddLink(CanPGs[0].KL, db26wi, db26wi.PG_KL[0]);
+            AddLink(CanPGs[0].MeHT, db26wi, db26wi.PG_Me[0]);
             AddLink(CanPGs[0].OutputValves, _plc.M200, _plc.M200.VanCanPG);
-
-            AddLink(XeSkipTGXaCLDT2, _plc.Db26WIs, _plc.Db26WIs.TGXaCLDT2);
             #endregion
 
             #region Van silo
@@ -149,94 +151,14 @@ namespace TronBeTongV3.Comm
             AddLink(CheDoCan, _plc.M100, _plc.M100.ModeWeight);
             AddLink(CheDoSkip, _plc.M100, _plc.M100.ModeSkip);
 
-            AddLink(MixerTGTron, _plc.Db26WIs, _plc.Db26WIs.TGTron);
-            AddLink(MixerTGXa, _plc.Db26WIs, _plc.Db26WIs.TGXa);
-            AddLink(MixerTGXaNua, _plc.Db26WIs, _plc.Db26WIs.TGXaNua);
             AddLink(MixerSetTGTron, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGTron);
             AddLink(MixerSetTGXa, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGXa);
             AddLink(MixerSetTGXaNua, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGXaNua);
-            AddLink(MixerMeHt, _plc.Db26WIs, _plc.Db26WIs.CoiTronMeHt);
             #endregion
 
             AddLink(TGLenPheuCLTG, _plc.Db26ReadTG, _plc.Db26ReadTG.TGLenPheuCLTG);
             AddLink(TGTreMoXaCLTG, _plc.Db26ReadTG, _plc.Db26ReadTG.TGTreMoXaCLTG);
 
-            #region Tham số
-            AddLink(EmptyLevelCL1, db26, db26.EmptyLevelCLs[0]);
-            AddLink(EmptyLevelCL2, db26, db26.EmptyLevelCLs[1]);
-            AddLink(EmptyLevelCL3, db26, db26.EmptyLevelCLs[2]);
-            //AddLink(EmptyLevelCL4, db26, db26.EmptyLevelCLs[3]);
-            AddLink(EmptyLevelXM1, db26, db26.EmptyLevelXMs[0]);
-            AddLink(EmptyLevelXM2, db26, db26.EmptyLevelXMs[1]);
-            AddLink(EmptyLevelNuoc, db26, db26.EmptyLevelNuoc[0]);
-            AddLink(EmptyLevelPG1, db26, db26.EmptyLevelPGs[0]);
-            //AddLink(EmptyLevelPG2, db26, db26.EmptyLevelPGs[1]);
-
-            AddLink(CutOffLevelCL1, db26, db26.CutOffLevelCLs[0]);
-            AddLink(CutOffLevelCL2, db26, db26.CutOffLevelCLs[1]);
-            AddLink(CutOffLevelCL3, db26, db26.CutOffLevelCLs[2]);
-            //AddLink(CutOffLevelCL4, db26, db26.CutOffLevelCLs[3]);
-            AddLink(CutOffLevelXM1, db26, db26.CutOffLevelXMs[0]);
-            AddLink(CutOffLevelXM2, db26, db26.CutOffLevelXMs[1]);
-            AddLink(CutOffLevelXM3, db26, db26.CutOffLevelXMs[2]);
-            AddLink(CutOffLevelXM4, db26, db26.CutOffLevelXMs[3]);
-            AddLink(CutOffLevelNuoc, db26, db26.CutOffLevelNuoc[0]);
-            AddLink(CutOffLevelPG1, db26, db26.CutOffLevelPGs[0]);
-            //AddLink(CutOffLevelPG2, db26, db26.CutOffLevelPGs[1]);
-
-            AddLink(EnableCutOffLevelCL1, db26, db26.EnableAutoCutOffCLs[0]);
-            AddLink(EnableCutOffLevelCL2, db26, db26.EnableAutoCutOffCLs[1]);
-            AddLink(EnableCutOffLevelCL3, db26, db26.EnableAutoCutOffCLs[2]);
-            //AddLink(EnableCutOffLevelCL4, db26, db26.EnableAutoCutOffCLs[3]);
-            AddLink(EnableCutOffLevelXM1, db26, db26.EnableAutoCutOffXMs[0]);
-            AddLink(EnableCutOffLevelXM2, db26, db26.EnableAutoCutOffXMs[1]);
-            AddLink(EnableCutOffLevelXM3, db26, db26.EnableAutoCutOffXMs[2]);
-            AddLink(EnableCutOffLevelXM4, db26, db26.EnableAutoCutOffXMs[3]);
-            AddLink(EnableCutOffLevelNuoc, db26, db26.EnableAutoCutOffNuoc[0]);
-            AddLink(EnableCutOffLevelPG1, db26, db26.EnableAutoCutOffPGs[0]);
-            //AddLink(EnableCutOffLevelPG2, db26, db26.EnableAutoCutOffPGs[1]);
-
-            AddLink(CoarsFineCL1, db26, db26.CoarsFineCLs[0]);
-            AddLink(CoarsFineCL2, db26, db26.CoarsFineCLs[1]);
-            AddLink(CoarsFineCL3, db26, db26.CoarsFineCLs[2]);
-            //AddLink(CoarsFineCL4, db26, db26.CoarsFineCLs[3]);
-            AddLink(CoarsFineXM1, db26, db26.CoarsFineXMs[0]);
-            AddLink(CoarsFineXM2, db26, db26.CoarsFineXMs[1]);
-            AddLink(CoarsFineXM3, db26, db26.CoarsFineXMs[2]);
-            AddLink(CoarsFineXM4, db26, db26.CoarsFineXMs[3]);
-            AddLink(CoarsFineNuoc, db26, db26.CoarsFineNuoc[0]);
-            AddLink(CoarsFinePG1, db26, db26.CoarsFinePGs[0]);
-            AddLink(CoarsFinePG2, db26, db26.CoarsFinePGs[1]);
-
-            AddLink(PauseTimeCl1, db26, db26.PauseTimeCLs[0]);
-            AddLink(PauseTimeCl2, db26, db26.PauseTimeCLs[1]);
-            AddLink(PauseTimeCl3, db26, db26.PauseTimeCLs[2]);
-            //AddLink(PauseTimeCl4, db26, db26.PauseTimeCLs[3]);
-            AddLink(PauseTimeXM1, db26, db26.PauseTimeXMs[0]);
-            AddLink(PauseTimeXM2, db26, db26.PauseTimeXMs[1]);
-            AddLink(PauseTimeNuoc, db26, db26.PauseTimeNuoc[0]);
-            AddLink(PauseTimePG1, db26, db26.PauseTimePGs[0]);
-            //AddLink(PauseTimePG2, db26, db26.PauseTimePGs[1]);
-
-            AddLink(FineFactorCL1, db26, db26.FineFactorCLs[0]);
-            AddLink(FineFactorCL2, db26, db26.FineFactorCLs[1]);
-            AddLink(FineFactorCL3, db26, db26.FineFactorCLs[2]);
-            AddLink(FineFactorCL4, db26, db26.FineFactorCLs[3]);
-            AddLink(FineFactorXM1, db26, db26.FineFactorXMs[0]);
-            AddLink(FineFactorXM2, db26, db26.FineFactorXMs[1]);
-            AddLink(FineFactorNuoc, db26, db26.FineFactorNuoc[0]);
-            AddLink(FineFactorPG1, db26, db26.FineFactorPGs[0]);
-            //AddLink(FineFactorPG2, db26, db26.FineFactorPGs[1]);
-
-            AddLink(EnablePulseCL1, db26, db26.EnablePulseCLs[0]);
-            AddLink(EnablePulseCL2, db26, db26.EnablePulseCLs[1]);
-            AddLink(EnablePulseCL3, db26, db26.EnablePulseCLs[2]);
-            //AddLink(EnablePulseCL4, db26, db26.EnablePulseCLs[3]);
-            //AddLink(EnablePulseCL5, db26, db26.EnablePulseCLs[4]);
-
-            AddLink(XM1VitTinh, db26, db26.XM1VitTinh);
-            AddLink(WaterKeep, db26, db26.WaterKeep);
-            #endregion
 
             #region Tham số thời gian
             var db29 = _plc.Db29ThamSo;
@@ -318,14 +240,95 @@ namespace TronBeTongV3.Comm
             AddLink(RungTCXM2On, db29, db29.RungTCXM2On);
             AddLink(RungTCXM2Cycle, db29, db29.RungTCXM2Cycle);
             AddLink(RungCLTGTre, db29, db29.RungCLTGTre);
+            #endregion
 
-            AddLink(EnableSucKhiSilo1, db26, db26.EnableSucKhiSiloes[0]);
-            AddLink(EnableSucKhiSilo2, db26, db26.EnableSucKhiSiloes[1]);
-            AddLink(EnableSucKhiSilo3, db26, db26.EnableSucKhiSiloes[2]);
-            AddLink(EnableSucKhiSilo4, db26, db26.EnableSucKhiSiloes[3]);
-            AddLink(EnableRungTP1, db26, db26.EnableDamRungCLs[0]);
-            AddLink(EnableRungTP2, db26, db26.EnableDamRungCLs[1]);
-            AddLink(EnableRungTP3, db26, db26.EnableDamRungCLs[2]);
+            #region Bơm mỡ
+            AddLink(BomMoTGOn, db29, db29.BomMoTGOn);
+            AddLink(BomMoTGOff, db29, db29.BomMoTGOff);
+            #endregion
+
+            #region Db26
+            var db26 = _plc.Db26ThamSo;
+            var db26o = _plc.Db26Khac;
+            #region Tham số
+            AddLink(EmptyLevelCL1, db26, db26.EmptyLevelCLs[0]);
+            AddLink(EmptyLevelCL2, db26, db26.EmptyLevelCLs[1]);
+            AddLink(EmptyLevelCL3, db26, db26.EmptyLevelCLs[2]);
+            //AddLink(EmptyLevelCL4, db26, db26.EmptyLevelCLs[3]);
+            AddLink(EmptyLevelXM1, db26, db26.EmptyLevelXMs[0]);
+            AddLink(EmptyLevelXM2, db26, db26.EmptyLevelXMs[1]);
+            AddLink(EmptyLevelNuoc, db26, db26.EmptyLevelNuoc[0]);
+            AddLink(EmptyLevelPG1, db26, db26.EmptyLevelPGs[0]);
+            //AddLink(EmptyLevelPG2, db26, db26.EmptyLevelPGs[1]);
+
+            AddLink(CutOffLevelCL1, db26, db26.CutOffLevelCLs[0]);
+            AddLink(CutOffLevelCL2, db26, db26.CutOffLevelCLs[1]);
+            AddLink(CutOffLevelCL3, db26, db26.CutOffLevelCLs[2]);
+            //AddLink(CutOffLevelCL4, db26, db26.CutOffLevelCLs[3]);
+            AddLink(CutOffLevelXM1, db26, db26.CutOffLevelXMs[0]);
+            AddLink(CutOffLevelXM2, db26, db26.CutOffLevelXMs[1]);
+            AddLink(CutOffLevelXM3, db26, db26.CutOffLevelXMs[2]);
+            AddLink(CutOffLevelXM4, db26, db26.CutOffLevelXMs[3]);
+            AddLink(CutOffLevelNuoc, db26, db26.CutOffLevelNuoc[0]);
+            AddLink(CutOffLevelPG1, db26, db26.CutOffLevelPGs[0]);
+            //AddLink(CutOffLevelPG2, db26, db26.CutOffLevelPGs[1]);
+
+            AddLink(EnableCutOffLevelCL1, db26, db26.EnableAutoCutOffCLs[0]);
+            AddLink(EnableCutOffLevelCL2, db26, db26.EnableAutoCutOffCLs[1]);
+            AddLink(EnableCutOffLevelCL3, db26, db26.EnableAutoCutOffCLs[2]);
+            //AddLink(EnableCutOffLevelCL4, db26, db26.EnableAutoCutOffCLs[3]);
+            AddLink(EnableCutOffLevelXM1, db26, db26.EnableAutoCutOffXMs[0]);
+            AddLink(EnableCutOffLevelXM2, db26, db26.EnableAutoCutOffXMs[1]);
+            AddLink(EnableCutOffLevelXM3, db26, db26.EnableAutoCutOffXMs[2]);
+            AddLink(EnableCutOffLevelXM4, db26, db26.EnableAutoCutOffXMs[3]);
+            AddLink(EnableCutOffLevelNuoc, db26, db26.EnableAutoCutOffNuoc[0]);
+            AddLink(EnableCutOffLevelPG1, db26, db26.EnableAutoCutOffPGs[0]);
+            //AddLink(EnableCutOffLevelPG2, db26, db26.EnableAutoCutOffPGs[1]);
+
+            AddLink(CoarsFineCL1, db26, db26.CoarsFineCLs[0]);
+            AddLink(CoarsFineCL2, db26, db26.CoarsFineCLs[1]);
+            AddLink(CoarsFineCL3, db26, db26.CoarsFineCLs[2]);
+            //AddLink(CoarsFineCL4, db26, db26.CoarsFineCLs[3]);
+            AddLink(CoarsFineXM1, db26, db26.CoarsFineXMs[0]);
+            AddLink(CoarsFineXM2, db26, db26.CoarsFineXMs[1]);
+            AddLink(CoarsFineXM3, db26, db26.CoarsFineXMs[2]);
+            AddLink(CoarsFineXM4, db26, db26.CoarsFineXMs[3]);
+            AddLink(CoarsFineNuoc, db26, db26.CoarsFineNuoc[0]);
+            AddLink(CoarsFinePG1, db26, db26.CoarsFinePGs[0]);
+            AddLink(CoarsFinePG2, db26, db26.CoarsFinePGs[1]);
+
+            AddLink(PauseTimeCl1, db26, db26.PauseTimeCLs[0]);
+            AddLink(PauseTimeCl2, db26, db26.PauseTimeCLs[1]);
+            AddLink(PauseTimeCl3, db26, db26.PauseTimeCLs[2]);
+            //AddLink(PauseTimeCl4, db26, db26.PauseTimeCLs[3]);
+            AddLink(PauseTimeXM1, db26, db26.PauseTimeXMs[0]);
+            AddLink(PauseTimeXM2, db26, db26.PauseTimeXMs[1]);
+            AddLink(PauseTimeNuoc, db26, db26.PauseTimeNuoc[0]);
+            AddLink(PauseTimePG1, db26, db26.PauseTimePGs[0]);
+            //AddLink(PauseTimePG2, db26, db26.PauseTimePGs[1]);
+
+            AddLink(FineFactorCL1, db26, db26.FineFactorCLs[0]);
+            AddLink(FineFactorCL2, db26, db26.FineFactorCLs[1]);
+            AddLink(FineFactorCL3, db26, db26.FineFactorCLs[2]);
+            AddLink(FineFactorCL4, db26, db26.FineFactorCLs[3]);
+            AddLink(FineFactorXM1, db26, db26.FineFactorXMs[0]);
+            AddLink(FineFactorXM2, db26, db26.FineFactorXMs[1]);
+            AddLink(FineFactorNuoc, db26, db26.FineFactorNuoc[0]);
+            AddLink(FineFactorPG1, db26, db26.FineFactorPGs[0]);
+            //AddLink(FineFactorPG2, db26, db26.FineFactorPGs[1]);
+
+            AddLink(EnablePulseCL1, db26, db26.EnablePulseCLs[0]);
+            AddLink(EnablePulseCL2, db26, db26.EnablePulseCLs[1]);
+            AddLink(EnablePulseCL3, db26, db26.EnablePulseCLs[2]);
+            //AddLink(EnablePulseCL4, db26, db26.EnablePulseCLs[3]);
+            //AddLink(EnablePulseCL5, db26, db26.EnablePulseCLs[4]);
+
+            #region Mức cân nháy
+            AddLink(MucCanNhayCL1, db26, db26.MucCanNhayCLs[0]);
+            AddLink(MucCanNhayCL2, db26, db26.MucCanNhayCLs[1]);
+            AddLink(MucCanNhayCL3, db26, db26.MucCanNhayCLs[2]);
+            //AddLink(MucCanNhayCL4, db26, db26.MucCanNhayCLs[3]);
+            //AddLink(MucCanNhayCL5, db26, db26.MucCanNhayCLs[4]);
             #endregion
 
             #region KL0 rung xả cân
@@ -338,36 +341,42 @@ namespace TronBeTongV3.Comm
             AddLink(KL0RungXaCanXM2, db26, db26.KL0RungXaCanXMs[1]);
             #endregion
 
-            #region Bơm mỡ
-            AddLink(BomMoTGOn, db29, db29.BomMoTGOn);
-            AddLink(BomMoTGOff, db29, db29.BomMoTGOff);
+            #region Rung & sục khí
+            AddLink(EnableSucKhiSilo1, db26, db26.EnableSucKhiSiloes[0]);
+            AddLink(EnableSucKhiSilo2, db26, db26.EnableSucKhiSiloes[1]);
+            AddLink(EnableSucKhiSilo3, db26, db26.EnableSucKhiSiloes[2]);
+            AddLink(EnableSucKhiSilo4, db26, db26.EnableSucKhiSiloes[3]);
+            AddLink(EnableRungTP1, db26, db26.EnableDamRungCLs[0]);
+            AddLink(EnableRungTP2, db26, db26.EnableDamRungCLs[1]);
+            AddLink(EnableRungTP3, db26, db26.EnableDamRungCLs[2]);
             #endregion
-
-            #region Mức cân nháy
-            AddLink(MucCanNhayCL1, db26, db26.MucCanNhayCLs[0]);
-            AddLink(MucCanNhayCL2, db26, db26.MucCanNhayCLs[1]);
-            AddLink(MucCanNhayCL3, db26, db26.MucCanNhayCLs[2]);
-            //AddLink(MucCanNhayCL4, db26, db26.MucCanNhayCLs[3]);
-            //AddLink(MucCanNhayCL5, db26, db26.MucCanNhayCLs[4]);
             #endregion
-
-            var db26c = _plc.Db26Cablib;
             #region Hiệu chuẩn
-            AddLink(CLCanAI, db26c, db26c.CalibCL1AI);
-            AddLink(CLCanZero, db26c, db26c.CalibCL1Zero);
-            AddLink(CLCanSpan, db26c, db26c.CalibCL1Span);
+            AddLink(CLCanAI, db26, db26.CalibCLAIs[0]);
+            AddLink(CLCanZero, db26, db26.CalibCLZeroes[0]);
+            AddLink(CLCanSpan, db26, db26.CalibCLSpans[0]);
 
-            AddLink(XiCanAI, db26c, db26c.CalibXM1AI);
-            AddLink(XiCanZero, db26c, db26c.CalibXM1Zero);
-            AddLink(XiCanSpan, db26c, db26c.CalibXM1Span);
+            AddLink(XiCanAI, db26, db26.CalibXMAIs[0]);
+            AddLink(XiCanZero, db26, db26.CalibXMZeroes[0]);
+            AddLink(XiCanSpan, db26, db26.CalibXMSpans[0]);
 
-            AddLink(PGCanAI, db26c, db26c.CalibPGAI);
-            AddLink(PGCanZero, db26c, db26c.CalibPGZero);
-            AddLink(PGCanSpan, db26c, db26c.CalibPGSpan);
+            AddLink(PGCanAI, db26, db26.CalibPGAIs[0]);
+            AddLink(PGCanZero, db26, db26.CalibPGZeroes[0]);
+            AddLink(PGCanSpan, db26, db26.CalibPGSpans[0]);
 
-            AddLink(NuocCanAI, db26c, db26c.CalibNuocAI);
-            AddLink(NuocCanZero, db26c, db26c.CalibNuocZero);
-            AddLink(NuocCanSpan, db26c, db26c.CalibNuocSpan);
+            AddLink(NuocCanAI, db26, db26.CalibNuocAIs[0]);
+            AddLink(NuocCanZero, db26, db26.CalibNuocZeroes[0]);
+            AddLink(NuocCanSpan, db26, db26.CalibNuocSpans[0]);
+            #endregion
+            #region Khác
+            AddLink(MixerTGTron, db26o, db26o.TGTron);
+            AddLink(MixerTGXa, db26o, db26o.TGXa);
+            AddLink(MixerTGXaNua, db26o, db26o.TGXaNua);
+            AddLink(MixerMeHt, db26o, db26o.CoiTronMeHt);
+            AddLink(XeSkipTGXaCLDT2, db26o, db26o.TGXaCLDT2);
+            AddLink(XM1VitTinh, db26o, db26o.XM1VitTinh);
+            AddLink(WaterKeep, db26o, db26o.WaterKeep);
+            #endregion
             #endregion
 
             foreach (var (key, link) in _allLinks)
@@ -397,18 +406,18 @@ namespace TronBeTongV3.Comm
             if (en)
             {
                 _plc.Db26ThamSo.Cycle = 0.2;
+
                 _plc.Db29SetMixerTime.Cycle = -1;
                 _plc.Db29ThamSo.Cycle = 0.2;
-                _plc.Db26Cablib.Cycle = 0.2;
             }
             else
             {
                 _plc.Db26ThamSo.Cycle = -1;
                 _plc.Db26ThamSo.ForceRead = true;
+                
                 _plc.Db29SetMixerTime.Cycle = 0.2;
                 _plc.Db29ThamSo.Cycle = -1;
                 _plc.Db29ThamSo.ForceRead = true;
-                _plc.Db26Cablib.Cycle = -1;
             }
         }
 

@@ -5,6 +5,7 @@ namespace TronBeTongV3.Comm.S71200
 {
     public class Db26_ThamSo : PlcDb
     {
+        #region Tham số đặt
         #region Empty Level
         public PlcTag[] EmptyLevelCLs { get; private set; } = new PlcTag[5];
         public PlcTag[] EmptyLevelXMs { get; private set; } = new PlcTag[2];
@@ -63,8 +64,28 @@ namespace TronBeTongV3.Comm.S71200
         public PlcTag[] EnableSucKhiSiloes { get; private set; } = new PlcTag[4];
         public PlcTag[] EnableDamRungCLs { get; private set; } = new PlcTag[5];
         #endregion
+        #endregion
 
-        public Db26_ThamSo() : base(26, 304, 0) {
+        #region Calibrations
+        public PlcTag[] CalibCLAIs { get; private set; } = new PlcTag[5];
+        public PlcTag[] CalibCLZeroes { get; private set; } = new PlcTag[5];
+        public PlcTag[] CalibCLSpans { get; private set; } = new PlcTag[5];
+
+        public PlcTag[] CalibXMAIs { get; private set; } = new PlcTag[2];
+        public PlcTag[] CalibXMZeroes { get; private set; } = new PlcTag[5];
+        public PlcTag[] CalibXMSpans { get; private set; } = new PlcTag[5];
+
+        public PlcTag[] CalibNuocAIs { get; private set; } = new PlcTag[2];
+        public PlcTag[] CalibNuocZeroes { get; private set; } = new PlcTag[2];
+        public PlcTag[] CalibNuocSpans { get; private set; } = new PlcTag[2];
+
+        public PlcTag[] CalibPGAIs { get; private set; } = new PlcTag[2];
+        public PlcTag[] CalibPGZeroes { get; private set; } = new PlcTag[2];
+        public PlcTag[] CalibPGSpans { get; private set; } = new PlcTag[2];
+        #endregion
+
+        public Db26_ThamSo() : base(26, 342, 0) {
+            #region Tham số
             #region Empty Level
             for (int i = 0; i < 5; i++)
                 EmptyLevelCLs[i] = new PlcTag(TagTypes.Real, i * 4);
@@ -154,6 +175,31 @@ namespace TronBeTongV3.Comm.S71200
                 EnableSucKhiSiloes[i] = new PlcTag(TagTypes.Bool, 250, i);
             for (int i = 0; i < 5; i++)
                 EnableDamRungCLs[i] = new PlcTag(TagTypes.Bool, 252, i);
+            #endregion
+            #endregion
+
+            #region Hiệu chuẩn
+            for (int i = 0; i < 5; i++)
+            {
+                CalibCLAIs[i] = new PlcTag(TagTypes.Int16, 254 + i * 2);
+                CalibCLZeroes[i] = new PlcTag(TagTypes.Int16, 264 + i * 2);
+                CalibCLSpans[i] = new PlcTag(TagTypes.Real, 274 + i * 4);
+
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                CalibXMAIs[i] = new PlcTag(TagTypes.Int16, 294 + i * 2);
+                CalibXMZeroes[i] = new PlcTag(TagTypes.Int16, 298 + i * 2);
+                CalibXMSpans[i] = new PlcTag(TagTypes.Real, 302 + i * 4);
+
+                CalibNuocAIs[i] = new PlcTag(TagTypes.Int16, 310 + i * 2);
+                CalibNuocZeroes[i] = new PlcTag(TagTypes.Int16, 314 + i * 2);
+                CalibNuocSpans[i] = new PlcTag(TagTypes.Real, 318 + i * 4);
+
+                CalibPGAIs[i] = new PlcTag(TagTypes.Int16, 326 + i * 2);
+                CalibPGZeroes[i] = new PlcTag(TagTypes.Int16, 330 + i * 2);
+                CalibPGSpans[i] = new PlcTag(TagTypes.Real, 334 + i * 4);
+            }
             #endregion
 
             Cycle = -1;
@@ -250,6 +296,30 @@ namespace TronBeTongV3.Comm.S71200
                 EnableSucKhiSiloes[i].ParseDb(_buf, StartByteAddr);
             for (int i = 0; i < 5; i++)
                 EnableDamRungCLs[i].ParseDb(_buf, StartByteAddr);
+            #endregion
+
+            #region Hiệu chuẩn
+            for (int i = 0; i < 5; i++)
+            {
+                CalibCLAIs[i].ParseDb(_buf, StartByteAddr);
+                CalibCLZeroes[i].ParseDb(_buf, StartByteAddr);
+                CalibCLSpans[i].ParseDb(_buf, StartByteAddr);
+
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                CalibXMAIs[i].ParseDb(_buf, StartByteAddr);
+                CalibXMZeroes[i].ParseDb(_buf, StartByteAddr);
+                CalibXMSpans[i].ParseDb(_buf, StartByteAddr);
+
+                CalibNuocAIs[i].ParseDb(_buf, StartByteAddr);
+                CalibNuocZeroes[i].ParseDb(_buf, StartByteAddr);
+                CalibNuocSpans[i].ParseDb(_buf, StartByteAddr);
+
+                CalibPGAIs[i].ParseDb(_buf, StartByteAddr);
+                CalibPGZeroes[i].ParseDb(_buf, StartByteAddr);
+                CalibPGSpans[i].ParseDb(_buf, StartByteAddr);
+            }
             #endregion
 
             T = DateTime.Now.Ticks;
