@@ -16,9 +16,9 @@ namespace TronBeTongV3.Comm.S71200
         public PlcTag QuaTaiXeSkip { get; private set; } = new PlcTag(TagTypes.Real, 440);
         public PlcTag XM1VitTinh { get; private set; } = new PlcTag(TagTypes.Bool, 444, 0);
         public PlcTag WaterKeep { get; private set; } = new PlcTag(TagTypes.Real, 446);
-        public PlcTag DieuKienSoMeTruocKhiXaVaoCoi { get; private set; } = new PlcTag(TagTypes.Real, 450);
+        public PlcTag DieuKienSoMeTruocKhiXaVaoCoi { get; private set; } = new PlcTag(TagTypes.Bool, 450, 0);
 
-        public Db26_Khac() : base(26, 24, 430)
+        public Db26_Khac() : base(26, 22, 430)
         {
             Cycle = -1;
         }

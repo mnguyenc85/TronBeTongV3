@@ -14,46 +14,20 @@ namespace TronBeTongV3.Comm.S71200
         public Db43_KLMeThuc Db43KLMe { get; private set; } = new Db43_KLMeThuc();
         #endregion
 
-        #region Thùng cân
-        //public Db16_CanCl1_TT Db16CanCL1TT { get; private set; } = new();
-        //public Db28_CanCl1_Me Db28CanCL1Me { get; private set; } = new();
-        //public Db19_CanCl2_TT Db19CanCL2TT { get; private set; } = new();
-        //public Db30_CanCl2_Me Db30CanCL2Me { get; private set; } = new();
-        //public Db21_CanCl3_TT Db21CanCL3TT { get; private set; } = new();
-        //public Db31_CanCl3_Me Db27CanCL3Me { get; private set; } = new();
-        //public Db36_CanXM1_TT Db36CanXM1TT { get; private set; } = new();
-        //public Db34_CanXM1_Me Db34CanXM1Me { get; private set; } = new();
-        //public Db90_CanXM2_TT Db90CanXM2TT { get; private set; } = new();
-        //public Db68_CanXM2_Me Db68CanXM2Me { get; private set; } = new();
-        //public Db24_CanNuoc_TT Db24CanNuocTT { get; private set; } = new();
-        //public Db33_CanNuoc_Me Db33CanNuocMe { get; private set; } = new();
-        //public DB35_CanPG_TT Db35CanPGTT { get; private set; } = new();
-        //public Db23_CanPG_Me Db23CanPGMe { get; private set; } = new();
-        
-        public Db26_WIs Db26WIs { get; private set; } = new();
-        #endregion
-
-        #region TG trộn
-        public Db29_SetMixerTime Db29SetMixerTime { get; private set; } = new();
-
-        /// <summary>
-        /// Thời gian cốt liệu trung gian
-        /// </summary>
-        //public Db42_ReadTG Db42ReadTG { get; private set; } = new();
-        #endregion
-
-        #region M
+        #region MemoryDb
         public DbMemory11 M11 { get; private set; } = new();
         public DbMemory100 M100 { get; private set; } = new();
         public DbMemory200 M200 { get; private set; } = new();
         public DbMemory1000 M1000 { get; private set; } = new();
         #endregion
+        
         public Db29_ThamSo Db29ThamSo { get; private set; } = new();
-        public Db26_ReadTG Db26ReadTG { get; private set; } = new();
+        public Db29_HMI Db29HMI{ get; private set; } = new();
 
         #region Db26
         #region Tham số
         public Db26_ThamSo Db26ThamSo { get; private set; } = new();
+        public Db26_WIs Db26WIs { get; private set; } = new();
         public Db26_Khac Db26Khac { get; private set; } = new();
         #endregion
         #endregion
@@ -86,50 +60,6 @@ namespace TronBeTongV3.Comm.S71200
                 if (Db43KLMe.NeedRead(delta))
                 {
                     await Db43KLMe.ReadAsync(plc, delta);
-                }
-                #endregion
-
-                #region Cân
-                //if (Db16CanCL1TT.NeedRead(delta)) await Db16CanCL1TT.ReadAsync(plc, delta);
-                //if (Db28CanCL1Me.NeedRead(delta)) await Db28CanCL1Me.ReadAsync(plc, delta);
-
-                //if (Db19CanCL2TT.NeedRead(delta)) await Db19CanCL2TT.ReadAsync(plc, delta);
-                //if (Db30CanCL2Me.NeedRead(delta)) await Db30CanCL2Me.ReadAsync(plc, delta);
-
-                //if (Db21CanCL3TT.NeedRead(delta)) await Db21CanCL3TT.ReadAsync(plc, delta);
-                //if (Db27CanCL3Me.NeedRead(delta)) await Db27CanCL3Me.ReadAsync(plc, delta);
-
-                //if (Db36CanXM1TT.NeedRead(delta)) await Db36CanXM1TT.ReadAsync(plc, delta);
-                //if (Db34CanXM1Me.NeedRead(delta)) await Db34CanXM1Me.ReadAsync(plc, delta);
-
-                //if (Db90CanXM2TT.NeedRead(delta)) await Db90CanXM2TT.ReadAsync(plc, delta);
-                //if (Db68CanXM2Me.NeedRead(delta)) await Db68CanXM2Me.ReadAsync(plc, delta);
-
-                //if (Db24CanNuocTT.NeedRead(delta)) await Db24CanNuocTT.ReadAsync(plc, delta);
-                //if (Db33CanNuocMe.NeedRead(delta)) await Db33CanNuocMe.ReadAsync(plc, delta);
-
-                //if (Db35CanPGTT.NeedRead(delta)) await Db35CanPGTT.ReadAsync(plc, delta);
-                //if (Db23CanPGMe.NeedRead(delta)) await Db23CanPGMe.ReadAsync(plc, delta);
-                if (Db26WIs.NeedRead(delta)) await Db26WIs.ReadAsync(plc, delta);
-                if (Db26ReadTG.NeedRead(delta)) await Db26ReadTG.ReadAsync(plc, delta);
-                #endregion
-
-                #region TG Trộn
-                try
-                {
-                    if (Db29SetMixerTime.NeedRead(delta))
-                    {
-                        await Db29SetMixerTime.ReadAsync(plc, delta);
-                        await Db29SetMixerTime.WriteAsync(plc, delta);
-                    }
-                    //if (Db42ReadTG.NeedRead(delta))
-                    //{
-                    //    await Db42ReadTG.ReadAsync(plc, delta);
-                    //}
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine($"{DateTime.Now:HH:mm:ss.fff} Lỗi đọc Db thời gian trộn: {ex.Message}");
                 }
                 #endregion
 
@@ -170,9 +100,15 @@ namespace TronBeTongV3.Comm.S71200
                     if (n > 0)
                         Db26Khac.ForceRead = true;
                 }
+                if (Db26WIs.NeedRead(delta)) await Db26WIs.ReadAsync(plc, delta);
                 #endregion
 
                 if (Db29ThamSo.NeedRead(delta))
+                {
+                    await Db29ThamSo.ReadAsync(plc, delta);
+                    await Db29ThamSo.WriteAsync(plc, delta);
+                }
+                if (Db29HMI.NeedRead(delta))
                 {
                     await Db29ThamSo.ReadAsync(plc, delta);
                     await Db29ThamSo.WriteAsync(plc, delta);
@@ -191,7 +127,7 @@ namespace TronBeTongV3.Comm.S71200
             Db43CP.ClearWriteCmds();
             Db09MeDat.ClearWriteCmds();
             Db29ThamSo.ClearWriteCmds();
-            // Db26ReadTG.ClearWriteCmds(); // Không ghi
+            Db29HMI.ClearWriteCmds();
 
             Db26ThamSo.ClearWriteCmds();
             Db26Khac.ClearWriteCmds();
@@ -206,18 +142,17 @@ namespace TronBeTongV3.Comm.S71200
             Db43KLMe.UpdateViewT = 0;
             Db43KLMe.ForceRead = true;
 
-            Db26WIs.UpdateViewT = 0;
-            Db26WIs.ForceRead = true;
-
             Db29ThamSo.UpdateViewT = 0;
             Db29ThamSo.ForceRead = true;
-            Db26ReadTG.UpdateViewT = 0;
-            Db26ReadTG.ForceRead = true;
+            Db29HMI.UpdateViewT = 0;
+            Db29HMI.ForceRead = true;
 
             Db26ThamSo.UpdateViewT = 0;
             Db26ThamSo.ForceRead = true;
             Db26Khac.UpdateViewT = 0;
             Db26Khac.ForceRead = true;
+            Db26WIs.UpdateViewT = 0;
+            Db26WIs.ForceRead = true;
         }
 
         public void MarkUpdateView()
@@ -228,7 +163,7 @@ namespace TronBeTongV3.Comm.S71200
             Db26WIs.UpdateViewT = Db26WIs.T;
 
             Db29ThamSo.UpdateViewT = Db29ThamSo.T;
-            Db26ReadTG.UpdateViewT = Db26ReadTG.T;
+            Db29HMI.UpdateViewT = Db29ThamSo.T;
 
             Db26ThamSo.UpdateViewT = Db26ThamSo.T;
             Db26Khac.UpdateViewT = Db26Khac.T;

@@ -150,66 +150,49 @@ namespace TronBeTongV3.Comm
             AddLink(CheDoXaBeTong, _plc.M100, _plc.M100.ModeDischargeConcrete);
             AddLink(CheDoCan, _plc.M100, _plc.M100.ModeWeight);
             AddLink(CheDoSkip, _plc.M100, _plc.M100.ModeSkip);
-
-            AddLink(MixerSetTGTron, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGTron);
-            AddLink(MixerSetTGXa, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGXa);
-            AddLink(MixerSetTGXaNua, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGXaNua);
             #endregion
-
-            AddLink(TGLenPheuCLTG, _plc.Db26ReadTG, _plc.Db26ReadTG.TGLenPheuCLTG);
-            AddLink(TGTreMoXaCLTG, _plc.Db26ReadTG, _plc.Db26ReadTG.TGTreMoXaCLTG);
 
 
             #region Tham số thời gian
             var db29 = _plc.Db29ThamSo;
-            AddLink(TreKhoiDongCL1, db29, db29.TreKhoiDongCL1);
-            AddLink(TreKhoiDongCL2, db29, db29.TreKhoiDongCL2);
-            AddLink(TreKhoiDongCL3, db29, db29.TreKhoiDongCL3);
-            //AddLink(TreKhoiDongCL4, db29, db29.TreKhoiDongCL4);
-            //AddLink(TreKhoiDongCL5, db28, db28.TreKhoiDongCL5);
-            //AddLink(TreKhoiDongCL6, db28, db28.TreKhoiDongCL6);
-            AddLink(TreKhoiDongXM1, db29, db29.TreKhoiDongXM1);
-            AddLink(TreKhoiDongXM2, db29, db29.TreKhoiDongXM2);
-            AddLink(TreKhoiDongNuoc, db29, db29.TreKhoiDongNuoc);
-            AddLink(TreKhoiDongPG1, db29, db29.TreKhoiDongPG1);
+            AddLink(TreKhoiDongCL1, db29, db29.TreKhoiDongCL[0]);
+            AddLink(TreKhoiDongCL2, db29, db29.TreKhoiDongCL[1]);
+            AddLink(TreKhoiDongCL3, db29, db29.TreKhoiDongCL[2]);
+            AddLink(TreKhoiDongXM1, db29, db29.TreKhoiDongXM[0]);
+            AddLink(TreKhoiDongXM2, db29, db29.TreKhoiDongXM[1]);
+            AddLink(TreKhoiDongNuoc, db29, db29.TreKhoiDongNuoc[0]);
+            //AddLink(TreKhoiDongNuoc2, db29, db29.TreKhoiDongNuoc[0]);
+            AddLink(TreKhoiDongPG1, db29, db29.TreKhoiDongPG[1]);
+            //AddLink(TreKhoiDongPG2, db29, db29.TreKhoiDongPG[1]);
 
-            AddLink(TreXaCanCL1, db29, db29.TreXaCanCL1);
-            //AddLink(TreXaCanCL2, db29, db29.TreXaCanCL2);
-            //AddLink(TreXaCanCL3, db29, db29.TreXaCanCL3);
-            //AddLink(TreXaCanCL4, db29, db29.TreXaCanCL4);
-            //AddLink(TreXaCanCL5, db28, db28.TreXaCanCL5);
-            //AddLink(TreXaCanCL6, db28, db28.TreXaCanCL6);
-            AddLink(TreXaCanXM1, db29, db29.TreXaCanXM1);
-            AddLink(TreXaCanXM2, db29, db29.TreXaCanXM2);
-            AddLink(TreXaCanNuoc, db29, db29.TreXaCanNuoc);
-            AddLink(TreXaCanPG1, db29, db29.TreXaCanPG1);
+            AddLink(TreXaCanCL1, db29, db29.TreXaCanCL[0]);
+            AddLink(TreXaCanCL2, db29, db29.TreXaCanCL[1]);
+            AddLink(TreXaCanCL3, db29, db29.TreXaCanCL[2]);
+            AddLink(TreXaCanXM1, db29, db29.TreXaCanXM[0]);
+            AddLink(TreXaCanXM2, db29, db29.TreXaCanXM[1]);
+            AddLink(TreXaCanNuoc, db29, db29.TreXaCanNuoc[0]);
+            AddLink(TreXaCanPG1, db29, db29.TreXaCanPG[0]);
 
-            AddLink(TGVaoBTXCL1, db29, db29.TGVaoBTXCL1);
-            AddLink(TGVaoBTXCL2, db29, db29.TGVaoBTXCL2);
-            AddLink(TGVaoBTXCL3, db29, db29.TGVaoBTXCL3);
-            AddLink(TGVaoBTXCL4, db29, db29.TGVaoBTXCL4);
-            //AddLink(TGVaoBTXCL5, db29, db29.TGVaoBTXCL5);
-            //AddLink(TGVaoBTXCL6, db29, db29.TGVaoBTXCL6);
+            AddLink(TGVaoBTXCL1, db29, db29.TGVaoBTXCL[0]);
+            AddLink(TGVaoBTXCL2, db29, db29.TGVaoBTXCL[1]);
+            AddLink(TGVaoBTXCL3, db29, db29.TGVaoBTXCL[2]);
+            //AddLink(TGVaoBTXCL4, db29, db29.TGVaoBTXCL[3]);
+            //AddLink(TGVaoBTXCL5, db29, db29.TGVaoBTXCL[4]);
 
-            AddLink(TreDongCuaXaCL1, db29, db29.TreDongCuaXaCl1);
-            AddLink(TreDongCuaXaCL2, db29, db29.TreDongCuaXaCl2);
-            AddLink(TreDongCuaXaCL3, db29, db29.TreDongCuaXaCl3);
-            //AddLink(TreDongCuaXaCL4, db29, db29.TreDongCuaXaCl4);
-            //AddLink(TreDongCuaXaCL5, db28, db28.TreDongCuaXaCl5);
-            //AddLink(TreDongCuaXaCL6, db28, db28.TreDongCuaXaCl6);
-            AddLink(TreDongCuaXaXM1, db29, db29.TreDongCuaXaXM1);
-            AddLink(TreDongCuaXaXM2, db29, db29.TreDongCuaXaXM2);
-            AddLink(TreDongCuaXaNuoc, db29, db29.TreDongCuaXaNuoc);
-            AddLink(TreDongCuaXaPG1, db29, db29.TreDongCuaXaPG1);
+            AddLink(TreDongCuaXaCL1, db29, db29.TreDongCuaXaCL[0]);
+            AddLink(TreDongCuaXaCL2, db29, db29.TreDongCuaXaCL[1]);
+            AddLink(TreDongCuaXaCL3, db29, db29.TreDongCuaXaCL[2]);
+            AddLink(TreDongCuaXaXM1, db29, db29.TreDongCuaXaXM[0]);
+            AddLink(TreDongCuaXaXM2, db29, db29.TreDongCuaXaXM[1]);
+            AddLink(TreDongCuaXaNuoc, db29, db29.TreDongCuaXaNuoc[0]);
+            AddLink(TreDongCuaXaPG1, db29, db29.TreDongCuaXaPG[0]);
 
-            AddLink(TGChuTrinhXaCL1, db29, db29.TGChuTrinhXaCL1);
-            AddLink(TGChuTrinhXaCL2, db29, db29.TGChuTrinhXaCL2);
-            AddLink(TGChuTrinhXaCL3, db29, db29.TGChuTrinhXaCL3);
-            //AddLink(TGChuTrinhXaCL4, db29, db29.TGChuTrinhXaCL4);
-            AddLink(TGMoXaCL1, db29, db29.TGMoXaCL1);
-            AddLink(TGMoXaCL2, db29, db29.TGMoXaCL2);
-            AddLink(TGMoXaCL3, db29, db29.TGMoXaCL3);
-            //AddLink(TGMoXaCL4, db29, db29.TGMoXaCL4);
+            AddLink(TGChuTrinhXaCL1, db29, db29.TGDongNhayCL[0]);
+            AddLink(TGChuTrinhXaCL2, db29, db29.TGDongNhayCL[1]);
+            AddLink(TGChuTrinhXaCL3, db29, db29.TGDongNhayCL[2]);
+            AddLink(TGMoXaCL1, db29, db29.TGMoNhayCL[0]);
+            AddLink(TGMoXaCL2, db29, db29.TGMoNhayCL[1]);
+            AddLink(TGMoXaCL3, db29, db29.TGMoNhayCL[2]);
 
             AddLink(TGTreDungBTXMeCuoi, db29, db29.TGTreDungBTXMeCuoi);
             AddLink(SetTGLenPheuCLTG, db29, db29.TGCLDiQuaBTX);
@@ -227,18 +210,21 @@ namespace TronBeTongV3.Comm
             #endregion
 
             #region Rung và sục khí
-            AddLink(SucKhiTimerOn, db29, db29.SucKhiTimerOn);
-            AddLink(SucKhiTimerCycle, db29, db29.SucKhiCycle);
-            AddLink(RungCL1On, db29, db29.RungCL1On);
-            AddLink(RungCL1Cycle, db29, db29.RungCL1Cycle);
-            AddLink(RungCL2On, db29, db29.RungCL2On);
-            AddLink(RungCL2Cycle, db29, db29.RungCL2Cycle);
-            AddLink(RungCL3On, db29, db29.RungCL3On);
-            AddLink(RungCL3Cycle, db29, db29.RungCL3Cycle);
-            AddLink(RungTCXM1On, db29, db29.RungTCXM1On);
-            AddLink(RungTCXM1Cycle, db29, db29.RungTCXM1Cycle);
-            AddLink(RungTCXM2On, db29, db29.RungTCXM2On);
-            AddLink(RungTCXM2Cycle, db29, db29.RungTCXM2Cycle);
+            AddLink(SucKhiTimerOn, db29, db29.SucKhiTimerOn[0]);
+            AddLink(SucKhiTimerCycle, db29, db29.SucKhiTimerOff[0]);
+
+            AddLink(RungCL1On, db29, db29.RungCLOn[0]);
+            AddLink(RungCL1Cycle, db29, db29.RungCLCycle[0]);
+            AddLink(RungCL2On, db29, db29.RungCLOn[1]);
+            AddLink(RungCL2Cycle, db29, db29.RungCLCycle[1]);
+            AddLink(RungCL3On, db29, db29.RungCLOn[2]);
+            AddLink(RungCL3Cycle, db29, db29.RungCLCycle[2]);
+            AddLink(RungTCXM1On, db29, db29.RungTCXMOn[0]);
+            AddLink(RungTCXM1Cycle, db29, db29.RungTCXMCycle);
+            AddLink(RungTCXM2On, db29, db29.RungTCXMOn[0]);
+            //AddLink(RungTCXM2Cycle, db29, db29.RungTCXMCycle);            // Dùng chung
+            // TODO: -> sửa giao diện
+            
             AddLink(RungCLTGTre, db29, db29.RungCLTGTre);
             #endregion
 
@@ -246,6 +232,14 @@ namespace TronBeTongV3.Comm
             AddLink(BomMoTGOn, db29, db29.BomMoTGOn);
             AddLink(BomMoTGOff, db29, db29.BomMoTGOff);
             #endregion
+
+
+            var db29HMI = _plc.Db29HMI;
+            //AddLink(MixerSetTGTron, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGTron);
+            //AddLink(MixerSetTGXa, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGXa);
+            //AddLink(MixerSetTGXaNua, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGXaNua);
+            AddLink(TGLenPheuCLTG, db29HMI, db29HMI.TGCotLieuLenCLTG_ET);
+            AddLink(TGTreMoXaCLTG, db29HMI, db29HMI.TGMoXaCLTG_ET);
 
             #region Db26
             var db26 = _plc.Db26ThamSo;
@@ -407,7 +401,7 @@ namespace TronBeTongV3.Comm
             {
                 _plc.Db26ThamSo.Cycle = 0.2;
 
-                _plc.Db29SetMixerTime.Cycle = -1;
+                _plc.Db29HMI.Cycle = -1;
                 _plc.Db29ThamSo.Cycle = 0.2;
             }
             else
@@ -415,7 +409,7 @@ namespace TronBeTongV3.Comm
                 _plc.Db26ThamSo.Cycle = -1;
                 _plc.Db26ThamSo.ForceRead = true;
                 
-                _plc.Db29SetMixerTime.Cycle = 0.2;
+                _plc.Db29HMI.Cycle = 0.2;
                 _plc.Db29ThamSo.Cycle = -1;
                 _plc.Db29ThamSo.ForceRead = true;
             }

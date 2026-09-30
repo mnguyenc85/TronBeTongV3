@@ -21,7 +21,7 @@ namespace TronBeTongV3.Comm.S71200
         public PlcTag[] PG_KL { get; private set; } = new PlcTag[2];
         public PlcTag[] PG_Me { get; private set; } = new PlcTag[2];
 
-        public Db26_WIs() : base(26, 50, 244)
+        public Db26_WIs() : base(26, 430 - 342, 342)
         {
             for (int i = 0; i < 5; i++)
             {
