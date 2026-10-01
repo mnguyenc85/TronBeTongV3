@@ -607,6 +607,10 @@ namespace TronBeTongV3
         {
             SetAppZoom(0.75);
         }
+        private void MniViewZoom90_Click(object sender, RoutedEventArgs e)
+        {
+            SetAppZoom(0.9);
+        }
 
         private void MniViewZoom100_Click(object sender, RoutedEventArgs e)
         {

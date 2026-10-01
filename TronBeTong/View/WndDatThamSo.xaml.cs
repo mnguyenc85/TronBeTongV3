@@ -218,9 +218,9 @@ namespace TronBeTongV3.View
                 #endregion
 
                 #region Hiệu chuẩn cân
-                WICalibCL1.SetTags(TramTron, TramTron.CLCanAI, TramTron.CanCLs[0].KL, TramTron.CLCanZero, TramTron.CLCanSpan);
-                //WICalibCL2.SetTags(TramTron, TramTron.CLCanAI, TramTron.CLCanKL, TramTron.CLCanZero, TramTron.CLCanSpan);
-                //WICalibCL3.SetTags(TramTron, TramTron.CLCanAI, TramTron.CLCanKL, TramTron.CLCanZero, TramTron.CLCanSpan);
+                WICalibCL1.SetTags(TramTron, TramTron.CL1CanAI, TramTron.CanCLs[0].KL, TramTron.CL1CanZero, TramTron.CL1CanSpan);
+                WICalibCL2.SetTags(TramTron, TramTron.CL2CanAI, TramTron.CanCLs[1].KL, TramTron.CL2CanZero, TramTron.CL2CanSpan);
+                WICalibCL3.SetTags(TramTron, TramTron.CL3CanAI, TramTron.CanCLs[2].KL, TramTron.CL3CanZero, TramTron.CL3CanSpan);
                 WICalibXM1.SetTags(TramTron, TramTron.XiCanAI, TramTron.CanXMs[0].KL, TramTron.XiCanZero, TramTron.XiCanSpan);
                 WICalibPG.SetTags(TramTron, TramTron.PGCanAI, TramTron.CanPGs[0].KL, TramTron.PGCanZero, TramTron.PGCanSpan);
                 //WICalibXM2.SetTags(TramTron, TramTron.XiCanAI, TramTron.XiCanKL, TramTron.XiCanZero, TramTron.XiCanSpan);
@@ -289,8 +289,8 @@ namespace TronBeTongV3.View
                 //foreach(var t in _textboxes) { t.UpdateView(delta); }
 
                 WICalibCL1.Update();
-                //WICalibCL2.Update();
-                //WICalibCL3.Update();
+                WICalibCL2.Update();
+                WICalibCL3.Update();
                 WICalibXM1.Update();
                 //WICalibXM2.Update();
                 WICalibWater.Update();
