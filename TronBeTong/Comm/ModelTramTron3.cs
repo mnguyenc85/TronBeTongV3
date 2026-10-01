@@ -352,9 +352,15 @@ namespace TronBeTongV3.Comm
 
             var db26c = _plc.Db26Cablib;
             #region Hiệu chuẩn
-            AddLink(CLCanAI, db26c, db26c.CalibCL1AI);
-            AddLink(CLCanZero, db26c, db26c.CalibCL1Zero);
-            AddLink(CLCanSpan, db26c, db26c.CalibCL1Span);
+            AddLink(CL1CanAI, db26c, db26c.CalibCL1AI);
+            AddLink(CL1CanZero, db26c, db26c.CalibCL1Zero);
+            AddLink(CL1CanSpan, db26c, db26c.CalibCL1Span);
+            AddLink(CL2CanAI, db26c, db26c.CalibCL2AI);
+            AddLink(CL2CanZero, db26c, db26c.CalibCL2Zero);
+            AddLink(CL2CanSpan, db26c, db26c.CalibCL2Span);
+            AddLink(CL3CanAI, db26c, db26c.CalibCL3AI);
+            AddLink(CL3CanZero, db26c, db26c.CalibCL3Zero);
+            AddLink(CL3CanSpan, db26c, db26c.CalibCL3Span);
 
             AddLink(XiCanAI, db26c, db26c.CalibXM1AI);
             AddLink(XiCanZero, db26c, db26c.CalibXM1Zero);

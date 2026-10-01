@@ -198,10 +198,18 @@ namespace TronBeTongV3.Comm
         #endregion
 
         #region Calibration
-        public ModelTag CLCanAI { get; private set; } = new ModelTag("Calib.CanCL.AI");
-        //public ModelTag CLCanKL { get; private set; } = new ModelTag("Calib.CanCL.KL");
-        public ModelTag CLCanZero { get; private set; } = new ModelTag("Calib.CanCL.Zero");
-        public ModelTag CLCanSpan { get; private set; } = new ModelTag("Calib.CanCL.Span");
+        public ModelTag CL1CanAI { get; private set; } = new ModelTag("Calib.CanCL1.AI");
+        //public ModelTag CLCanKL { get; private set; } = new ModelTag("Calib.CanCL1.KL");
+        public ModelTag CL1CanZero { get; private set; } = new ModelTag("Calib.CanCL1.Zero");
+        public ModelTag CL1CanSpan { get; private set; } = new ModelTag("Calib.CanCL1.Span");
+        public ModelTag CL2CanAI { get; private set; } = new ModelTag("Calib.CanCL2.AI");
+        //public ModelTag CLCanKL { get; private set; } = new ModelTag("Calib.CanCL2.KL");
+        public ModelTag CL2CanZero { get; private set; } = new ModelTag("Calib.CanCL2.Zero");
+        public ModelTag CL2CanSpan { get; private set; } = new ModelTag("Calib.CanCL2.Span");
+        public ModelTag CL3CanAI { get; private set; } = new ModelTag("Calib.CanCL3.AI");
+        //public ModelTag CLCanKL { get; private set; } = new ModelTag("Calib.CanCL3.KL");
+        public ModelTag CL3CanZero { get; private set; } = new ModelTag("Calib.CanCL3.Zero");
+        public ModelTag CL3CanSpan { get; private set; } = new ModelTag("Calib.CanCL3.Span");
 
         public ModelTag XiCanAI { get; private set; } = new ModelTag("Calib.CanXi.AI");
         //public ModelTag XiCanKL { get; private set; } = new ModelTag("Calib.CanXi.KL");
