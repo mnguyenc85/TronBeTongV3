@@ -197,9 +197,6 @@ namespace TronBeTongV3.Comm
             AddLink(TGTreDungBTXMeCuoi, db29, db29.TGTreDungBTXMeCuoi);
             AddLink(SetTGLenPheuCLTG, db29, db29.TGCLDiQuaBTX);
             AddLink(SetTGTreMoXaCLTG, db29, db29.TGMoThungCLTG);
-            AddLink(PrTGTronBeTong, db29, db29.TGTronBeTong);
-            AddLink(PrTGTreMoCoiTron, db29, db29.TGTreMoCoiTron);
-            AddLink(PrTGTreMoCoiTronHalf, db29, db29.TGTreMoCoiTronHalf);
             AddLink(TGChuTrinhDamRung, db29, db29.TGChuTrinhDamRung);
             AddLink(TGBatDamRung, db29, db29.TGBatDamRung);
 
@@ -235,11 +232,14 @@ namespace TronBeTongV3.Comm
 
 
             var db29HMI = _plc.Db29HMI;
-            //AddLink(MixerSetTGTron, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGTron);
-            //AddLink(MixerSetTGXa, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGXa);
-            //AddLink(MixerSetTGXaNua, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGXaNua);
+            AddLink(MixerTGTron, db29HMI, db29HMI.TGTronBeTong_ET);
+            AddLink(MixerTGXa, db29HMI, db29HMI.TGTreMoCoiTron_ET);
+            AddLink(MixerTGXaNua, db29HMI, db29HMI.TGTreMoCoiTronHalf_ET);
             AddLink(TGLenPheuCLTG, db29HMI, db29HMI.TGCotLieuLenCLTG_ET);
             AddLink(TGTreMoXaCLTG, db29HMI, db29HMI.TGMoXaCLTG_ET);
+            AddLink(MixerSetTGTron, db29HMI, db29HMI.TGTronBeTong);
+            AddLink(MixerSetTGXa, db29HMI, db29HMI.TGTreMoCoiTron);
+            AddLink(MixerSetTGXaNua, db29HMI, db29HMI.TGTreMoCoiTronHalf);
 
             #region Db26
             var db26 = _plc.Db26ThamSo;
@@ -346,9 +346,15 @@ namespace TronBeTongV3.Comm
             #endregion
             #endregion
             #region Hiệu chuẩn
-            AddLink(CLCanAI, db26, db26.CalibCLAIs[0]);
-            AddLink(CLCanZero, db26, db26.CalibCLZeroes[0]);
-            AddLink(CLCanSpan, db26, db26.CalibCLSpans[0]);
+            AddLink(CL1CanAI, db26, db26.CalibCLAIs[0]);
+            AddLink(CL1CanZero, db26, db26.CalibCLZeroes[0]);
+            AddLink(CL1CanSpan, db26, db26.CalibCLSpans[0]);
+            AddLink(CL2CanAI, db26, db26.CalibCLAIs[1]);
+            AddLink(CL2CanZero, db26, db26.CalibCLZeroes[1]);
+            AddLink(CL2CanSpan, db26, db26.CalibCLSpans[1]);
+            AddLink(CL3CanAI, db26, db26.CalibCLAIs[2]);
+            AddLink(CL3CanZero, db26, db26.CalibCLZeroes[2]);
+            AddLink(CL3CanSpan, db26, db26.CalibCLSpans[2]);
 
             AddLink(XiCanAI, db26, db26.CalibXMAIs[0]);
             AddLink(XiCanZero, db26, db26.CalibXMZeroes[0]);
@@ -362,15 +368,17 @@ namespace TronBeTongV3.Comm
             AddLink(NuocCanZero, db26, db26.CalibNuocZeroes[0]);
             AddLink(NuocCanSpan, db26, db26.CalibNuocSpans[0]);
             #endregion
+            
             #region Khác
-            AddLink(MixerTGTron, db26o, db26o.TGTron);
-            AddLink(MixerTGXa, db26o, db26o.TGXa);
-            AddLink(MixerTGXaNua, db26o, db26o.TGXaNua);
+            //AddLink(MixerTGTron, db26o, db26o.TGTron);
+            //AddLink(MixerTGXa, db26o, db26o.TGXa);
+            //AddLink(MixerTGXaNua, db26o, db26o.TGXaNua);
             AddLink(MixerMeHt, db26o, db26o.CoiTronMeHt);
             AddLink(XeSkipTGXaCLDT2, db26o, db26o.TGXaCLDT2);
             AddLink(XM1VitTinh, db26o, db26o.XM1VitTinh);
             AddLink(WaterKeep, db26o, db26o.WaterKeep);
             #endregion
+            
             #endregion
 
             foreach (var (key, link) in _allLinks)

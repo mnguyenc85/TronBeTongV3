@@ -198,10 +198,18 @@ namespace TronBeTongV3.Comm
         #endregion
 
         #region Calibration
-        public ModelTag CLCanAI { get; private set; } = new ModelTag("Calib.CanCL.AI");
+        public ModelTag CL1CanAI { get; private set; } = new ModelTag("Calib.CanCL1.AI");
         //public ModelTag CLCanKL { get; private set; } = new ModelTag("Calib.CanCL.KL");
-        public ModelTag CLCanZero { get; private set; } = new ModelTag("Calib.CanCL.Zero");
-        public ModelTag CLCanSpan { get; private set; } = new ModelTag("Calib.CanCL.Span");
+        public ModelTag CL1CanZero { get; private set; } = new ModelTag("Calib.CanCL1.Zero");
+        public ModelTag CL1CanSpan { get; private set; } = new ModelTag("Calib.CanCL1.Span");
+        public ModelTag CL2CanAI { get; private set; } = new ModelTag("Calib.CanCL2.AI");
+        //public ModelTag CLCanKL { get; private set; } = new ModelTag("Calib.CanCL.KL");
+        public ModelTag CL2CanZero { get; private set; } = new ModelTag("Calib.CanCL2.Zero");
+        public ModelTag CL2CanSpan { get; private set; } = new ModelTag("Calib.CanCL2.Span");
+        public ModelTag CL3CanAI { get; private set; } = new ModelTag("Calib.CanCL3.AI");
+        //public ModelTag CLCanKL { get; private set; } = new ModelTag("Calib.CanCL.KL");
+        public ModelTag CL3CanZero { get; private set; } = new ModelTag("Calib.CanCL3.Zero");
+        public ModelTag CL3CanSpan { get; private set; } = new ModelTag("Calib.CanCL3.Span");
 
         public ModelTag XiCanAI { get; private set; } = new ModelTag("Calib.CanXi.AI");
         //public ModelTag XiCanKL { get; private set; } = new ModelTag("Calib.CanXi.KL");
@@ -819,10 +827,10 @@ namespace TronBeTongV3.Comm
         private void S71200_WriteMixerTG(int tgtron, int tgxa, int tgxanua)
         {
             WriteBytesCmd cmd = new();
-            cmd.AddTag(_plc.Db29SetMixerTime.TGTron, tgtron);
-            cmd.AddTag(_plc.Db29SetMixerTime.TGXaNua, tgxanua);
-            cmd.AddTag(_plc.Db29SetMixerTime.TGXa, tgxa);
-            _plc.Db29SetMixerTime.AddWriteBytesCmd(cmd);
+            cmd.AddTag(_plc.Db29HMI.TGTronBeTong, tgtron);
+            cmd.AddTag(_plc.Db29HMI.TGTreMoCoiTronHalf, tgxanua);
+            cmd.AddTag(_plc.Db29HMI.TGTreMoCoiTron, tgxa);
+            _plc.Db29HMI.AddWriteBytesCmd(cmd);
         }
 
         public void S71200_WritePCChoPhepCan()
@@ -881,8 +889,8 @@ namespace TronBeTongV3.Comm
         public void S71200_WriteNuocKeep(double v)
         {
             WriteBytesCmd cmd = new();
-            cmd.AddTag(_plc.Db26ThamSo.WaterKeep, v);
-            _plc.Db26ThamSo.AddWriteBytesCmd(cmd, true);
+            cmd.AddTag(_plc.Db26Khac.WaterKeep, v);
+            _plc.Db26Khac.AddWriteBytesCmd(cmd, true);
         }
 
         public void S71200_WriteMixerWash(double v)

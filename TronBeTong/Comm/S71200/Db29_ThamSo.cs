@@ -6,7 +6,7 @@ namespace TronBeTongV3.Comm.S71200
     public class Db29_ThamSo : PlcDb
     {
         #region Trễ khởi động
-        public PlcTag[] TreKhoiDongCL { get; private set; } = new PlcTag[2];
+        public PlcTag[] TreKhoiDongCL { get; private set; } = new PlcTag[5];
         public PlcTag[] TreKhoiDongXM { get; private set; } = new PlcTag[2];
         public PlcTag[] TreKhoiDongNuoc { get; private set; } = new PlcTag[2];
         public PlcTag[] TreKhoiDongPG { get; private set; } = new PlcTag[2];
@@ -249,7 +249,7 @@ namespace TronBeTongV3.Comm.S71200
                 RungCLOn[i].ParseDb(_buf, StartByteAddr);
                 RungCLCycle[i].ParseDb(_buf, StartByteAddr);
             }
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 2; i++)
             {
                 RungTCXMOn[i].ParseDb(_buf, StartByteAddr);
             }

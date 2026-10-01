@@ -110,8 +110,8 @@ namespace TronBeTongV3.Comm.S71200
                 }
                 if (Db29HMI.NeedRead(delta))
                 {
-                    await Db29ThamSo.ReadAsync(plc, delta);
-                    await Db29ThamSo.WriteAsync(plc, delta);
+                    await Db29HMI.ReadAsync(plc, delta);
+                    await Db29HMI.WriteAsync(plc, delta);
                 }
             }
             catch (Exception ex)
@@ -131,6 +131,7 @@ namespace TronBeTongV3.Comm.S71200
 
             Db26ThamSo.ClearWriteCmds();
             Db26Khac.ClearWriteCmds();
+            // Db26WIs.ClearWriteCmds(); // chỉ đọc
         }
 
         public void Reset()
@@ -160,12 +161,12 @@ namespace TronBeTongV3.Comm.S71200
             Db43CP.UpdateViewT = Db43CP.T;
             Db43KLMe.UpdateViewT = Db43KLMe.T;
             Db09MeDat.UpdateViewT = Db09MeDat.T;
-            Db26WIs.UpdateViewT = Db26WIs.T;
 
             Db29ThamSo.UpdateViewT = Db29ThamSo.T;
             Db29HMI.UpdateViewT = Db29ThamSo.T;
 
             Db26ThamSo.UpdateViewT = Db26ThamSo.T;
+            Db26WIs.UpdateViewT = Db26WIs.T;
             Db26Khac.UpdateViewT = Db26Khac.T;
         }
 

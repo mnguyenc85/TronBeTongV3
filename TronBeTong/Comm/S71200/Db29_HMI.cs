@@ -14,10 +14,14 @@ namespace TronBeTongV3.Comm.S71200
         public PlcTag TGTreMoCoiTronHalf_ET { get; private set; } = new PlcTag(TagTypes.Int16, 184);
         public PlcTag TGTreMoCoiTron_ET { get; private set; } = new PlcTag(TagTypes.Int16, 186);
         public PlcTag TGTreXaXeSkip_ET { get; private set; } = new PlcTag(TagTypes.Int16, 188);
+        
+        public PlcTag TGTronBeTong { get; private set; } = new PlcTag(TagTypes.Int16, 194);
+        public PlcTag TGTreMoCoiTronHalf { get; private set; } = new PlcTag(TagTypes.Int16, 196);
+        public PlcTag TGTreMoCoiTron { get; private set; } = new PlcTag(TagTypes.Int16, 198);
 
-        public Db29_HMI() : base(29, 190 - 178, 178)
+        public Db29_HMI() : base(29, 22, 178)
         {
-
+            Cycle = 0.4;
         }
 
         public override async Task ReadAsync(Plc plc, double delta)
@@ -31,6 +35,10 @@ namespace TronBeTongV3.Comm.S71200
             TGTreMoCoiTronHalf_ET.ParseDb(_buf, StartByteAddr);
             TGTreMoCoiTron_ET.ParseDb(_buf, StartByteAddr);
             TGTreXaXeSkip_ET.ParseDb(_buf, StartByteAddr);
+
+            TGTronBeTong.ParseDb(_buf, StartByteAddr);
+            TGTreMoCoiTronHalf.ParseDb(_buf, StartByteAddr);
+            TGTreMoCoiTron.ParseDb(_buf, StartByteAddr);
 
             T = DateTime.Now.Ticks;
 
