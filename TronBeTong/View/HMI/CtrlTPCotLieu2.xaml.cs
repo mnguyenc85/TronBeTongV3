@@ -57,8 +57,8 @@ namespace TronBeTongV3.View
             }
 
             WsTotalCL1.SiloIndices.Add(0);
-            WsTotalCL1.SiloIndices.Add(1);
-            WsTotalCL1.SiloIndices.Add(2);
+            WsTotalCL2.SiloIndices.Add(1);
+            WsTotalCL3.SiloIndices.Add(2);
             //WsTotalCL3.SiloIndices.Add(3);
             WsTotalCL1.ZShowDischargeTime = false;
             WsTotalCL2.ZShowDischargeTime = false;

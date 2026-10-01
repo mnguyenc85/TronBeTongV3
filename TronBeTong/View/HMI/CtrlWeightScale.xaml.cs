@@ -96,6 +96,9 @@ namespace TronBeTongV3.View
         public int TTCan0 { get { return _ttcan0; } }
 
         public int Id { get; set; }
+        /// <summary>
+        /// 0: Xi; 1: Cốt liệu; 2: Nước; 3: PG
+        /// </summary>
         public int LoaiCan { get; set; } = -1;
         public string DigitFormat { get; set; } = "0.0";
         public event EventHandler<ButtonArgs>? ButtonClicked;

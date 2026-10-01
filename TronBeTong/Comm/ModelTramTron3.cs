@@ -7,7 +7,7 @@ namespace TronBeTongV3.Comm
     /// </summary>
     public class ModelTramTron3: ModelHeThong
     {
-        public override WeightIndicatorState WIState { get; protected set; } = WeightIndicatorState.GetWIS_SonLa();
+        public override WeightIndicatorState WIState { get; protected set; } = WeightIndicatorState.GetWIS_ThanhTri();
 
         public ModelTramTron3() : base()
         {
