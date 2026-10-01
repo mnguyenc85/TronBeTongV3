@@ -2,6 +2,7 @@ from typing import List
 import ctypes
 import utils
 import tpcan, tpsilo
+import random
 
 PLCM = (ctypes.c_ubyte * 1001)()
 DB09 = (ctypes.c_ubyte * 6)()
@@ -114,6 +115,8 @@ class CTramTron:
     self.bReset0 = bReset
     self.bStart0 = bStart
 
+    self.test_mp_klcan()
+
   def dung_he_thong(self):    
     self.TPCL1.stop()
     self.TPXM1.stop()
@@ -197,3 +200,17 @@ class CTramTron:
     if self.TPPG1.check_xa_xong(0.1):
       self.TPPG1.stop_discharge()
       self.TPPG1.me_moi()
+
+  def test_mp_klcan(self):
+    # cốt liệu
+    for i in range(5):
+      kl = i * 10 + random.random() * (i + 1) * 2
+      utils.float2db(kl, DB26, 352 + i * 4)
+    # xi măng
+    for i in range(2):
+      kl = i * 10 + random.random() * (i + 1) * 2
+      utils.float2db(kl, DB26, 386 + i * 4)
+    # nước
+    for i in range(2):
+      kl = i * 10 + random.random() * (i + 1) * 2
+      utils.float2db(kl, DB26, 402 + i * 4)

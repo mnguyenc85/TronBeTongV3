@@ -33,15 +33,15 @@ namespace TronBeTongV3.Comm.S71200
             for (int i = 0; i < 2; i++)
             {
                 XM_TT[i] = new PlcTag(TagTypes.Int16, 382 + i * 2);
-                XM_KL[i] = new PlcTag(TagTypes.Int16, 386 + i * 4);
+                XM_KL[i] = new PlcTag(TagTypes.Real, 386 + i * 4);
                 XM_Me[i] = new PlcTag(TagTypes.Int16, 394 + i * 2);
 
                 Nuoc_TT[i] = new PlcTag(TagTypes.Int16, 398 + i * 2);
-                Nuoc_KL[i] = new PlcTag(TagTypes.Int16, 402 + i * 4);
+                Nuoc_KL[i] = new PlcTag(TagTypes.Real, 402 + i * 4);
                 Nuoc_Me[i] = new PlcTag(TagTypes.Int16, 410 + i * 2);
 
                 PG_TT[i] = new PlcTag(TagTypes.Int16, 414 + i * 2);
-                PG_KL[i] = new PlcTag(TagTypes.Int16, 418 + i * 4);
+                PG_KL[i] = new PlcTag(TagTypes.Real, 418 + i * 4);
                 PG_Me[i] = new PlcTag(TagTypes.Int16, 426 + i * 2);
             }
         }
