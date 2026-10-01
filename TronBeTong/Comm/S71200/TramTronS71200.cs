@@ -15,22 +15,8 @@ namespace TronBeTongV3.Comm.S71200
         #endregion
 
         #region Thùng cân
-        //public Db16_CanCl1_TT Db16CanCL1TT { get; private set; } = new();
-        //public Db28_CanCl1_Me Db28CanCL1Me { get; private set; } = new();
-        //public Db19_CanCl2_TT Db19CanCL2TT { get; private set; } = new();
-        //public Db30_CanCl2_Me Db30CanCL2Me { get; private set; } = new();
-        //public Db21_CanCl3_TT Db21CanCL3TT { get; private set; } = new();
-        //public Db31_CanCl3_Me Db27CanCL3Me { get; private set; } = new();
-        //public Db36_CanXM1_TT Db36CanXM1TT { get; private set; } = new();
-        //public Db34_CanXM1_Me Db34CanXM1Me { get; private set; } = new();
-        //public Db90_CanXM2_TT Db90CanXM2TT { get; private set; } = new();
-        //public Db68_CanXM2_Me Db68CanXM2Me { get; private set; } = new();
-        //public Db24_CanNuoc_TT Db24CanNuocTT { get; private set; } = new();
-        //public Db33_CanNuoc_Me Db33CanNuocMe { get; private set; } = new();
-        //public DB35_CanPG_TT Db35CanPGTT { get; private set; } = new();
-        //public Db23_CanPG_Me Db23CanPGMe { get; private set; } = new();
-        
         public Db26_WIs Db26WIs { get; private set; } = new();
+        public Db26_WIs2 Db26WIs2 { get; private set; } = new();
         #endregion
 
         #region TG trộn
@@ -89,27 +75,8 @@ namespace TronBeTongV3.Comm.S71200
                 #endregion
 
                 #region Cân
-                //if (Db16CanCL1TT.NeedRead(delta)) await Db16CanCL1TT.ReadAsync(plc, delta);
-                //if (Db28CanCL1Me.NeedRead(delta)) await Db28CanCL1Me.ReadAsync(plc, delta);
-
-                //if (Db19CanCL2TT.NeedRead(delta)) await Db19CanCL2TT.ReadAsync(plc, delta);
-                //if (Db30CanCL2Me.NeedRead(delta)) await Db30CanCL2Me.ReadAsync(plc, delta);
-
-                //if (Db21CanCL3TT.NeedRead(delta)) await Db21CanCL3TT.ReadAsync(plc, delta);
-                //if (Db27CanCL3Me.NeedRead(delta)) await Db27CanCL3Me.ReadAsync(plc, delta);
-
-                //if (Db36CanXM1TT.NeedRead(delta)) await Db36CanXM1TT.ReadAsync(plc, delta);
-                //if (Db34CanXM1Me.NeedRead(delta)) await Db34CanXM1Me.ReadAsync(plc, delta);
-
-                //if (Db90CanXM2TT.NeedRead(delta)) await Db90CanXM2TT.ReadAsync(plc, delta);
-                //if (Db68CanXM2Me.NeedRead(delta)) await Db68CanXM2Me.ReadAsync(plc, delta);
-
-                //if (Db24CanNuocTT.NeedRead(delta)) await Db24CanNuocTT.ReadAsync(plc, delta);
-                //if (Db33CanNuocMe.NeedRead(delta)) await Db33CanNuocMe.ReadAsync(plc, delta);
-
-                //if (Db35CanPGTT.NeedRead(delta)) await Db35CanPGTT.ReadAsync(plc, delta);
-                //if (Db23CanPGMe.NeedRead(delta)) await Db23CanPGMe.ReadAsync(plc, delta);
                 if (Db26WIs.NeedRead(delta)) await Db26WIs.ReadAsync(plc, delta);
+                if (Db26WIs2.NeedRead(delta)) await Db26WIs2.ReadAsync(plc, delta);
                 if (Db26ReadTG.NeedRead(delta)) await Db26ReadTG.ReadAsync(plc, delta);
                 #endregion
 
@@ -204,11 +171,14 @@ namespace TronBeTongV3.Comm.S71200
             Db43KLMe.UpdateViewT = 0;
             Db43KLMe.ForceRead = true;
 
-            Db26WIs.UpdateViewT = 0;
-            Db26WIs.ForceRead = true;
-
             Db29ThamSo.UpdateViewT = 0;
             Db29ThamSo.ForceRead = true;
+
+            Db26WIs.UpdateViewT = 0;
+            Db26WIs.ForceRead = true;
+            Db26WIs2.UpdateViewT = 0;
+            Db26WIs2.ForceRead = true;
+
             Db26ThamSo.UpdateViewT = 0;
             Db26ThamSo.ForceRead = true;
             Db26Cablib.UpdateViewT = 0;
@@ -224,23 +194,11 @@ namespace TronBeTongV3.Comm.S71200
             Db43KLMe.UpdateViewT = Db43KLMe.T;
             Db09MeDat.UpdateViewT = Db09MeDat.T;
 
-            //Db16CanCL1TT.UpdateViewT = Db16CanCL1TT.T;
-            //Db28CanCL1Me.UpdateViewT = Db28CanCL1Me.T;
-            //Db19CanCL2TT.UpdateViewT = Db19CanCL2TT.T;
-            //Db30CanCL2Me.UpdateViewT = Db30CanCL2Me.T;
-            //Db21CanCL3TT.UpdateViewT = Db21CanCL3TT.T;
-            //Db27CanCL3Me.UpdateViewT = Db27CanCL3Me.T;
-            //Db36CanXM1TT.UpdateViewT = Db36CanXM1TT.T;
-            //Db34CanXM1Me.UpdateViewT = Db34CanXM1Me.T;
-            //Db90CanXM2TT.UpdateViewT = Db90CanXM2TT.T;
-            //Db68CanXM2Me.UpdateViewT = Db68CanXM2Me.T;
-            //Db24CanNuocTT.UpdateViewT = Db24CanNuocTT.T;
-            //Db33CanNuocMe.UpdateViewT = Db33CanNuocMe.T;
-            //Db35CanPGTT.UpdateViewT = Db35CanPGTT.T;
-            //Db23CanPGMe.UpdateViewT = Db23CanPGMe.T;
-            Db26WIs.UpdateViewT = Db26WIs.T;
-
             Db29ThamSo.UpdateViewT = Db29ThamSo.T;
+
+            Db26WIs.UpdateViewT = Db26WIs.T;
+            Db26WIs2.UpdateViewT = Db26WIs2.T;
+
             Db26ThamSo.UpdateViewT = Db26ThamSo.T;
             Db26Cablib.UpdateViewT = Db26Cablib.T;
 

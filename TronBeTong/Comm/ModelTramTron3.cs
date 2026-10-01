@@ -21,6 +21,8 @@ namespace TronBeTongV3.Comm
         protected override void InitLinks()
         {
             var db26 = _plc.Db26ThamSo;
+            var db26wi = _plc.Db26WIs;
+            var db26wi2 = _plc.Db26WIs2;
 
             #region Cấp phối
             var db43 = _plc.Db43CP;
@@ -71,27 +73,35 @@ namespace TronBeTongV3.Comm
             #endregion
 
             #region Cân
-            AddLink(CanCLs[0].TrangThai, _plc.Db26WIs, _plc.Db26WIs.CL_TT);
-            AddLink(CanCLs[0].KL, _plc.Db26WIs, _plc.Db26WIs.CL_KL);
-            AddLink(CanCLs[0].MeHT, _plc.Db26WIs, _plc.Db26WIs.CL_Me);
+            AddLink(CanCLs[0].TrangThai, db26wi, db26wi.CL_TT);
+            AddLink(CanCLs[0].KL, db26wi, db26wi.CL_KL);
+            AddLink(CanCLs[0].MeHT, db26wi, db26wi.CL_Me);
             AddLink(CanCLs[0].OutputValves, _plc.M200, _plc.M200.VanCanCL1);
+            AddLink(CanCLs[1].TrangThai, _plc.Db26WIs, db26wi2.CL2_TT);
+            AddLink(CanCLs[1].KL, db26wi2, db26wi2.CL2_KL);
+            AddLink(CanCLs[1].MeHT, db26wi2, db26wi2.CL2_Me);
+            AddLink(CanCLs[1].OutputValves, _plc.M200, _plc.M200.VanCanCL3);
+            AddLink(CanCLs[2].TrangThai, db26wi2, db26wi2.CL3_TT);
+            AddLink(CanCLs[2].KL, db26wi2, db26wi2.CL3_KL);
+            AddLink(CanCLs[2].MeHT, db26wi2, db26wi2.CL3_Me);
+            AddLink(CanCLs[2].OutputValves, _plc.M200, _plc.M200.VanCanCL3);
 
-            AddLink(CanXMs[0].TrangThai, _plc.Db26WIs, _plc.Db26WIs.XM_TT);
-            AddLink(CanXMs[0].KL, _plc.Db26WIs, _plc.Db26WIs.XM_KL);
-            AddLink(CanXMs[0].MeHT, _plc.Db26WIs, _plc.Db26WIs.XM_Me);
+            AddLink(CanXMs[0].TrangThai, db26wi, db26wi.XM_TT);
+            AddLink(CanXMs[0].KL, db26wi, db26wi.XM_KL);
+            AddLink(CanXMs[0].MeHT, db26wi, db26wi.XM_Me);
             AddLink(CanXMs[0].OutputValves, _plc.M200, _plc.M200.VanCanXM1);
 
-            AddLink(CanNuoc.TrangThai, _plc.Db26WIs, _plc.Db26WIs.Nuoc_TT);
-            AddLink(CanNuoc.KL, _plc.Db26WIs, _plc.Db26WIs.Nuoc_KL);
-            AddLink(CanNuoc.MeHT, _plc.Db26WIs, _plc.Db26WIs.Nuoc_Me);
+            AddLink(CanNuoc.TrangThai, db26wi, db26wi.Nuoc_TT);
+            AddLink(CanNuoc.KL, db26wi, db26wi.Nuoc_KL);
+            AddLink(CanNuoc.MeHT, db26wi, db26wi.Nuoc_Me);
             AddLink(CanNuoc.OutputValves, _plc.M200, _plc.M200.VanCanNuoc);
 
-            AddLink(CanPGs[0].TrangThai, _plc.Db26WIs, _plc.Db26WIs.PG_TT);
-            AddLink(CanPGs[0].KL, _plc.Db26WIs, _plc.Db26WIs.PG_KL);
-            AddLink(CanPGs[0].MeHT, _plc.Db26WIs, _plc.Db26WIs.PG_Me);
+            AddLink(CanPGs[0].TrangThai, db26wi, db26wi.PG_TT);
+            AddLink(CanPGs[0].KL, db26wi, db26wi.PG_KL);
+            AddLink(CanPGs[0].MeHT, db26wi, db26wi.PG_Me);
             AddLink(CanPGs[0].OutputValves, _plc.M200, _plc.M200.VanCanPG);
 
-            AddLink(XeSkipTGXaCLDT2, _plc.Db26WIs, _plc.Db26WIs.TGXaCLDT2);
+            AddLink(XeSkipTGXaCLDT2, db26wi, db26wi.TGXaCLDT2);
             #endregion
 
             #region Van silo
@@ -149,13 +159,13 @@ namespace TronBeTongV3.Comm
             AddLink(CheDoCan, _plc.M100, _plc.M100.ModeWeight);
             AddLink(CheDoSkip, _plc.M100, _plc.M100.ModeSkip);
 
-            AddLink(MixerTGTron, _plc.Db26WIs, _plc.Db26WIs.TGTron);
-            AddLink(MixerTGXa, _plc.Db26WIs, _plc.Db26WIs.TGXa);
-            AddLink(MixerTGXaNua, _plc.Db26WIs, _plc.Db26WIs.TGXaNua);
+            AddLink(MixerTGTron, db26wi, db26wi.TGTron);
+            AddLink(MixerTGXa, db26wi, db26wi.TGXa);
+            AddLink(MixerTGXaNua, db26wi, db26wi.TGXaNua);
             AddLink(MixerSetTGTron, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGTron);
             AddLink(MixerSetTGXa, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGXa);
             AddLink(MixerSetTGXaNua, _plc.Db29SetMixerTime, _plc.Db29SetMixerTime.TGXaNua);
-            AddLink(MixerMeHt, _plc.Db26WIs, _plc.Db26WIs.CoiTronMeHt);
+            AddLink(MixerMeHt, db26wi, db26wi.CoiTronMeHt);
             #endregion
 
             AddLink(TGLenPheuCLTG, _plc.Db26ReadTG, _plc.Db26ReadTG.TGLenPheuCLTG);
