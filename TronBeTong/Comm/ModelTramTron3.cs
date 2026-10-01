@@ -80,7 +80,7 @@ namespace TronBeTongV3.Comm
             AddLink(CanCLs[1].TrangThai, _plc.Db26WIs, db26wi2.CL2_TT);
             AddLink(CanCLs[1].KL, db26wi2, db26wi2.CL2_KL);
             AddLink(CanCLs[1].MeHT, db26wi2, db26wi2.CL2_Me);
-            AddLink(CanCLs[1].OutputValves, _plc.M200, _plc.M200.VanCanCL3);
+            AddLink(CanCLs[1].OutputValves, _plc.M200, _plc.M200.VanCanCL2);
             AddLink(CanCLs[2].TrangThai, db26wi2, db26wi2.CL3_TT);
             AddLink(CanCLs[2].KL, db26wi2, db26wi2.CL3_KL);
             AddLink(CanCLs[2].MeHT, db26wi2, db26wi2.CL3_Me);

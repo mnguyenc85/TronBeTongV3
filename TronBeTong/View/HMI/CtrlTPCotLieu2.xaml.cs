@@ -317,8 +317,8 @@ namespace TronBeTongV3.View
         public bool CheckReset()
         {
             if (WsTotalCL1.MeHT > 0) return false;
-            //if (WsTotalCL2.MeHT > 0) return false;
-            //if (WsTotalCL3.MeHT > 0) return false;
+            if (WsTotalCL2.MeHT > 0) return false;
+            if (WsTotalCL3.MeHT > 0) return false;
             //if (WsTotalCL4.MeHT > 0) return false;
             return true;
         }

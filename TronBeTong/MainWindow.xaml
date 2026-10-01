@@ -188,7 +188,7 @@
 
                         <view:CtrlTPPhuGia x:Name="TPPhuGia" ZNoTP="2" Canvas.Left="260" Canvas.Top="5"/>
 
-                        <view:CtrlMixer x:Name="CtrlMixer1" Canvas.Left="510" Canvas.Top="450"/>
+                        <view:CtrlMixer x:Name="CtrlMixer1" Canvas.Left="510" Canvas.Top="465"/>
                         
                         <view:CtrlMidBin x:Name="CtrlThungCLTG" Canvas.Left="575" Canvas.Top="360" ZFill="#a0f5b04f"/>
                     </Canvas>

@@ -58,6 +58,12 @@ namespace TronBeTongV3.Comm.S71200
             CalibCL1AI.ParseDb(_buf, StartByteAddr);
             CalibCL1Zero.ParseDb(_buf, StartByteAddr);
             CalibCL1Span.ParseDb(_buf, StartByteAddr);
+            CalibCL2AI.ParseDb(_buf, StartByteAddr);
+            CalibCL2Zero.ParseDb(_buf, StartByteAddr);
+            CalibCL2Span.ParseDb(_buf, StartByteAddr);
+            CalibCL3AI.ParseDb(_buf, StartByteAddr);
+            CalibCL3Zero.ParseDb(_buf, StartByteAddr);
+            CalibCL3Span.ParseDb(_buf, StartByteAddr);
 
             CalibXM1AI.ParseDb(_buf, StartByteAddr);
             CalibXM1Zero.ParseDb(_buf, StartByteAddr);

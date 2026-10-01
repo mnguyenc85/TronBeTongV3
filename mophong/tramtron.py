@@ -2,10 +2,11 @@ from typing import List
 import ctypes
 import utils
 import tpcan, tpsilo
+import random
 
 PLCM = (ctypes.c_ubyte * 1001)()
 DB09 = (ctypes.c_ubyte * 6)()
-DB26 = (ctypes.c_ubyte * 378)()
+DB26 = (ctypes.c_ubyte * 394)()
 DB29 = (ctypes.c_ubyte * 208)()
 DB42 = (ctypes.c_ubyte * 16)()
 DB43 = (ctypes.c_ubyte * 292)()
@@ -114,6 +115,8 @@ class CTramTron:
     self.bReset0 = bReset
     self.bStart0 = bStart
 
+    self.sim_calib()
+
   def dung_he_thong(self):    
     self.TPCL1.stop()
     self.TPXM1.stop()
@@ -197,3 +200,20 @@ class CTramTron:
     if self.TPPG1.check_xa_xong(0.1):
       self.TPPG1.stop_discharge()
       self.TPPG1.me_moi()
+
+  def sim_calib(self):
+    ai = random.randint(100, 110)
+    utils.int162db(ai, DB26, 306)
+    ai = random.randint(110, 120)
+    utils.int162db(ai, DB26, 314)
+    ai = random.randint(120, 130)
+    utils.int162db(ai, DB26, 322)
+
+    ai = random.randint(50, 60)
+    utils.int162db(ai, DB26, 346)
+    
+    ai = random.randint(200, 210)
+    utils.int162db(ai, DB26, 362)
+    
+    ai = random.randint(300, 310)
+    utils.int162db(ai, DB26, 370)    

@@ -23,7 +23,7 @@
             <ScaleTransform ScaleX="{Binding AppZoom}" ScaleY="{Binding AppZoom}"/>
         </Grid.LayoutTransform>
 
-        <TabControl FontSize="16" Height="584">
+        <TabControl FontSize="16" Height="644">
             <TabItem Header="Tham số">
                 <Grid Background="WhiteSmoke" Margin="1">
                     <Grid.ColumnDefinitions>
@@ -221,7 +221,7 @@
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
                         <!-- 30 -->
-                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
 
                         <RowDefinition Height="6"/>
@@ -229,9 +229,9 @@
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
 
-                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="6"/>
                         <!-- 6 -->
-                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="30"/>
                         <!-- 30 -->
                         <RowDefinition Height="0"/>
                         <!-- 30 -->
@@ -291,13 +291,13 @@
                     <nmwpfctrl:TextBoxDouble x:Name="TxtTreXaCanNuoc" Grid.Row="3" Grid.Column="9" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtTreXaCanPG1" Grid.Row="3" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
 
-                    <TextBlock Grid.Row="4"  Text="Trễ vào băng tải xiên" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
+                    <TextBlock Grid.Row="4"  Text="Trễ xả cốt liệu vào băng tải" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtVaoBTXCL1" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"
-                                             IsEnabled="False"/>
+                                             />
                     <nmwpfctrl:TextBoxDouble x:Name="TxtVaoBTXCL2" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"
-                                             IsEnabled="False"/>
+                                             />
                     <nmwpfctrl:TextBoxDouble x:Name="TxtVaoBTXCL3" Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" Margin="3 0" Value="0"
-                                             IsEnabled="False"/>
+                                             />
                     <nmwpfctrl:TextBoxDouble x:Name="TxtVaoBTXCL4" Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"
                                              IsEnabled="False"/>
 
@@ -333,15 +333,14 @@
                     <nmwpfctrl:TextBoxDouble x:Name="TxtTGMoXaCL4" Grid.Row="9" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
 
                     <Border Grid.ColumnSpan="12" Grid.Row="10" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
-                    <TextBlock Text="TG trễ dừng BTX mẻ cuối " Grid.Row="11" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgTreDungBTX" Grid.Row="11" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"
-                                             IsEnabled="False"/>
-                    <TextBlock Text="TG CL đi qua BTX " Grid.Row="12" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgCLDiQuaBTX" Grid.Row="12" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"
-                                             IsEnabled="False"/>
-                    <TextBlock Text="TG Mở thùng CL TG " Grid.Row="13" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgMoThungCLTG" Grid.Row="13" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"
-                                             IsEnabled="False"/>
+                    <StackPanel Grid.Row="11" Grid.ColumnSpan="12" Orientation="Horizontal">
+                        <TextBlock Text="TG trễ dừng BTX mẻ cuối " VerticalAlignment="Center" TextAlignment="Right" Width="210"/>
+                        <nmwpfctrl:TextBoxDouble x:Name="TxtTgTreDungBTX" VerticalAlignment="Center" Margin="3 0 6 0" Value="0" Width="68"/>
+                        <TextBlock Text="TG CL đi qua BTX " VerticalAlignment="Center" TextAlignment="Right" Width="210"/>
+                        <nmwpfctrl:TextBoxDouble x:Name="TxtTgCLDiQuaBTX" VerticalAlignment="Center" Margin="3 0 6 0" Value="0" Width="68"/>
+                        <TextBlock Text="TG Mở thùng CL TG " Grid.Row="13" VerticalAlignment="Center" TextAlignment="Right" Width="210"/>
+                        <nmwpfctrl:TextBoxDouble x:Name="TxtTgMoThungCLTG" VerticalAlignment="Center" Margin="3 0 6 0" Value="0" Width="68"/>
+                    </StackPanel>
 
                     <Border Grid.ColumnSpan="12" Grid.Row="14" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
                     <TextBlock Text="TG Trộn bê tông" Grid.Row="15" VerticalAlignment="Center" HorizontalAlignment="Right"/>

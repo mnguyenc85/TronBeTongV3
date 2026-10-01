@@ -152,10 +152,10 @@ namespace TronBeTongV3.View
                 _textboxes.Add(new TagTextBox(TxtTreXaCanNuoc, TramTron, TramTron.TreXaCanNuoc));
                 _textboxes.Add(new TagTextBox(TxtTreXaCanPG1, TramTron, TramTron.TreXaCanPG1));
 
-                //_textboxes.Add(new TagTextBox(TxtVaoBTXCL1, TramTron, TramTron.TGVaoBTXCL1));
-                //_textboxes.Add(new TagTextBox(TxtVaoBTXCL2, TramTron, TramTron.TGVaoBTXCL2));
-                //_textboxes.Add(new TagTextBox(TxtVaoBTXCL3, TramTron, TramTron.TGVaoBTXCL3));
-                //_textboxes.Add(new TagTextBox(TxtVaoBTXCL4, TramTron, TramTron.TGVaoBTXCL4));
+                _textboxes.Add(new TagTextBox(TxtVaoBTXCL1, TramTron, TramTron.TGVaoBTXCL1));
+                _textboxes.Add(new TagTextBox(TxtVaoBTXCL2, TramTron, TramTron.TGVaoBTXCL2));
+                _textboxes.Add(new TagTextBox(TxtVaoBTXCL3, TramTron, TramTron.TGVaoBTXCL3));
+                _textboxes.Add(new TagTextBox(TxtVaoBTXCL4, TramTron, TramTron.TGVaoBTXCL4));
 
                 _textboxes.Add(new TagTextBox(TxtTreDongCuaXaCL1, TramTron, TramTron.TreDongCuaXaCL1));
                 _textboxes.Add(new TagTextBox(TxtTreDongCuaXaCL2, TramTron, TramTron.TreDongCuaXaCL2));
@@ -175,10 +175,10 @@ namespace TronBeTongV3.View
                 _textboxes.Add(new TagTextBox(TxtTGMoXaCL3, TramTron, TramTron.TGMoXaCL3));
                 _textboxes.Add(new TagTextBox(TxtTGMoXaCL4, TramTron, TramTron.TGMoXaCL4));
 
-                //_textboxes.Add(new TagTextBox(TxtTgTreDungBTX, TramTron, TramTron.TGTreDungBTXMeCuoi));
-                //_textboxes.Add(new TagTextBox(TxtTgCLDiQuaBTX, TramTron, TramTron.SetTGLenPheuCLTG));
-                //_textboxes.Add(new TagTextBox(TxtTgMoThungCLTG, TramTron, TramTron.SetTGTreMoXaCLTG));
-                
+                _textboxes.Add(new TagTextBox(TxtTgTreDungBTX, TramTron, TramTron.TGTreDungBTXMeCuoi));
+                _textboxes.Add(new TagTextBox(TxtTgCLDiQuaBTX, TramTron, TramTron.SetTGLenPheuCLTG));
+                _textboxes.Add(new TagTextBox(TxtTgMoThungCLTG, TramTron, TramTron.SetTGTreMoXaCLTG));
+
                 _textboxes.Add(new TagTextBox(TxtTgTronBeTong, TramTron, TramTron.PrTGTronBeTong));
                 _textboxes.Add(new TagTextBox(TxtTgTreMoCTHalf, TramTron, TramTron.PrTGTreMoCoiTronHalf));
                 _textboxes.Add(new TagTextBox(TxtTgTreMoCT, TramTron, TramTron.PrTGTreMoCoiTron));
@@ -395,6 +395,16 @@ namespace TronBeTongV3.View
             }
         }
 
+        private void ChkEnVitTinh1_Checked(object sender, RoutedEventArgs e)
+        {
+            LblVitTinh1.Text = "1";
+        }
+
+        private void ChkEnVitTinh1_Unchecked(object sender, RoutedEventArgs e)
+        {
+            LblVitTinh1.Text = "2";
+        }
+
         #region INotifyPropertyChanged
         private readonly Dictionary<string, PropertyChangedEventArgs> _argsCache = [];
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -414,15 +424,5 @@ namespace TronBeTongV3.View
             PropertyChanged?.Invoke(this, e);
         }
         #endregion
-
-        private void ChkEnVitTinh1_Checked(object sender, RoutedEventArgs e)
-        {
-            LblVitTinh1.Text = "1";
-        }
-
-        private void ChkEnVitTinh1_Unchecked(object sender, RoutedEventArgs e)
-        {
-            LblVitTinh1.Text = "2";
-        }
     }
 }
