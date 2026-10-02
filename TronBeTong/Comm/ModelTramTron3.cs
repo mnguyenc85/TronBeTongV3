@@ -173,11 +173,11 @@ namespace TronBeTongV3.Comm
             AddLink(TreXaCanNuoc, db29, db29.TreXaCanNuoc[0]);
             AddLink(TreXaCanPG1, db29, db29.TreXaCanPG[0]);
 
-            AddLink(TGVaoBTXCL1, db29, db29.TGVaoBTXCL[0]);
-            AddLink(TGVaoBTXCL2, db29, db29.TGVaoBTXCL[1]);
-            AddLink(TGVaoBTXCL3, db29, db29.TGVaoBTXCL[2]);
-            //AddLink(TGVaoBTXCL4, db29, db29.TGVaoBTXCL[3]);
-            //AddLink(TGVaoBTXCL5, db29, db29.TGVaoBTXCL[4]);
+            AddLink(TreXaCL1XuongBT, db29, db29.TGTreXaCLXuongBangTai[0]);
+            AddLink(TreXaCL2XuongBT, db29, db29.TGTreXaCLXuongBangTai[1]);
+            AddLink(TreXaCL3XuongBT, db29, db29.TGTreXaCLXuongBangTai[2]);
+            //AddLink(TreXaCL4XuongBT, db29, db29.TGTreXaCLXuongBangTai[3]);
+            //AddLink(TreXaCL5XuongBT, db29, db29.TGTreXaCLXuongBangTai[5]);
 
             AddLink(TreDongCuaXaCL1, db29, db29.TreDongCuaXaCL[0]);
             AddLink(TreDongCuaXaCL2, db29, db29.TreDongCuaXaCL[1]);

@@ -330,15 +330,6 @@ namespace TronBeTongV3.Comm
         public ModelTag TreXaCanPG1 { get; private set; } = new ModelTag("Pr.TreXaCan.PG1");
         #endregion
 
-        #region TG vào BTX
-        public ModelTag TGVaoBTXCL1 { get; private set; } = new ModelTag("Pr.TGVaoBTX.CL1");
-        public ModelTag TGVaoBTXCL2 { get; private set; } = new ModelTag("Pr.TGVaoBTX.CL2");
-        public ModelTag TGVaoBTXCL3 { get; private set; } = new ModelTag("Pr.TGVaoBTX.CL3");
-        public ModelTag TGVaoBTXCL4 { get; private set; } = new ModelTag("Pr.TGVaoBTX.CL4");
-        public ModelTag TGVaoBTXCL5 { get; private set; } = new ModelTag("Pr.TGVaoBTX.CL5");
-        public ModelTag TGVaoBTXCL6 { get; private set; } = new ModelTag("Pr.TGVaoBTX.CL6");
-        #endregion
-
         #region Trễ đóng cửa xả
         public ModelTag TreDongCuaXaCL1 { get; private set; } = new ModelTag("Pr.TreDongCuaXa.CL1");
         public ModelTag TreDongCuaXaCL2 { get; private set; } = new ModelTag("Pr.TreDongCuaXa.CL2");
@@ -351,6 +342,15 @@ namespace TronBeTongV3.Comm
         public ModelTag TreDongCuaXaNuoc { get; private set; } = new ModelTag("Pr.TreDongCuaXa.Nuoc");
         public ModelTag TreDongCuaXaPG1 { get; private set; } = new ModelTag("Pr.TreDongCuaXa.PG1");
         #endregion
+
+        #region Trễ xả cốt liệu xuống băng tải
+        public ModelTag TreXaCL1XuongBT { get; private set; } = new ModelTag("Pr.TreXaXuongBT.CL1");
+        public ModelTag TreXaCL2XuongBT { get; private set; } = new ModelTag("Pr.TreXaXuongBT.CL2");
+        public ModelTag TreXaCL3XuongBT { get; private set; } = new ModelTag("Pr.TreXaXuongBT.CL3");
+        public ModelTag TreXaCL4XuongBT { get; private set; } = new ModelTag("Pr.TreXaXuongBT.CL4");
+        public ModelTag TreXaCL5XuongBT { get; private set; } = new ModelTag("Pr.TreXaXuongBT.CL5");
+        #endregion
+
 
         #region TGChuTrinhXaCL
         public ModelTag TGChuTrinhXaCL1 { get; private set; } = new ModelTag("Pr.TGChuTrinhXa.CL1");

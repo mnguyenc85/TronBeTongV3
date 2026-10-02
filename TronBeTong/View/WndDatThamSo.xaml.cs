@@ -143,6 +143,7 @@ namespace TronBeTongV3.View
                 _textboxes.Add(new TagTextBox(TxtTreKDNuoc, TramTron, TramTron.TreKhoiDongNuoc));
                 _textboxes.Add(new TagTextBox(TxtTreKDPG1, TramTron, TramTron.TreKhoiDongPG1));
 
+                // Trễ xả cân
                 _textboxes.Add(new TagTextBox(TxtTreXaCanCL1, TramTron, TramTron.TreXaCanCL1));
                 _textboxes.Add(new TagTextBox(TxtTreXaCanCL2, TramTron, TramTron.TreXaCanCL2));
                 _textboxes.Add(new TagTextBox(TxtTreXaCanCL3, TramTron, TramTron.TreXaCanCL3));
@@ -152,11 +153,13 @@ namespace TronBeTongV3.View
                 _textboxes.Add(new TagTextBox(TxtTreXaCanNuoc, TramTron, TramTron.TreXaCanNuoc));
                 _textboxes.Add(new TagTextBox(TxtTreXaCanPG1, TramTron, TramTron.TreXaCanPG1));
 
-                //_textboxes.Add(new TagTextBox(TxtVaoBTXCL1, TramTron, TramTron.TGVaoBTXCL1));
-                //_textboxes.Add(new TagTextBox(TxtVaoBTXCL2, TramTron, TramTron.TGVaoBTXCL2));
-                //_textboxes.Add(new TagTextBox(TxtVaoBTXCL3, TramTron, TramTron.TGVaoBTXCL3));
-                //_textboxes.Add(new TagTextBox(TxtVaoBTXCL4, TramTron, TramTron.TGVaoBTXCL4));
+                // Trễ xả cốt liệu xuống băng tải
+                _textboxes.Add(new TagTextBox(TxtTGXaCL1XuongBT, TramTron, TramTron.TreXaCL1XuongBT));
+                _textboxes.Add(new TagTextBox(TxtTGXaCL2XuongBT, TramTron, TramTron.TreXaCL2XuongBT));
+                _textboxes.Add(new TagTextBox(TxtTGXaCL3XuongBT, TramTron, TramTron.TreXaCL3XuongBT));
+                _textboxes.Add(new TagTextBox(TxtTGXaCL4XuongBT, TramTron, TramTron.TreXaCL4XuongBT));
 
+                // Trễ đóng cửa xả
                 _textboxes.Add(new TagTextBox(TxtTreDongCuaXaCL1, TramTron, TramTron.TreDongCuaXaCL1));
                 _textboxes.Add(new TagTextBox(TxtTreDongCuaXaCL2, TramTron, TramTron.TreDongCuaXaCL2));
                 _textboxes.Add(new TagTextBox(TxtTreDongCuaXaCL3, TramTron, TramTron.TreDongCuaXaCL3));

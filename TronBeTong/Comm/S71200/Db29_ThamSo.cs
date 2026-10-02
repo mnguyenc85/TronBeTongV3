@@ -20,7 +20,7 @@ namespace TronBeTongV3.Comm.S71200
         #endregion
 
         #region TG vào băng tải xiên
-        public PlcTag[] TGVaoBTXCL { get; private set; } = new PlcTag[5];
+        public PlcTag[] TGTreXaCLXuongBangTai { get; private set; } = new PlcTag[5];
         #endregion
 
         #region Trễ đóng cửa xả
@@ -120,10 +120,10 @@ namespace TronBeTongV3.Comm.S71200
             }
             #endregion
 
-            #region Thời gian vào băng tải xiên
+            #region Thời gian trễ xả cốt liệu xuống băng tải
             for (int i = 0; i < 5; i++)
             {
-                TGVaoBTXCL[i] = new PlcTag(TagTypes.Int16, 44 + i * 2);
+                TGTreXaCLXuongBangTai[i] = new PlcTag(TagTypes.Int16, 44 + i * 2);
             }
             #endregion
 
@@ -209,10 +209,10 @@ namespace TronBeTongV3.Comm.S71200
             }
             #endregion
 
-            #region TG vào BTX
+            #region TG trễ xả cốt liệu xuống băng tải
             for (int i = 0; i < 5; i++)
             {
-                TGVaoBTXCL[i].ParseDb(_buf, StartByteAddr);
+                TGTreXaCLXuongBangTai[i].ParseDb(_buf, StartByteAddr);
             }
             #endregion
 

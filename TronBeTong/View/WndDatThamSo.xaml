@@ -23,11 +23,11 @@
             <ScaleTransform ScaleX="{Binding AppZoom}" ScaleY="{Binding AppZoom}"/>
         </Grid.LayoutTransform>
 
-        <TabControl FontSize="16" Height="584">
+        <TabControl FontSize="16" Height="614">
             <TabItem Header="Tham số">
                 <Grid Background="WhiteSmoke" Margin="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="210"/>
+                        <ColumnDefinition Width="230"/>
                         <ColumnDefinition Width="74"/>
                         <ColumnDefinition Width="74"/>
                         <ColumnDefinition Width="74"/>
@@ -201,7 +201,7 @@
             <TabItem Header="Tham số thời gian">
                 <Grid Background="WhiteSmoke" Margin="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="210"/>
+                        <ColumnDefinition Width="230"/>
                         <ColumnDefinition Width="74"/>
                         <ColumnDefinition Width="74"/>
                         <ColumnDefinition Width="74"/>
@@ -222,6 +222,7 @@
                         <RowDefinition Height="30"/>
                         <!-- 30 -->
                         <RowDefinition Height="0"/>
+                        <RowDefinition Height="30"/>
                         <RowDefinition Height="30"/>
 
                         <RowDefinition Height="6"/>
@@ -291,16 +292,6 @@
                     <nmwpfctrl:TextBoxDouble x:Name="TxtTreXaCanNuoc" Grid.Row="3" Grid.Column="9" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtTreXaCanPG1" Grid.Row="3" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
 
-                    <TextBlock Grid.Row="4"  Text="Trễ vào băng tải xiên" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtVaoBTXCL1" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"
-                                             IsEnabled="False"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtVaoBTXCL2" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"
-                                             IsEnabled="False"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtVaoBTXCL3" Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" Margin="3 0" Value="0"
-                                             IsEnabled="False"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtVaoBTXCL4" Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"
-                                             IsEnabled="False"/>
-
                     <TextBlock Grid.Row="5" Text="Trễ đóng cửa xả" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtTreDongCuaXaCL1" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtTreDongCuaXaCL2" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"/>
@@ -314,57 +305,65 @@
                     <nmwpfctrl:TextBoxDouble x:Name="TxtTreDongCuaXaNuoc" Grid.Row="5" Grid.Column="9" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtTreDongCuaXaPG1" Grid.Row="5" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
 
-                    <Border Grid.ColumnSpan="12" Grid.Row="6" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
-                    <TextBlock Grid.Row="7" Text="Nháy cân tinh: Enable" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
-                    <CheckBox x:Name="ChkEnPulseCL1" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
-                    <CheckBox x:Name="ChkEnPulseCL2" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
-                    <CheckBox x:Name="ChkEnPulseCL3" Grid.Row="7" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
-                    <CheckBox x:Name="ChkEnPulseCL4" Grid.Row="7" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
-                    <TextBlock Grid.Row="8" Text="TG đóng xả" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGCTXaCL1" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGCTXaCL2" Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGCTXaCL3" Grid.Row="8" Grid.Column="3" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGCTXaCL4" Grid.Row="8" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <!-- Trễ xả cl xuống băng tải-->
+                    <TextBlock Grid.Row="6" Text="Trễ xả cốt liệu xuống băng tải" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGXaCL1XuongBT" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGXaCL2XuongBT" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGXaCL3XuongBT" Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGXaCL4XuongBT" Grid.Row="6" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"
+                                             IsEnabled="False"/>
 
-                    <TextBlock Grid.Row="9"  Text="TG mở xả" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGMoXaCL1" Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGMoXaCL2" Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGMoXaCL3" Grid.Row="9" Grid.Column="3" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGMoXaCL4" Grid.Row="9" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <Border Grid.Row="7" Grid.ColumnSpan="12" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
+                    <TextBlock Grid.Row="8" Text="Nháy cân tinh: Enable" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
+                    <CheckBox x:Name="ChkEnPulseCL1" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
+                    <CheckBox x:Name="ChkEnPulseCL2" Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
+                    <CheckBox x:Name="ChkEnPulseCL3" Grid.Row="8" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
+                    <CheckBox x:Name="ChkEnPulseCL4" Grid.Row="8" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
+                    <TextBlock Grid.Row="9" Text="TG đóng xả" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGCTXaCL1" Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGCTXaCL2" Grid.Row="9" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGCTXaCL3" Grid.Row="9" Grid.Column="3" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGCTXaCL4" Grid.Row="9" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
 
-                    <Border Grid.ColumnSpan="12" Grid.Row="10" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
-                    <TextBlock Text="TG trễ dừng BTX mẻ cuối " Grid.Row="11" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgTreDungBTX" Grid.Row="11" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"
+                    <TextBlock Grid.Row="10"  Text="TG mở xả" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGMoXaCL1" Grid.Row="10" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGMoXaCL2" Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGMoXaCL3" Grid.Row="10" Grid.Column="3" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTGMoXaCL4" Grid.Row="10" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+
+                    <Border Grid.Row="11" Grid.ColumnSpan="12" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
+                    <TextBlock Text="TG trễ dừng BTX mẻ cuối " Grid.Row="12" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgTreDungBTX" Grid.Row="12" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"
                                              IsEnabled="False"/>
                     <TextBlock Text="TG CL đi qua BTX " Grid.Row="12" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgCLDiQuaBTX" Grid.Row="12" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgCLDiQuaBTX" Grid.Row="13" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"
                                              IsEnabled="False"/>
                     <TextBlock Text="TG Mở thùng CL TG " Grid.Row="13" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgMoThungCLTG" Grid.Row="13" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgMoThungCLTG" Grid.Row="14" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"
                                              IsEnabled="False"/>
 
-                    <Border Grid.ColumnSpan="12" Grid.Row="14" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
-                    <TextBlock Text="TG Trộn bê tông" Grid.Row="15" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgTronBeTong" Grid.Row="15" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <TextBlock Text="TG Trễ mở 1/2 cối trộn" Grid.Row="16" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgTreMoCTHalf" Grid.Row="16" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <TextBlock Text="TG Trễ mở cối trộn " Grid.Row="16" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgTreMoCT" Grid.Row="16" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <Border Grid.ColumnSpan="12" Grid.Row="15" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
+                    <TextBlock Text="TG Trộn bê tông" Grid.Row="16" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgTronBeTong" Grid.Row="16" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <TextBlock Text="TG Trễ mở 1/2 cối trộn" Grid.Row="17" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgTreMoCTHalf" Grid.Row="17" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <TextBlock Text="TG Trễ mở cối trộn " Grid.Row="17" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgTreMoCT" Grid.Row="17" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
 
-                    <Border Grid.ColumnSpan="12" Grid.Row="19" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
-                    <TextBlock Text="Đầm rung: TG đóng" Grid.Row="20" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="LightGray"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgCTDamRung" Grid.Row="20" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <TextBlock Text="TG bật" Grid.Row="19" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="LightGray"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgBatDamRung" Grid.Row="20" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <Border Grid.ColumnSpan="12" Grid.Row="20" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
+                    <TextBlock Text="Đầm rung: TG đóng" Grid.Row="21" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="LightGray"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgCTDamRung" Grid.Row="21" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <TextBlock Text="TG bật" Grid.Row="21" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="LightGray"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtTgBatDamRung" Grid.Row="21" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
 
-                    <Border Grid.ColumnSpan="12" Grid.Row="17" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
-                    <TextBlock Text="Bơm mỡ: TG đóng" Grid.Row="18" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtBomMoRungOn" Grid.Row="18" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <TextBlock Text="TG bật" Grid.Row="18" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtBomMoRungOff" Grid.Row="18" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <Border Grid.ColumnSpan="12" Grid.Row="18" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
+                    <TextBlock Text="Bơm mỡ: TG đóng" Grid.Row="19" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtBomMoRungOn" Grid.Row="19" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <TextBlock Text="TG bật" Grid.Row="19" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtBomMoRungOff" Grid.Row="19" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
 
-                    <Border Grid.ColumnSpan="12" Grid.Row="21" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
-                    <Grid Grid.Row="22" Grid.ColumnSpan="12">
+                    <Border Grid.ColumnSpan="12" Grid.Row="22" BorderThickness="0 0 0 1" BorderBrush="Gray" Margin="0 2"/>
+                    <Grid Grid.Row="23" Grid.ColumnSpan="12">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -373,7 +372,7 @@
 
                         <Grid IsEnabled="False">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="210"/>
+                                <ColumnDefinition Width="230"/>
                                 <ColumnDefinition Width="72"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
@@ -412,7 +411,7 @@
 
                         <Grid Grid.Column="1">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="210"/>
+                                <ColumnDefinition Width="230"/>
                                 <ColumnDefinition Width="72"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
@@ -443,7 +442,7 @@
             <TabItem Header="Rung và sục khí">
                 <Grid Background="WhiteSmoke" Margin="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="155"/>
+                        <ColumnDefinition Width="175"/>
                         <ColumnDefinition Width="56"/>
                         <ColumnDefinition Width="74"/>
                         <ColumnDefinition Width="74"/>
