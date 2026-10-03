@@ -42,7 +42,7 @@
                                     ZStateChanged="BtValve_ZStateChanged"
                                     ToolTip="Van xả"/>
             <Button x:Name="BtWIZero" Content="Z" Margin="0 -24 0 0" HorizontalAlignment="Left" Height="20" Width="20" Padding="0"
-                    Click="BtWIZero_Click"/>
+                    Click="BtWIZero_Click" ToolTip="Đặt kl cân về `0`" Visibility="Collapsed"/>
             <local:GrArrowDown x:Name="Arrow1" HorizontalAlignment="Center" Margin="0 3 0 0" Foreground="White" FontSize="10" Width="24" Height="16"/>
         </StackPanel>
         <StackPanel x:Name="PnlDischargeTime" Margin="0 0 0 0 " Width="36" HorizontalAlignment="Left" VerticalAlignment="Bottom">

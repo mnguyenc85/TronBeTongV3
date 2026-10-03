@@ -19,8 +19,7 @@
             <local:CtrlWaterSilo x:Name="SiloWater" ZFill="#802060ff" ZTitle="Nước" FontSize="16"
                              ButtonClicked="SiloWater_ButtonClicked"/>
             <local:CtrlWeightScale x:Name="WSWater" ZFill="#802060ff" HorizontalAlignment="Center" Margin="0 10 0 0"
-                               Width="120"
-                               ButtonClicked="WSWater_ButtonClicked"/>
+                               Width="120"/>
         </StackPanel>
 
         <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="3" VerticalAlignment="Top" Margin="80 10 0 0"

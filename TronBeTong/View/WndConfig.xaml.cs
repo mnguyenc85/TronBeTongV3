@@ -126,6 +126,10 @@ namespace TronBeTongV3.View
             ChkAutoReset.IsChecked = s.GetBoolValue("start.auto.reset");
 
             ChkCalibSkipLock.IsChecked = s.GetBoolValue("calib.skiplock");
+            ChkEnCLZero.IsChecked = s.GetBoolValue("hmi.cl.wi.zero");
+            ChkEnXMZero.IsChecked = s.GetBoolValue("hmi.xm.wi.zero");
+            ChkEnPGZero.IsChecked = s.GetBoolValue("hmi.pg.wi.zero");
+            ChkEnNuocZero.IsChecked = s.GetBoolValue("hmi.nuoc.wi.zero");
 
             // Liệt kê danh sách Network interfaces
             NetworkInterface[] interfaces = NetworkInterface.GetAllNetworkInterfaces();
@@ -194,6 +198,10 @@ namespace TronBeTongV3.View
                 s.UpdateBool("hack.phieu.m3", ChkPhieuAllowChangeM3.IsChecked == true);
                 s.UpdateBool("start.auto.reset", ChkAutoReset.IsChecked == true);
                 s.UpdateBool("calib.skiplock", ChkCalibSkipLock.IsChecked == true);
+                s.UpdateBool("hmi.cl.wi.zero", ChkEnCLZero.IsChecked == true);
+                s.UpdateBool("hmi.xm.wi.zero", ChkEnXMZero.IsChecked == true);
+                s.UpdateBool("hmi.pg.wi.zero", ChkEnPGZero.IsChecked == true);
+                s.UpdateBool("hmi.nuoc.wi.zero", ChkEnNuocZero.IsChecked == true);
 
                 SaveChotKLSettings(s);
             }
@@ -324,6 +332,9 @@ namespace TronBeTongV3.View
                 TabMain.SelectedItem = TabItemPhieu;
                 PnlHack.Visibility = Visibility.Collapsed;
                 PnlStartMode.Visibility = Visibility.Collapsed;
+
+                PnlCalib.Visibility = Visibility.Collapsed;
+                PnlHMIWIZero.Visibility = Visibility.Collapsed;
             }
         }
 

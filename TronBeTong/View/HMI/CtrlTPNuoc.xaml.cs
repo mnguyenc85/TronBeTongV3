@@ -37,6 +37,9 @@ namespace TronBeTongV3.View
         public void LoadThamSo(DbSettings s)
         {
             WSWater.ChotKLTre = s.GetDoubleValueFromString("chotkl.ts.nuoc.tre", 1);
+            bool allowWIZero = s.GetBoolValue("hmi.nuoc.wi.zero");
+            WSWater.ShowZeroWI(allowWIZero);
+            WSWater.ShowZeroWI(allowWIZero);
         }
 
         /// <summary>
@@ -89,6 +92,7 @@ namespace TronBeTongV3.View
         public void Update(double delta)
         {
             if (TramTron == null) return;
+            bool dangTron = TramTron.SysRunning.GetBool();
 
             int some = (int)TramTron.MeSoMe.Value;
 
@@ -110,6 +114,7 @@ namespace TronBeTongV3.View
             SiloWater.UpdateCanThuc(TramTron.NuocChot.Value);
 
             WSWater.UpdateView(TramTron.WIState, TramTron.CanNuoc, MeDat, delta);
+            WSWater.EnableZeroWI(!dangTron);
             
             SiloWater.ZState = (int)TramTron.VanNuoc.Value;
             SetWasherState(TramTron.SysWashMixer.GetBool());

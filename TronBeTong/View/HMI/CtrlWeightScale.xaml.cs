@@ -202,7 +202,11 @@ namespace TronBeTongV3.View
 
         public void EnableZeroWI(bool en = false)
         {
-            BtWIZero.Visibility = en ? Visibility.Visible : Visibility.Hidden;
+            BtWIZero.IsEnabled = en;
+        }
+        public void ShowZeroWI(bool show = false)
+        {
+            BtWIZero.Visibility = show ? Visibility.Visible : Visibility.Collapsed;
         }
         #endregion
 

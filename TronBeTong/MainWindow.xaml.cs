@@ -537,6 +537,11 @@ namespace TronBeTongV3
                 {
                     LblAddr.Text = _tramtron.SetComm();
                     InitServerSync();
+
+                    TPCotLieu.LoadThamSo(r.Settings);
+                    TPXiMang.LoadThamSo(r.Settings);
+                    TPNuoc.LoadThamSo(r.Settings);
+                    TPPhuGia.LoadThamSo(r.Settings);
                 }
             }
         }

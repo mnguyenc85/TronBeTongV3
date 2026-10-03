@@ -72,6 +72,9 @@ namespace TronBeTongV3.View
         {
             WSCements1.ChotKLTre = s.GetDoubleValueFromString("chotkl.ts.xi1.tre", 1);
             WSCements2.ChotKLTre = s.GetDoubleValueFromString("chotkl.ts.xi2.tre", 1);
+            bool allowWIZero = s.GetBoolValue("hmi.xm.wi.zero");
+            WSCements1.ShowZeroWI(allowWIZero);
+            WSCements2.ShowZeroWI(allowWIZero);
         }
 
         /// <summary>
@@ -192,6 +195,7 @@ namespace TronBeTongV3.View
         public void UpdateView(double delta)
         {
             if (TramTron == null) return;
+            bool dangTron = TramTron.SysRunning.GetBool();
 
             for (int i = 0; i < ModelHeThong.SoXMReal; i++)
             {
@@ -219,6 +223,8 @@ namespace TronBeTongV3.View
 
             WSCements1.UpdateView(TramTron.WIState, TramTron.CanXMs[0], MeDat, delta);
             WSCements2.UpdateView(TramTron.WIState, TramTron.CanXMs[1], MeDat, delta);
+            WSCements1.EnableZeroWI(!dangTron);
+            WSCements2.EnableZeroWI(!dangTron);
         }
 
         #region Buttons

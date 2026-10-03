@@ -80,6 +80,7 @@ namespace TronBeTongV3.View
             {
                 _tps[i].ButtonClicked += BinCotLieu_ButtonClicked;
             }
+
             WsTotalCL1.ButtonClicked += WsTotalCL_ButtonClicked;
             WsTotalCL2.ButtonClicked += WsTotalCL_ButtonClicked;
             WsTotalCL3.ButtonClicked += WsTotalCL_ButtonClicked;
@@ -90,6 +91,11 @@ namespace TronBeTongV3.View
             WsTotalCL1.ChotKLTre = s.GetDoubleValueFromString("chotkl.ts.cl1.tre", 1);
             WsTotalCL2.ChotKLTre = s.GetDoubleValueFromString("chotkl.ts.cl2.tre", 1);
             WsTotalCL3.ChotKLTre = s.GetDoubleValueFromString("chotkl.ts.cl3.tre", 1);
+
+            bool allowWIZero = s.GetBoolValue("hmi.cl.wi.zero");
+            WsTotalCL1.ShowZeroWI(allowWIZero);
+            WsTotalCL2.ShowZeroWI(allowWIZero);
+            WsTotalCL3.ShowZeroWI(allowWIZero);
         }
 
         /// <summary>
@@ -232,6 +238,7 @@ namespace TronBeTongV3.View
         public void Update(double delta)
         {
             if (TramTron == null) return;
+            bool dangTron = TramTron.SysRunning.GetBool();
 
             for (int i = 0; i < CauHinhTramTron.MAX_CL; i++)
             {
@@ -280,6 +287,9 @@ namespace TronBeTongV3.View
             WsTotalCL1.UpdateView(TramTron.WIState, TramTron.CanCLs[0], MeDat, delta);
             WsTotalCL2.UpdateView(TramTron.WIState, TramTron.CanCLs[1], MeDat, delta);
             WsTotalCL3.UpdateView(TramTron.WIState, TramTron.CanCLs[2], MeDat, delta);
+            WsTotalCL1.EnableZeroWI(!dangTron);
+            WsTotalCL2.EnableZeroWI(!dangTron);
+            WsTotalCL3.EnableZeroWI(!dangTron);
         }
 
         private void BinCotLieu_ButtonClicked(object? sender, ButtonArgs e)
@@ -300,18 +310,21 @@ namespace TronBeTongV3.View
 
         private void WsTotalCL_ButtonClicked(object? sender, ButtonArgs e)
         {
+            if (TramTron == null) return;
+            if (TramTron.IsRunning) return;
+
             if (e.Button == Core.ButtonTypes.WIZero)
             {
                 switch (e.ObjectId)
                 {
                     case 1:
-                        TramTron?.WriteTag(TramTron.CL1CanZero, TramTron.CL1CanAI.Value);
+                        TramTron.WriteTag(TramTron.CL1CanZero, TramTron.CL1CanAI.Value);
                         break;
                     case 2:
-                        TramTron?.WriteTag(TramTron.CL2CanZero, TramTron.CL2CanAI.Value);
+                        TramTron.WriteTag(TramTron.CL2CanZero, TramTron.CL2CanAI.Value);
                         break;
                     case 3:
-                        TramTron?.WriteTag(TramTron.CL3CanZero, TramTron.CL3CanAI.Value);
+                        TramTron.WriteTag(TramTron.CL3CanZero, TramTron.CL3CanAI.Value);
                         break;
                 }
             }

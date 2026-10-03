@@ -66,19 +66,28 @@ namespace TronBeTongV3.View
             {
                 _tps[i] = (CtrlSilo01)PnlSilos.Children[i];
                 _tps[i].Id = i;
-                _tps[i].ButtonClicked += CtrlTPPhuGia_ButtonClicked;
             }
 
             WScale1.SiloIndices.Add(0);
             WScale1.SiloIndices.Add(1);
             WScale1.LoaiCan = 3;
             WScale1.ZShowDischargeTime = false;
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < CauHinhTramTron.MAX_PG && i < PnlSilos.Children.Count; i++)
+            {
+                _tps[i].ButtonClicked += CtrlTPPhuGia_ButtonClicked;
+            }
             WScale1.ButtonClicked += WScale_ButtonClicked;
         }
 
         public void LoadThamSo(DbSettings s)
         {
             WScale1.ChotKLTre = s.GetDoubleValueFromString("chotkl.ts.pg1.tre", 1);
+            bool allowWIZero = s.GetBoolValue("hmi.pg.wi.zero");
+            WScale1.ShowZeroWI(allowWIZero);
         }
 
         /// <summary>
@@ -202,6 +211,7 @@ namespace TronBeTongV3.View
         public void Update(double delta)
         {
             if (TramTron == null) return;
+            bool dangTron = TramTron.SysRunning.GetBool();
 
             if (!CanPGNgoai)
             {
@@ -237,6 +247,7 @@ namespace TronBeTongV3.View
             }
 
             WScale1.UpdateView(TramTron.WIState, TramTron.CanPGs[0], MeDat, delta);
+            WScale1.EnableZeroWI(!dangTron);
         }
 
         public void SetCanPGNgoai(DHCongThucVM? ct, double m3, int some)

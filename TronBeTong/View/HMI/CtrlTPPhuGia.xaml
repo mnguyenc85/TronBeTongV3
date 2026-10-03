@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TronBeTongV3.View"             
-             mc:Ignorable="d">
+             mc:Ignorable="d"
+             Loaded="UserControl_Loaded">
     <Grid>
         <StackPanel>
             <StackPanel x:Name="PnlSilos" Orientation="Horizontal">
@@ -18,8 +19,7 @@
                 <local:CtrlSilo01 ZState="0" ZFill="#a0ff0010" FontSize="14"/>
             </StackPanel>
             <local:CtrlWeightScale x:Name="WScale1" ZFill="#a0ff0010" HorizontalAlignment="Center" Margin="0 0 0 0"
-                               Width="120"
-                               ButtonClicked="WScale1_ButtonClick"/>
+                               Width="120"/>
         </StackPanel>
         <Border x:Name="PnlCanPGNgoai" BorderBrush="Gray" BorderThickness="1" CornerRadius="1" HorizontalAlignment="Left" VerticalAlignment="Top" Background="#1fff"
                 Visibility="Collapsed">
