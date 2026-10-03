@@ -22,6 +22,8 @@ namespace TronBeTongV3.View
     public partial class CtrlWICalibration : UserControl
     {
         private bool firstUpdate = false;
+        private bool _sendZero, _sendSpan;
+        private double _ai;
 
         private ModelHeThong? _ttbt;
         public ModelTag? TagAI { get; set; }
@@ -57,8 +59,12 @@ namespace TronBeTongV3.View
 
         public void Update()
         {
+            if (_ttbt == null) return;
+            bool update = _ttbt.GetWriteTagCount(262) == 0;
+
             if (TagAI != null)
             {
+                _ai = TagAI.Value;
                 txtChanelAI.Text = TagAI.Value.ToString("F0");
             }
             if (TagKL != null)
@@ -66,34 +72,52 @@ namespace TronBeTongV3.View
                 txtMass.Text = TagKL.Value.ToString("F1");
             }
 
-            if (TagZero != null && !txtZero.IsFocused)
+            if (TagZero != null && (!txtZero.IsFocused || _sendZero) && update)
             {
+                if (_sendZero)
+                {
+                    txtZero.Foreground = Brushes.Black;
+                    _sendZero = false;
+                }
                 txtZero.Text = TagZero.Value.ToString();
             }
-            if (TagSpan != null && !txtSpan.IsFocused)
+            if (TagSpan != null && (!txtSpan.IsFocused || _sendSpan) && update)
             {
-                txtSpan.Text = TagSpan.Value.ToString("F5");
+                if (_sendSpan)
+                {
+                    txtSpan.Foreground = Brushes.Black;
+                    _sendSpan = false;
+                }
+                txtSpan.Text = TagSpan.Value.ToString("F6");
             }
             firstUpdate = true;
         }
 
         private void BtSetZero_Click(object sender, RoutedEventArgs e)
         {
-            if (_ttbt != null && TagZero != null)
+            if (int.TryParse(txtChanelAI.Text, out int v))
             {
-                // if (double.TryParse(txtZero.Text, out double z))
-                // _ttbt.WriteTag(TagZero, z);
-                _ttbt.WriteTag(TagZero, _setZero);
+                txtZero.Text = txtChanelAI.Text;
+                _setZero = v;
+                SendZero();
             }
         }
 
         private void BtSetSpan_Click(object sender, RoutedEventArgs e)
         {
-            if (_ttbt != null && TagSpan != null)
+            if (string.IsNullOrWhiteSpace(txtSetMass.Text))
             {
-                // if (double.TryParse(txtSpan.Text, out double s))
-                // _ttbt.WriteTag(TagSpan, s);
-                _ttbt.WriteTag(TagSpan, _setSpan);
+                MessageBox.Show("Ô `Set Mass` không được để trống!", "Đặt span", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (double.TryParse(txtSetMass.Text, out double klNhap))
+            {
+                double deltaAI = _ai - _setZero;
+                if (Math.Abs(deltaAI) > 0) {
+                    _setSpan = Math.Round(klNhap / deltaAI, 6);
+                    txtSpan.Text = _setSpan.ToString();
+                    SendSpan();
+                }
             }
         }
 
@@ -133,6 +157,45 @@ namespace TronBeTongV3.View
             {
                 LblWriteZero.Visibility = Visibility.Visible;
                 LblWriteSpan.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void txtZero_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                SendZero();
+            }
+        }
+        private void txtSpan_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                SendSpan();
+            }
+        }
+
+        private void SendZero()
+        {
+            if (_ttbt != null && TagZero != null)
+            {
+                // if (double.TryParse(txtZero.Text, out double z))
+                // _ttbt.WriteTag(TagZero, z);
+                _ttbt.WriteTag(TagZero, _setZero);
+                txtZero.Foreground = Brushes.Red;
+                _sendZero = true;
+            }
+        }
+
+        private void SendSpan()
+        {
+            if (_ttbt != null && TagSpan != null)
+            {
+                // if (double.TryParse(txtSpan.Text, out double s))
+                // _ttbt.WriteTag(TagSpan, s);
+                _ttbt.WriteTag(TagSpan, _setSpan);
+                txtSpan.Foreground = Brushes.Red;
+                _sendSpan = true;
             }
         }
     }

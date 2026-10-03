@@ -984,5 +984,19 @@ namespace TronBeTongV3.Comm
 
         #endregion
         #endregion
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="db">262: Db26Calib</param>
+        /// <returns></returns>
+        public int GetWriteTagCount(int db)
+        {
+            if (db == 262)
+            {
+                return _plc.Db26Cablib.NoWriteCms;
+            }
+            return 0;
+        }
     }
 }

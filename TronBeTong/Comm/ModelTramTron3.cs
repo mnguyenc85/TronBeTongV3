@@ -258,8 +258,8 @@ namespace TronBeTongV3.Comm
             AddLink(TreKhoiDongPG1, db29, db29.TreKhoiDongPG1);
 
             AddLink(TreXaCanCL1, db29, db29.TreXaCanCL1);
-            //AddLink(TreXaCanCL2, db29, db29.TreXaCanCL2);
-            //AddLink(TreXaCanCL3, db29, db29.TreXaCanCL3);
+            AddLink(TreXaCanCL2, db29, db29.TreXaCanCL2);
+            AddLink(TreXaCanCL3, db29, db29.TreXaCanCL3);
             //AddLink(TreXaCanCL4, db29, db29.TreXaCanCL4);
             //AddLink(TreXaCanCL5, db28, db28.TreXaCanCL5);
             //AddLink(TreXaCanCL6, db28, db28.TreXaCanCL6);
@@ -414,7 +414,7 @@ namespace TronBeTongV3.Comm
                 _plc.Db26ThamSo.Cycle = 0.2;
                 _plc.Db29SetMixerTime.Cycle = -1;
                 _plc.Db29ThamSo.Cycle = 0.2;
-                _plc.Db26Cablib.Cycle = 0.2;
+                //_plc.Db26Cablib.Cycle = 0.2;
             }
             else
             {
@@ -423,7 +423,7 @@ namespace TronBeTongV3.Comm
                 _plc.Db29SetMixerTime.Cycle = 0.2;
                 _plc.Db29ThamSo.Cycle = -1;
                 _plc.Db29ThamSo.ForceRead = true;
-                _plc.Db26Cablib.Cycle = -1;
+                //_plc.Db26Cablib.Cycle = -1;
             }
         }
 

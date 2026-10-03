@@ -15,6 +15,7 @@
                 <ResourceDictionary Source="../Styles/Colors.xaml"/>
                 <ResourceDictionary Source="../Styles/FlatGroupBoxStyles.xaml"/>
                 <ResourceDictionary Source="../Styles/BootstrapButtons.xaml"/>
+                <ResourceDictionary Source="../Styles/CustomStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -541,10 +542,27 @@
                         <local:CtrlWICalibration x:Name="WICalibPG" ZTitle="Cân phụ gia" Margin="2 0 0 0"/>
                         <local:CtrlWICalibration x:Name="WICalibWater" ZTitle="Cân nước" Margin="2 0 0 0"/>
                     </WrapPanel>
-                    <StackPanel Orientation="Horizontal" Margin="3" HorizontalAlignment="Right">
-                        <Button x:Name="BtUnlock" Content="Unlock" Style="{StaticResource BtnWarning}" Width="90"
+                    <DockPanel Margin="3">
+                        <Button x:Name="BtCalibHelp" Content="?" Style="{StaticResource RoundButtonStyle}"
+                            Width="16" Height="16" Margin="6 0 0 0" Focusable="False"
+                            Click="BtShowPopup_Click"/>
+                        <Popup x:Name="PopupCablibHelp" Placement="Bottom" StaysOpen="False"
+                            PlacementTarget="{Binding ElementName=BtCalibHelp}">
+                            <Border Background="LightYellow" Padding="6"
+                                BorderBrush="Gray" BorderThickness="1">
+                                <StackPanel Width="320">
+                                    <TextBlock TextWrapping="Wrap" Text="1. Ấn `Unlock` để mở khóa." FontSize="14"/>
+                                    <TextBlock TextWrapping="Wrap" Text="2. Nhập giá trị và ấn `Enter` để gửi giá trị Zero, Span" FontSize="14"/>
+                                    <TextBlock TextWrapping="Wrap" Text="3. Ấn `SET ZERO` đặt AI vào Zero" FontSize="14"/>
+                                    <TextBlock TextWrapping="Wrap" Text="4. Ấn `SET SPAN` đặt span theo `Set Mass`" FontSize="14"/>
+                                    <TextBlock TextWrapping="Wrap" Text="* Ô có màu đỏ là giá trị nhập đang gửi xuống PLC" FontSize="14"/>
+                                </StackPanel>
+                            </Border>
+                        </Popup>
+
+                        <Button x:Name="BtUnlock" Content="Unlock" Style="{StaticResource BtnWarning}" Width="90" HorizontalAlignment="Right"
                                 Click="BtUnlock_Click"/>
-                    </StackPanel>
+                    </DockPanel>
                 </StackPanel>
             </TabItem>
         </TabControl>

@@ -188,9 +188,9 @@
 
                         <view:CtrlTPPhuGia x:Name="TPPhuGia" ZNoTP="2" Canvas.Left="260" Canvas.Top="5"/>
 
-                        <view:CtrlMixer x:Name="CtrlMixer1" Canvas.Left="510" Canvas.Top="465"/>
+                        <view:CtrlMixer x:Name="CtrlMixer1" Canvas.Left="510" Canvas.Top="460"/>
                         
-                        <view:CtrlMidBin x:Name="CtrlThungCLTG" Canvas.Left="575" Canvas.Top="360" ZFill="#a0f5b04f"/>
+                        <view:CtrlMidBin x:Name="CtrlThungCLTG" Canvas.Left="580" Canvas.Top="355" ZFill="#a0f5b04f"/>
                     </Canvas>
 
                     <Border x:Name="PnlDebug" BorderBrush="Gray" BorderThickness="1" CornerRadius="1" Background="{StaticResource RAL_7032_7035}"

@@ -424,5 +424,10 @@ namespace TronBeTongV3.View
             PropertyChanged?.Invoke(this, e);
         }
         #endregion
+
+        private void BtShowPopup_Click(object sender, RoutedEventArgs e)
+        {
+            PopupCablibHelp.IsOpen = true;
+        }
     }
 }

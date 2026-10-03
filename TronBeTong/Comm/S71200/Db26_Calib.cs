@@ -46,7 +46,7 @@ namespace TronBeTongV3.Comm.S71200
 
         public Db26_Calib() : base(26, 72, 306)
         {
-            Cycle = 0.5;
+            Cycle = 0.2;
         }
 
         public override async Task ReadAsync(Plc plc, double delta)
