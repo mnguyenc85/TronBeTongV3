@@ -1,8 +1,7 @@
 from typing import List
 import ctypes
 import utils
-import tpcan, tpsilo
-import random
+import tpcan, tpsilo, analogInput
 
 PLCM = (ctypes.c_ubyte * 1001)()
 DB09 = (ctypes.c_ubyte * 6)()
@@ -72,6 +71,8 @@ class CTramTron:
     tp.addVan(PLCM, 205, 6, 0.3, 0.1)
     self.TPPG1.addDischarge(PLCM, 203, 1)
 
+    self.AICL1 = analogInput.CAnalogInput(DB26, 306, 308, 310, 246)
+
   def process(self, delta):
     bStart = PLCM[1000] & 1 == 1
     bReset = PLCM[11] & 2 == 2
@@ -115,7 +116,7 @@ class CTramTron:
     self.bReset0 = bReset
     self.bStart0 = bStart
 
-    self.sim_calib()
+    self.AICL1.process(delta)
 
   def dung_he_thong(self):    
     self.TPCL1.stop()
@@ -200,20 +201,3 @@ class CTramTron:
     if self.TPPG1.check_xa_xong(0.1):
       self.TPPG1.stop_discharge()
       self.TPPG1.me_moi()
-
-  def sim_calib(self):
-    ai = random.randint(100, 110)
-    utils.int162db(ai, DB26, 306)
-    ai = random.randint(110, 120)
-    utils.int162db(ai, DB26, 314)
-    ai = random.randint(120, 130)
-    utils.int162db(ai, DB26, 322)
-
-    ai = random.randint(50, 60)
-    utils.int162db(ai, DB26, 346)
-    
-    ai = random.randint(200, 210)
-    utils.int162db(ai, DB26, 362)
-    
-    ai = random.randint(300, 310)
-    utils.int162db(ai, DB26, 370)    

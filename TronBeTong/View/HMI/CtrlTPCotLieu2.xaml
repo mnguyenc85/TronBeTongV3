@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TronBeTongV3.View"
-             mc:Ignorable="d">
+             mc:Ignorable="d" 
+             Loaded="UserControl_Loaded">
     <Canvas>
         <!--<local:GrCtrlXeSkip x:Name="GrXeSkip" Canvas.Left="160" Canvas.Top="90"/>-->
         <StackPanel>

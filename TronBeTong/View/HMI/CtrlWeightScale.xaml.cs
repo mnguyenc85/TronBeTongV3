@@ -173,7 +173,6 @@ namespace TronBeTongV3.View
         }
 
 
-
         private void UpdateSoMe(int meht, int medat)
         {
             if (meht != _meht0 || medat != _medat0)
@@ -189,6 +188,23 @@ namespace TronBeTongV3.View
             BtValve.ZState = ZState;
             Arrow1.SetState(ZState);
         }
+
+        #region Zero WI
+        private void BtWIZero_Click(object sender, RoutedEventArgs e)
+        {
+            ButtonClicked?.Invoke(this, new ButtonArgs()
+            {
+                Button = Core.ButtonTypes.WIZero,
+                BtState = 1,
+                ObjectId = Id
+            });
+        }
+
+        public void EnableZeroWI(bool en = false)
+        {
+            BtWIZero.Visibility = en ? Visibility.Visible : Visibility.Hidden;
+        }
+        #endregion
 
         private void BtValve_ZStateChanged(object sender, int e)
         {

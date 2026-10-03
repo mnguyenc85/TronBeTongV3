@@ -73,6 +73,7 @@ namespace TronBeTongV3.View
             WScale1.SiloIndices.Add(1);
             WScale1.LoaiCan = 3;
             WScale1.ZShowDischargeTime = false;
+            WScale1.ButtonClicked += WScale_ButtonClicked;
         }
 
         public void LoadThamSo(DbSettings s)
@@ -288,11 +289,20 @@ namespace TronBeTongV3.View
             }
         }
 
-        private void WScale1_ButtonClick(object sender, ButtonArgs e)
+        private void WScale_ButtonClicked(object? sender, ButtonArgs e)
         {
+            if (e.Button == Core.ButtonTypes.WIZero)
+            {
+                switch (e.ObjectId)
+                {
+                    case 1:
+                        TramTron?.WriteTag(TramTron.PGCanZero, TramTron.PGCanAI.Value);
+                        break;
+                }
+            }
         }
         #endregion
-        
+
         /// <summary>
         /// Ẩn/hiện silo
         /// </summary>

@@ -47,7 +47,6 @@ namespace TronBeTongV3.View
             for (int i = 0; i < CauHinhTramTron.MAX_CL; i++) {
                 _tps[i] = (CtrlBin01)PnlSilos.Children[i];
                 _tps[i].Id = i;
-                _tps[i].ButtonClicked += BinCotLieu_ButtonClicked;
                 _tps[i].RoundDigit = 0;
                 _tps[i].RoundFormat = "0";
                 updateDoAm[i] = 0;
@@ -64,12 +63,26 @@ namespace TronBeTongV3.View
             WsTotalCL2.ZShowDischargeTime = false;
             WsTotalCL3.ZShowDischargeTime = false;
 
+            WsTotalCL1.Id = 1;
+            WsTotalCL2.Id = 2;
+            WsTotalCL3.Id = 3;
             WsTotalCL1.LoaiCan = 1;
             WsTotalCL2.LoaiCan = 1;
             WsTotalCL3.LoaiCan = 1;
             WsTotalCL1.DigitFormat = "0";
             WsTotalCL2.DigitFormat = "0";
             WsTotalCL3.DigitFormat = "0";
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < CauHinhTramTron.MAX_CL; i++)
+            {
+                _tps[i].ButtonClicked += BinCotLieu_ButtonClicked;
+            }
+            WsTotalCL1.ButtonClicked += WsTotalCL_ButtonClicked;
+            WsTotalCL2.ButtonClicked += WsTotalCL_ButtonClicked;
+            WsTotalCL3.ButtonClicked += WsTotalCL_ButtonClicked;
         }
 
         public void LoadThamSo(DbSettings s)
@@ -284,6 +297,27 @@ namespace TronBeTongV3.View
                 TramTron?.S71200_WriteCLHum(e.ObjectId, e.Value);
             }
         }
+
+        private void WsTotalCL_ButtonClicked(object? sender, ButtonArgs e)
+        {
+            if (e.Button == Core.ButtonTypes.WIZero)
+            {
+                switch (e.ObjectId)
+                {
+                    case 1:
+                        TramTron?.WriteTag(TramTron.CL1CanZero, TramTron.CL1CanAI.Value);
+                        break;
+                    case 2:
+                        TramTron?.WriteTag(TramTron.CL2CanZero, TramTron.CL2CanAI.Value);
+                        break;
+                    case 3:
+                        TramTron?.WriteTag(TramTron.CL3CanZero, TramTron.CL3CanAI.Value);
+                        break;
+                }
+            }
+        }
+
+
         /// <summary>
         /// Ẩn/hiển thị thành phần
         /// </summary>

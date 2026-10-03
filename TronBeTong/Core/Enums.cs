@@ -9,7 +9,8 @@ namespace TronBeTongV3.Core
         CmnConfig = 6, 
         GuiCapPhoi = 7, GuiM3 = 8, GuiSoMe = 9,
         DoAm = 10, ThemBot = 11,
-        RuaCoi = 12
+        RuaCoi = 12,
+        WIZero = 13
     }
 
     public enum ViewModelStates { None = 0, Add = 1, Update = 2, Remove = 3 }

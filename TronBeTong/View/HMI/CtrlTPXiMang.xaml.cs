@@ -61,6 +61,8 @@ namespace TronBeTongV3.View
             WSCements2.DigitFormat = "0";
             WSCements1.ZShowDischargeTime = false;
             WSCements2.ZShowDischargeTime = false;
+            WSCements1.ButtonClicked += WSCements_ButtonClicked;
+            WSCements2.ButtonClicked += WSCements_ButtonClicked;
         }
 
         /// <summary>
@@ -233,8 +235,17 @@ namespace TronBeTongV3.View
             }
         }
 
-        private void WSCements1_ButtonClick(object sender, ButtonArgs e)
+        private void WSCements_ButtonClicked(object? sender, ButtonArgs e)
         {
+            if (e.Button == Core.ButtonTypes.WIZero)
+            {
+                switch (e.ObjectId)
+                {
+                    case 1:
+                        TramTron?.WriteTag(TramTron.XiCanZero, TramTron.XiCanAI.Value);
+                        break;
+                }
+            }
         }
         #endregion
 

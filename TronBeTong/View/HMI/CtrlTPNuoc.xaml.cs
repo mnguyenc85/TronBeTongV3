@@ -31,6 +31,7 @@ namespace TronBeTongV3.View
             WSWater.ZShowDischargeTime = false;
             SiloWater.RoundFormat = "0";
             SiloWater.RoundDigit = 0;
+            WSWater.ButtonClicked += WSWater_ButtonClicked;
         }
 
         public void LoadThamSo(DbSettings s)
@@ -123,8 +124,17 @@ namespace TronBeTongV3.View
             }
         }
 
-        private void WSWater_ButtonClicked(object sender, ButtonArgs e)
+        private void WSWater_ButtonClicked(object? sender, ButtonArgs e)
         {
+            if (e.Button == Core.ButtonTypes.WIZero)
+            {
+                switch (e.ObjectId)
+                {
+                    case 1:
+                        TramTron?.WriteTag(TramTron.NuocCanZero, TramTron.NuocCanAI.Value);
+                        break;
+                }
+            }
         }
 
         private void SiloWater_ButtonClicked(object sender, ButtonArgs e)
