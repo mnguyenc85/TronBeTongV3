@@ -51,6 +51,8 @@ namespace TronBeTongV3.View
                 _tps[i].RoundFormat = "0";
             }
 
+            WSCements1.Id = 1;
+            WSCements2.Id = 1;
             WSCements1.LoaiCan = 0;
             WSCements2.LoaiCan = 0;
             WSCements1.SiloIndices.Add(0);

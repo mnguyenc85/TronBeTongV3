@@ -726,7 +726,10 @@ namespace TronBeTongV3.Comm
         public void WriteCapPhoi(DHCongThucVM ct, bool datPG = true)
         {
             if (_openedConnectionType == ConnectionTypes.S7Net)
+            {
                 S71200_WriteCapPhoi(ct, datPG);
+                System.Diagnostics.Debug.WriteLine($"Đặt công thức {ct.Ma}, pg? {datPG}");
+            }
             else if (_openedConnectionType == ConnectionTypes.KEPServer)
                 KEPServer_WriteCapPhoi(ct, datPG);
         }

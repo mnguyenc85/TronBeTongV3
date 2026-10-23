@@ -26,6 +26,8 @@ namespace TronBeTongV3.View
         public CtrlTPNuoc()
         {
             InitializeComponent();
+
+            WSWater.Id = 1;
             WSWater.LoaiCan = 2;
             WSWater.DigitFormat = "0";
             WSWater.ZShowDischargeTime = false;

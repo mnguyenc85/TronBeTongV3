@@ -72,6 +72,7 @@ class CTramTron:
     self.TPPG1.addDischarge(PLCM, 203, 1)
 
     self.AICL1 = analogInput.CAnalogInput(DB26, 306, 308, 310, 246)
+    self.AIXI1 = analogInput.CAnalogInput(DB26, 346, 348, 350, 254)
 
   def process(self, delta):
     bStart = PLCM[1000] & 1 == 1
@@ -117,6 +118,7 @@ class CTramTron:
     self.bStart0 = bStart
 
     self.AICL1.process(delta)
+    self.AIXI1.process(delta)
 
   def dung_he_thong(self):    
     self.TPCL1.stop()

@@ -130,7 +130,7 @@
                                     <GridViewColumn Header="KL (kg)">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <nmwpfctrl:TextBoxDouble x:Name="TxtTPKL" Text="{Binding KL}" Width="72"
+                                                <nmwpfctrl:TextBoxDouble x:Name="TxtTPKL" Text="{Binding KL, UpdateSourceTrigger=PropertyChanged}" Width="72"
                                                                      PreviewKeyDown="TxtTPKL_PreviewKeyDown" ValueChanged="TxtTPKL_ValueChanged"/>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>

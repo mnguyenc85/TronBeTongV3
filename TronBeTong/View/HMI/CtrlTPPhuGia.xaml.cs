@@ -68,6 +68,7 @@ namespace TronBeTongV3.View
                 _tps[i].Id = i;
             }
 
+            WScale1.Id = 1;
             WScale1.SiloIndices.Add(0);
             WScale1.SiloIndices.Add(1);
             WScale1.LoaiCan = 3;

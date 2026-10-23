@@ -311,7 +311,6 @@ namespace TronBeTongV3.View
         private void WsTotalCL_ButtonClicked(object? sender, ButtonArgs e)
         {
             if (TramTron == null) return;
-            if (TramTron.IsRunning) return;
 
             if (e.Button == Core.ButtonTypes.WIZero)
             {

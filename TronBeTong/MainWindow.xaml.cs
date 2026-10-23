@@ -76,7 +76,9 @@ namespace TronBeTongV3
         {
             PnlDebug.Visibility = Visibility.Collapsed;
             await Init();
-            ViewDonHang.CanPGRieng = _s.GetBoolValue("vanhanh.canpgrieng");
+            // TODO: check lại: có lúc load không được
+            //ViewDonHang.CanPGRieng = _s.GetBoolValue("vanhanh.canpgrieng");
+            ViewDonHang.CanPGRieng = true;
             _tramtron.StartConnection();
         }
 
@@ -93,6 +95,8 @@ namespace TronBeTongV3
             _s.UpdateDouble("in.phieu.auto.times", TxtPrintRepeat.Value);
             _s.UpdateBool("vanhanh.canpgrieng", ViewDonHang.CanPGRieng);
             await _db.SaveSettingsAsync(_s);
+
+            Log.Information("Successful closed");
         }
 
         private async Task Init()
