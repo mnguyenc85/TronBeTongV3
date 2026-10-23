@@ -292,7 +292,7 @@ namespace TronBeTongV3.CSDL
                     {
                         ct1.FromDO(o);
                         System.Diagnostics.Debug.WriteLine($"Update tp của ct Id = {ct.Id}");
-                        CongThuc_UpdateThanhPhan(ct, ct1);
+                        await CongThuc_UpdateThanhPhan(ct, ct1);
                     }
                 }
                 else
@@ -323,7 +323,7 @@ namespace TronBeTongV3.CSDL
         /// <summary>
         /// Thêm, sửa, xóa các thành phần trong công thức
         /// </summary>
-        private async void CongThuc_UpdateThanhPhan(BTCongThucVM ct, BTCongThucVM ct0)
+        private async Task CongThuc_UpdateThanhPhan(BTCongThucVM ct, BTCongThucVM ct0)
         {
             //try
             //{
