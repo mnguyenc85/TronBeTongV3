@@ -82,11 +82,18 @@ namespace TronBeTongV3
 
         private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            StopConnection();
+            try
+            {
+                StopConnection();
 
-            XuLyInPhieu.Instance.Close();
-            //XuLyInBaoCao.Instance.Close();
-            //_client.Stop();
+                XuLyInPhieu.Instance.Close();
+                //XuLyInBaoCao.Instance.Close();
+                //_client.Stop();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex.Message);
+            }
 
             // Save settings before exit program
             _s.UpdateBool("in.phieu.auto", ChkAutoPrint.IsChecked == true);
