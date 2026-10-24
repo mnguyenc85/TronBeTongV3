@@ -288,13 +288,22 @@ namespace TronBeTongV3.View
 
         private void BtUnlock_Click(object sender, RoutedEventArgs e)
         {
-            WndUnlockPassword wnd = new WndUnlockPassword()
-            {
-                Owner = this
-            };
-            if (wnd.ShowDialog() == true)
+            bool skipLock = DbRepository.Instance.Settings.GetBoolValue("calib.skiplock", false);
+            if (skipLock)
             {
                 PnlCalib.IsEnabled = true;
+                return;
+            }
+            else
+            {
+                WndUnlockPassword wnd = new()
+                {
+                    Owner = this
+                };
+                if (wnd.ShowDialog() == true)
+                {
+                    PnlCalib.IsEnabled = true;
+                }
             }
         }
 
@@ -376,6 +385,22 @@ namespace TronBeTongV3.View
             }
         }
 
+
+        private void ChkEnVitTinh1_Checked(object sender, RoutedEventArgs e)
+        {
+            LblVitTinh1.Text = "1";
+        }
+
+        private void ChkEnVitTinh1_Unchecked(object sender, RoutedEventArgs e)
+        {
+            LblVitTinh1.Text = "2";
+        }
+
+        private void BtCalibHelp_Click(object sender, RoutedEventArgs e)
+        {
+            PopupCablibHelp.IsOpen = true;
+        }
+
         #region INotifyPropertyChanged
         private readonly Dictionary<string, PropertyChangedEventArgs> _argsCache = [];
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -395,20 +420,5 @@ namespace TronBeTongV3.View
             PropertyChanged?.Invoke(this, e);
         }
         #endregion
-
-        private void ChkEnVitTinh1_Checked(object sender, RoutedEventArgs e)
-        {
-            LblVitTinh1.Text = "1";
-        }
-
-        private void ChkEnVitTinh1_Unchecked(object sender, RoutedEventArgs e)
-        {
-            LblVitTinh1.Text = "2";
-        }
-
-        private void BtCalibHelp_Click(object sender, RoutedEventArgs e)
-        {
-            PopupCablibHelp.IsOpen = true;
-        }
     }
 }

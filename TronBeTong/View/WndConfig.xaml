@@ -147,47 +147,69 @@
             
             <TabItem x:Name="TabItemOperate" Header="Vận hành" Style="{StaticResource FlatRightTabItemStyle}" BorderBrush="DodgerBlue" Width="80" FontSize="14">
                 <DockPanel Background="#fdfdfd">
-                    <StackPanel Background="WhiteSmoke" Margin="3" DockPanel.Dock="Top">
-                        <StackPanel x:Name="PnlOpSim" Background="WhiteSmoke" Margin="3">
-                            <TextBlock Text="Mô phỏng" Margin="3" FontWeight="Bold"/>
-                            <CheckBox x:Name="ChkSimEn" Content="Cho phép mô phỏng" Margin="9 0 3 3" Visibility="Collapsed"/>
-                            <Button x:Name="BtSimulationSetPass" Content="Đổi pass" Margin="9 0 3 3" Width="90" HorizontalAlignment="Left" Style="{StaticResource BtnInfo}"
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Background="WhiteSmoke" Margin="3" DockPanel.Dock="Top">
+                            <StackPanel x:Name="PnlOpSim" Background="WhiteSmoke" Margin="3">
+                                <TextBlock Text="Mô phỏng" Margin="3" FontWeight="Bold"/>
+                                <CheckBox x:Name="ChkSimEn" Content="Cho phép mô phỏng" Margin="9 0 3 3" Visibility="Collapsed"/>
+                                <Button x:Name="BtSimulationSetPass" Content="Đổi pass" Margin="9 0 3 3" Width="90" HorizontalAlignment="Left" Style="{StaticResource BtnInfo}"
                                 Click="BtSimulationSetPass_Click"/>
-                        </StackPanel>
-                        <TextBlock Text="Xe skip" Margin="3 0 3 3" FontWeight="Bold"/>
-                        <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
-                            <TextBlock Text="TG DT0 - DT1: "/>
-                            <TextBox x:Name="TxtXeSkipDT01" Width="90"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
-                            <TextBlock Text="TG DT1 - DT2: "/>
-                            <TextBox x:Name="TxtXeSkipDT12" Width="90"/>
-                        </StackPanel>
-                        
-                        <TextBlock Text="Debug" Margin="3 0 3 3" FontWeight="Bold"/>
-                        <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
-                            <CheckBox x:Name="ChkShowDebug" Content="Hiển thị debug"/>
-                        </StackPanel>
-                        
-                        <StackPanel>
-                            <TextBlock Text="Chọn công thức khi chọn đơn hàng" Margin="3 0 3 3" FontWeight="Bold"/>
-                            <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
-                                <CheckBox x:Name="ChkAutoCongThucDonHang" Content="Công thức sử dụng cuối cùng"/>
                             </StackPanel>
-                        </StackPanel>
-
-                        <StackPanel x:Name="PnlHack">
-                            <TextBlock Text="Phiếu: Ghi đè m3" Margin="3 0 3 3" FontWeight="Bold"/>
+                            <TextBlock Text="Xe skip" Margin="3 0 3 3" FontWeight="Bold"/>
                             <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
-                                <CheckBox x:Name="ChkPhieuAllowChangeM3" Content="Cho phép ghi đề m3 khi in phiếu"/>
+                                <TextBlock Text="TG DT0 - DT1: "/>
+                                <TextBox x:Name="TxtXeSkipDT01" Width="90"/>
                             </StackPanel>
-                        </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
+                                <TextBlock Text="TG DT1 - DT2: "/>
+                                <TextBox x:Name="TxtXeSkipDT12" Width="90"/>
+                            </StackPanel>
 
-                        <StackPanel x:Name="PnlStartMode" Orientation="Horizontal">
-                            <TextBlock Text="Tự động Reset khi ấn Start" Margin="3 0 6 3" FontWeight="Bold"/>
-                            <CheckBox x:Name="ChkAutoReset" VerticalAlignment="Center"/>
+                            <StackPanel>
+                                <TextBlock Text="Chọn công thức khi chọn đơn hàng" Margin="3 0 3 3" FontWeight="Bold"/>
+                                <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
+                                    <CheckBox x:Name="ChkAutoCongThucDonHang" Content="Công thức sử dụng cuối cùng"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <StackPanel x:Name="PnlHack">
+                                <TextBlock Text="Phiếu: Ghi đè m3" Margin="3 0 3 3" FontWeight="Bold"/>
+                                <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
+                                    <CheckBox x:Name="ChkPhieuAllowChangeM3" Content="Cho phép ghi đề m3 khi in phiếu"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <StackPanel x:Name="PnlCalib">
+                                <TextBlock Text="Hiệu chuẩn cân" Margin="3 0 3 3" FontWeight="Bold"/>
+                                <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
+                                    <CheckBox x:Name="ChkCalibSkipLock" Content="Không cần nhập password"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <StackPanel x:Name="PnlHMIWIZero" IsEnabled="False">
+                                <TextBlock Text="Cho phép đặt `0` cân" Margin="3 0 3 3" FontWeight="Bold"/>
+                                <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
+                                    <CheckBox x:Name="ChkEnCLZero" Content="Cốt liệu" Margin="0 0 12 0"/>
+                                    <CheckBox x:Name="ChkEnXMZero" Content="Xi măng" Margin="0 0 12 0"/>
+                                    <CheckBox x:Name="ChkEnPGZero" Content="Phụ gia" Margin="0 0 12 0"/>
+                                    <CheckBox x:Name="ChkEnNuocZero" Content="Nước"/>
+                                </StackPanel>
+                            </StackPanel>
+
+                            <Separator/>
+                            <StackPanel x:Name="PnlStartMode" Orientation="Horizontal" IsEnabled="False">
+                                <TextBlock Text="Tự động Reset khi ấn Start" Margin="3 0 6 3" FontWeight="Bold"/>
+                                <CheckBox x:Name="ChkAutoReset" VerticalAlignment="Center"/>
+                            </StackPanel>
+
+                            <Separator/>
+                            <TextBlock Text="Debug" Margin="3 0 3 3" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal" Margin="9 0 3 3">
+                                <CheckBox x:Name="ChkShowDebug" Content="Hiển thị debug"/>
+                            </StackPanel>
+
                         </StackPanel>
-                    </StackPanel>
+                    </ScrollViewer>
                 </DockPanel>
             </TabItem>
 
