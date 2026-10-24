@@ -350,6 +350,31 @@ namespace TronBeTongV3.Comm
             AddLink(MucCanNhayPG2, db26, db26.MucCanNhayPG2);
             #endregion
 
+            var db26c = _plc.Db26Calib;
+            #region Hiệu chuẩn
+            AddLink(CL1CanAI, db26c, db26c.CalibCL1AI);
+            AddLink(CL1CanZero, db26c, db26c.CalibCL1Zero);
+            AddLink(CL1CanSpan, db26c, db26c.CalibCL1Span);
+            //AddLink(CL2CanAI, db26c, db26c.CalibCL2AI);
+            //AddLink(CL2CanZero, db26c, db26c.CalibCL2Zero);
+            //AddLink(CL2CanSpan, db26c, db26c.CalibCL2Span);
+            //AddLink(CL3CanAI, db26c, db26c.CalibCL3AI);
+            //AddLink(CL3CanZero, db26c, db26c.CalibCL3Zero);
+            //AddLink(CL3CanSpan, db26c, db26c.CalibCL3Span);
+
+            AddLink(Xi1CanAI, db26c, db26c.CalibXM1AI);
+            AddLink(Xi1CanZero, db26c, db26c.CalibXM1Zero);
+            AddLink(Xi1CanSpan, db26c, db26c.CalibXM1Span);
+
+            AddLink(PG1CanAI, db26c, db26c.CalibPGAI);
+            AddLink(PG1CanZero, db26c, db26c.CalibPGZero);
+            AddLink(PG1CanSpan, db26c, db26c.CalibPGSpan);
+
+            AddLink(NuocCanAI, db26c, db26c.CalibNuocAI);
+            AddLink(NuocCanZero, db26c, db26c.CalibNuocZero);
+            AddLink(NuocCanSpan, db26c, db26c.CalibNuocSpan);
+            #endregion
+
             foreach (var (key, link) in _allLinks)
             {
                 link.Tag.Name = key;

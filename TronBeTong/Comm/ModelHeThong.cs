@@ -198,18 +198,22 @@ namespace TronBeTongV3.Comm
         #endregion
 
         #region Calibration
-        public ModelTag CLCanAI { get; private set; } = new ModelTag("CanCL.AI");
-        public ModelTag CLCanKL { get; private set; } = new ModelTag("CanCL.KL");
-        public ModelTag CLCanZero { get; private set; } = new ModelTag("CanCL.Zero");
-        public ModelTag CLCanSpan { get; private set; } = new ModelTag("CanCL.Span");
+        public ModelTag CL1CanAI { get; private set; } = new ModelTag("CanCL1.AI");
+        //public ModelTag CL1CanKL { get; private set; } = new ModelTag("CanCL1.KL");
+        public ModelTag CL1CanZero { get; private set; } = new ModelTag("CanCL1.Zero");
+        public ModelTag CL1CanSpan { get; private set; } = new ModelTag("CanCL1.Span");
 
-        public ModelTag XiCanAI { get; private set; } = new ModelTag("CanXi.AI");
-        public ModelTag XiCanKL { get; private set; } = new ModelTag("CanXi.KL");
-        public ModelTag XiCanZero { get; private set; } = new ModelTag("CanXi.Zero");
-        public ModelTag XiCanSpan { get; private set; } = new ModelTag("CanXi.Span");
+        public ModelTag Xi1CanAI { get; private set; } = new ModelTag("CanXi1.AI");
+        //public ModelTag Xi1CanKL { get; private set; } = new ModelTag("CanXi1.KL");
+        public ModelTag Xi1CanZero { get; private set; } = new ModelTag("CanXi1.Zero");
+        public ModelTag Xi1CanSpan { get; private set; } = new ModelTag("CanXi1.Span");
+        public ModelTag PG1CanAI { get; private set; } = new ModelTag("CanPG1.AI");
+        //public ModelTag PG1CanKL { get; private set; } = new ModelTag("CanPG1.KL");
+        public ModelTag PG1CanZero { get; private set; } = new ModelTag("CanPG1.Zero");
+        public ModelTag PG1CanSpan { get; private set; } = new ModelTag("CanPG1.Span");
 
         public ModelTag NuocCanAI { get; private set; } = new ModelTag("CanNuoc.AI");
-        public ModelTag NuocCanKL { get; private set; } = new ModelTag("CanNuoc.KL");
+        //public ModelTag NuocCanKL { get; private set; } = new ModelTag("CanNuoc.KL");
         public ModelTag NuocCanZero { get; private set; } = new ModelTag("CanNuoc.Zero");
         public ModelTag NuocCanSpan { get; private set; } = new ModelTag("CanNuoc.Span");
         #endregion
@@ -973,5 +977,16 @@ namespace TronBeTongV3.Comm
 
         #endregion
         #endregion
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="db">2602: Db26Calib</param>
+        /// <returns></returns>
+        public int GetWriteTagCount(int db)
+        {
+            if (db == 2602) return _plc.Db26Calib.NoWriteCms;
+            return 0;
+        }
     }
 }

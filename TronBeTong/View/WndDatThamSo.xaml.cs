@@ -216,12 +216,9 @@ namespace TronBeTongV3.View
                 #endregion
 
                 #region Hiệu chuẩn cân
-                WICalibCL1.SetTags(TramTron, TramTron.CLCanAI, TramTron.CLCanKL, TramTron.CLCanZero, TramTron.CLCanSpan);
-                //WICalibCL2.SetTags(TramTron, TramTron.CLCanAI, TramTron.CLCanKL, TramTron.CLCanZero, TramTron.CLCanSpan);
-                //WICalibCL3.SetTags(TramTron, TramTron.CLCanAI, TramTron.CLCanKL, TramTron.CLCanZero, TramTron.CLCanSpan);
-                WICalibXM1.SetTags(TramTron, TramTron.XiCanAI, TramTron.XiCanKL, TramTron.XiCanZero, TramTron.XiCanSpan);
-                //WICalibXM2.SetTags(TramTron, TramTron.XiCanAI, TramTron.XiCanKL, TramTron.XiCanZero, TramTron.XiCanSpan);
-                WICalibWater.SetTags(TramTron, TramTron.NuocCanAI, TramTron.NuocCanKL, TramTron.NuocCanZero, TramTron.NuocCanSpan);
+                WICalibCL1.SetTags(TramTron, TramTron.CL1CanAI, TramTron.CanCLs[0].KL, TramTron.CL1CanZero, TramTron.CL1CanSpan);
+                WICalibXM1.SetTags(TramTron, TramTron.Xi1CanAI, TramTron.CanXMs[0].KL, TramTron.Xi1CanZero, TramTron.Xi1CanSpan);
+                WICalibWater.SetTags(TramTron, TramTron.NuocCanAI, TramTron.CanNuoc.KL, TramTron.NuocCanZero, TramTron.NuocCanSpan);
                 #endregion
 
                 #region Xe skip
@@ -407,6 +404,11 @@ namespace TronBeTongV3.View
         private void ChkEnVitTinh1_Unchecked(object sender, RoutedEventArgs e)
         {
             LblVitTinh1.Text = "2";
+        }
+
+        private void BtCalibHelp_Click(object sender, RoutedEventArgs e)
+        {
+            PopupCablibHelp.IsOpen = true;
         }
     }
 }
