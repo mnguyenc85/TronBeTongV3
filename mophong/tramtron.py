@@ -1,11 +1,11 @@
 from typing import List
 import ctypes
 import utils
-import tpcan, tpsilo
+import tpcan, tpsilo, analogInput, vanchuyencl, tpcoitron
 
 PLCM = (ctypes.c_ubyte * 1001)()
 DB09 = (ctypes.c_ubyte * 6)()
-DB26 = (ctypes.c_ubyte * 324)()
+DB26 = (ctypes.c_ubyte * 378)()
 DB29 = (ctypes.c_ubyte * 200)()
 DB42 = (ctypes.c_ubyte * 16)()
 DB43 = (ctypes.c_ubyte * 292)()
@@ -24,9 +24,12 @@ class CTramTron:
 
     self._init_can()
 
-    self.xacl = 0
-    self.btngang_run = 0
-    self.btngang_tg = 0
+    self.xacl = False
+
+    self.VanChuyenCL = vanchuyencl.CVanChuyenCL(PLCM)
+    self.Coi = tpcoitron.CCoiTron(PLCM, DB26, DB29)
+    self.AICL1 = analogInput.CAnalogInput(DB26, 306, 308, 310, 246)
+    self.AIXI1 = analogInput.CAnalogInput(DB26, 346, 348, 350, 254)
 
   def _init_can(self):
 
@@ -38,15 +41,15 @@ class CTramTron:
     self.TPCL1 = tpcan.CTPCan("CL1", DB43, DB26, 244, 246, 250, 100)
     tp = self.TPCL1.addTP(0, 62)
     tp.addVan(PLCM, 202, 4)
-    tp.addVan(PLCM, 201, 1, 50, 5)
+    tp.addVan(PLCM, 201, 1, 50, 10)
     self.TPCL1.addDischarge(PLCM, 202, 0)
     tp = self.TPCL1.addTP(4, 70)
     tp.addVan(PLCM, 202, 5)
-    tp.addVan(PLCM, 203, 2, 50, 5)    
+    tp.addVan(PLCM, 203, 2, 50, 10)    
     self.TPCL1.addDischarge(PLCM, 202, 1)
     tp = self.TPCL1.addTP(8, 78)
     tp.addVan(PLCM, 202, 6)
-    tp.addVan(PLCM, 203, 3)    
+    tp.addVan(PLCM, 203, 3, 50, 10)    
     self.TPCL1.addDischarge(PLCM, 202, 2)
     self.TPCL1.TTCanDu = 9
 
@@ -82,7 +85,7 @@ class CTramTron:
       self.TPPG1.run(delta, 0)
 
       # quá trình xả:
-      self.napnguyenlieu(delta)
+      self.nap_nguyen_lieu(delta)
 
       if not bStart:
         self.dung_he_thong()
@@ -94,6 +97,7 @@ class CTramTron:
         self.TPXM1.reset()
         self.TPNuoc.reset()
         self.TPPG1.reset(0.2)
+        self.Coi.reset()
       if not self.bStart0 and bStart:
         print('Bắt đầu chạy')
         m3 = utils.db2float(DB09, 0)
@@ -107,23 +111,31 @@ class CTramTron:
 
         self.bRunning = 1
 
+    self.VanChuyenCL.run(delta)
+    if self.VanChuyenCL.get_nap_lieu_xong():
+      self.Coi.start()
+    self.Coi.run(delta)
+
     # ghi mô phỏng & cối trộn
     utils.setbit(PLCM, 11, 0, 1)
     utils.setbit(PLCM, 100, 1, 1)
 
     self.bReset0 = bReset
     self.bStart0 = bStart
+  
+    #self.AICL1.process(delta)
+    #self.AIXI1.process(delta)
 
   def dung_he_thong(self):    
     self.TPCL1.stop()
     self.TPXM1.stop()
     self.TPNuoc.stop()
     self.TPPG1.stop()
-    self.xacl = 0
+    self.xacl = False
     print("Dừng chạy")
 
     utils.setbit(PLCM, 200, 3, 0)                # dừng băng tải xiên
-    utils.setbit(PLCM, 200, 1, 0)                # dừng băng tải ngang
+    self.VanChuyenCL.stop()
     self.bRunning = 0
 
   def hoan_thanh(self):
@@ -133,19 +145,14 @@ class CTramTron:
           self.dung_he_thong()
           utils.setbit(PLCM, 1000, 0, 0)        # xóa bStart
 
-  def napnguyenlieu(self, delta):
-    if not self.xacl:
+  def nap_nguyen_lieu(self, delta):
+    if not self.xacl and not self.VanChuyenCL.is_run() and not self.Coi.is_mixing():
       if (self.TPCL1.check_can_du() or self.TPCL1.soMeDat == 0):
-        self.xacl = 1
-        self.btngang_run = 1
-        self.btngang_tg = 0
-        utils.setbit(PLCM, 200, 1, 1)                # chạy băng tải ngang
+        self.xacl = True
+        self.VanChuyenCL.start()
         # print(f'   Nạp cốt liệu: mẻ: {self.TPCL1.meht}, {self.TPCL2.meht}, {self.TPCL3.meht}')
         print(f'   Nạp cốt liệu: mẻ: {self.TPCL1.meht}')
     
-    if self.btngang_run:
-      self.btngang_tg += delta
-
     if self.xacl:
       if not self.TPCL1.vanxa:
         self.TPCL1.start_discharge()
@@ -156,13 +163,7 @@ class CTramTron:
         # reset trạng thái -> cân mẻ mới
         self.TPCL1.me_moi()
         
-        self.xacl = 0
-        self.btngang_tg = 0
-    else:
-      if self.btngang_run:
-        if self.btngang_tg > 3:
-          self.btngang_run = 0
-          utils.setbit(PLCM, 200, 1, 0)                # dừng băng tải ngang
+        self.xacl = False
 
     mecl = self.TPCL1.meht
 
