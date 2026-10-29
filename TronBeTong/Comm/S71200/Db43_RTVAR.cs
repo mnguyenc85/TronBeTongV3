@@ -59,9 +59,9 @@ namespace TronBeTongV3.Comm.S71200
             for (int i = 0; i < CLs.Length; i++)
             {
                 CLs[i] = new PlcTag(TagTypes.Real, i * 4);
+                CLChots[i] = new PlcTag(TagTypes.Real, 62 + i * 8);
                 CLAdds[i] = new PlcTag(TagTypes.Real, 66 + i * 8);
                 CLHus[i] = new PlcTag(TagTypes.Real, 166 + i * 4);
-                CLChots[i] = new PlcTag(TagTypes.Real, 62 + i * 8);
             }
 
             for (int i = 0; i < XMs.Length; i++)
