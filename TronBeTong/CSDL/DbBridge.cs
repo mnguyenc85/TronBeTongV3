@@ -1046,7 +1046,7 @@ namespace TronBeTongV3.CSDL
 
                     foreach (var tp in ct.DsThanhPhan)
                     {
-                        if (tp.NL != null && tp.NL.PhanLoai != Core.LoaiThanhPhan.Nuoc)
+                        if (tp.NL != null && tp.NL.PhanLoai != Core.LoaiThanhPhan.Nuoc && tp.KL > 0)
                         {
                             cmd.Parameters["@ctid"].Value = ct.Id;
                             cmd.Parameters["@nlid"].Value = tp.NL.Id;
