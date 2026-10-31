@@ -37,6 +37,9 @@ namespace TronBeTongV3.View
         public int MeDat { get; set; }
         public int MeMax { get { return Math.Max(WSCements1.MeHT, WSCements2.MeHT); } }
 
+        public int[] LinkedSiloes { get; set; } = new int[CauHinhTramTron.MAX_XM];
+        public bool FirstCycle { get; set; } = true;
+
         public CtrlTPXiMang()
         {
             InitializeComponent();
@@ -168,20 +171,20 @@ namespace TronBeTongV3.View
             return dienDL;
         }
 
-        public void SetupBin(int i)
+        public void SetupBin(int tp_i, int ch_i)
         {
-            if (i < 0 || i >= CauHinhTramTron.MAX_XM) return;
+            if (tp_i < 0 || tp_i >= CauHinhTramTron.MAX_XM) return;
 
-            var ch = CauHinhTramTron.Instance.GetCauHinh(Core.LoaiThanhPhan.XiMang, i);
+            var ch = CauHinhTramTron.Instance.GetCauHinh(Core.LoaiThanhPhan.XiMang, ch_i);
             if (ch == null || ch.NguyenLieu == null)
             {
-                _tps[i].ZTitle = null;
-                _tps[i].ZEnabled = false;
+                _tps[tp_i].ZTitle = null;
+                _tps[tp_i].ZEnabled = false;
             }
             else
             {
-                _tps[i].ZTitle = ch.NguyenLieu.Ma;
-                _tps[i].ZEnabled = true;
+                _tps[tp_i].ZTitle = ch.NguyenLieu.Ma;
+                _tps[tp_i].ZEnabled = true;
 
                 //_bins[i].ZHasVib = ch.DamRung;
             }
@@ -190,7 +193,6 @@ namespace TronBeTongV3.View
         public void UpdateView(double delta)
         {
             if (TramTron == null) return;
-
             for (int i = 0; i < ModelHeThong.SoXMReal; i++)
             {
                 int some = (int)TramTron.MeSoMe.Value;
@@ -217,6 +219,12 @@ namespace TronBeTongV3.View
 
             WSCements1.UpdateView(TramTron.WIState, TramTron.CanXMs[0], MeDat, delta);
             WSCements2.UpdateView(TramTron.WIState, TramTron.CanXMs[1], MeDat, delta);
+
+            if (FirstCycle && TramTron.IsRunning)
+            {
+                UpdateLinkedSiloes();
+                FirstCycle = false;
+            }
         }
 
         #region Buttons
@@ -267,6 +275,32 @@ namespace TronBeTongV3.View
             if (WSCements1.MeHT > 0) return false;
             //if (WSCements2.MeHT > 0) return false;
             return true;
+        }
+
+        public void UpdateLinkedSiloes()
+        {
+            // Cập nhật silo thay thế từ Trạm, nếu không thay thì giá trị = 0;
+            if (TramTron == null) return;
+            UpdateLinkedSilo(0, TramTron.XM1VitTinh);
+            UpdateLinkedSilo(1, TramTron.XM2VitTinh);
+        }
+
+        private void UpdateLinkedSilo(int i, ModelTag tag)
+        {
+            LinkedSiloes[i] = -1;
+            SetupBin(i, i);
+            if (tag.GetBool())
+            {
+                foreach (var s in CauHinhTramTron.Instance.DsSilos)
+                {
+                    if (s.LinkSilo == i + 1)
+                    {
+                        LinkedSiloes[i] = s.Index;
+                        SetupBin(i, s.Index);
+                        break;
+                    }
+                }
+            }
         }
     }
 }

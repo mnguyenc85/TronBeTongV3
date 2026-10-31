@@ -51,7 +51,7 @@ namespace TronBeTongV3.View
                 _textboxes.Add(new TagTextBox(TxtZeroLvlCL3, TramTron, TramTron.EmptyLevelCL3));
                 _textboxes.Add(new TagTextBox(TxtZeroLvlCL4, TramTron, TramTron.EmptyLevelCL4));
                 _textboxes.Add(new TagTextBox(TxtZeroLvlXM1, TramTron, TramTron.EmptyLevelXM1));
-                _textboxes.Add(new TagTextBox(TxtZeroLvlXM2, TramTron, TramTron.EmptyLevelXM2));
+                _textboxes.Add(new TagTextBox(TxtZeroLvlXM3, TramTron, TramTron.EmptyLevelXM2));
                 _textboxes.Add(new TagTextBox(TxtZeroLvlNuoc, TramTron, TramTron.EmptyLevelNuoc));
                 _textboxes.Add(new TagTextBox(TxtZeroLvlPG1, TramTron, TramTron.EmptyLevelPG1));
 
@@ -96,8 +96,8 @@ namespace TronBeTongV3.View
                 _textboxes.Add(new TagTextBox(TxtPausedTimeCL2, TramTron, TramTron.PauseTimeCl2));
                 _textboxes.Add(new TagTextBox(TxtPausedTimeCL3, TramTron, TramTron.PauseTimeCl3));
                 _textboxes.Add(new TagTextBox(TxtPausedTimeCL4, TramTron, TramTron.PauseTimeCl4));
-                _textboxes.Add(new TagTextBox(TxtPausedTimeXM1, TramTron, TramTron.PauseTimeXM1));
-                _textboxes.Add(new TagTextBox(TxtPausedTimeXM2, TramTron, TramTron.PauseTimeXM2));
+                _textboxes.Add(new TagTextBox(TxtPausedTimeXM12, TramTron, TramTron.PauseTimeXM1));
+                _textboxes.Add(new TagTextBox(TxtPausedTimeXM34, TramTron, TramTron.PauseTimeXM2));
                 _textboxes.Add(new TagTextBox(TxtPausedTimeNuoc, TramTron, TramTron.PauseTimeNuoc));
                 _textboxes.Add(new TagTextBox(TxtPausedTimePG1, TramTron, TramTron.PauseTimePG1));
 
@@ -106,8 +106,8 @@ namespace TronBeTongV3.View
                 _textboxes.Add(new TagTextBox(TxtFineFactorCL2, TramTron, TramTron.FineFactorCL2));
                 _textboxes.Add(new TagTextBox(TxtFineFactorCL3, TramTron, TramTron.FineFactorCL3));
                 _textboxes.Add(new TagTextBox(TxtFineFactorCL4, TramTron, TramTron.FineFactorCL4));
-                _textboxes.Add(new TagTextBox(TxtFineFactorXM1, TramTron, TramTron.FineFactorXM1));
-                _textboxes.Add(new TagTextBox(TxtFineFactorXM2, TramTron, TramTron.FineFactorXM2));
+                _textboxes.Add(new TagTextBox(TxtFineFactorXM12, TramTron, TramTron.FineFactorXM1));
+                _textboxes.Add(new TagTextBox(TxtFineFactorXM34, TramTron, TramTron.FineFactorXM2));
                 _textboxes.Add(new TagTextBox(TxtFineFactorNuoc, TramTron, TramTron.FineFactorNuoc));
                 _textboxes.Add(new TagTextBox(TxtFineFactorPG1, TramTron, TramTron.FineFactorPG1));
 
@@ -116,8 +116,8 @@ namespace TronBeTongV3.View
                 _textboxes.Add(new TagTextBox(TxtMucCanNhayCL2, TramTron, TramTron.MucCanNhayCL2));
                 _textboxes.Add(new TagTextBox(TxtMucCanNhayCL3, TramTron, TramTron.MucCanNhayCL3));
                 _textboxes.Add(new TagTextBox(TxtMucCanNhayCL4, TramTron, TramTron.MucCanNhayCL4));
-                _textboxes.Add(new TagTextBox(TxtMucCanNhayXM1, TramTron, TramTron.MucCanNhayXM1));
-                _textboxes.Add(new TagTextBox(TxtMucCanNhayXM2, TramTron, TramTron.MucCanNhayXM2));
+                _textboxes.Add(new TagTextBox(TxtMucCanNhayXM12, TramTron, TramTron.MucCanNhayXM1));
+                _textboxes.Add(new TagTextBox(TxtMucCanNhayXM34, TramTron, TramTron.MucCanNhayXM2));
                 _textboxes.Add(new TagTextBox(TxtMucCanNhayNuoc, TramTron, TramTron.MucCanNhayNuoc));
                 _textboxes.Add(new TagTextBox(TxtMucCanNhayPG1, TramTron, TramTron.MucCanNhayPG1));
 
@@ -130,8 +130,8 @@ namespace TronBeTongV3.View
                 _textboxes.Add(new TagTextBox(TxtKL0RungCanCL1, TramTron, TramTron.KL0RungXaCanCL1));
                 _textboxes.Add(new TagTextBox(TxtKL0RungCanCL2, TramTron, TramTron.KL0RungXaCanCL2));
                 _textboxes.Add(new TagTextBox(TxtKL0RungCanCL3, TramTron, TramTron.KL0RungXaCanCL3));
-                _textboxes.Add(new TagTextBox(TxtKL0RungCanXM1, TramTron, TramTron.KL0RungXaCanXM1));
-                _textboxes.Add(new TagTextBox(TxtKL0RungCanXM2, TramTron, TramTron.KL0RungXaCanXM2));
+                _textboxes.Add(new TagTextBox(TxtKL0RungCanXM12, TramTron, TramTron.KL0RungXaCanXM1));
+                _textboxes.Add(new TagTextBox(TxtKL0RungCanXM34, TramTron, TramTron.KL0RungXaCanXM2));
 
                 #region Tham số thời gian
                 _textboxes.Add(new TagTextBox(TxtTreKDCL1, TramTron, TramTron.TreKhoiDongCL1));

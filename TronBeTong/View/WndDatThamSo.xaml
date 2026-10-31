@@ -39,6 +39,7 @@
                         <ColumnDefinition Width="74"/>
                         <ColumnDefinition Width="74"/>
                         <ColumnDefinition Width="74"/>
+                        <ColumnDefinition Width="74"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="22"/>
@@ -70,68 +71,76 @@
                     <TextBlock Text="Xi 2" VerticalAlignment="Center" Grid.Column="6" Margin="3 0 0 0" HorizontalAlignment="Center"/>
                     <TextBlock Text="Xi 3" VerticalAlignment="Center" Grid.Column="7" Margin="3 0 0 0" HorizontalAlignment="Center"/>
                     <TextBlock Text="Xi 4" VerticalAlignment="Center" Grid.Column="8" Margin="3 0 0 0" HorizontalAlignment="Center"/>
-                    <TextBlock Text="Nước" VerticalAlignment="Center" Grid.Column="9" Margin="3 0 0 0"/>
-                    <TextBlock Text="Phụ gia 1" VerticalAlignment="Center" Grid.Column="10" Margin="3 0 0 0"/>
-                    <TextBlock Text="Phụ gia 2" VerticalAlignment="Center" Grid.Column="11" Margin="3 0 0 0"/>
-                    <Border Grid.ColumnSpan="12" Grid.Row="1" BorderThickness="0 0 0 1" BorderBrush="Gray"/>
+                    <TextBlock Text="Xi 5" VerticalAlignment="Center" Grid.Column="9" Margin="3 0 0 0" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Nước" VerticalAlignment="Center" Grid.Column="10" Margin="3 0 0 0"/>
+                    <TextBlock Text="Phụ gia 1" VerticalAlignment="Center" Grid.Column="11" Margin="3 0 0 0"/>
+                    <TextBlock Text="Phụ gia 2" VerticalAlignment="Center" Grid.Column="12" Margin="3 0 0 0"/>
+                    <Border Grid.ColumnSpan="13" Grid.Row="1" BorderThickness="0 0 0 1" BorderBrush="Gray"/>
 
                     <TextBlock Text="Empty Level" VerticalAlignment="Center" HorizontalAlignment="Right" Grid.Row="2" Margin="3 2"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlCL1" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlCL2" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlCL3" Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlCL4" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0" IsEnabled="False"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlCL4" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlXM1" Grid.Row="2" Grid.Column="5" 
-                                             Grid.ColumnSpan="2" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlXM2" Grid.Row="2" Grid.Column="7" IsEnabled="False"
-                                             Grid.ColumnSpan="2" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlNuoc" Grid.Row="2" Grid.Column="9" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlPG1" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                                             Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlXM2" Grid.Row="2" Grid.Column="6" 
+                                             Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlXM3" Grid.Row="2" Grid.Column="7"
+                                             Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlXM" Grid.Row="2" Grid.Column="8"
+                                             Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlXM5" Grid.Row="2" Grid.Column="9" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"
+                                             IsEnabled="False"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlNuoc" Grid.Row="2" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlPG1" Grid.Row="2" Grid.Column="11" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtZeroLvlPG2" Grid.Row="2" Grid.Column="12" VerticalAlignment="Center" Margin="3 0" Value="0"/>
 
                     <TextBlock Grid.Row="3" Text="Cut off level" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlCL1" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlCL2" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlCL3" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlCL4" Grid.Row="3" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0" IsEnabled="False"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlCL4" Grid.Row="3" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlXM1" Grid.Row="3" Grid.Column="5" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlXM2" Grid.Row="3" Grid.Column="6" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlXM3" Grid.Row="3" Grid.Column="7" VerticalAlignment="Center" Margin="3 0" Value="0"
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlXM3" Grid.Row="3" Grid.Column="7" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlXM4" Grid.Row="3" Grid.Column="8" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlXM5" Grid.Row="3" Grid.Column="9" VerticalAlignment="Center" Margin="3 0" Value="0"
                                              IsEnabled="False"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlXM4" Grid.Row="3" Grid.Column="8" VerticalAlignment="Center" Margin="3 0" Value="0"
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlNuoc" Grid.Row="3" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlPG1" Grid.Row="3" Grid.Column="11" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlPG2" Grid.Row="3" Grid.Column="12" VerticalAlignment="Center" Margin="3 0" Value="0"
                                              IsEnabled="False"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlNuoc" Grid.Row="3" Grid.Column="9" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlPG1" Grid.Row="3" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtCutOffLvlPG2" Grid.Row="3" Grid.Column="11" VerticalAlignment="Center" Margin="3 0" Value="0"
-                                             IsEnabled="False"/>
+                    
                     <TextBlock Grid.Row="4" Text="Enable Auto Cut off level" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
                     <CheckBox x:Name="ChkAutoCutOffLevelCL1" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
                     <CheckBox x:Name="ChkAutoCutOffLevelCL2" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
                     <CheckBox x:Name="ChkAutoCutOffLevelCL3" Grid.Row="4" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
-                    <CheckBox x:Name="ChkAutoCutOffLevelCL4" Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0" IsEnabled="False"/>
+                    <CheckBox x:Name="ChkAutoCutOffLevelCL4" Grid.Row="4" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
                     <CheckBox x:Name="ChkAutoCutOffLevelXM1" Grid.Row="4" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
                     <CheckBox x:Name="ChkAutoCutOffLevelXM2" Grid.Row="4" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
-                    <CheckBox x:Name="ChkAutoCutOffLevelXM3" Grid.Row="4" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"
+                    <CheckBox x:Name="ChkAutoCutOffLevelXM3" Grid.Row="4" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
+                    <CheckBox x:Name="ChkAutoCutOffLevelXM4" Grid.Row="4" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
+                    <CheckBox x:Name="ChkAutoCutOffLevelXM5" Grid.Row="4" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"
                               IsEnabled="False"/>
-                    <CheckBox x:Name="ChkAutoCutOffLevelXM4" Grid.Row="4" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"
-                              IsEnabled="False"/>
-                    <CheckBox x:Name="ChkAutoCutOffLevelNuoc" Grid.Row="4" Grid.Column="9" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
-                    <CheckBox x:Name="ChkAutoCutOffLevelPG1" Grid.Row="4" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
-                    <CheckBox x:Name="ChkAutoCutOffLevelPG2" Grid.Row="4" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"
-                              IsEnabled="False"/>
+                    <CheckBox x:Name="ChkAutoCutOffLevelNuoc" Grid.Row="4" Grid.Column="10" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
+                    <CheckBox x:Name="ChkAutoCutOffLevelPG1" Grid.Row="4" Grid.Column="11" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
+                    <CheckBox x:Name="ChkAutoCutOffLevelPG2" Grid.Row="4" Grid.Column="12" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0"/>
 
                     <TextBlock Grid.Row="5" Text="Coarsfine level" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfineCL1" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfineCL2" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfineCL3" Grid.Row="5" Grid.Column="3" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfineCL4" Grid.Row="5" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0" IsEnabled="False"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfineCL4" Grid.Row="5" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfineXM1" Grid.Row="5" Grid.Column="5" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfineXM2" Grid.Row="5" Grid.Column="6" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfineXM3" Grid.Row="5" Grid.Column="7" VerticalAlignment="Center" Margin="3 0" Value="0"
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfineXM3" Grid.Row="5" Grid.Column="7" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfineXM4" Grid.Row="5" Grid.Column="8" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfineXM5" Grid.Row="5" Grid.Column="9" VerticalAlignment="Center" Margin="3 0" Value="0"
                                              IsEnabled="False"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfineXM4" Grid.Row="5" Grid.Column="8" VerticalAlignment="Center" Margin="3 0" Value="0"
-                                             IsEnabled="False"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfineNuoc" Grid.Row="5" Grid.Column="9" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfinePG1" Grid.Row="5" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfinePG2" Grid.Row="5" Grid.Column="11" VerticalAlignment="Center" Margin="3 0" Value="0"
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfineNuoc" Grid.Row="5" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfinePG1" Grid.Row="5" Grid.Column="11" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtCoarsfinePG2" Grid.Row="5" Grid.Column="12" VerticalAlignment="Center" Margin="3 0" Value="0"
                                              IsEnabled="False"/>
 
                     <TextBlock Grid.Row="6" Text="Paused time" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
@@ -139,62 +148,73 @@
                     <nmwpfctrl:TextBoxDouble x:Name="TxtPausedTimeCL2" Grid.Row="6" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtPausedTimeCL3" Grid.Row="6" Grid.Column="3" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtPausedTimeCL4" Grid.Row="6" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0" IsEnabled="False"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtPausedTimeXM1" Grid.Row="6" Grid.Column="5"
-                                             Grid.ColumnSpan="2" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtPausedTimeXM2" Grid.Row="6" Grid.Column="7" IsEnabled="False"
-                                             Grid.ColumnSpan="2" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtPausedTimeNuoc" Grid.Row="6" Grid.Column="9" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtPausedTimePG1" Grid.Row="6" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtPausedTimeXM12" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="2" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtPausedTimeXM34" Grid.Row="6" Grid.Column="7" Grid.ColumnSpan="2" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtPausedTimeXM5" Grid.Row="6" Grid.Column="9" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"
+                                             IsEnabled="False"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtPausedTimeNuoc" Grid.Row="6" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtPausedTimePG1" Grid.Row="6" Grid.Column="11" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtPausedTimePG2" Grid.Row="6" Grid.Column="12" VerticalAlignment="Center" Margin="3 0" Value="0"/>
 
                     <TextBlock Grid.Row="7" Text="Fine factor" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtFineFactorCL1" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtFineFactorCL2" Grid.Row="7" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtFineFactorCL3" Grid.Row="7" Grid.Column="3" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtFineFactorCL4" Grid.Row="7" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0" IsEnabled="False"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtFineFactorXM1" Grid.Row="7" Grid.Column="5"
-                                             Grid.ColumnSpan="2" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtFineFactorXM2" Grid.Row="7" Grid.Column="7" IsEnabled="False"
-                                             Grid.ColumnSpan="2" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtFineFactorNuoc" Grid.Row="7" Grid.Column="9" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtFineFactorPG1" Grid.Row="7" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtFineFactorXM12" Grid.Row="7" Grid.Column="5" Grid.ColumnSpan="2" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtFineFactorXM34" Grid.Row="7" Grid.Column="7" Grid.ColumnSpan="2" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtFineFactorXM5" Grid.Row="7" Grid.Column="9" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"
+                                             IsEnabled="False"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtFineFactorNuoc" Grid.Row="7" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtFineFactorPG1" Grid.Row="7" Grid.Column="11" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtFineFactorPG2" Grid.Row="7" Grid.Column="12" VerticalAlignment="Center" Margin="3 0" Value="0"/>
 
                     <TextBlock Grid.Row="8" Text="Mức cân nháy" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayCL1" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayCL2" Grid.Row="8" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayCL3" Grid.Row="8" Grid.Column="3" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayCL4" Grid.Row="8" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0" IsEnabled="False"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayXM1" Grid.Row="8" Grid.Column="5"
-                                             Grid.ColumnSpan="2" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayXM2" Grid.Row="8" Grid.Column="7" IsEnabled="False"
-                                             Grid.ColumnSpan="2" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayNuoc" Grid.Row="8" Grid.Column="9" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayPG1" Grid.Row="8" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayXM12" Grid.Row="8" Grid.Column="5" Grid.ColumnSpan="2" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayXM34" Grid.Row="8" Grid.Column="7" Grid.ColumnSpan="2" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayXM5" Grid.Row="8" Grid.Column="9" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"
+                                             IsEnabled="False"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayNuoc" Grid.Row="8" Grid.Column="10" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayPG1" Grid.Row="8" Grid.Column="11" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtMucCanNhayPG2" Grid.Row="8" Grid.Column="12" VerticalAlignment="Center" Margin="3 0" Value="0"/>
 
-                    <Border Grid.ColumnSpan="12" Grid.Row="11" BorderThickness="0 0 0 1" BorderBrush="Gray"/>
-                    <TextBlock Text="Chọn vít tinh 1/2" Grid.Row="12"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
-                    <StackPanel Orientation="Horizontal"
-                        Grid.Row="12" Grid.Column="5" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0">
-                        <CheckBox x:Name="ChkEnVitTinh1" ToolTip="Tích: chọn vít 1" VerticalAlignment="Center" Margin="0 0 6 0"
-                                  Checked="ChkEnVitTinh1_Checked" Unchecked="ChkEnVitTinh1_Unchecked"/>
-                        <TextBlock x:Name="LblVitTinh1" Text="2"/>
-                    </StackPanel>
-                    <StackPanel Orientation="Horizontal" Grid.Row="12" Grid.Column="7" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0">
-                        <CheckBox x:Name="ChkEnVitTinh2" VerticalAlignment="Center" Margin="0 0 6 0"
-                                  IsEnabled="False"/>
-                        <TextBlock x:Name="LblVitTinh2" Text="2"/>
-                    </StackPanel>
-
-                    <Border Grid.ColumnSpan="12" Grid.Row="9" BorderThickness="0 0 0 1" BorderBrush="Gray"/>
+                    <Border Grid.ColumnSpan="13" Grid.Row="9" BorderThickness="0 0 0 1" BorderBrush="Gray"/>
                     <TextBlock Grid.Row="10" Text="KL 0 bật rung xả cân" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtKL0RungCanCL1" Grid.Row="10" Grid.Column="1" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtKL0RungCanCL2" Grid.Row="10" Grid.Column="2" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtKL0RungCanCL3" Grid.Row="10" Grid.Column="3" VerticalAlignment="Center" Margin="3 0" Value="0"/>
                     <nmwpfctrl:TextBoxDouble x:Name="TxtKL0RungCanCL4" Grid.Row="10" Grid.Column="4" VerticalAlignment="Center" Margin="3 0" Value="0" IsEnabled="False"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtKL0RungCanXM1" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="2"
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtKL0RungCanXM12" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="2"
                                              Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
-                    <nmwpfctrl:TextBoxDouble x:Name="TxtKL0RungCanXM2" Grid.Row="10" Grid.Column="7" Grid.ColumnSpan="2" IsEnabled="False"
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtKL0RungCanXM34" Grid.Row="10" Grid.Column="7" Grid.ColumnSpan="2"
                                              Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"/>
+                    <nmwpfctrl:TextBoxDouble x:Name="TxtKL0RungCanXM5" Grid.Row="10" Grid.Column="9" Width="68" VerticalAlignment="Center" Margin="3 0" Value="0"
+                                             IsEnabled="False"/>
 
+                    <Border Grid.ColumnSpan="13" Grid.Row="12" BorderThickness="0 0 0 1" BorderBrush="Gray"/>
+                    <TextBlock Text="Chọn vít tinh 1/2" Grid.Row="12"  VerticalAlignment="Center" HorizontalAlignment="Right" Margin="3 0"/>
+                    <StackPanel Orientation="Horizontal"
+                        Grid.Row="12" Grid.Column="5" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0">
+                        <CheckBox x:Name="ChkEnVitTinh1" ToolTip="Tích: chọn vít 1" VerticalAlignment="Center" Margin="0 0 6 0"
+                                  Checked="ChkEnVitTinh1_Checked" Unchecked="ChkEnVitTinh1_Unchecked"/>
+                        <TextBlock x:Name="LblVitTinh1" Text="2"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="12" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0">
+                        <CheckBox x:Name="ChkEnVitTinh2" VerticalAlignment="Center" Margin="0 0 6 0" IsEnabled="False"/>
+                        <TextBlock x:Name="LblVitTinh2" Text="2"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="12" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0">
+                        <CheckBox x:Name="ChkEnVitTinh3" VerticalAlignment="Center" Margin="0 0 6 0" IsEnabled="False"/>
+                        <TextBlock x:Name="LblVitTinh3" Text="2"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="12" Grid.Column="8" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="3 0">
+                        <CheckBox x:Name="ChkEnVitTinh4" VerticalAlignment="Center" Margin="0 0 6 0" IsEnabled="False"/>
+                        <TextBlock x:Name="LblVitTinh4" Text="2"/>
+                    </StackPanel>
                 </Grid>
             </TabItem>
 

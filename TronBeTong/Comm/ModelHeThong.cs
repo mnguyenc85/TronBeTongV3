@@ -434,6 +434,7 @@ namespace TronBeTongV3.Comm
         #endregion
 
         public ModelTag XM1VitTinh { get; private set; } = new ModelTag("Pr.XM1.VitTinh");
+        public ModelTag XM2VitTinh { get; private set; } = new ModelTag("Pr.XM2.VitTinh");
 
         public ModelTag WaterKeep { get; private set; } = new ModelTag("Water.GiuNuoc");
 

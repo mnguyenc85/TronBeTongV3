@@ -229,7 +229,7 @@ namespace TronBeTongV3.View
                 if (LoaiSilo == LoaiThanhPhan.CotLieu)
                     TPCotLieu?.SetupBin(SiloIndex);
                 else if (LoaiSilo == LoaiThanhPhan.XiMang)
-                    TPXiMang?.SetupBin(SiloIndex);
+                    TPXiMang?.SetupBin(SiloIndex, SiloIndex);
                 else if (LoaiSilo == LoaiThanhPhan.PhuGia)
                     TPPhuGia?.SetupBin(SiloIndex);
             }
@@ -241,7 +241,7 @@ namespace TronBeTongV3.View
             if (LoaiSilo == LoaiThanhPhan.CotLieu)
                 TPCotLieu?.SetupBin(SiloIndex);
             else if (LoaiSilo == LoaiThanhPhan.XiMang)
-                TPXiMang?.SetupBin(SiloIndex);
+                TPXiMang?.SetupBin(SiloIndex, SiloIndex);
             else if (LoaiSilo == LoaiThanhPhan.PhuGia)
                 TPPhuGia?.SetupBin(SiloIndex);
         }

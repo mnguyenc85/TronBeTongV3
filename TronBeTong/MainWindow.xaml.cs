@@ -163,7 +163,7 @@ namespace TronBeTongV3
             }
             for (int i = 0; i < CauHinhTramTron.MAX_XM; i++)
             {
-                TPXiMang.SetupBin(i);
+                TPXiMang.SetupBin(i, i);
             }
             for (int i = 0; i < CauHinhTramTron.MAX_PG; i++)
             {
@@ -600,6 +600,7 @@ namespace TronBeTongV3
                 TramTron = _tramtron
             };
             wnd.ShowDialog();
+            TPXiMang.FirstCycle = true;
         }
         private void MniAbout_Click(object sender, RoutedEventArgs e)
         {
