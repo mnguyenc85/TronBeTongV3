@@ -58,6 +58,7 @@ namespace TronBeTongV3.Data.DO
                     {
                         silo.NLId = s.NLId;
                         silo.NguyenLieu = nl;
+                        silo.LinkSilo = s.LinkSilo;
                     }
                     silo.TSId = s.TSId;
                 }
@@ -106,7 +107,15 @@ namespace TronBeTongV3.Data.DO
             return -1;
         }
 
-        public async Task SetNguyenLieu(LoaiThanhPhan loai, int i, SiloNguyenLieuVM? nl)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="loai">Loại silo</param>
+        /// <param name="i">Index của silo</param>
+        /// <param name="nl">Nguyên liệu chứa trong silo</param>
+        /// <param name="linkIndex">Silo này liên kết với silo nào? (base 1)</param>
+        /// <returns></returns>
+        public async Task SetNguyenLieu(LoaiThanhPhan loai, int i, SiloNguyenLieuVM? nl, int linkIndex = 0)
         {
             int j = GetSiloIndex(loai, i);
             if (j >= 0)
@@ -118,6 +127,7 @@ namespace TronBeTongV3.Data.DO
                     DsSilos[j].NguyenLieu = nl1;
                 }
                 else DsSilos[j].NguyenLieu = null;
+                DsSilos[j].LinkSilo = linkIndex;
                 var o = DsSilos[j].CreateDO();
                 await _db.Silo_SaveAsync(o);
                 DsSilos[j].Id = o.Id;

@@ -25,6 +25,7 @@ namespace TronBeTongV3.Data.ViewModel
         /// Id trong tblsilothamso
         /// </summary>
         public int TSId { get; set; }
+        public int LinkSilo { get; set; }
 
         private SiloNguyenLieuVM? _nl;
         public SiloNguyenLieuVM? NguyenLieu { get { return _nl; } set { if (_nl != value) { _nl = value; NotifyChanged(); } } }
@@ -39,6 +40,7 @@ namespace TronBeTongV3.Data.ViewModel
             o.Index = Index;
             o.NLId = NguyenLieu != null? NguyenLieu.Id: -1;
             o.TSId = ThamSo != null? ThamSo.Id: -1;
+            o.LinkSilo = LinkSilo;
         }
 
         public SiloCauHinhDO CreateDO()

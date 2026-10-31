@@ -60,6 +60,7 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn Header="Nguyên liệu" DisplayMemberBinding="{Binding NguyenLieu.Ten}"/>
+                        <GridViewColumn Header="Link" DisplayMemberBinding="{Binding LinkSilo}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -100,79 +101,93 @@
 
                     <Border x:Name="BdrNguyenLieuInputs" Grid.Column="4" BorderThickness="1" BorderBrush="Gray" CornerRadius="3" Background="{StaticResource SCADABg04}">
                         <StackPanel Grid.Column="2" Margin="3">
-                            <TextBlock x:Name="LblNLTitle" FontWeight="Bold" Foreground="SteelBlue"/>
-                            
-                            <!-- Phân loại -->
-                            <TextBlock Text="Phân loại:" Margin="0 3 0 0"/>
-                            <TextBlock Text="{Binding CurNL.PhanLoai, Converter={corecvt:AggrTypeToStringCvt}}" Background="White" Padding="2 1"/>
+                            <GroupBox Style="{StaticResource FlatGroupBoxStyle01}" BorderBrush="Gray">
+                                <GroupBox.Header>
+                                    <TextBlock x:Name="LblNLTitle" FontWeight="Bold" Foreground="SteelBlue"/>
+                                </GroupBox.Header>
+                                <StackPanel Margin="3">
+                                    <!-- Phân loại -->
+                                    <TextBlock Text="Phân loại:" Margin="0 3 0 0"/>
+                                    <TextBlock Text="{Binding CurNL.PhanLoai, Converter={corecvt:AggrTypeToStringCvt}}" Background="White" Padding="2 1"/>
 
-                            <!-- Mã -->
-                            <StackPanel Orientation="Horizontal" Margin="0 6 0 3">
-                                <TextBlock Text="* Mã:"/>
-                                <Button x:Name="BtMaHelp" Content="?" Style="{StaticResource RoundButtonStyle}"
+                                    <!-- Mã -->
+                                    <StackPanel Orientation="Horizontal" Margin="0 6 0 3">
+                                        <TextBlock Text="* Mã:"/>
+                                        <Button x:Name="BtMaHelp" Content="?" Style="{StaticResource RoundButtonStyle}"
                                     Width="16" Height="16" Margin="6 0 0 0" Focusable="False"
                                     Click="ShowPopup_Click"/>
-                                <Popup x:Name="PopupMaHelp" Placement="Bottom" StaysOpen="False"
+                                        <Popup x:Name="PopupMaHelp" Placement="Bottom" StaysOpen="False"
                                     PlacementTarget="{Binding ElementName=BtMaHelp}">
-                                    <Border Background="LightYellow" Padding="6"
+                                            <Border Background="LightYellow" Padding="6"
                                         BorderBrush="Gray" BorderThickness="1">
-                                        <StackPanel>
-                                            <TextBlock Width="250" TextWrapping="Wrap"
+                                                <StackPanel>
+                                                    <TextBlock Width="250" TextWrapping="Wrap"
                                                 Text="Sử dụng để chọn trong chương trình." />
-                                            <TextBlock Width="250" TextWrapping="Wrap"
+                                                    <TextBlock Width="250" TextWrapping="Wrap"
                                                 Text="(Nên để ngắn gọn, dễ nhớ)" />
-                                        </StackPanel>
-                                    </Border>
-                                </Popup>
-                            </StackPanel>
-                            
-                            <!-- Tên -->
-                            <TextBox Padding="2 1" Text="{Binding CurNL.Ma}"/>
-                            <StackPanel Orientation="Horizontal" Margin="0 6 0 3">
-                                <TextBlock Text="Tên:"/>
-                                <Button x:Name="BtTenHelp" Content="?" Style="{StaticResource RoundButtonStyle}"
-                                    Width="16" Height="16" Margin="6 0 0 0" Focusable="False"
-                                    Click="ShowPopup_Click"/>
-                                <Popup x:Name="PopupTenHelp" Placement="Bottom" StaysOpen="False"
-                                    PlacementTarget="{Binding ElementName=BtMaHelp}">
-                                    <Border Background="LightYellow" Padding="6"
-                                        BorderBrush="Gray" BorderThickness="1">
-                                        <StackPanel>
-                                            <TextBlock Width="250" TextWrapping="Wrap"
-                                                Text="Hiện thị trong phiếu in, báo cáo." />
-                                        </StackPanel>
-                                    </Border>
-                                </Popup>
-                            </StackPanel>
-                            <TextBox Padding="2 1" Text="{Binding CurNL.Ten}"/>
+                                                </StackPanel>
+                                            </Border>
+                                        </Popup>
+                                    </StackPanel>
 
-                            <!-- KL riêng -->
-                            <StackPanel Orientation="Horizontal" Margin="0 6 0 3">
-                                <TextBlock Text="Khối lượng riêng (kg/l):"/>
-                                <Button x:Name="BtKLRiengHelp" Content="?" Style="{StaticResource RoundButtonStyle}"
+                                    <!-- Tên -->
+                                    <TextBox Padding="2 1" Text="{Binding CurNL.Ma}"/>
+                                    <StackPanel Orientation="Horizontal" Margin="0 6 0 3">
+                                        <TextBlock Text="Tên:"/>
+                                        <Button x:Name="BtTenHelp" Content="?" Style="{StaticResource RoundButtonStyle}"
                                     Width="16" Height="16" Margin="6 0 0 0" Focusable="False"
                                     Click="ShowPopup_Click"/>
-                                <Popup x:Name="PopupKLRiengHelp" Placement="Bottom" StaysOpen="False"
+                                        <Popup x:Name="PopupTenHelp" Placement="Bottom" StaysOpen="False"
                                     PlacementTarget="{Binding ElementName=BtMaHelp}">
-                                    <Border Background="LightYellow" Padding="6"
+                                            <Border Background="LightYellow" Padding="6"
                                         BorderBrush="Gray" BorderThickness="1">
-                                        <StackPanel>
-                                            <TextBlock Width="250" TextWrapping="Wrap"
+                                                <StackPanel>
+                                                    <TextBlock Width="250" TextWrapping="Wrap"
+                                                Text="Hiện thị trong phiếu in, báo cáo." />
+                                                </StackPanel>
+                                            </Border>
+                                        </Popup>
+                                    </StackPanel>
+                                    <TextBox Padding="2 1" Text="{Binding CurNL.Ten}"/>
+
+                                    <!-- KL riêng -->
+                                    <StackPanel Orientation="Horizontal" Margin="0 6 0 3">
+                                        <TextBlock Text="Khối lượng riêng (kg/l):"/>
+                                        <Button x:Name="BtKLRiengHelp" Content="?" Style="{StaticResource RoundButtonStyle}"
+                                    Width="16" Height="16" Margin="6 0 0 0" Focusable="False"
+                                    Click="ShowPopup_Click"/>
+                                        <Popup x:Name="PopupKLRiengHelp" Placement="Bottom" StaysOpen="False"
+                                    PlacementTarget="{Binding ElementName=BtMaHelp}">
+                                            <Border Background="LightYellow" Padding="6"
+                                        BorderBrush="Gray" BorderThickness="1">
+                                                <StackPanel>
+                                                    <TextBlock Width="250" TextWrapping="Wrap"
                                                 Text="Để chuyển đổi khối lượng &lt;-> thể tích cho phụ gia." />
-                                        </StackPanel>
-                                    </Border>
-                                </Popup>
-                            </StackPanel>
-                            <TextBox Padding="2 1" Text="{Binding CurNL.KLRieng}"/>
+                                                </StackPanel>
+                                            </Border>
+                                        </Popup>
+                                    </StackPanel>
+                                    <TextBox Padding="2 1" Text="{Binding CurNL.KLRieng}"/>
+
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 6 0 0">
+                                        <Button x:Name="BtNLNew" Content="Mới" Style="{StaticResource BtnPrimary}" Width="60"
+                                                Padding="0 3"
+                                                Click="BtNLNew_Click"/>
+                                        <Button Content="Lưu" Style="{StaticResource BtnSuccess}" Width="60" Margin="6 0 0 0" Command="{Binding CmdNLSave}"/>
+                                    </StackPanel>
+                                    <Button x:Name="BtNLClear" Content="Xóa" Margin="0 6 0 0" Width="126" HorizontalAlignment="Right" Style="{StaticResource BtnDanger}"
+                                            Padding="0 3"
+                                            Click="BtNLClear_Click"/>
+                                </StackPanel>
+                            </GroupBox>
                             
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 6 0 0">
-                                <Button x:Name="BtNLNew" Content="Mới" Style="{StaticResource BtnPrimary}" Width="60" Click="BtNLNew_Click"/>
-                                <Button Content="Lưu" Style="{StaticResource BtnSuccess}" Width="60" Margin="6 0 0 0" Command="{Binding CmdNLSave}"/>
-                            </StackPanel>
-                            <Button x:Name="BtNLSet" Content="Đặt" Margin="0 6 0 0" Width="126" HorizontalAlignment="Right" Style="{StaticResource BtnSuccess}"
+                            <GroupBox Header="Liên kết silo" Style="{StaticResource FlatGroupBoxStyle01}" BorderBrush="Gray">
+                                <ComboBox x:Name="CboLinkSilo" Margin="3"
+                                          ItemsSource="{Binding LinkedSiloes}" SelectedItem="{Binding SelLinkedSilo}" DisplayMemberPath="Ten"/>
+                            </GroupBox>
+
+                            <Button x:Name="BtNLSet" Content="Đặt cấu hình silo" Margin="0 6 0 0" Style="{StaticResource BtnSuccess}" Padding="0 6"
                                     Click="BtNLSet_Click"/>
-                            <Button x:Name="BtNLClear" Content="Xóa" Margin="0 6 0 0" Width="126" HorizontalAlignment="Right" Style="{StaticResource BtnDanger}"
-                                    Click="BtNLClear_Click"/>
                         </StackPanel>
                     </Border>
                 </Grid>

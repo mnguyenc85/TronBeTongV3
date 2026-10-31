@@ -158,6 +158,8 @@ namespace TronBeTongV3.View
                 BdrNguyenLieuInputs.IsEnabled = ch.PhanLoai != LoaiThanhPhan.Nuoc;
 
                 SetTitles();
+                LietKeDsLinkSilo();
+                SelLinkedSilo = LinkedSiloes.FirstOrDefault(x => x.Index == SiloIndex - 1);
             }
         }
 
@@ -222,7 +224,8 @@ namespace TronBeTongV3.View
             await SaveNL();
             if (CurNL.Id > 0 && CurNL.PhanLoai == LoaiSilo)
             {
-                await CauHinhTramTron.Instance.SetNguyenLieu(LoaiSilo, SiloIndex, CurNL);
+                int linksilo = _selLinkedSilo != null ? _selLinkedSilo.Index : 0;
+                await CauHinhTramTron.Instance.SetNguyenLieu(LoaiSilo, SiloIndex, CurNL, linksilo);
                 if (LoaiSilo == LoaiThanhPhan.CotLieu)
                     TPCotLieu?.SetupBin(SiloIndex);
                 else if (LoaiSilo == LoaiThanhPhan.XiMang)
@@ -249,6 +252,30 @@ namespace TronBeTongV3.View
             if (sender == BtMaHelp) PopupMaHelp.IsOpen = true;
             else if (sender == BtTenHelp) PopupTenHelp.IsOpen = true;
             else if (sender == BtKLRiengHelp) PopupKLRiengHelp.IsOpen = true;
+        }
+
+        private void LietKeDsLinkSilo()
+        {
+            LinkedSiloes.Clear();
+            LinkedSiloes.Add(new LinkSilo() { Index = 0, Ten = "(Không)" });
+            if (LoaiSilo != LoaiThanhPhan.None)
+            {
+                foreach (var s in DsSilos)
+                {
+                    if (s.NguyenLieu != null && s.PhanLoai == LoaiSilo && s.Index != SiloIndex)
+                        LinkedSiloes.Add(new LinkSilo() { Index = s.Index + 1, Ten = s.Ten });
+                }
+            }
+        }
+
+        public ObservableCollection<LinkSilo> LinkedSiloes { get; set; } = [];
+        private LinkSilo? _selLinkedSilo;
+        public LinkSilo? SelLinkedSilo { get { return _selLinkedSilo; } set { if (_selLinkedSilo != value) { _selLinkedSilo = value; NotifyChanged(); } } }
+
+        public class LinkSilo
+        {
+            public int Index { get; set; }
+            public string? Ten { get; set; }
         }
     }
 }

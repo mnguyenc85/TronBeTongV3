@@ -178,7 +178,7 @@ namespace TronBeTongV3.View
             CauHinhTramTron DsCH = CauHinhTramTron.Instance;
             foreach (var s in DsCH.DsSilos)
             {
-                if (s.NguyenLieu != null)
+                if (s.NguyenLieu != null && s.LinkSilo <= 0)
                 {
                     var nl = CurCT.DsThanhPhan.FirstOrDefault(x => x.NL?.Ma == s.NguyenLieu.Ma);
                     if (nl == null)
@@ -358,7 +358,8 @@ namespace TronBeTongV3.View
             System.Diagnostics.Debug.WriteLine($"Start save ct -> Id = {CurCT.Id}");
 
             CurCT.STT = DsCongThuc.Count + 1;
-            AddSiloToCT();
+            // Thêm các thành phần không kl lượng vào ct: bỏ
+            //AddSiloToCT();
             await DbRepository.Instance.CongThuc_Save(CurCT);
 
             if (!string.IsNullOrEmpty(CurCT.Ma) && !DsEditedRecipes.Contains(CurCT.Ma)) DsEditedRecipes.Add(CurCT.Ma);
