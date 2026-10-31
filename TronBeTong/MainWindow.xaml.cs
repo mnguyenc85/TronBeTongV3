@@ -1137,40 +1137,41 @@ namespace TronBeTongV3
 
                 if (duLieuMoi)
                 {
-                    await _db.PM_Activites_SaveAsync(4, 3, $"Kiểm tra chốt mẻ Id={me.Id} theo tp {loaitp}");
+                    //await _db.PM_Activites_SaveAsync(4, 3, $"Kiểm tra chốt mẻ Id={me.Id} theo tp {loaitp}");
+
                     err = await _vm.SaveMe(me);
                     switch (err)
                     {
                         case 1:
                             DebugMsg1.AddMessage($"Lưu mẻ:\r\n{me.GetDesc(ModelHeThong.SoCLReal, ModelHeThong.SoXMReal, ModelHeThong.SoPGReal)}");
-                            await _db.PM_Activites_SaveAsync(4, 1, "Chốt " + me.GetChotInfo());
+                            //await _db.PM_Activites_SaveAsync(4, 1, "Chốt " + me.GetChotInfo());
                             break;
                         case 0:
                             DebugMsg1.AddMessage($"Không lưu mẻ vì ko tạo được phiếu! ERROR");
-                            await _db.PM_Activites_SaveAsync(4, 2, $"Ko chốt {loaitp}: ko tạo được phiếu");
+                            //await _db.PM_Activites_SaveAsync(4, 2, $"Ko chốt {loaitp}: ko tạo được phiếu");
                             break;
                         case -1:
                             DebugMsg1.AddMessage($"Không lưu mẻ vì không có tp nào có kl > {_vm.KLMinLuuMe}!");
-                            await _db.PM_Activites_SaveAsync(4, 2, $"Ko chốt {loaitp}: không có kl");
+                            //await _db.PM_Activites_SaveAsync(4, 2, $"Ko chốt {loaitp}: không có kl");
                             break;
                         case -2:
                             DebugMsg1.AddMessage($"Không lưu mẻ vì đang nạp liệu (đã lưu!)");
-                            await _db.PM_Activites_SaveAsync(4, 2, $"Ko chốt: đang nạp liệu");
+                            //await _db.PM_Activites_SaveAsync(4, 2, $"Ko chốt: đang nạp liệu");
                             break;
                         case -3:
                             DebugMsg1.AddMessage($"Không lưu mẻ vì không có kl trên cân (cân cl & cân xi < {_vm.KLMinLuuMe}");
-                            await _db.PM_Activites_SaveAsync(4, 2, $"Ko chốt: ko kl trên cân cl & xi");
+                            //await _db.PM_Activites_SaveAsync(4, 2, $"Ko chốt: ko kl trên cân cl & xi");
                             break;
                         case -4:
                             DebugMsg1.AddMessage($"Không lưu mẻ {me.STT} == {ttme} " + me.GetChotInfo());
-                            await _db.PM_Activites_SaveAsync(4, 2, $"Ko chốt {me.GetChotInfo()}");
+                            //await _db.PM_Activites_SaveAsync(4, 2, $"Ko chốt {me.GetChotInfo()}");
                             break;
                         case -5:
                             if ((flags & 2) == 2)
                                 DebugMsg1.AddMessage("Không lưu mẻ vì mẻ đã được lưu: dừng chạy");
                             else
                                 DebugMsg1.AddMessage("Không lưu mẻ vì mẻ đã được lưu: chốt mẻ");
-                            await _db.PM_Activites_SaveAsync(4, 2, $"Ko chốt: Error = -5");
+                            //await _db.PM_Activites_SaveAsync(4, 2, $"Ko chốt: Error = -5");
                             break;
                     }
                 }

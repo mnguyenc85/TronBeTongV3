@@ -458,7 +458,7 @@ namespace TronBeTongV3.CSDL
 
             string query = "DELETE FROM pm_activities WHERE created_at < @tg;";
             var command = new MySqlCommand(query, connection);
-            command.Parameters.AddWithValue("@tg", DateTime.Now - new TimeSpan(60, 0, 0, 0));
+            command.Parameters.AddWithValue("@tg", DateTime.Now - new TimeSpan(30, 0, 0, 0));
             var ret = await command.ExecuteScalarAsync();
             //if (ret != null) s.Id = Convert.ToInt32(ret);
         }
@@ -1046,7 +1046,7 @@ namespace TronBeTongV3.CSDL
 
                     foreach (var tp in ct.DsThanhPhan)
                     {
-                        if (tp.NL != null && tp.NL.PhanLoai != Core.LoaiThanhPhan.Nuoc && tp.KL > 0)
+                        if (tp.NL != null && tp.NL.PhanLoai != Core.LoaiThanhPhan.Nuoc)
                         {
                             cmd.Parameters["@ctid"].Value = ct.Id;
                             cmd.Parameters["@nlid"].Value = tp.NL.Id;

@@ -358,6 +358,7 @@ namespace TronBeTongV3.View
             System.Diagnostics.Debug.WriteLine($"Start save ct -> Id = {CurCT.Id}");
 
             CurCT.STT = DsCongThuc.Count + 1;
+            AddSiloToCT();
             await DbRepository.Instance.CongThuc_Save(CurCT);
 
             if (!string.IsNullOrEmpty(CurCT.Ma) && !DsEditedRecipes.Contains(CurCT.Ma)) DsEditedRecipes.Add(CurCT.Ma);
@@ -397,6 +398,23 @@ namespace TronBeTongV3.View
                 await DbRepository.Instance.CongThuc_Delete(CurCT.Id);
                 CurCT.Id = -1;
                 UpdateTongKLCT();
+            }
+        }
+
+        /// <summary>
+        /// Thêm các thành phần khác của silo vào ct hiện tại với kl = 0
+        /// </summary>
+        private void AddSiloToCT()
+        {
+            CauHinhTramTron DsCH = CauHinhTramTron.Instance;
+            foreach (var s in DsCH.DsSilos)
+            {
+                if (s.NguyenLieu != null)
+                {
+                    var nl = CurCT.DsThanhPhan.FirstOrDefault(x => x.NL?.Ma == s.NguyenLieu.Ma);
+                    if (nl == null)
+                        CurCT.AddThanhPhan(s.NguyenLieu);
+                }
             }
         }
         #endregion
