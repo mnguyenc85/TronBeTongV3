@@ -382,6 +382,7 @@ namespace TronBeTongV3.View
 
         /// <summary>
         /// Kiểm tra xem có thành phần nào của công thức không có silo tương ứng
+        /// và thêm các tp có silo nhưng ko có trong ct
         /// </summary>
         private void CheckCongThuc()
         {
@@ -389,6 +390,31 @@ namespace TronBeTongV3.View
             {
                 _soloict = CauHinhTramTron.Instance.CheckCongThuc(Phieu.CongThuc);
                 LblCongThucLoi1.Visibility = _soloict > 0 ? Visibility.Visible : Visibility.Collapsed;
+
+                // thêm các tp có silo nhưng ko có trong ct
+                foreach (var s in CauHinhTramTron.Instance.DsSilos)
+                {
+                    if (s.NguyenLieu != null)
+                    {
+                        var tp = Phieu.CongThuc.DsThanhPhan.FirstOrDefault(x => x.NL_Ma == s.NguyenLieu.Ma);
+                        if (tp == null)
+                        {
+                            Phieu.CongThuc.DsThanhPhan.Add(new DHThanhPhanVM()
+                            {
+                                Id = -1,
+                                NL_Ma = s.NguyenLieu.Ma,
+                                NL_KLRieng = s.NguyenLieu.KLRieng,
+                                NL_PhanLoai = s.NguyenLieu.PhanLoai,
+                                NL_SiloIndex = s.Index,
+                                NL_Ten = s.NguyenLieu.Ten,
+                                KLCongThuc = 0,
+                                KLMe = 0,
+                                KLTong = 0,
+                                SiloTen = s.Ten
+                            });
+                        }
+                    }
+                }
             }
         }
 
