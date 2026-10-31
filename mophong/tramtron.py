@@ -34,29 +34,29 @@ class CTramTron:
   def _init_can(self):
 
     self.TPNuoc = tpcan.CTPCan('Nuoc', DB43, DB26, 268, 270, 274, 100)
-    tp = self.TPNuoc.addTP(40, 142)
+    tp = self.TPNuoc.addTP(40, 280, 142, 146)
     tp.addVan(PLCM, 200, 6)
     self.TPNuoc.addDischarge(PLCM, 200, 7)
 
     self.TPCL1 = tpcan.CTPCan("CL1", DB43, DB26, 244, 246, 250, 100)
-    tp = self.TPCL1.addTP(0, 62)
+    tp = self.TPCL1.addTP(0, 240, 62, 66)
     tp.addVan(PLCM, 202, 4)
     tp.addVan(PLCM, 201, 1, 50, 10)
     self.TPCL1.addDischarge(PLCM, 202, 0)
-    tp = self.TPCL1.addTP(4, 70)
+    tp = self.TPCL1.addTP(4, 244, 70, 74)
     tp.addVan(PLCM, 202, 5)
     tp.addVan(PLCM, 203, 2, 50, 10)    
     self.TPCL1.addDischarge(PLCM, 202, 1)
-    tp = self.TPCL1.addTP(8, 78)
+    tp = self.TPCL1.addTP(8, 248, 78, 82)
     tp.addVan(PLCM, 202, 6)
     tp.addVan(PLCM, 203, 3, 50, 10)    
     self.TPCL1.addDischarge(PLCM, 202, 2)
     self.TPCL1.TTCanDu = 9
 
     self.TPXM1 = tpcan.CTPCan("XM1", DB43, DB26, 252, 254, 258, 50)
-    tp = self.TPXM1.addTP(24, 110)
+    tp = self.TPXM1.addTP(24, 264, 110)
     tp.addVan(PLCM, 200, 4)
-    tp = self.TPXM1.addTP(28, 118)
+    tp = self.TPXM1.addTP(28, 268, 118)
     tp.addVan(PLCM, 203, 6)
     self.TPXM1.addDischarge(PLCM, 200, 5)
 
@@ -68,9 +68,9 @@ class CTramTron:
     # self.TPXM2.addDischarge(PLCM, 205, 3)
 
     self.TPPG1 = tpcan.CTPCan("PG1", DB43, DB26, 276, 278, 282, 0.3)
-    tp = self.TPPG1.addTP(44, 150)
+    tp = self.TPPG1.addTP(44, 284, 150)
     tp.addVan(PLCM, 205, 5, 0.3, 0.1)
-    tp = self.TPPG1.addTP(48, 158)
+    tp = self.TPPG1.addTP(48, 288, 158)
     tp.addVan(PLCM, 205, 6, 0.3, 0.1)
     self.TPPG1.addDischarge(PLCM, 203, 1)
 

@@ -25,11 +25,11 @@ class CTPCan:
     self.TTCanDu = -1
     self.klxa = klxa
 
-  def addTP(self, cpAddr, closeAddr) -> tpsilo.CTPSilo:
+  def addTP(self, cpAddr: int, meAddr: int, closeAddr: int, addAddr: int = -1) -> tpsilo.CTPSilo:
     '''
     Thêm thành phần vào nhóm cân này
     '''
-    tp = tpsilo.CTPSilo(cpAddr, closeAddr)
+    tp = tpsilo.CTPSilo(cpAddr, meAddr, closeAddr, addAddr)
     self.thanhPhan.append(tp)
     self.TTCanDu = 3 * len(self.thanhPhan) + 1
     return tp
@@ -55,9 +55,10 @@ class CTPCan:
     if some <= 0: return
     for tp in self.thanhPhan:
       if tp.klCPAddr >= 0:
-        tp.klCP = utils.db2float(self.DbCapphoi, tp.klCPAddr)
+        tp.klCP = utils.db2float(self.DbCapphoi, tp.klCPAddr)      
       tongklcp += tp.klCP
       tp.klMe = tp.klCP * m3 / some
+      self._tinh_kl_can(tp)
     if tongklcp > 0:
       self.running = 1
     else:
@@ -113,6 +114,9 @@ class CTPCan:
       self.tp_i = 0
       self.trangthai = 0
       utils.int162db(self.trangthai, self.DbCanTT, self.TTAddr)                   # update trạng thái cân
+      # tính lại kl cần cân
+      for tp in self.thanhPhan:
+        self._tinh_kl_can(tp)      
       return True
     else:
       print(f'   {self.ten} -> dừng chạy')
@@ -145,13 +149,13 @@ class CTPCan:
           else:
             # Cân thành phần
             deltakl = self.kl - tp.kl0
-            if deltakl >= tp.klMe:
+            if deltakl >= tp.klCan:
               # Cân đủ -> đến thành phần tiếp theo
               tp.setVan(0)
               tp.klClose = deltakl
               utils.float2db(tp.klClose, self.DbCapphoi, tp.klCloseAddr)            # update kl chốt
               self.tp_i += 1
-            elif deltakl < tp.klMe - tp.klroi_tho:
+            elif deltakl < tp.klCan - tp.klroi_tho:
               # cân thô
               self.kl += tp.setVan(1) * delta
               self.trangthai = self.tp_i * 3 + 1
@@ -170,3 +174,15 @@ class CTPCan:
         utils.float2db(self.kl, self.DbCanTT, self.klAddr)                          # update kl trên cân
         utils.int162db(self.trangthai, self.DbCanTT, self.TTAddr)                   # update trạng thái cân
         utils.int162db(self.meht, self.DbCanTT, self.meAddr)                        # update mẻ hiện tại
+
+  
+  def _tinh_kl_can(self, tp):
+    '''
+    Tính khối lượng cần cân = kl cấp phối mẻ + kl thêm
+    '''
+    tp.klCan = tp.klMe
+    if tp.klAddAddr >= 0:
+      tp.klAdd = utils.db2float(self.DbCapphoi, tp.klAddAddr)
+      tp.klCan += tp.klAdd
+    # ghi lại kl cần cân: kl mẻ
+    utils.float2db(tp.klCan, self.DbCapphoi, tp.klMeAddr)

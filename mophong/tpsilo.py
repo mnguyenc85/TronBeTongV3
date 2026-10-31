@@ -1,13 +1,23 @@
 import utils
 
 class CTPSilo:
-  def __init__(self, cpAddr: int, closeAddr: int):
+  def __init__(self, cpAddr: int, meAddr: int, closeAddr: int, addAddr: int = -1):
+    '''
+    cpAddr: địa chỉ kl cấp phối mẻ
+    meAddr: địa chỉ kl cân thực
+    closeAddr: địa chỉ kl chốt (kết quả)
+    addAddr: địa chỉ kl bù
+    '''
     self.klCPAddr = cpAddr
+    self.klMeAddr = meAddr
     self.klCloseAddr = closeAddr
+    self.klAddAddr = addAddr
     
     self.klCP = 0
     self.klMe = 0
     self.klClose = 0
+    self.klAdd = 0
+    self.klCan = 0
 
     self.lstVan = []
     self.bKL0 = 0
