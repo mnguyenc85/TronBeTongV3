@@ -58,7 +58,7 @@ namespace TronBeTongV3.Data.DO
                     {
                         silo.NLId = s.NLId;
                         silo.NguyenLieu = nl;
-                        silo.LinkSilo = s.LinkSilo;
+                        silo.LinkedSilo = s.LinkSilo;
                     }
                     silo.TSId = s.TSId;
                 }
@@ -127,7 +127,7 @@ namespace TronBeTongV3.Data.DO
                     DsSilos[j].NguyenLieu = nl1;
                 }
                 else DsSilos[j].NguyenLieu = null;
-                DsSilos[j].LinkSilo = linkIndex;
+                DsSilos[j].LinkedSilo = linkIndex;
                 var o = DsSilos[j].CreateDO();
                 await _db.Silo_SaveAsync(o);
                 DsSilos[j].Id = o.Id;

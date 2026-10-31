@@ -178,7 +178,7 @@ namespace TronBeTongV3.View
             CauHinhTramTron DsCH = CauHinhTramTron.Instance;
             foreach (var s in DsCH.DsSilos)
             {
-                if (s.NguyenLieu != null && s.LinkSilo <= 0)
+                if (s.NguyenLieu != null && s.LinkedSilo <= 0)
                 {
                     var nl = CurCT.DsThanhPhan.FirstOrDefault(x => x.NL?.Ma == s.NguyenLieu.Ma);
                     if (nl == null)

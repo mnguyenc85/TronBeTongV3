@@ -11,6 +11,7 @@ using System.Windows.Data;
 using TronBeTongV3.Comm;
 using TronBeTongV3.Comm.S71200;
 using TronBeTongV3.CSDL;
+using TronBeTongV3.Data.DO;
 using TronBeTongV3.Data.ViewModel.DonHang;
 using TronBeTongV3.Data.ViewModel.ThongKe;
 using TronBeTongV3.Reports;
@@ -67,6 +68,7 @@ namespace TronBeTongV3.View
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            var chtt = CauHinhTramTron.Instance;
             if (DonHang != null)
             {
                 await _r.DonHang_LoadAllPhieu(DonHang);
@@ -82,13 +84,15 @@ namespace TronBeTongV3.View
                         DisplayMemberBinding = new Binding($"KLCL{i}")
                     });
                 }
-                for (int i = 0; i < ModelHeThong.SoXMReal; i++)
+                for (int i = 0; i < ModelHeThong.SoXMMax; i++)
                 {
-                    gv.Columns.Add(new GridViewColumn()
-                    {
-                        Header = $"Xi{i + 1} ",
-                        DisplayMemberBinding = new Binding($"KLXi{i}")
-                    });
+                    var silo = chtt.GetCauHinh(Core.LoaiThanhPhan.XiMang, i);
+                    if (silo != null && silo.NguyenLieu != null)
+                        gv.Columns.Add(new GridViewColumn()
+                        {
+                            Header = $"Xi{i + 1} ",
+                            DisplayMemberBinding = new Binding($"KLXi{i}")
+                        });
                 }
                 for (int i = 0; i < ModelHeThong.SoPGReal; i++)
                 {

@@ -160,7 +160,14 @@ namespace TronBeTongV3.View
                 foreach (int i in ws.SiloIndices)
                 {
                     if (i < TramTron.XMChots.Length)
-                        me.KLXi[i] = Math.Round(TramTron.XMChots[i].Value, 3);
+                    {
+                        if (LinkedSiloes[i] >= 0)
+                        {
+                            me.KLXi[LinkedSiloes[i]] = Math.Round(TramTron.XMChots[i].Value, 3);
+                        }
+                        else
+                            me.KLXi[i] = Math.Round(TramTron.XMChots[i].Value, 3);
+                    }
                 }
                 me.ChotXMs[stt] = true;
                 dienDL = true;
@@ -293,7 +300,7 @@ namespace TronBeTongV3.View
             {
                 foreach (var s in CauHinhTramTron.Instance.DsSilos)
                 {
-                    if (s.LinkSilo == i + 1)
+                    if (s.LinkedSilo == i + 1)
                     {
                         LinkedSiloes[i] = s.Index;
                         SetupBin(i, s.Index);

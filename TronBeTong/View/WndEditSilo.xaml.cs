@@ -51,6 +51,7 @@ namespace TronBeTongV3.View
         // Thay bằng SiloCauHinhVM?
         public LoaiThanhPhan LoaiSilo { get; set; } = LoaiThanhPhan.CotLieu;
         public int SiloIndex { get; set; }
+        private int LinkedSiloIndex { get; set; }
 
         #region Nguyen lieu
         private DelayUpdate<string> _filterSiloNL;
@@ -144,6 +145,7 @@ namespace TronBeTongV3.View
             {
                 LblSilo.Text = ch.Ten;
                 SiloIndex = ch.Index;
+                LinkedSiloIndex = ch.LinkedSilo;
                 LoaiSilo = ch.PhanLoai;
 
                 _filterSiloNL.Run(TxtFilter.Text, true);
@@ -159,7 +161,7 @@ namespace TronBeTongV3.View
 
                 SetTitles();
                 LietKeDsLinkSilo();
-                SelLinkedSilo = LinkedSiloes.FirstOrDefault(x => x.Index == SiloIndex - 1);
+                SelLinkedSilo = LinkedSiloes.FirstOrDefault(x => x.Index == LinkedSiloIndex);
             }
         }
 
@@ -262,7 +264,7 @@ namespace TronBeTongV3.View
             {
                 foreach (var s in DsSilos)
                 {
-                    if (s.NguyenLieu != null && s.PhanLoai == LoaiSilo && s.Index != SiloIndex)
+                    if (s.NguyenLieu != null && s.PhanLoai == LoaiSilo && s.Index != SiloIndex && s.LinkedSilo <= 0)
                         LinkedSiloes.Add(new LinkSilo() { Index = s.Index + 1, Ten = s.Ten });
                 }
             }
