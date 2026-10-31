@@ -38,7 +38,7 @@ namespace TronBeTongV3.View
         public int MeMax { get { return Math.Max(WSCements1.MeHT, WSCements2.MeHT); } }
 
         public int[] LinkedSiloes { get; set; } = new int[CauHinhTramTron.MAX_XM];
-        public bool FirstCycle { get; set; } = true;
+        public long FirstCycle { get; set; } = DateTime.Now.Ticks;
 
         public CtrlTPXiMang()
         {
@@ -220,10 +220,10 @@ namespace TronBeTongV3.View
             WSCements1.UpdateView(TramTron.WIState, TramTron.CanXMs[0], MeDat, delta);
             WSCements2.UpdateView(TramTron.WIState, TramTron.CanXMs[1], MeDat, delta);
 
-            if (FirstCycle && TramTron.IsRunning)
+            if (TramTron.LastUpdated() > FirstCycle)
             {
                 UpdateLinkedSiloes();
-                FirstCycle = false;
+                FirstCycle = long.MaxValue;
             }
         }
 

@@ -628,6 +628,20 @@ namespace TronBeTongV3.Comm
             return false;
         }
 
+        public long LastUpdated()
+        {
+            if (_openedConnectionType == ConnectionTypes.S7Net)
+            {
+                return _plc.LastUpdated;
+            }
+            else if (_openedConnectionType == ConnectionTypes.KEPServer)
+            {
+                return long.MinValue;
+            }
+            return long.MinValue;
+        }
+
+
         public virtual void UpdateTags()
         {
             var i = DateTime.Now - _lastUpdateTag;

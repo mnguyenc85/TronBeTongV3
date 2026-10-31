@@ -47,6 +47,8 @@ namespace NMComm.S71200
         /// </summary>
         public double RealCycleTime { get; protected set; }
 
+        public long LastUpdated { get; protected set; }
+
         public void Start()
         {
             if (IsRunning) return; // Prevent multiple starts
@@ -77,6 +79,7 @@ namespace NMComm.S71200
                 long t = DateTime.Now.Ticks;
                 RealCycleTime = (t - _t0) / 10000000d;
                 _t0 = t;
+                LastUpdated = t;
 
                 try
                 {

@@ -600,7 +600,7 @@ namespace TronBeTongV3
                 TramTron = _tramtron
             };
             wnd.ShowDialog();
-            TPXiMang.FirstCycle = true;
+            TPXiMang.FirstCycle = DateTime.Now.Ticks;
         }
         private void MniAbout_Click(object sender, RoutedEventArgs e)
         {
