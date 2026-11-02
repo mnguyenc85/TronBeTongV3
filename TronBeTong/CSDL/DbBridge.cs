@@ -926,7 +926,7 @@ namespace TronBeTongV3.CSDL
             query = @"CREATE TABLE IF NOT EXISTS ct_silo (
                 id INT AUTO_INCREMENT PRIMARY KEY,
                 phanloai INT, stt INT,
-                nl_id INT, ts_id INT,
+                nl_id INT, ts_id INT, link_index INT,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);";
             command.CommandText = query;
