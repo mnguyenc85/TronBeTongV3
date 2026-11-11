@@ -1,6 +1,4 @@
-﻿using DocumentFormat.OpenXml.Drawing;
-using DocumentFormat.OpenXml.Office2010.Excel;
-using MySqlConnector;
+﻿using MySqlConnector;
 using TronBeTongV3.Data.DO;
 using TronBeTongV3.Data.DO.Business;
 using TronBeTongV3.Data.DO.DonHang;
@@ -1723,6 +1721,118 @@ namespace TronBeTongV3.CSDL
         }
         #endregion
 
+        #region Xóa dữ liệu
+
+        public async Task<DHDonDO?> HT_DonHang_GetFirstAsync()
+        {
+            using var connection = new MySqlConnection(ConnStr);
+            await connection.OpenAsync();
+
+            string query = $"SELECT id, created_at FROM ht_donhang ORDER BY created_at ASC LIMIT 1;";
+            using var command = new MySqlCommand(query, connection);
+            var reader = await command.ExecuteReaderAsync();
+
+            if (await reader.ReadAsync())
+            {
+                return new DHDonDO()
+                {
+                    Id = reader.GetInt32(0),
+                    CreatedAt = reader.GetDateTime(1)
+                };
+            }
+            return null;
+        }
+
+        public async Task<long> HT_DonHang_CountByMonthAsync(int year, int month)
+        {
+            using var connection = new MySqlConnection(ConnStr);
+            await connection.OpenAsync();
+
+            string query = $"SELECT COUNT(id) FROM ht_donhang WHERE created_at >= @tg1 AND created_at < @tg2;";
+            using var command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@tg1", $"{year}-{month}-01 00:00:00");
+            month++; if (month > 12) { month = 1; year++; }
+            command.Parameters.AddWithValue("@tg2", $"{year}-{month}-01 00:00:00");
+
+            object? ret = await command.ExecuteScalarAsync();
+
+            if (ret != null) return (long)ret;
+            return 0;
+        }
+
+        public async Task<long> HT_Phieu_CountByMonthAsync(int year, int month)
+        {
+            using var connection = new MySqlConnection(ConnStr);
+            await connection.OpenAsync();
+
+            string query = $"SELECT COUNT(id) FROM ht_phieu WHERE created_at >= @tg1 AND created_at < @tg2;";
+            using var command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@tg1", $"{year}-{month}-01 00:00:00");
+            month++; if (month > 12) { month = 1; year++; }
+            command.Parameters.AddWithValue("@tg2", $"{year}-{month}-01 00:00:00");
+
+            object? ret = await command.ExecuteScalarAsync();
+
+            if (ret != null) return (long)ret;
+            return 0;
+        }
+
+        public async Task<long> HT_Me_CountByMonthAsync(int year, int month)
+        {
+            using var connection = new MySqlConnection(ConnStr);
+            await connection.OpenAsync();
+
+            string query = $"SELECT COUNT(id) FROM ht_me WHERE created_at >= @tg1 AND created_at < @tg2;";
+            using var command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@tg1", $"{year}-{month}-01 00:00:00");
+            month++; if (month > 12) { month = 1; year++; }
+            command.Parameters.AddWithValue("@tg2", $"{year}-{month}-01 00:00:00");
+
+            object? ret = await command.ExecuteScalarAsync();
+
+            if (ret != null) return (long)ret;
+            return 0;
+        }
+
+        public async Task HT_Me_DeleteAsync(DateTime tg0, DateTime tg1)
+        {
+            using var connection = new MySqlConnection(ConnStr);
+            await connection.OpenAsync();
+
+            string query = $"DELETE FROM ht_me WHERE created_at >= @tg1 AND created_at < @tg2;";
+            using var command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@tg1", tg0.ToString("yyyy-MM-dd 00:00:00"));
+            command.Parameters.AddWithValue("@tg2", tg1.ToString("yyyy-MM-dd 00:00:00"));
+
+            object? ret = await command.ExecuteNonQueryAsync();
+        }
+        public async Task HT_Phieu_DeleteAsync(DateTime tg0, DateTime tg1)
+        {
+            using var connection = new MySqlConnection(ConnStr);
+            await connection.OpenAsync();
+
+            string query = $"DELETE FROM ht_phieu WHERE created_at >= @tg1 AND created_at < @tg2;";
+            using var command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@tg1", tg0.ToString("yyyy-MM-dd 00:00:00"));
+            command.Parameters.AddWithValue("@tg2", tg1.ToString("yyyy-MM-dd 00:00:00"));
+
+            object? ret = await command.ExecuteNonQueryAsync();
+        }
+
+        public async Task HT_DonHang_DeleteAsync(DateTime tg0, DateTime tg1)
+        {
+            using var connection = new MySqlConnection(ConnStr);
+            await connection.OpenAsync();
+
+            string query = $"DELETE FROM ht_donhang WHERE created_at >= @tg1 AND created_at < @tg2 AND NOT EXISTS (SELECT 1 FROM ht_phieu WHERE ht_phieu.donhang_id = ht_donhang.id);;";
+            using var command = new MySqlCommand(query, connection);
+            command.Parameters.AddWithValue("@tg1", tg0.ToString("yyyy-MM-dd 00:00:00"));
+            command.Parameters.AddWithValue("@tg2", tg1.ToString("yyyy-MM-dd 00:00:00"));
+
+            object? ret = await command.ExecuteNonQueryAsync();
+        }
+        #endregion
+
         #region Đồng bộ server
         private async Task Sync_CreateTablesAsync(MySqlCommand command)
         {
@@ -1821,27 +1931,27 @@ namespace TronBeTongV3.CSDL
 
         public async Task DeleteWorkData()
         {
-            using var connection = new MySqlConnection(ConnStr);
-            await connection.OpenAsync();
+            //using var connection = new MySqlConnection(ConnStr);
+            //await connection.OpenAsync();
 
-            string query = "DELETE FROM ht_donhang;";
-            using var command = new MySqlCommand(query, connection);
-            await command.ExecuteNonQueryAsync();
+            //string query = "DELETE FROM ht_donhang;";
+            //using var command = new MySqlCommand(query, connection);
+            //await command.ExecuteNonQueryAsync();
 
-            command.CommandText = "DELETE FROM  ht_phieu;";
-            await command.ExecuteNonQueryAsync();
+            //command.CommandText = "DELETE FROM  ht_phieu;";
+            //await command.ExecuteNonQueryAsync();
 
-            command.CommandText = "DELETE FROM  ht_me;";
-            await command.ExecuteNonQueryAsync();
+            //command.CommandText = "DELETE FROM  ht_me;";
+            //await command.ExecuteNonQueryAsync();
 
-            command.CommandText = "DELETE FROM  ht_congthuc_thanhphan;";
-            await command.ExecuteNonQueryAsync();
+            //command.CommandText = "DELETE FROM  ht_congthuc_thanhphan;";
+            //await command.ExecuteNonQueryAsync();
 
-            command.CommandText = "DELETE FROM  ht_congthuc;";
-            await command.ExecuteNonQueryAsync();
+            //command.CommandText = "DELETE FROM  ht_congthuc;";
+            //await command.ExecuteNonQueryAsync();
 
-            command.CommandText = "DELETE FROM  ht_thanhphan;";
-            await command.ExecuteNonQueryAsync();
+            //command.CommandText = "DELETE FROM  ht_thanhphan;";
+            //await command.ExecuteNonQueryAsync();
         }
         #endregion
     }

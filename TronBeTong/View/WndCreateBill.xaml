@@ -172,5 +172,8 @@
                 </ListView.View>
             </ListView>
         </DockPanel>
+
+        <TextBlock Text="UNUSED" FontSize="80" Grid.ColumnSpan="2" Grid.RowSpan="2" Foreground="Red"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Window>

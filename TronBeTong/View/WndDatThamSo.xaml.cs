@@ -121,7 +121,10 @@ namespace TronBeTongV3.View
                 _textboxes.Add(new TagTextBox(TxtMucCanNhayNuoc, TramTron, TramTron.MucCanNhayNuoc));
                 _textboxes.Add(new TagTextBox(TxtMucCanNhayPG1, TramTron, TramTron.MucCanNhayPG1));
 
-                _checkboxes.Add(new TagCheckbox(ChkEnVitTinh1, TramTron, TramTron.XM1VitTinh));
+                var t = new TagCheckbox(ChkEnVitTinh1, TramTron, TramTron.XM1VitTinh);
+                t.SetTitle(LblVitTinh1, "1", "2");
+                _checkboxes.Add(t);
+
                 _checkboxes.Add(new TagCheckbox(ChkEnPulseCL1, TramTron, TramTron.EnablePulseCL1));
                 _checkboxes.Add(new TagCheckbox(ChkEnPulseCL2, TramTron, TramTron.EnablePulseCL2));
                 _checkboxes.Add(new TagCheckbox(ChkEnPulseCL3, TramTron, TramTron.EnablePulseCL3));
@@ -350,6 +353,8 @@ namespace TronBeTongV3.View
             private bool _isUpdating = false;
             public CheckBox Chk;
             private ModelHeThong _ttbt;
+            private TextBlock? _lbl;
+            private string? _title1, _title2;
             public ModelTag Tag;
 
             public TagCheckbox(CheckBox chk, ModelHeThong tt, ModelTag tag)
@@ -361,15 +366,23 @@ namespace TronBeTongV3.View
                 Tag = tag;
             }
 
+            public void SetTitle(TextBlock? lbl, string title1, string title2)
+            {
+                _lbl = lbl;
+                _title1 = title1; _title2 = title2;
+            }
+
             private void Chk_Unchecked(object sender, RoutedEventArgs e)
             {
                 if (_isUpdating) return;
+                if (_lbl != null) _lbl.Foreground = Brushes.Red;
                 _ttbt.WriteTag(Tag, 0);
             }
 
             private void Chk_Checked(object sender, RoutedEventArgs e)
             {
                 if (_isUpdating) return;
+                if (_lbl != null) _lbl.Foreground = Brushes.Red;
                 _ttbt.WriteTag(Tag, 1);
             }
 
@@ -379,21 +392,15 @@ namespace TronBeTongV3.View
                 {
                     _isUpdating = true;
                     Chk.IsChecked = Tag.Value > 0.001;
+                    if (_lbl != null)
+                    {
+                        _lbl.Foreground = Brushes.Black;
+                        _lbl.Text = Chk.IsChecked == true ? _title1 : _title2;
+                    }
                     _v0 = Tag.Value;
                     _isUpdating = false;
                 }
             }
-        }
-
-
-        private void ChkEnVitTinh1_Checked(object sender, RoutedEventArgs e)
-        {
-            LblVitTinh1.Text = "1";
-        }
-
-        private void ChkEnVitTinh1_Unchecked(object sender, RoutedEventArgs e)
-        {
-            LblVitTinh1.Text = "2";
         }
 
         private void BtCalibHelp_Click(object sender, RoutedEventArgs e)

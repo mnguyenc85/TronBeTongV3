@@ -77,5 +77,11 @@ namespace TronBeTongV3.Core
 
             return sb.ToString();
         }
+
+        public static string CreateDelOldDataPW(string pw)
+        {
+            return ComputeSha256("ncm.data." + pw + "old");
+        }
+
     }
 }

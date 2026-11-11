@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using TronBeTongV3.Core;
 using TronBeTongV3.CSDL;
 
 namespace TronBeTongV3.View
@@ -41,6 +42,15 @@ namespace TronBeTongV3.View
             var s = DbRepository.Instance.Settings;            
             if (PassType != null)
             {
+                if (PassType == "csdl.data.delete.pw")
+                {
+                    var pw = s.GetValue(PassType);
+                    if (!string.IsNullOrEmpty(pw) && pw == MyCopyright.CreateDelOldDataPW(TxtPass.Password))
+                    {
+                        DialogResult = true;
+                        return;
+                    }
+                }
                 if (s.GetValue(PassType) == TxtPass.Password)
                 {
                     DialogResult = true;

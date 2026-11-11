@@ -89,17 +89,17 @@ namespace TronBeTongV3
                 XuLyInPhieu.Instance.Close();
                 //XuLyInBaoCao.Instance.Close();
                 //_client.Stop();
+
+                // Save settings before exit program
+                _s.UpdateBool("in.phieu.auto", ChkAutoPrint.IsChecked == true);
+                _s.UpdateDouble("in.phieu.auto.times", TxtPrintRepeat.Value);
+                _s.UpdateBool("vanhanh.canpgrieng", ViewDonHang.CanPGRieng);
+                await _db.SaveSettingsAsync(_s);
             }
             catch (Exception ex)
             {
                 Log.Error(ex.Message);
             }
-
-            // Save settings before exit program
-            _s.UpdateBool("in.phieu.auto", ChkAutoPrint.IsChecked == true);
-            _s.UpdateDouble("in.phieu.auto.times", TxtPrintRepeat.Value);
-            _s.UpdateBool("vanhanh.canpgrieng", ViewDonHang.CanPGRieng);
-            await _db.SaveSettingsAsync(_s);
         }
 
         private async Task Init()
@@ -685,6 +685,21 @@ namespace TronBeTongV3
             MniViewZoom110.IsChecked = false;
             MniViewZoom120.IsChecked = false;
             MniViewZoom125.IsChecked = false;
+        }
+
+        private void MniSysPurge_Click(object sender, RoutedEventArgs e)
+        {
+            WndEnterPass wnd = new WndEnterPass()
+            {
+                PassType = "csdl.data.delete.pw"
+            };
+            if (wnd.ShowDialog() == true)
+            {
+
+                WndDeleteOldData wnd1 = new WndDeleteOldData() { Owner = this };
+                wnd1.ShowDialog();
+
+            }
         }
         #endregion
 

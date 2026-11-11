@@ -27,7 +27,7 @@
                 <DockPanel Background="#fdfdfd">
                     <StackPanel Background="WhiteSmoke" Margin="3">
                         <StackPanel Orientation="Horizontal" Margin="12 6 3 0">
-                            <TextBlock Text="CSDL" Width="60" VerticalAlignment="Center"/>
+                            <TextBlock Text="CSDL" Width="120" VerticalAlignment="Center"/>
                             <ComboBox x:Name="CboDbSrcs" Width="240"
                                       ItemsSource="{Binding DbSrcs}" DisplayMemberPath="Name" SelectedValuePath="Id"/>
                             <Button x:Name="BtTestConn" Content="Thử kết nối" Margin="3 0 0 0" Style="{StaticResource BtnSuccess}"
@@ -35,19 +35,35 @@
                                     Click="BtTestConn_Click"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="12 6 3 0">
-                            <TextBlock Text="Size" Width="60" VerticalAlignment="Center"/>
+                            <TextBlock Text="Size" Width="120" VerticalAlignment="Center"/>
                             <TextBox x:Name="TxtDbSize" Width="120" Padding="2 1"/>
                             <TextBlock Text=" Mb" Width="60" VerticalAlignment="Center"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="12 6 3 0">
-                            <Button x:Name="BtDelLog" Content="Xóa log" Margin="60 0 0 0" Style="{StaticResource BtnWarning}"
-                                    Width="120"
+                            <Button x:Name="BtDelLog" Content="Xóa log" Margin="120 0 0 0" Style="{StaticResource BtnWarning}"
+                                    Width="120" Height="24"
                                     Click="BtDelLog_Click"/>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal" Margin="12 6 3 0">
+                        <StackPanel Orientation="Horizontal" Margin="12 6 3 0" Visibility="Collapsed">
                             <Button x:Name="BtDelDonHang" Content="Xóa dữ liệu trộn" Margin="60 0 0 0" Style="{StaticResource BtnDanger}"
                                     Width="120"
                                     Click="BtDelDonHang_Click"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <Separator Margin="3 6 3 0"/>
+                            <TextBlock Text="Dọn dữ liệu" Margin="6" FontWeight="Bold"/>
+                            <StackPanel Orientation="Horizontal" Margin="12 0 3 0">
+                                <TextBlock Text="Mật mã cũ:" Width="120" VerticalAlignment="Center"/>
+                                <PasswordBox x:Name="TxtDeletePWOld" Width="150" Padding="2 1" Margin="0 0 6 0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="12 3 3 0">
+                                <TextBlock Text="Mật mã:" Width="120" VerticalAlignment="Center"/>
+                                <PasswordBox x:Name="TxtDeletePW" Width="150" Padding="2 1" Margin="0 0 6 0"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="12 3 3 0">
+                                <TextBlock Text="Xác nhận mật mã:" Width="120" VerticalAlignment="Center"/>
+                                <PasswordBox x:Name="TxtDeletePWRetype" Width="150" Padding="2 1"/>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                 </DockPanel>

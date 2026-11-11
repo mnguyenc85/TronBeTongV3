@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using TronBeTongV3.Core;
 using TronBeTongV3.CSDL;
 using TronBeTongV3.CSDL.Server;
 using TronBeTongV3.Data.ViewModel.Config;
@@ -173,6 +174,20 @@ namespace TronBeTongV3.View
 
             s.UpdateBool("debug.visible", ChkShowDebug.IsChecked == true);
             s.UpdateBool("auto.congthuc.donhang", ChkAutoCongThucDonHang.IsChecked == true);
+
+            // Mật mã xóa dữ liệu
+            if (TxtDeletePW.Password == TxtDeletePWRetype.Password && !string.IsNullOrWhiteSpace(TxtDeletePW.Password)) {
+                string? oldpw = s.GetValue("csdl.data.delete.pw");
+                if (!string.IsNullOrEmpty(oldpw))
+                {
+                    if (MyCopyright.CreateDelOldDataPW(TxtDeletePWOld.Password) == oldpw)
+                        oldpw = null;
+                }
+                if (oldpw == null)
+                {
+                    s.Update("csdl.data.delete.pw", MyCopyright.CreateDelOldDataPW(TxtDeletePW.Password));
+                }
+            }
 
             if (Privilege == 255)
             {

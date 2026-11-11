@@ -33,6 +33,7 @@
 
                 <MenuItem Header="Hệ thống" Padding="3 1" Margin="2 1">
                     <MenuItem x:Name="MniSysConfig" Header="Cài đặt..." Click="MniSysConfig_Click"/>
+                    <MenuItem x:Name="MniSysPurge" Header="Dọn dữ liệu" Click="MniSysPurge_Click"/>
                     <Separator/>
                     <MenuItem x:Name="MniSysExit" Header="Thoát" Click="MniSysExit_Click"/>
                 </MenuItem>
