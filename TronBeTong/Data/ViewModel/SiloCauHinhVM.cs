@@ -40,7 +40,7 @@ namespace TronBeTongV3.Data.ViewModel
             o.Index = Index;
             o.NLId = NguyenLieu != null? NguyenLieu.Id: -1;
             o.TSId = ThamSo != null? ThamSo.Id: -1;
-            o.LinkSilo = LinkedSilo;
+            o.LinkedSilo = LinkedSilo;
         }
 
         public SiloCauHinhDO CreateDO()

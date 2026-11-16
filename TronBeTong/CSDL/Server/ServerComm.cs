@@ -119,24 +119,16 @@ namespace TronBeTongV3.CSDL.Server
                     await _srv.CreateServerTables(_tblInfos);
                     IsServerOk = true;
                 }
-                catch (Exception ex)
+                catch
                 {
-                    System.Diagnostics.Debug.WriteLine(ex.Message);
                     IsServerOk = false;
+                    throw;
                 }
 
-                try
+                if (tentram != null && dbcreatedat != null)
                 {
-                    if (tentram != null && dbcreatedat != null)
-                    {
-                        string ma = GetMa(dbcreatedat);
-                        await _srv.Server_Source_Init(tentram, ma, dbcreatedat);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine(ex.Message);
-                    MessageBox.Show(ex.Message);
+                    string ma = GetMa(dbcreatedat);
+                    await _srv.Server_Source_Init(tentram, ma, dbcreatedat);
                 }
             }
         }

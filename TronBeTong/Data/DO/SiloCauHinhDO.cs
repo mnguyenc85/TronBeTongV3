@@ -11,7 +11,7 @@ namespace TronBeTongV3.Data.DO
         public int Index { get; set; }
         public int NLId { get; set; }
         public int TSId { get; set; }
-        public int LinkSilo { get; set; }
+        public int LinkedSilo { get; set; }
 
         public MySqlCommand CreateUpdate(MySqlConnection conn)
         {
@@ -23,7 +23,7 @@ namespace TronBeTongV3.Data.DO
             command.Parameters.AddWithValue("@stt", Index);
             command.Parameters.AddWithValue("@nlid", NLId);
             command.Parameters.AddWithValue("@tsid", TSId);
-            command.Parameters.AddWithValue("@lindex", LinkSilo);
+            command.Parameters.AddWithValue("@lindex", LinkedSilo);
             return command;
         }
 
@@ -37,7 +37,7 @@ namespace TronBeTongV3.Data.DO
             command.Parameters.AddWithValue("@stt", Index);
             command.Parameters.AddWithValue("@nlid", NLId);
             command.Parameters.AddWithValue("@tsid", TSId);
-            command.Parameters.AddWithValue("@lindex", LinkSilo);
+            command.Parameters.AddWithValue("@lindex", LinkedSilo);
             return command;
         }
 
@@ -51,7 +51,7 @@ namespace TronBeTongV3.Data.DO
                 Index       = rd.IsDBNull(2) ? 0 : rd.GetInt32(2),
                 NLId        = rd.IsDBNull(3) ? -1 : rd.GetInt32(3),
                 TSId        = rd.IsDBNull(4) ? -1 : rd.GetInt32(4),
-                LinkSilo    = rd.IsDBNull(5) ? -1 : rd.GetInt32(5)
+                LinkedSilo    = rd.IsDBNull(5) ? -1 : rd.GetInt32(5)
             };
         }
     }

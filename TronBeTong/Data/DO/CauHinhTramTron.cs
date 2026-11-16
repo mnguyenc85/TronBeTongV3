@@ -58,7 +58,7 @@ namespace TronBeTongV3.Data.DO
                     {
                         silo.NLId = s.NLId;
                         silo.NguyenLieu = nl;
-                        silo.LinkedSilo = s.LinkSilo;
+                        silo.LinkedSilo = s.LinkedSilo;
                     }
                     silo.TSId = s.TSId;
                 }

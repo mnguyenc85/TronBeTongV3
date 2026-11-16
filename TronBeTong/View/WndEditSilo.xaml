@@ -60,7 +60,7 @@
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
                         <GridViewColumn Header="Nguyên liệu" DisplayMemberBinding="{Binding NguyenLieu.Ten}"/>
-                        <GridViewColumn Header="Link" DisplayMemberBinding="{Binding LinkSilo}"/>
+                        <GridViewColumn Header="Link" DisplayMemberBinding="{Binding LinkedSilo}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
