@@ -153,6 +153,9 @@ namespace TronBeTongV3
 
             InitServerSync();
             Log.Information("Successful init server");
+
+            // Ép tp xi măng load lại giá trị từ PLC (vít)
+            TPXiMang.FirstCycle = DateTime.Now.Ticks;
         }
 
         private void SetSilosNguyenLieu()
